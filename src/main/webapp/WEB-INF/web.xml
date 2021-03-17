@@ -6,4 +6,16 @@
          version="5.0"
          metadata-complete="false">
 
+    <servlet>
+        <servlet-name>Registration</servlet-name>
+        <jsp-file>/Pages/common/register.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+
+
 </web-app>

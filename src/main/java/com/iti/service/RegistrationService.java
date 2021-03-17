@@ -7,13 +7,17 @@ import com.iti.model.Dao.UserDao;
 import java.util.List;
 
 public class RegistrationService {
-    public static boolean register (UserDTO userDTO){
-        UserDao userDao = new UserDAOImp();
-       return userDao.insertUser(userDTO);
+    private final UserDao userDao= UserDAOImp.getInstance();
+    private static final RegistrationService registrationService = new RegistrationService();
 
+    public static synchronized RegistrationService getInstance(){
+        return registrationService;
     }
-    public static List<UserDTO> getUsers (){
-        UserDao userDao = new UserDAOImp();
-        return userDao.retriveall();
+
+    public boolean register (UserDTO userDTO){
+       return userDao.insertUser(userDTO);
+    }
+    public boolean isUserEmail (String email){
+      return   userDao.isUserEmail(email);
     }
 }
