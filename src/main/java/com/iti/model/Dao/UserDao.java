@@ -5,5 +5,7 @@ import java.util.List;
 
 public interface UserDao {
    boolean insertUser (UserDTO u);
+   boolean isUserEmail(String email);
+   UserDTO getUser(String email,String password);
    List<UserDTO> retriveall ();
 }

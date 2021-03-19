@@ -5,13 +5,25 @@
                       https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0"
          metadata-complete="false">
-<!--    <servlet>-->
-<!--        <servlet-name>Home</servlet-name>-->
-<!--        <jsp-file>/../Pages/common/Home.jsp</jsp-file>-->
-<!--    </servlet>-->
 
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>Home</servlet-name>-->
-<!--        <url-pattern>/home</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <servlet>
+        <servlet-name>Registration</servlet-name>
+        <jsp-file>/Pages/common/register.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <!--    <servlet>-->
+    <!--        <servlet-name>Home</servlet-name>-->
+    <!--        <jsp-file>/../Pages/common/Home.jsp</jsp-file>-->
+    <!--    </servlet>-->
+
+    <!--    <servlet-mapping>-->
+    <!--        <servlet-name>Home</servlet-name>-->
+    <!--        <url-pattern>/home</url-pattern>-->
+    <!--    </servlet-mapping>-->
+
+
 </web-app>
