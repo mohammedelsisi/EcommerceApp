@@ -16,17 +16,17 @@
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
         <!-- to add down arrow to menus -->
-        <link rel="stylesheet" href="../../layout/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
 
-        <link rel="stylesheet" href="../../layout/css/bootstrap.min.css">
+        <link rel="stylesheet" href="layout/css/bootstrap.min.css">
         <!-- <link rel="stylesheet" href="layout/css/magnific-popup.css"> -->
-        <link rel="stylesheet" href="../../layout/css/jquery-ui.css">
+        <link rel="stylesheet" href="layout/css/jquery-ui.css">
         <!-- to let horizontal scrolling -->
-        <link rel="stylesheet" href="../../layout/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="layout/css/owl.carousel.min.css">
         <!-- to add animations on vertical scrolling -->
-        <link rel="stylesheet" href="../../layout/css/aos.css">
+        <link rel="stylesheet" href="layout/css/aos.css">
         <!-- main Style file -->
-        <link rel="stylesheet" href="../../layout/css/style.css">
+        <link rel="stylesheet" href="layout/css/style.css">
         <!-- for font awsowome icon -->
         <link href="../../layout/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -140,163 +140,34 @@
                         </div>
                     </div>
                     <div class="row mb-5">
-                        <c:forEach items="${requestScope.data}" var="i">
+                        <c:forEach items="${requestScope.Products}" var="i">
                             <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                            <P:product img="${i.prodImg}" desc="${i.prodDesc}" src="#" price="${i.prodPrice}"/>
+                            <P:product img="${i.firstProdImg}" desc="${i.prodDesc}" src="#" price="${i.prodPrice}"/>
                             </div>
                         </c:forEach>
-<%--                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">--%>
-<%--                            <P:product img="../../layout/images/shoe_1.jpg" desc="Finding perfect product" src="#" price="50"/>--%>
-<%--                        </div>--%>
-<%--                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">--%>
-<%--                            <div class="block-4 text-center border">--%>
-<%--                                <figure class="block-4-image">--%>
-<%--                                    <a href="shop-single.html"><img src="../../layout/images/shoe_1.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
-<%--                                </figure>--%>
-<%--                                <div class="block-4-text p-4">--%>
-<%--                                    <h3><a href="shop-single.html">Corater</a></h3>--%>
-<%--                                    <p class="mb-0">Finding perfect products</p>--%>
-<%--                                    <p class="text-primary font-weight-bold">$50</p>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">--%>
-<%--                            <div class="block-4 text-center border">--%>
-<%--                                <figure class="block-4-image">--%>
-<%--                                    <a href="shop-single.html"><img src="layout/images/cloth_2.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
-<%--                                </figure>--%>
-<%--                                <div class="block-4-text p-4">--%>
-<%--                                    <h3><a href="shop-single.html">Polo Shirt</a></h3>--%>
-<%--                                    <p class="mb-0">Finding perfect products</p>--%>
-<%--                                    <p class="text-primary font-weight-bold">$50</p>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-
-<%--                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">--%>
-<%--                            <div class="block-4 text-center border">--%>
-<%--                                <figure class="block-4-image">--%>
-<%--                                    <a href="shop-single.html"><img src="layout/images/cloth_3.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
-<%--                                </figure>--%>
-<%--                                <div class="block-4-text p-4">--%>
-<%--                                    <h3><a href="shop-single.html">T-Shirt Mockup</a></h3>--%>
-<%--                                    <p class="mb-0">Finding perfect products</p>--%>
-<%--                                    <p class="text-primary font-weight-bold">$50</p>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">--%>
-<%--                            <div class="block-4 text-center border">--%>
-<%--                                <figure class="block-4-image">--%>
-<%--                                    <a href="shop-single.html"><img src="layout/images/shoe_1.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
-<%--                                </figure>--%>
-<%--                                <div class="block-4-text p-4">--%>
-<%--                                    <h3><a href="shop-single.html">Corater</a></h3>--%>
-<%--                                    <p class="mb-0">Finding perfect products</p>--%>
-<%--                                    <p class="text-primary font-weight-bold">$50</p>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">--%>
-<%--                            <div class="block-4 text-center border">--%>
-<%--                                <figure class="block-4-image">--%>
-<%--                                    <a href="shop-single.html"><img src="layout/images/cloth_1.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
-<%--                                </figure>--%>
-<%--                                <div class="block-4-text p-4">--%>
-<%--                                    <h3><a href="shop-single.html">Tank Top</a></h3>--%>
-<%--                                    <p class="mb-0">Finding perfect t-shirt</p>--%>
-<%--                                    <p class="text-primary font-weight-bold">$50</p>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">--%>
-<%--                            <div class="block-4 text-center border">--%>
-<%--                                <figure class="block-4-image">--%>
-<%--                                    <a href="shop-single.html"><img src="layout/images/shoe_1.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
-<%--                                </figure>--%>
-<%--                                <div class="block-4-text p-4">--%>
-<%--                                    <h3><a href="shop-single.html">Corater</a></h3>--%>
-<%--                                    <p class="mb-0">Finding perfect products</p>--%>
-<%--                                    <p class="text-primary font-weight-bold">$50</p>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">--%>
-<%--                            <div class="block-4 text-center border">--%>
-<%--                                <figure class="block-4-image">--%>
-<%--                                    <a href="shop-single.html"><img src="layout/images/cloth_2.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
-<%--                                </figure>--%>
-<%--                                <div class="block-4-text p-4">--%>
-<%--                                    <h3><a href="shop-single.html">Polo Shirt</a></h3>--%>
-<%--                                    <p class="mb-0">Finding perfect products</p>--%>
-<%--                                    <p class="text-primary font-weight-bold">$50</p>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-
-<%--                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">--%>
-<%--                            <div class="block-4 text-center border">--%>
-<%--                                <figure class="block-4-image">--%>
-<%--                                    <a href="shop-single.html"><img src="layout/images/cloth_3.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
-<%--                                </figure>--%>
-<%--                                <div class="block-4-text p-4">--%>
-<%--                                    <h3><a href="shop-single.html">T-Shirt Mockup</a></h3>--%>
-<%--                                    <p class="mb-0">Finding perfect products</p>--%>
-<%--                                    <p class="text-primary font-weight-bold">$50</p>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">--%>
-<%--                            <div class="block-4 text-center border">--%>
-<%--                                <figure class="block-4-image">--%>
-<%--                                    <a href="shop-single.html"><img src="layout/images/shoe_1.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
-<%--                                </figure>--%>
-<%--                                <div class="block-4-text p-4">--%>
-<%--                                    <h3><a href="shop-single.html">Corater</a></h3>--%>
-<%--                                    <p class="mb-0">Finding perfect products</p>--%>
-<%--                                    <p class="text-primary font-weight-bold">$50</p>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">--%>
-<%--                            <div class="block-4 text-center border">--%>
-<%--                                <figure class="block-4-image">--%>
-<%--                                    <a href="shop-single.html"><img src="layout/images/cloth_1.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
-<%--                                </figure>--%>
-<%--                                <div class="block-4-text p-4">--%>
-<%--                                    <h3><a href="shop-single.html">Tank Top</a></h3>--%>
-<%--                                    <p class="mb-0">Finding perfect t-shirt</p>--%>
-<%--                                    <p class="text-primary font-weight-bold">$50</p>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-
-<%--                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">--%>
-<%--                            <div class="block-4 text-center border">--%>
-<%--                                <figure class="block-4-image">--%>
-<%--                                    <a href="shop-single.html"><img src="layout/images/cloth_2.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
-<%--                                </figure>--%>
-<%--                                <div class="block-4-text p-4">--%>
-<%--                                    <h3><a href="shop-single.html">Polo Shirt</a></h3>--%>
-<%--                                    <p class="mb-0">Finding perfect products</p>--%>
-<%--                                    <p class="text-primary font-weight-bold">$50</p>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-
-
                     </div>
                     <div class="row" data-aos="fade-up">
                         <div class="col-md-12 text-center">
                             <div class="site-block-27">
                                 <ul>
-                                    <li><a href="#">&lt;</a></li>
-                                    <li class="active"><span>1</span></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&gt;</a></li>
+                                    <li><a id="PageBefore" href="#">&lt;</a></li>
+                                    <c:set var="Init" value="1"/>
+                                    <c:if test="${empty param.page}">
+                                        <li class="active"><span id="ActivePage">1</span></li>
+                                        <c:set var="Init" value="2"/>
+                                    </c:if>
+                                    <c:forEach var = "i" begin = "${Init}" end = "${requestScope.Pages}">
+                                        <c:choose>
+                                            <c:when test="${param.page==i}">
+                                                <li class="active"><span id="ActivePage">${i}</span></li>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <li><a href="Shop?page=${i}">${i}</a></li>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:forEach>
+
+                                    <li><a id="PageAfter" href="#">&gt;</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -483,14 +354,25 @@
     </footer>
 </div>
 
-<script src="../../layout/js/jquery-ui.js"></script>
-<script src="../../layout/js/JQuery/jquery-3.6.0.js"></script>
-<script src="../../layout/js/popper.min.js"></script>
-<script src="../../layout/js/bootstrap.min.js"></script>
-<script src="../../layout/js/owl.carousel.min.js"></script>
-<script src="../../layout/js/jquery.magnific-popup.min.js"></script>
-<script src="../../layout/js/aos.js"></script>
+<script src="layout/js/jquery-ui.js"></script>
+<script src="layout/js/JQuery/jquery-3.6.0.js"></script>
+<script src="layout/js/popper.min.js"></script>
+<script src="layout/js/bootstrap.min.js"></script>
+<script src="layout/js/owl.carousel.min.js"></script>
+<script src="layout/js/jquery.magnific-popup.min.js"></script>
+<script src="layout/js/aos.js"></script>
 
-<script src="../../layout/js/main.js"></script>
+<script src="layout/js/main.js"></script>
+<script>
+    let activePageNum=+$("#ActivePage").html()
+    let beforePage = activePageNum-1;
+    let afterPage = activePageNum+1
+    let before ="Shop?page="+(beforePage) ;
+    let after ="Shop?page="+(afterPage) ;
+    if (beforePage ===0) before="#";
+    if(afterPage >"${requestScope.Pages}" ) after="#"
+    $("#PageBefore").attr('href',before);
+    $("#PageAfter").attr('href',after);
+</script>
 </body>
 </html>

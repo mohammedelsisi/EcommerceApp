@@ -56,13 +56,20 @@ public class ProductDaoImp implements ProductDao {
         products.add(p4);
         products.add(p5); products.add(p1);
         products.add(p2);
-        products.add(p3);
-        products.add(p4);
         products.add(p5); products.add(p1);
         products.add(p2);
         products.add(p3);
         products.add(p4);
+        products.add(p5); products.add(p1);
+        products.add(p2);        products.add(p5); products.add(p1);
+        products.add(p2);
+        products.add(p3);
+        products.add(p4);  products.add(p3);
+        products.add(p4);
         products.add(p5);
+        products.add(p5); products.add(p1);
+        products.add(p2);
+
         return products;
     }
 }
