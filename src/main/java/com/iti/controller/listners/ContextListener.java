@@ -1,5 +1,6 @@
 package com.iti.controller.listners;
 
+import com.iti.service.HomeService;
 import com.iti.service.LoginService;
 import com.iti.service.RegistrationService;
 import jakarta.servlet.ServletContext;
@@ -14,9 +15,11 @@ public class ContextListener implements ServletContextListener {
         System.out.println("ContextListener.contextInitialized");
         RegistrationService registrationService = RegistrationService.getInstance();
         LoginService loginService = LoginService.getInstance();
+        HomeService homeService=HomeService.getInstance();
         ServletContext servletContext = sce.getServletContext();
         servletContext.setAttribute("RegistrationService",registrationService);
         servletContext.setAttribute("LoginService",loginService);
+        servletContext.setAttribute("HomeService",homeService);
     }
 
     @Override

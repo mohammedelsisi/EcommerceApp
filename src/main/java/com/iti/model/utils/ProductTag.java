@@ -28,12 +28,12 @@ public class ProductTag extends SimpleTagSupport {
         this.desc = desc;
     }
 
-    public String getName() {
+    public String getSrc() {
         return src;
     }
 
-    public void setName(String name) {
-        this.src = name;
+    public void setSrc(String src) {
+        this.src = src;
     }
 
     public String getPrice() {

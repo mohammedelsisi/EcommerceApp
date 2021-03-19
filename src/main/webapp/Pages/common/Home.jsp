@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="P" uri="/WEB-INF/productLib"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -195,12 +196,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="nonloop-block-3 owl-carousel">
-                        <P:product img="../../images/cloth_1.jpg" desc="Finding perfect t-shirt" src="#" price="$50"/>
-                        <P:product img="../../images/shoe_1.jpg" desc="Finding perfect products" src="#" price="$50"/>
-                        <P:product img="../../images/cloth_2.jpg" desc="Finding perfect t-shirt" src="#" price="$50"/>
-                        <P:product img="../../images/cloth_3.jpg" desc="Finding perfect products" src="#" price="$50"/>
-                        <P:product img="../../images/shoe_1.jpg" desc="Finding perfect products" src="#" price="$50"/>
-
+                        <c:forEach items="${requestScope.data}" var="i">
+                        <P:product img="${i.prodImg}" desc="${i.prodDesc}" src="#" price="${i.prodPrice}"/>
+<%--                        <P:product img="../../images/shoe_1.jpg" desc="Finding perfect products" src="#" price="$50"/>--%>
+<%--                        <P:product img="../../images/cloth_2.jpg" desc="Finding perfect t-shirt" src="#" price="$50"/>--%>
+<%--                        <P:product img="../../images/cloth_3.jpg" desc="Finding perfect products" src="#" price="$50"/>--%>
+<%--                        <P:product img="../../images/shoe_1.jpg" desc="Finding perfect products" src="#" price="$50"/>--%>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -314,6 +316,7 @@
 <script src="../../layout/js/aos.js"></script>
 
 <script src="../../layout/js/main.js"></script>
+
 
 </body>
 </html>

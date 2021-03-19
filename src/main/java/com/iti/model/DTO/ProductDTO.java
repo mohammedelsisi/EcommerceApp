@@ -2,17 +2,26 @@ package com.iti.model.DTO;
 
 public class ProductDTO  {
     private int prodID;
-    private String prodName;
+    private String prodType;
     private String prodDesc;
     private int prodQuan;
     private String prodImg;
+    private String prodPrice;
 
-    public ProductDTO(int prodID, String prodName, String prodDesc, int prodQuan, String prodImg) {
+    public ProductDTO(int prodID, String prodName, String prodDesc, int prodQuan, String prodImg, String prodPrice) {
         this.prodID = prodID;
-        this.prodName = prodName;
+        this.prodType = prodName;
         this.prodDesc = prodDesc;
         this.prodQuan = prodQuan;
         this.prodImg = prodImg;
+
+        this.prodPrice = prodPrice;
+    }
+
+    public ProductDTO(String prodDesc, String prodImg, String prodPrice) {
+        this.prodDesc = prodDesc;
+        this.prodImg = prodImg;
+        this.prodPrice = prodPrice;
     }
 
     public int getProdID() {
@@ -24,11 +33,11 @@ public class ProductDTO  {
     }
 
     public String getProdName() {
-        return prodName;
+        return prodType;
     }
 
     public void setProdName(String prodName) {
-        this.prodName = prodName;
+        this.prodType = prodName;
     }
 
     public String getProdDesc() {
@@ -53,6 +62,14 @@ public class ProductDTO  {
 
     public void setProdImg(String prodImg) {
         this.prodImg = prodImg;
+    }
+
+    public String getProdPrice() {
+        return prodPrice;
+    }
+
+    public void setProdPrice(String prodPrice) {
+        this.prodPrice = prodPrice;
     }
     //private String prodSize;
     //private String prodCateg;
