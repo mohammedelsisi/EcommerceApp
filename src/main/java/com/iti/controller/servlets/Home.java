@@ -17,11 +17,12 @@ import java.util.List;
 public class Home extends HttpServlet {
     List<ProductDTO> products = new ArrayList<>();
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HomeService homeService=(HomeService) req.getServletContext().getAttribute("HomeService");
         products=homeService.retriveMaxiQuant();
         req.setAttribute("data",products);
-        RequestDispatcher view = req.getRequestDispatcher("Home.jsp");
+        System.out.println(products);
+        RequestDispatcher view = req.getRequestDispatcher("HomeJsp");
         view.forward(req, resp);
 
     }

@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="P" uri="/WEB-INF/productLib"%>
+<%@ taglib prefix="P" uri="/WEB-INF/productLib" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,19 +17,19 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
     <!-- to add down arrow to menus -->
-    <link rel="stylesheet" href="../../layout/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="../../layout/css/bootstrap.min.css">
+    <link rel="stylesheet" href="layout/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="layout/css/magnific-popup.css"> -->
-    <link rel="stylesheet" href="../../layout/css/jquery-ui.css">
+    <link rel="stylesheet" href="layout/css/jquery-ui.css">
     <!-- to let horizontal scrolling -->
-    <link rel="stylesheet" href="../../layout/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="layout/css/owl.carousel.min.css">
     <!-- to add animations on vertical scrolling -->
-    <link rel="stylesheet" href="../../layout/css/aos.css">
+    <link rel="stylesheet" href="layout/css/aos.css">
     <!-- main Style file -->
-    <link rel="stylesheet" href="../../layout/css/style.css">
+    <link rel="stylesheet" href="layout/css/style.css">
     <!-- for font awsowome icon -->
-    <link href="../../layout/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -60,8 +60,8 @@
 
                     <div class="col-6 col-md-4 order-3 order-md-3 text-right">
                         <div class="site-top-icons">
-                            <ul >
-                                <li> <a href="#"></a></li>
+                            <ul>
+                                <li><a href="#"></a></li>
                                 <li><a href="#"><span class="icon icon-person"></span></a></li>
                                 <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                                 <li>
@@ -70,7 +70,9 @@
                                         <span class="count">2</span>
                                     </a>
                                 </li>
-                                <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                                <li class="d-inline-block d-md-none ml-md-0"><a href="#"
+                                                                                class="site-menu-toggle js-menu-toggle"><span
+                                        class="icon-menu"></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -84,7 +86,7 @@
                     <li>
                         <a href="index.html">Home</a>
                     </li>
-                    <li >
+                    <li>
                         <a href="about.html">About</a>
 
                     </li>
@@ -96,13 +98,14 @@
             </div>
         </nav>
     </header>
-    <div class="site-blocks-cover" style="background-image: url(../../images/hero_1.jpg);" data-aos="fade">
+    <div class="site-blocks-cover" style="background-image: url(images/hero_1.jpg);" data-aos="fade">
         <div class="container">
             <div class="row align-items-start align-items-md-center justify-content-end">
                 <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
                     <h1 class="mb-2">Finding Your Perfect Shoes</h1>
                     <div class="intro-text text-center text-md-left">
-                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla. </p>
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis
+                            quam. Integer accumsan tincidunt fringilla. </p>
                         <p>
                             <a href="#" class="btn btn-sm btn-primary">Shop Now</a>
                         </p>
@@ -121,7 +124,8 @@
                     </div>
                     <div class="text">
                         <h2 class="text-uppercase">Free Shipping</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
+                            accumsan tincidunt fringilla.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
@@ -130,7 +134,8 @@
                     </div>
                     <div class="text">
                         <h2 class="text-uppercase">Free Returns</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
+                            accumsan tincidunt fringilla.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
@@ -139,7 +144,8 @@
                     </div>
                     <div class="text">
                         <h2 class="text-uppercase">Customer Support</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
+                            accumsan tincidunt fringilla.</p>
                     </div>
                 </div>
             </div>
@@ -152,7 +158,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
                     <a class="block-2-item" href="#">
                         <figure class="image">
-                            <img src="../../images/women.jpg" alt="" class="img-fluid">
+                            <img src="images/women.jpg" alt="" class="img-fluid">
                         </figure>
                         <div class="text">
                             <span class="text-uppercase">Collections</span>
@@ -163,7 +169,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
                     <a class="block-2-item" href="#">
                         <figure class="image">
-                            <img src="../../images/children.jpg" alt="" class="img-fluid">
+                            <img src="images/children.jpg" alt="" class="img-fluid">
                         </figure>
                         <div class="text">
                             <span class="text-uppercase">Collections</span>
@@ -174,7 +180,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
                     <a class="block-2-item" href="#">
                         <figure class="image">
-                            <img src="../../images/men.jpg" alt="" class="img-fluid">
+                            <img src="images/men.jpg" alt="" class="img-fluid">
                         </figure>
                         <div class="text">
                             <span class="text-uppercase">Collections</span>
@@ -196,12 +202,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="nonloop-block-3 owl-carousel">
+
                         <c:forEach items="${requestScope.data}" var="i">
-                        <P:product img="${i.prodImg}" desc="${i.prodDesc}" src="#" price="${i.prodPrice}"/>
-<%--                        <P:product img="../../images/shoe_1.jpg" desc="Finding perfect products" src="#" price="$50"/>--%>
-<%--                        <P:product img="../../images/cloth_2.jpg" desc="Finding perfect t-shirt" src="#" price="$50"/>--%>
-<%--                        <P:product img="../../images/cloth_3.jpg" desc="Finding perfect products" src="#" price="$50"/>--%>
-<%--                        <P:product img="../../images/shoe_1.jpg" desc="Finding perfect products" src="#" price="$50"/>--%>
+                            <P:product img="${i.prodImg}" desc="${i.prodDesc}" src="#" price="${i.prodPrice}"/>
                         </c:forEach>
                     </div>
                 </div>
@@ -218,12 +221,15 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-md-12 col-lg-7 mb-5">
-                    <a href="#"><img src="../../images/blog_1.jpg" alt="Image placeholder" class="img-fluid rounded"></a>
+                    <a href="#"><img src="images/blog_1.jpg" alt="Image placeholder"
+                                     class="img-fluid rounded"></a>
                 </div>
                 <div class="col-md-12 col-lg-5 text-center pl-md-5">
                     <h2><a href="#">50% less in all items</a></h2>
-                    <p class="post-meta mb-4">By <a href="#">Carl Smith</a> <span class="block-8-sep">&bullet;</span> September 3, 2018</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium facere corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
+                    <p class="post-meta mb-4">By <a href="#">Carl Smith</a> <span class="block-8-sep">&bullet;</span>
+                        September 3, 2018</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium facere
+                        corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
                     <p><a href="#" class="btn btn-primary btn-sm">Shop Now</a></p>
                 </div>
             </div>
@@ -268,7 +274,7 @@
                     <a href="#" class="block-6">
                         <img src="../../images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
                         <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
-                        <p>Promo from  nuary 15 &mdash; 25, 2021</p>
+                        <p>Promo from nuary 15 &mdash; 25, 2021</p>
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -296,7 +302,11 @@
                 <div class="col-md-12">
                     <p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
+                        Copyright &copy;<script data-cfasync="false"
+                                                src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                        <script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i>
+                        by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
@@ -306,16 +316,16 @@
     </footer>
 </div>
 
-<script src="../../layout/js/jquery-ui.js"></script>
-<script src="../../layout/js/JQuery/jquery-3.6.0.js"></script>
-<script src="../../layout/js/popper.min.js"></script>
+<script src="layout/js/jquery-ui.js"></script>
+<script src="layout/js/JQuery/jquery-3.6.0.js"></script>
+<script src="layout/js/popper.min.js"></script>
 
-<script src="../../layout/js/bootstrap.min.js"></script>
-<script src="../../layout/js/owl.carousel.min.js"></script>
-<script src="../../layout/js/jquery.magnific-popup.min.js"></script>
-<script src="../../layout/js/aos.js"></script>
+<script src="layout/js/bootstrap.min.js"></script>
+<script src="layout/js/owl.carousel.min.js"></script>
+<script src="layout/js/jquery.magnific-popup.min.js"></script>
+<script src="layout/js/aos.js"></script>
 
-<script src="../../layout/js/main.js"></script>
+<script src="layout/js/main.js"></script>
 
 
 </body>

@@ -68,6 +68,18 @@ public class ProductDTO  {
         return prodPrice;
     }
 
+    @Override
+    public String toString() {
+        return "ProductDTO{" +
+                "prodID=" + prodID +
+                ", prodType='" + prodType + '\'' +
+                ", prodDesc='" + prodDesc + '\'' +
+                ", prodQuan=" + prodQuan +
+                ", prodImg='" + prodImg + '\'' +
+                ", prodPrice='" + prodPrice + '\'' +
+                '}';
+    }
+
     public void setProdPrice(String prodPrice) {
         this.prodPrice = prodPrice;
     }

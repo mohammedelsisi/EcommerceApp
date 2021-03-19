@@ -13,11 +13,11 @@ public class ProductDaoImp implements ProductDao {
         return productDAOImp;
     }
 
-    ProductDTO p1=new ProductDTO("Finding perfect t-shirt","../../images/cloth_1.jpg","$50");
-    ProductDTO p2=new ProductDTO("Finding perfect t-shirt","../../images/cloth_2.jpg","$50");
-    ProductDTO p3=new ProductDTO("Finding perfect t-shirt","../../images/cloth_3.jpg","$50");
-    ProductDTO p4=new ProductDTO("Finding perfect t-shirt","../../images/cloth_1.jpg","$50");
-    ProductDTO p5=new ProductDTO("Finding perfect t-shirt","../../images/cloth_2.jpg","$50");
+    ProductDTO p1=new ProductDTO("Finding perfect t-shirt","images/cloth_1.jpg","$50");
+    ProductDTO p2=new ProductDTO("Finding perfect t-shirt","images/cloth_2.jpg","$50");
+    ProductDTO p3=new ProductDTO("Finding perfect t-shirt","images/cloth_3.jpg","$50");
+    ProductDTO p4=new ProductDTO("Finding perfect t-shirt","images/cloth_1.jpg","$50");
+    ProductDTO p5=new ProductDTO("Finding perfect t-shirt","images/cloth_2.jpg","$50");
     List<ProductDTO> products = new ArrayList<>();
 
     @Override
