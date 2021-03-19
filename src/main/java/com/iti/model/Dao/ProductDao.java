@@ -5,4 +5,6 @@ import java.util.List;
 
 public interface ProductDao {
     List<ProductDTO> retriveMaxiQuant ();
+    List<ProductDTO> retrieveAllProducts ();
+
 }
