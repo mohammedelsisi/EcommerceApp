@@ -1,4 +1,4 @@
-package com.iti.entities;
+package com.iti.model.utils;
 
 import jakarta.servlet.jsp.JspException;
 import jakarta.servlet.jsp.JspWriter;
@@ -9,7 +9,7 @@ import java.io.IOException;
 public class ProductTag extends SimpleTagSupport {
     private String img;
     private String desc;
-    private String name;
+    private String src;
     private String price;
 
     public String getImg() {
@@ -29,11 +29,11 @@ public class ProductTag extends SimpleTagSupport {
     }
 
     public String getName() {
-        return name;
+        return src;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.src = name;
     }
 
     public String getPrice() {
@@ -61,10 +61,10 @@ public class ProductTag extends SimpleTagSupport {
         out.println("<div>");
         out.println(" <div class=\"block-4 text-center\">");
         out.println("     <figure class=\"block-4-image\">");
-        out.println("  <img src="+img+" alt=\"Image placeholder\" class=\"img-fluid\">");
+        out.println(" <a href="+src+"> <img src="+img+" alt=\"Image placeholder\" class=\"img-fluid\"></a>");
         out.println("</figure>");
         out.println("<div class=\"block-4-text p-4\">");
-        out.println(" <h3><a href=\"#\">"+name+"</a></h3>");
+        //out.println(" <h3><a href=\"#\">"+src+"</a></h3>");
         out.println("  <p class=\"mb-0\">"+desc+"</p>");
         out.println("  <p class=\"text-primary font-weight-bold\">"+price+"</p>");
         out.println("</div>");

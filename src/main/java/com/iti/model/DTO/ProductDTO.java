@@ -1,13 +1,13 @@
 package com.iti.model.DTO;
 
 public class ProductDTO  {
-    private String prodID;
+    private int prodID;
     private String prodName;
     private String prodDesc;
     private int prodQuan;
     private String prodImg;
 
-    public ProductDTO(String prodID, String prodName, String prodDesc, int prodQuan, String prodImg) {
+    public ProductDTO(int prodID, String prodName, String prodDesc, int prodQuan, String prodImg) {
         this.prodID = prodID;
         this.prodName = prodName;
         this.prodDesc = prodDesc;
@@ -15,11 +15,11 @@ public class ProductDTO  {
         this.prodImg = prodImg;
     }
 
-    public String getProdID() {
+    public int getProdID() {
         return prodID;
     }
 
-    public void setProdID(String prodID) {
+    public void setProdID(int prodID) {
         this.prodID = prodID;
     }
 

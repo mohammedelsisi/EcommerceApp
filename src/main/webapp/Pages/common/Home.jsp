@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="C" uri="/WEB-INF/productLib"%>
+<%@taglib prefix="P" uri="/WEB-INF/productLib"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -195,11 +195,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="nonloop-block-3 owl-carousel">
-                        <C:product img="../../images/cloth_1.jpg" desc="Finding perfect t-shirt" name="Tank Top" price="$50"/>
-                        <C:product img="../../images/shoe_1.jpg" desc="Finding perfect products" name="Corater" price="$50"/>
-                        <C:product img="../../images/cloth_2.jpg" desc="Finding perfect t-shirt" name="Polo Shir" price="$50"/>
-                        <C:product img="../../images/cloth_3.jpg" desc="Finding perfect products" name="T-Shirt Mockup" price="$50"/>
-                        <C:product img="../../images/shoe_1.jpg" desc="Finding perfect products" name="Corater" price="$50"/>
+                        <P:product img="../../images/cloth_1.jpg" desc="Finding perfect t-shirt" src="#" price="$50"/>
+                        <P:product img="../../images/shoe_1.jpg" desc="Finding perfect products" src="#" price="$50"/>
+                        <P:product img="../../images/cloth_2.jpg" desc="Finding perfect t-shirt" src="#" price="$50"/>
+                        <P:product img="../../images/cloth_3.jpg" desc="Finding perfect products" src="#" price="$50"/>
+                        <P:product img="../../images/shoe_1.jpg" desc="Finding perfect products" src="#" price="$50"/>
 
                     </div>
                 </div>
