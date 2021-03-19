@@ -6,4 +6,24 @@
          version="5.0"
          metadata-complete="false">
 
+    <servlet>
+        <servlet-name>AdminPanel</servlet-name>
+        <jsp-file>/Pages/AdminPanel/adminpanel.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AdminPanel</servlet-name>
+        <url-pattern>/adminpanel</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProductsTables</servlet-name>
+        <jsp-file>/Pages/AdminPanel/products.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ProductsTables</servlet-name>
+        <url-pattern>/productsdata</url-pattern>
+    </servlet-mapping>
+
 </web-app>

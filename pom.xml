@@ -46,6 +46,25 @@
       <scope>provided</scope>
     </dependency>
 
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+
+<!--    To handle Tables in admin panel-->
+<!--ToDO delete after adding better way-->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>19.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.derby</groupId>
+      <artifactId>derbyoptionaltools</artifactId>
+      <version>10.12.1.1</version>
+    </dependency>
 
     <dependency>
       <groupId>junit</groupId>
