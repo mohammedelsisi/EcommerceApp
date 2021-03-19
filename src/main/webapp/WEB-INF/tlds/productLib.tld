@@ -10,7 +10,7 @@
 
     <tlib-version>1.0</tlib-version>
     <short-name>Mytags</short-name>
-    <uri>/WEB-INF/productLib</uri>
+    <uri>/WEB-INF/tlds/productLib</uri>
     <tag>
         <name>product</name>
         <tag-class>com.iti.model.utils.ProductTag</tag-class>
@@ -34,7 +34,8 @@
             <name>price</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
-
+            <type>double</type>
         </attribute>
+
     </tag>
 </taglib>

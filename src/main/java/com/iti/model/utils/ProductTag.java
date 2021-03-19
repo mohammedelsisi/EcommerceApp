@@ -10,7 +10,7 @@ public class ProductTag extends SimpleTagSupport {
     private String img;
     private String desc;
     private String src;
-    private String price;
+    private double price;
 
     public String getImg() {
         return img;
@@ -36,25 +36,14 @@ public class ProductTag extends SimpleTagSupport {
         this.src = src;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
-// <div class="item">
-//                            <div class="block-4 text-center">
-//                                <figure class="block-4-image">
-//                                    <img src="../../images/cloth_1.jpg" alt="Image placeholder" class="img-fluid">
-//                                </figure>
-//                                <div class="block-4-text p-4">
-//                                    <h3><a href="#">Tank Top</a></h3>
-//                                    <p class="mb-0">Finding perfect t-shirt</p>
-//                                    <p class="text-primary font-weight-bold">$50</p>
-//                                </div>
-//                            </div>
-//                        </div>
+
     @Override
     public void doTag() throws JspException, IOException {
         JspWriter out = getJspContext().getOut();
@@ -66,7 +55,7 @@ public class ProductTag extends SimpleTagSupport {
         out.println("<div class=\"block-4-text p-4\">");
         //out.println(" <h3><a href=\"#\">"+src+"</a></h3>");
         out.println("  <p class=\"mb-0\">"+desc+"</p>");
-        out.println("  <p class=\"text-primary font-weight-bold\">"+price+"</p>");
+        out.println("  <p class=\"text-primary font-weight-bold\">"+"$"+price+"</p>");
         out.println("</div>");
         out.println("</div>");
         out.println("</div>");

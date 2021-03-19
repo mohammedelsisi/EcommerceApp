@@ -4,24 +4,42 @@ public class ProductDTO  {
     private int prodID;
     private String prodType;
     private String prodDesc;
-    private int prodQuan;
+    private int prodQuantity;
     private String prodImg;
-    private String prodPrice;
+    private double productPrice;
 
-    public ProductDTO(int prodID, String prodName, String prodDesc, int prodQuan, String prodImg, String prodPrice) {
-        this.prodID = prodID;
-        this.prodType = prodName;
-        this.prodDesc = prodDesc;
-        this.prodQuan = prodQuan;
-        this.prodImg = prodImg;
-
-        this.prodPrice = prodPrice;
+    @Override
+    public String toString() {
+        return "ProductDTO{" +
+                "prodID=" + prodID +
+                ", prodType='" + prodType + '\'' +
+                ", prodDesc='" + prodDesc + '\'' +
+                ", prodQuantity=" + prodQuantity +
+                ", prodImg='" + prodImg + '\'' +
+                ", productPrice=" + productPrice +
+                '}';
     }
 
-    public ProductDTO(String prodDesc, String prodImg, String prodPrice) {
+    public String getProdType() {
+        return prodType;
+    }
+
+    public void setProdType(String prodType) {
+        this.prodType = prodType;
+    }
+
+    public double getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public ProductDTO(String prodDesc, String prodImg, double prodPrice) {
         this.prodDesc = prodDesc;
         this.prodImg = prodImg;
-        this.prodPrice = prodPrice;
+        this.productPrice = prodPrice;
     }
 
     public int getProdID() {
@@ -48,12 +66,12 @@ public class ProductDTO  {
         this.prodDesc = prodDesc;
     }
 
-    public int getProdQuan() {
-        return prodQuan;
+    public int getProdQuantity() {
+        return prodQuantity;
     }
 
-    public void setProdQuan(int prodQuan) {
-        this.prodQuan = prodQuan;
+    public void setProdQuantity(int prodQuantity) {
+        this.prodQuantity = prodQuantity;
     }
 
     public String getProdImg() {
@@ -64,27 +82,11 @@ public class ProductDTO  {
         this.prodImg = prodImg;
     }
 
-    public String getProdPrice() {
-        return prodPrice;
+    public double getProdPrice() {
+        return productPrice;
     }
 
-    @Override
-    public String toString() {
-        return "ProductDTO{" +
-                "prodID=" + prodID +
-                ", prodType='" + prodType + '\'' +
-                ", prodDesc='" + prodDesc + '\'' +
-                ", prodQuan=" + prodQuan +
-                ", prodImg='" + prodImg + '\'' +
-                ", prodPrice='" + prodPrice + '\'' +
-                '}';
-    }
 
-    public void setProdPrice(String prodPrice) {
-        this.prodPrice = prodPrice;
-    }
-    //private String prodSize;
-    //private String prodCateg;
 
 
 }
