@@ -48,7 +48,7 @@ public class ProductTag extends SimpleTagSupport {
     public void doTag() throws JspException, IOException {
         JspWriter out = getJspContext().getOut();
         out.println("<div>");
-        out.println(" <div class=\"block-4 text-center\">");
+        out.println(" <div class=\"block-4 text-center border\">");
         out.println("     <figure class=\"block-4-image\">");
         out.println(" <a href="+src+"> <img src="+img+" alt=\"Image placeholder\" class=\"img-fluid\"></a>");
         out.println("</figure>");
