@@ -1,6 +1,7 @@
 package com.iti.service;
 
 import com.iti.model.DTO.ProductDTO;
+import com.iti.model.DTO.ProductFilter;
 import com.iti.model.Dao.Imp.ProductDaoImp;
 import com.iti.model.Dao.ProductDao;
 
@@ -22,4 +23,9 @@ public class ProductsService {
     public List<ProductDTO> retrieveAllProducts() {
         return productDao.retrieveAllProducts();
     }
+    public List<ProductDTO> retrieveFilteredProducts(ProductFilter productFilter) {
+
+        return productDao.retrieveFilteredProducts(productFilter);
+    }
+
 }

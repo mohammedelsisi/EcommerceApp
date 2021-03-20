@@ -1,6 +1,7 @@
 package com.iti.model.Dao.Imp;
 
 import com.iti.model.DTO.ProductDTO;
+import com.iti.model.DTO.ProductFilter;
 import com.iti.model.Dao.ProductDao;
 
 import java.util.ArrayList;
@@ -28,6 +29,23 @@ public class ProductDaoImp implements ProductDao {
         products.add(p3);
         products.add(p4);
         products.add(p5);
+        return products;
+    }
+
+    @Override
+    public List<ProductDTO> retrieveFilteredProducts(ProductFilter productFilter) {
+        List<ProductDTO> products = new ArrayList<>();
+        products.add(p1);
+        products.add(p2);
+        products.add(p3);
+        products.add(p4);
+        products.add(p5); products.add(p1);
+        products.add(p2);
+        products.add(p3);
+        products.add(p4);
+        products.add(p5); products.add(p1);
+        products.add(p2);
+        products.add(p3);
         return products;
     }
 
