@@ -24,8 +24,9 @@ public class ProductsTable extends HttpServlet {
         products= dataTablesService.retriveAllProducts();
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        String prods= json.toJson(products);
 
-        response.getWriter().write(json.toJson(products));
+        response.getWriter().write(prods);
 
 
     }
