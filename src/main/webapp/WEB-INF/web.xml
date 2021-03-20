@@ -7,23 +7,32 @@
          metadata-complete="false">
 
     <servlet>
-        <servlet-name>AdminPanel</servlet-name>
-        <jsp-file>/Pages/AdminPanel/adminpanel.jsp</jsp-file>
+        <servlet-name>Registration</servlet-name>
+        <jsp-file>/Pages/common/register.jsp</jsp-file>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>AdminPanel</servlet-name>
-        <url-pattern>/adminpanel</url-pattern>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
+        <servlet>
+            <servlet-name>HomeServlet</servlet-name>
+            <jsp-file>/Pages/common/Home.jsp</jsp-file>
+        </servlet>
 
+        <servlet-mapping>
+            <servlet-name>HomeServlet</servlet-name>
+            <url-pattern>/HomeJsp</url-pattern>
+        </servlet-mapping>
     <servlet>
-        <servlet-name>ProductsTables</servlet-name>
-        <jsp-file>/Pages/AdminPanel/products.jsp</jsp-file>
-    </servlet>
+            <servlet-name>ProductsData</servlet-name>
+            <jsp-file>/Pages/AdminPanel/products.jsp</jsp-file>
+        </servlet>
 
-    <servlet-mapping>
-        <servlet-name>ProductsTables</servlet-name>
-        <url-pattern>/productsdata</url-pattern>
-    </servlet-mapping>
+        <servlet-mapping>
+            <servlet-name>ProductsData</servlet-name>
+            <url-pattern>/prod</url-pattern>
+        </servlet-mapping>
+
 
 </web-app>

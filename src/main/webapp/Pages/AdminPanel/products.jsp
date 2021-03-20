@@ -407,147 +407,169 @@
 <script type="text/javascript" src="layout/js/fontawesome.js"></script>
 <script type="text/javascript" src="layout/js/sb-admin-2.js"></script>
 <script type="text/javascript" src="layout/js/jsgrid.min.js"></script>
-<script>
-  var Products = [
-    { "ProductID": 1, "Name": "shoes", "Quantity": 1, "Size": 1, "Category": 2,"Price": 25,"img":"layout/images/men.jpg"  },
-    { "ProductID": 2, "Name": "Tshirt", "Quantity": 1, "Size": 1, "Category": 1,"Price": 25,"img":"layout/images/men.jpg"  },
-    { "ProductID": 3, "Name": "Chemese", "Quantity": 1, "Size": 1, "Category": 3,"Price": 25,"img":"layout/images/men.jpg"  },
-    { "ProductID": 4, "Name": "Shirt", "Quantity": 1, "Size": 1, "Category": 1,"Price": 25,"img":"layout/images/men.jpg"  },
-    { "ProductID": 5, "Name": "Socks", "Quantity": 1, "Size": 1, "Category": 2,"Price": 25,"img":"layout/images/men.jpg"  },
-    { "ProductID": 6, "Name": "Pants", "Quantity": 1, "Size": 1, "Category": 3,"Price": 25,"img":"layout/images/men.jpg"  },
+<script type="text/javascript" src="layout/js/sample.js"></script>
+<%--<script>--%>
+<%--  // var Products = [--%>
+<%--  //   { "ProductID": 1, "Name": "shoes", "Quantity": 1, "Size": 1, "Category": 2,"Price": 25,"img":"layout/images/men.jpg"  },--%>
+<%--  //   { "ProductID": 2, "Name": "Tshirt", "Quantity": 1, "Size": 1, "Category": 1,"Price": 25,"img":"layout/images/men.jpg"  },--%>
+<%--  //   { "ProductID": 3, "Name": "Chemese", "Quantity": 1, "Size": 1, "Category": 3,"Price": 25,"img":"layout/images/men.jpg"  },--%>
+<%--  //   { "ProductID": 4, "Name": "Shirt", "Quantity": 1, "Size": 1, "Category": 1,"Price": 25,"img":"layout/images/men.jpg"  },--%>
+<%--  //   { "ProductID": 5, "Name": "Socks", "Quantity": 1, "Size": 1, "Category": 2,"Price": 25,"img":"layout/images/men.jpg"  },--%>
+<%--  //   { "ProductID": 6, "Name": "Pants", "Quantity": 1, "Size": 1, "Category": 3,"Price": 25,"img":"layout/images/men.jpg"  },--%>
+<%--  //--%>
+<%--  // ];--%>
 
-  ];
+<%--  var Sizes = [--%>
+<%--    { Name: "", Id: 0 },--%>
+<%--    { Name: "Small", Id: 1 },--%>
+<%--    { Name: "Medium", Id: 2 },--%>
+<%--    { Name: "Large", Id: 3 }--%>
+<%--  ];--%>
+<%--  var Categories = [--%>
+<%--    { Name: "", Id: 0 },--%>
+<%--    { Name: "Men", Id: 1 },--%>
+<%--    { Name: "Women", Id: 2 },--%>
+<%--    { Name: "Children", Id: 3 }--%>
+<%--  ];--%>
 
-  var Sizes = [
-    { Name: "", Id: 0 },
-    { Name: "Small", Id: 1 },
-    { Name: "Medium", Id: 2 },
-    { Name: "Large", Id: 3 }
-  ];
-  var Categories = [
-    { Name: "", Id: 0 },
-    { Name: "Men", Id: 1 },
-    { Name: "Women", Id: 2 },
-    { Name: "Children", Id: 3 }
-  ];
+<%--  $("#jsGrid").jsGrid({--%>
+<%--    height: "70%",--%>
+<%--    width: "100%",--%>
+<%--    filtering: true,--%>
+<%--    editing: true,--%>
+<%--    inserting: true,--%>
+<%--    sorting: true,--%>
+<%--    paging: true,--%>
+<%--    autoload: true,--%>
+<%--    pageSize: 15,--%>
+<%--    pageButtonCount: 5,--%>
+<%--    deleteConfirm: "Do you really want to delete the client?",--%>
+<%--    controller: {--%>
+<%--      loadData: function (filter) {--%>
+<%--        console.log("I")--%>
+<%--        return $.ajax({--%>
+<%--          type: "GET",--%>
+<%--          url: "/FashionStore_war_exploded/ProductsTable",--%>
+<%--          data: filter,--%>
+<%--          success:function (text){--%>
+<%--            console.log(text);--%>
+<%--          }--%>
 
-  $("#jsGrid").jsGrid({
-    height: "70%",
-    width: "100%",
-    filtering: true,
-    editing: true,
-    inserting: true,
-    sorting: true,
-    paging: true,
-    autoload: true,
-    pageSize: 15,
-    pageButtonCount: 5,
-    deleteConfirm: "Do you really want to delete the client?",
-    controller: {
-      // loadData: function (filter) {
-      //   return $.ajax({
-      //     type: "GET",
-      //     url: "/JsGridEx/ManageCars",
-      //     data: filter
-      //   });
-      // },
-      loadData: function(filter) {
-        return $.grep(Products, function(prod) {
-          return (!filter.Name || prod.Name.indexOf(filter.Name) > -1)
-                  && (filter.ProductID === undefined || prod.ProductID === filter.ProductID)
-                  && (filter.Quantity === undefined || prod.Quantity === filter.Quantity)
-                  && (filter.Size === undefined || prod.Size === filter.Size)
-                  && (filter.Category === undefined || prod.Category === filter.Category)
-                  && (filter.Price === undefined || prod.Price === filter.Price);
-        });
-      },
+<%--        });--%>
+<%--      },--%>
+<%--      // loadData: function(filter) {--%>
+<%--      //   return $.grep(Products, function(prod) {--%>
+<%--      //     return (!filter.Name || prod.Name.indexOf(filter.Name) > -1)--%>
+<%--      //             && (filter.ProductID === undefined || prod.ProductID === filter.ProductID)--%>
+<%--      //             && (filter.Quantity === undefined || prod.Quantity === filter.Quantity)--%>
+<%--      //             && (filter.Size === undefined || prod.Size === filter.Size)--%>
+<%--      //             && (filter.Category === undefined || prod.Category === filter.Category)--%>
+<%--      //             && (filter.Price === undefined || prod.Price === filter.Price);--%>
+<%--      //   });--%>
+<%--      // },--%>
 
-      // insertItem: function (item) {
-      //   return $.ajax({
-      //     type: "POST",
-      //     url: "/JsGridEx/ManageCars",
-      //     data: item
-      //   });
-      // },
-      // updateItem: function (item) {
-      //   return $.ajax({
-      //     type: "PUT",
-      //     url: "/JsGridEx/ManageCars",
-      //     data: item
-      //   });
-      // },
-      // deleteItem: function (item) {
-      //   return $.ajax({
-      //     type: "DELETE",
-      //     url: "/JsGridEx/ManageCars",
-      //     data: item
-      //   });
-      // }
+<%--      // insertItem: function (item) {--%>
+<%--      //   return $.ajax({--%>
+<%--      //     type: "POST",--%>
+<%--      //     url: "/JsGridEx/ManageCars",--%>
+<%--      //     data: item--%>
+<%--      //   });--%>
+<%--      // },--%>
+<%--      // updateItem: function (item) {--%>
+<%--      //   return $.ajax({--%>
+<%--      //     type: "PUT",--%>
+<%--      //     url: "/JsGridEx/ManageCars",--%>
+<%--      //     data: item--%>
+<%--      //   });--%>
+<%--      // },--%>
+<%--      // deleteItem: function (item) {--%>
+<%--      //   return $.ajax({--%>
+<%--      //     type: "DELETE",--%>
+<%--      //     url: "/JsGridEx/ManageCars",--%>
+<%--      //     data: item--%>
+<%--      //   });--%>
+<%--      // }--%>
 
-      insertItem: function(insertingProd) {
-        Products.push(insertingProd);
-      },
+<%--      insertItem: function(insertingProd) {--%>
+<%--        Products.push(insertingProd);--%>
+<%--      },--%>
 
-      updateItem: function(updatingProd) { },
+<%--      updateItem: function(updatingProd) { },--%>
 
-      deleteItem: function(deletingProd) {
-        var prodIndex = $.inArray(deletingProd, Products);
-        Products.splice(prodIndex, 1);
-      }
+<%--      deleteItem: function(deletingProd) {--%>
+<%--        var prodIndex = $.inArray(deletingProd, Products);--%>
+<%--        Products.splice(prodIndex, 1);--%>
+<%--      }--%>
 
-    },
+<%--    },--%>
 
-    fields: [
-      {
-        name: "ProductID",
-        type: "number",
-        editing: false,
-        validate: {
-          validator: "min",
-          message: "Product ID must be above 0",
-          param: 0
-        }
-      },
-      { name: "Name", type: "text", width: 150, validate: "required" },
-      {
-        name: "Quantity",
-        type: "number",
-        validate: {
-          validator: "min",
-          message: "Quantity must be above 0",
-          param: 0
-        }
-      },
-      { name: "Size", type: "select", items: Sizes, valueField: "Id", textField: "Name" },
-      { name: "Category", type: "select", items: Categories, valueField: "Id", textField: "Name" },
-      {
-        name: "Price",
-        type: "number",
-        validate: {
-          validator: "min",
-          message: "Price must be above 0",
-          param: 0
-        }
-      },
-      {
-        name: "Img",
-        itemTemplate: function(val, item) {
-          return $("<img>").attr("src", val).css({ height: 50, width: 50 });
-        },
-        insertTemplate: function() {
-          var insertControl = this.insertControl = $("<input>").prop("type", "file");
-          return insertControl;
-        },
-        insertValue: function() {
-          return this.insertControl[0].files[0];
-        },
-        align: "center",
-        width: 120
-      },
-      { type: "control" }
-    ]
-  });
-</script>
+<%--    fields: [--%>
+<%--      {--%>
+<%--        name: "prodID",--%>
+<%--        type: "number",--%>
+<%--        editing: false,--%>
+<%--        validate: {--%>
+<%--          validator: "min",--%>
+<%--          message: "Product ID must be above 0",--%>
+<%--          param: 0--%>
+<%--        }--%>
+<%--      },--%>
+<%--      { name: "prodType", type: "text", width: 150, validate: "required" },--%>
+<%--      {--%>
+<%--        name: "prodQuantity",--%>
+<%--        type: "number",--%>
+<%--        validate: {--%>
+<%--          validator: "min",--%>
+<%--          message: "Quantity must be above 0",--%>
+<%--          param: 0--%>
+<%--        }--%>
+<%--      },--%>
+<%--      { name: "Size", type: "select", items: Sizes, valueField: "Id", textField: "Name" },--%>
+<%--      { name: "Category", type: "select", items: Categories, valueField: "Id", textField: "Name" },--%>
+<%--      {--%>
+<%--        name: "productPrice",--%>
+<%--        type: "number",--%>
+<%--        validate: {--%>
+<%--          validator: "min",--%>
+<%--          message: "Price must be above 0",--%>
+<%--          param: 0--%>
+<%--        }--%>
+<%--      },--%>
+<%--      {--%>
+<%--        name: "firstProdImg",--%>
+<%--        itemTemplate: function(val, item) {--%>
+<%--          return $("<img>").attr("src", val).css({ height: 50, width: 50 });--%>
+<%--        },--%>
+<%--        insertTemplate: function() {--%>
+<%--          var insertControl = this.insertControl = $("<input>").prop("type", "file");--%>
+<%--          return insertControl;--%>
+<%--        },--%>
+<%--        insertValue: function() {--%>
+<%--          return this.insertControl[0].files[0];--%>
+<%--        },--%>
+<%--        align: "center",--%>
+<%--        width: 120--%>
+<%--      },      {--%>
+<%--        name: "secondProdImg",--%>
+<%--        itemTemplate: function(val, item) {--%>
+<%--          return $("<img>").attr("src", val).css({ height: 50, width: 50 });--%>
+<%--        },--%>
+<%--        insertTemplate: function() {--%>
+<%--          var insertControl = this.insertControl = $("<input>").prop("type", "file");--%>
+<%--          return insertControl;--%>
+<%--        },--%>
+<%--        insertValue: function() {--%>
+<%--          return this.insertControl[0].files[0];--%>
+<%--        },--%>
+<%--        align: "center",--%>
+<%--        width: 120--%>
+<%--      },--%>
+<%--      { type: "control" }--%>
+<%--    ]--%>
+<%--  });--%>
+
+<%--</script>--%>
+
 </body>
 
 </html>
