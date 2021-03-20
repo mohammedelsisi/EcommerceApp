@@ -27,9 +27,45 @@
         <link rel="stylesheet" href="layout/css/aos.css">
         <!-- main Style file -->
         <link rel="stylesheet" href="layout/css/style.css">
+    <link rel="stylesheet" href="layout/css/rangeSlider.css" />
+    <link rel="stylesheet" href="layout/css/slider-style.css" />
         <!-- for font awsowome icon -->
         <link href="../../layout/css/all.min.css" rel="stylesheet" type="text/css">
+<style>
+    /*.slider {*/
+    /*    -webkit-appearance: none;*/
+    /*    width: 100%;*/
+    /*    height: 15px;*/
+    /*    border-radius: 5px;*/
+    /*    background: #d3d3d3;*/
+    /*    outline: none;*/
+    /*    opacity: 0.7;*/
+    /*    -webkit-transition: .2s;*/
+    /*    transition: opacity .2s;*/
+    /*}*/
 
+    /*.slider:hover {*/
+    /*    opacity: 1;*/
+    /*}*/
+
+    /*.slider::-webkit-slider-thumb {*/
+    /*    -webkit-appearance: none;*/
+    /*    appearance: none;*/
+    /*    width: 25px;*/
+    /*    height: 25px;*/
+    /*    border-radius: 50%;*/
+    /*    background: #4CAF50;*/
+    /*    cursor: pointer;*/
+    /*}*/
+
+    /*.slider::-moz-range-thumb {*/
+    /*    width: 25px;*/
+    /*    height: 25px;*/
+    /*    border-radius: 50%;*/
+    /*    background: #4CAF50;*/
+    /*    cursor: pointer;*/
+    /*}*/
+</style>
 </head>
 <body>
 <div class="site-wrap">
@@ -183,12 +219,16 @@
                             <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(2,124)</span></a></li>
                         </ul>
                     </div>
-
+                    <form>
                     <div class="border p-4 rounded mb-4">
                         <div class="mb-4">
                             <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
-                            <div id="slider-range" class="border-primary"></div>
-                            <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
+<%--                            <div class="slidecontainer">--%>
+<%--                                <p>Price: <span id="demo"></span></p>--%>
+<%--                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">--%>
+
+<%--                            </div>--%>
+                            <div id="anchor2"></div>
                         </div>
 
                         <div class="mb-4">
@@ -206,21 +246,23 @@
 
                         <div class="mb-4">
                             <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
-                            <a href="#" class="d-flex color-item align-items-center" >
-                                <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red (2,429)</span>
-                            </a>
-                            <a href="#" class="d-flex color-item align-items-center" >
-                                <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Green (2,298)</span>
-                            </a>
-                            <a href="#" class="d-flex color-item align-items-center" >
-                                <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Blue (1,075)</span>
-                            </a>
-                            <a href="#" class="d-flex color-item align-items-center" >
-                                <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Purple (1,075)</span>
-                            </a>
+                            <label for="s_sm" class="d-flex ">
+                                <input type="checkbox" id="c_red" class="mr-2 mt-1">  <span class="text-black">Red (2,429)</span>
+                            </label>
+                            <label for="s_sm" class="d-flex ">
+                                <input type="checkbox" id="c_green" class="mr-2 mt-1">  <span class="text-black">Green (2,429)</span>
+                            </label>
+                            <label for="s_sm" class="d-flex ">
+                                <input type="checkbox" id="c_blue" class="mr-2 mt-1">  <span class="text-black">Blue (2,429)</span>
+                            </label>
+                            <label for="s_sm" class="d-flex ">
+                                <input type="checkbox" id="c_purple" class="mr-2 mt-1">  <span class="text-black">Purple (2,429)</span>
+                            </label>
                         </div>
-
+                        <input class="btn btn-primary " type="submit" value="Submit">
                     </div>
+
+                    </form>
                 </div>
             </div>
 
@@ -361,7 +403,8 @@
 <script src="layout/js/owl.carousel.min.js"></script>
 <script src="layout/js/jquery.magnific-popup.min.js"></script>
 <script src="layout/js/aos.js"></script>
-
+<script src="layout/js/rangeSlider.js"></script>
+<script src="layout/js/common.js"></script>
 <script src="layout/js/main.js"></script>
 <script>
     let activePageNum=+$("#ActivePage").html()
@@ -373,6 +416,17 @@
     if(afterPage >"${requestScope.Pages}" ) after="#"
     $("#PageBefore").attr('href',before);
     $("#PageAfter").attr('href',after);
+
+
+
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+
 </script>
 </body>
 </html>
