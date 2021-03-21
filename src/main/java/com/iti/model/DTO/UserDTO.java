@@ -12,6 +12,9 @@ public class UserDTO {
     private Date birthday;
     private String password;
     private List<String> interests;
+    private List<String> addresses;
+    private String image;
+
 
     @Override
     public String toString() {
@@ -25,6 +28,7 @@ public class UserDTO {
                 ", password='" + password + '\'' +
                 ", interests=" + interests +
                 ", addresses=" + addresses +
+                ", image=" + image +
                 '}';
     }
 
@@ -34,7 +38,6 @@ public class UserDTO {
         this.password = password;
     }
 
-    private List<String> addresses;
 
     public UserDTO(long id, String userName, double creditLimit, String email, String job, Date birthday, String password, List<String> interests) {
         this.id = id;
@@ -112,5 +115,21 @@ public class UserDTO {
 
     public void setInterests(List<String> interests) {
         this.interests = interests;
+    }
+
+    public void setAddresses(List<String> addresses) {
+        this.addresses = addresses;
+    }
+
+    public List<String> getAddresses() {
+        return this.addresses;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
     }
 }
