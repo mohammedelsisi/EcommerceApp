@@ -1,15 +1,13 @@
 // Test Destroy Slider
 $('#anchorDestroy').rangeSlider(
   {
-    direction: 'vertical',
+      direction: 'horizontal',
     settings: true,
     skin: 'green',
     type: 'interval',
     scale: true,
   },
-  {
-    step: 5,
-  },
+    { step: 20, values: [30] }
 );
 $('#anchorDestroy').rangeSlider('destroy');
 //
@@ -28,6 +26,7 @@ $('#anchor2').rangeSlider({
   skin: 'red',
   type: 'interval',
   scale: true,
+
 });
 $('#anchor3').rangeSlider({
   direction: 'vertical',

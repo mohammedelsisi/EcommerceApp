@@ -26,46 +26,15 @@
         <!-- to add animations on vertical scrolling -->
         <link rel="stylesheet" href="layout/css/aos.css">
         <!-- main Style file -->
-        <link rel="stylesheet" href="layout/css/style.css">
+   <link rel="stylesheet" href="layout/css/style.css">
     <link rel="stylesheet" href="layout/css/rangeSlider.css" />
     <link rel="stylesheet" href="layout/css/slider-style.css" />
         <!-- for font awsowome icon -->
-        <link href="../../layout/css/all.min.css" rel="stylesheet" type="text/css">
-<style>
-    /*.slider {*/
-    /*    -webkit-appearance: none;*/
-    /*    width: 100%;*/
-    /*    height: 15px;*/
-    /*    border-radius: 5px;*/
-    /*    background: #d3d3d3;*/
-    /*    outline: none;*/
-    /*    opacity: 0.7;*/
-    /*    -webkit-transition: .2s;*/
-    /*    transition: opacity .2s;*/
-    /*}*/
+    <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/rSlider.min.css">
+    <link rel="stylesheet" href="layout/css/rSlider.min.css" />
+    <link rel="stylesheet" href="layout/css/rSlider.css" />
 
-    /*.slider:hover {*/
-    /*    opacity: 1;*/
-    /*}*/
-
-    /*.slider::-webkit-slider-thumb {*/
-    /*    -webkit-appearance: none;*/
-    /*    appearance: none;*/
-    /*    width: 25px;*/
-    /*    height: 25px;*/
-    /*    border-radius: 50%;*/
-    /*    background: #4CAF50;*/
-    /*    cursor: pointer;*/
-    /*}*/
-
-    /*.slider::-moz-range-thumb {*/
-    /*    width: 25px;*/
-    /*    height: 25px;*/
-    /*    border-radius: 50%;*/
-    /*    background: #4CAF50;*/
-    /*    cursor: pointer;*/
-    /*}*/
-</style>
 </head>
 <body>
 <div class="site-wrap">
@@ -159,6 +128,7 @@
                                         <a class="dropdown-item" href="#">Men</a>
                                         <a class="dropdown-item" href="#">Women</a>
                                         <a class="dropdown-item" href="#">Children</a>
+
                                     </div>
                                 </div>
                                 <div class="btn-group">
@@ -223,12 +193,13 @@
                     <div class="border p-4 rounded mb-4">
                         <div class="mb-4">
                             <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
-<%--                            <div class="slidecontainer">--%>
-<%--                                <p>Price: <span id="demo"></span></p>--%>
-<%--                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">--%>
+                            <br>
+                            <div style="margin-left: 20px;margin-right: 20px">
+                                <input type="text" id="slider" class="slider" />
+                            </div>
 
-<%--                            </div>--%>
-                            <div id="anchor2"></div>
+
+
                         </div>
 
                         <div class="mb-4">
@@ -403,9 +374,13 @@
 <script src="layout/js/owl.carousel.min.js"></script>
 <script src="layout/js/jquery.magnific-popup.min.js"></script>
 <script src="layout/js/aos.js"></script>
+
 <script src="layout/js/rangeSlider.js"></script>
-<script src="layout/js/common.js"></script>
+<script src="layout/js/common.js" async></script>
 <script src="layout/js/main.js"></script>
+<script src="layout/js/rSlider.js"></script>
+<script src="js/rSlider.min.js"></script>
+<script src="layout/js/rSlider.min.js"></script>
 <script>
     let activePageNum=+$("#ActivePage").html()
     let beforePage = activePageNum-1;
@@ -417,16 +392,26 @@
     $("#PageBefore").attr('href',before);
     $("#PageAfter").attr('href',after);
 
+</script>
+<script>
+    (function () {
+        'use strict';
 
+        var init = function () {
 
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
-
-    slider.oninput = function() {
-        output.innerHTML = this.value;
-    }
-
+            var slider = new rSlider({
+                target: '#slider',
+                values: [0,250, 500, 750, 1000, 1250, 1500, 1750, 2000],
+                range: true,
+                labels: false,
+                set: [0, 2500],
+                onChange: function (vals) {
+                    console.log(vals);
+                }
+            });
+        };
+        window.onload = init;
+    })();
 </script>
 </body>
 </html>
