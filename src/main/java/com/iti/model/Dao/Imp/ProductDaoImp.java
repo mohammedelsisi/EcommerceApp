@@ -35,19 +35,24 @@ public class ProductDaoImp implements ProductDao {
 
     @Override
     public List<ProductDTO> retrieveFilteredProducts(ProductFilter productFilter) {
-        List<ProductDTO> products = new ArrayList<>();
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5); products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5); products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        return products;
+        if(productFilter.isEmpty()){
+           return retrieveAllProducts();
+        }else {
+
+            List<ProductDTO> products = new ArrayList<>();
+            products.add(p1);
+            products.add(p2);
+            products.add(p3);
+            products.add(p4);
+            products.add(p5); products.add(p1);
+            products.add(p2);
+            products.add(p3);
+            products.add(p4);
+            products.add(p5); products.add(p1);
+            products.add(p2);
+            products.add(p3);
+            return products;
+        }
     }
 
     @Override

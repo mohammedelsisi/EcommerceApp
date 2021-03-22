@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<form onsubmit="sendFilters();return false;">
+<%--<form onsubmit="sendFilters();return false;">--%>
     <c:set var="filter" value="${sessionScope.Filters}"/>
     <c:out value="${filter.colors}"/>
     <div class="border p-4 rounded mb-4">
@@ -23,7 +23,7 @@
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
             <c:forEach items="${applicationScope.Sizes}" var="Size">
                 <label for="${Size}" class="d-flex">
-                    <input name='Size' type="checkbox" id="${Size}" class="mr-2 mt-1"> <span class="text-black">${Size}</span>
+                    <input name='Size' value="${Size}" type="checkbox" id="${Size}" class="mr-2 mt-1"> <span class="text-black">${Size}</span>
                 </label>
             </c:forEach>
 
@@ -33,7 +33,7 @@
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
             <c:forEach items="${applicationScope.Colors}" var="Color">
                 <label for="${Color}" class="d-flex ">
-                    <input name='Color' type="checkbox" id="${Color}" class="mr-2 mt-1">  <span class="text-black">${Color}</span>
+                    <input name='Color'  value="${Color}" type="checkbox" id="${Color}" class="mr-2 mt-1">  <span class="text-black">${Color}</span>
                 </label>
             </c:forEach>
         </div>

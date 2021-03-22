@@ -8,13 +8,34 @@ public class ProductFilter {
     String search;
     double minPrice;
     double maxPrice;
+    boolean isEmpty;
 
-    public ProductFilter(List<String> colors, List<String> sizes, String search, double minPrice, double maxPrice) {
-        this.colors = colors;
-        this.sizes = sizes;
-        this.search = search;
-        this.minPrice = minPrice;
-        this.maxPrice = maxPrice;
+    public ProductFilter() {
+    }
+
+    public static ProductFilter getEmptyFilter(){
+       ProductFilter productFilter = new ProductFilter();
+       productFilter.setEmpty(true);
+       return productFilter;
+   }
+
+    public boolean isEmpty() {
+        return isEmpty;
+    }
+
+    public void setEmpty(boolean empty) {
+        isEmpty = empty;
+    }
+
+    public static ProductFilter createFilledFilter(List<String> colors, List<String> sizes, String search, double minPrice, double maxPrice) {
+        ProductFilter productFilter = new ProductFilter();
+        productFilter.setEmpty(false);
+        productFilter.colors = colors;
+        productFilter.sizes = sizes;
+        productFilter.search = search;
+        productFilter.minPrice = minPrice;
+        productFilter.maxPrice = maxPrice;
+        return productFilter;
     }
 
     public String getSearch() {

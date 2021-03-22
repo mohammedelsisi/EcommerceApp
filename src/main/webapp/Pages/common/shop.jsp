@@ -44,11 +44,12 @@
                 <div class="row align-items-center">
 
                     <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-                        <div class="site-block-top-search">
+                        <form method="post" action="Shop" class="site-block-top-search">
                             <span class="icon icon-search2"></span>
-                            <input id="searchField" type="text" class="form-control border-0" placeholder="Search"
+                            <input name="Search" id="searchField" type="text" class="form-control border-0" placeholder="Search"
                                    onkeypress="searchAndFilter(event)">
-                        </div>
+                        <input name="minPrice" type="hidden" id="minValue">
+                        <input name="maxPrice" type="hidden" id="maxValue">
                     </div>
 
                     <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
@@ -346,7 +347,7 @@
 <script src="layout/js/rSlider.js"></script>
 <script src="js/rSlider.min.js"></script>
 <script src="layout/js/rSlider.min.js"></script>
-<script src="layout/js/shopscript.js"></script>
+<%--<script src="layout/js/shopscript.js"></script>--%>
 <script>
     let activePageNum = +$("#ActivePage").html()
     let beforePage = activePageNum - 1;
@@ -374,7 +375,10 @@
                 labels: false,
                 set: [minPrice, maxPrice],
                 onChange: function (vals) {
-                    Prices = vals;
+                    let prices = vals.split(",");
+                    $("#minValue").val(prices[0]);
+                    $("#maxValue").val(prices[1]);
+
                 }
             });
         };
@@ -400,7 +404,7 @@
     })
     </c:forEach>
 
-
+    $("#searchField").val("${sessionScope.Filters.search}");
 </script>
 </body>
 </html>
