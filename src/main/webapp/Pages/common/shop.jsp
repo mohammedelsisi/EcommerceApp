@@ -366,7 +366,7 @@
     })
     </c:forEach>
 
-
+<%--    <c:set var="minPrice" value="${sessionScope.Filters.minPrice}"--%>
 
 </script>
 </body>
