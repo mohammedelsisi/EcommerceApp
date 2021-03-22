@@ -1,24 +1,5 @@
 var Prices=null;
-(function () {
-    'use strict';
-
-    var init = function () {
-
-        var slider = new rSlider({
-            target: '#slider',
-            values: [0,250, 500, 750, 1000, 1250, 1500, 1750, 2000],
-            range: true,
-            labels: false,
-            set: [0, 2500],
-            onChange: function (vals) {
-                Prices = vals;
-            }
-        });
-    };
-    window.onload = init;
-})();
-
-
+var slider;
 
 function searchAndFilter(e){
     if(e.which===13){
@@ -60,6 +41,5 @@ function sendFilters(){
             console.log(txt)
         }
     })
-
 }
 
