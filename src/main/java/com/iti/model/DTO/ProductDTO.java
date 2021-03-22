@@ -79,6 +79,12 @@ public class ProductDTO  {
         this.firstProdImg = firstProdImg;
         this.productPrice = prodPrice;
     }
+    public ProductDTO(String prodDesc, String firstProdImg, String secondProdImg,double prodPrice) {
+        this.prodDesc = prodDesc;
+        this.firstProdImg = firstProdImg;
+        this.productPrice = prodPrice;
+        this.secondProdImg=secondProdImg;
+    }
 
     public int getProdID() {
         return prodID;

@@ -11,5 +11,6 @@ public interface ProductDao {
     List<ProductDTO> retrieveFilteredProducts (ProductFilter productFilter);
      List<String> getSizes();
      List<String> getColors();
+    ProductDTO retriveItem(int id);
 
 }

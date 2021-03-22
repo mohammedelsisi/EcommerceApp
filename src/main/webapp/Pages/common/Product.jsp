@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,19 +9,19 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
     <!-- to add down arrow to menus -->
-    <link rel="stylesheet" href="../../layout/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="../../layout/css/bootstrap.min.css">
+    <link rel="stylesheet" href="layout/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="layout/css/magnific-popup.css"> -->
-    <link rel="stylesheet" href="../../layout/css/jquery-ui.css">
+    <link rel="stylesheet" href="layout/css/jquery-ui.css">
     <!-- to let horizontal scrolling -->
-    <link rel="stylesheet" href="../../layout/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="layout/css/owl.carousel.min.css">
     <!-- to add animations on vertical scrolling -->
-    <link rel="stylesheet" href="../../layout/css/aos.css">
+    <link rel="stylesheet" href="layout/css/aos.css">
     <!-- main Style file -->
-    <link rel="stylesheet" href="../../layout/css/style.css">
+    <link rel="stylesheet" href="layout/css/style.css">
     <!-- for font awsowome icon -->
-    <link href="../../layout/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -120,7 +122,7 @@
 
 
 
-
+                    <c:set value="${requestScope.ProductItem}" var="item"/>
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -129,10 +131,10 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="../../images/cloth_1.jpg" alt="First slide">
+                                <img class="d-block w-100" src="${item.secondProdImg}" alt="First slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="../../images/shoe_1.jpg" alt="Second slide">
+                                <img class="d-block w-100" src="${item.firstProdImg}" alt="Second slide">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -153,9 +155,9 @@
                 </div>
                 <div class="col-md-6">
                     <h2 class="text-black">Tank Top T-Shirt</h2>
-                    <p>Get ready to hum, strum, and succumb to officially licensed Fender styles! If you've always wanted your very own Stratocaster guitar, now is your chance to get one! Or... at least get one on a rockin' tee! America's favorite guitar brand is the perfect way to show your rock and roll fashion with tees that celebrate the coolest guitars, amps, and more. As Fender says, "you won't part" with your Fender tees either.</p>
+                    <p>${item.prodDesc}</p>
                     <!--            <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic magni iste, velit aperiam quis.</p>-->
-                    <p><strong class="text-primary h4">$50.00</strong></p>
+                    <p><strong class="text-primary h4">$${item.prodPrice}</strong></p>
                     <!--            <div class="mb-1 d-flex">-->
                     <!--              <label for="option-sm" class="d-flex mr-3 mb-3">-->
                     <!--                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">Small</span>-->
@@ -170,6 +172,7 @@
                     <!--                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-xl" name="shop-sizes"></span> <span class="d-inline-block text-black"> Extra Large</span>-->
                     <!--              </label>-->
                     <!--            </div>-->
+
                     <div class="mb-5">
                         <div class="input-group mb-3" style="max-width: 120px;">
                             <div class="input-group-prepend">
@@ -341,14 +344,14 @@
 </div>
 
 
-<script src="../../layout/js/jquery-3.3.1.min.js"></script>
-<script src="../../layout/js/popper.min.js"></script>
-<script src="../../layout/js/bootstrap.min.js"></script>
-<script src="../../layout/js/owl.carousel.min.js"></script>
-<script src="../../layout/js/jquery.magnific-popup.min.js"></script>
-<script src="../../layout/js/aos.js"></script>
+<script src="layout/js/jquery-3.3.1.min.js"></script>
+<script src="layout/js/popper.min.js"></script>
+<script src="layout/js/bootstrap.min.js"></script>
+<script src="layout/js/owl.carousel.min.js"></script>
+<script src="layout/js/jquery.magnific-popup.min.js"></script>
+<script src="layout/js/aos.js"></script>
 
-<script src="../../layout/js/main.js"></script>
+<script src="layout/js/main.js"></script>
 
 </body>
 </html>

@@ -30,6 +30,11 @@ public class ProductsService {
         return productDao.retrieveFilteredProducts(productFilter);
     }
 
+    public  ProductDTO retriveItem(int id){
+        return productDao.retriveItem(id);
+
+    }
+
 
     public List<String> getSizes() {
 

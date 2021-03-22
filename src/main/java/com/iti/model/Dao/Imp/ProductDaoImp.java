@@ -69,6 +69,15 @@ public class ProductDaoImp implements ProductDao {
     }
 
     @Override
+    public  ProductDTO retriveItem(int id) {
+
+        ProductDTO productDTO=new ProductDTO("Get ready to hum, strum, and succumb to officially licensed Fender styles! If you've always wanted your very own Stratocaster guitar, now is your chance to get one! Or... at least get one on a rockin' tee! America's favorite guitar brand is the perfect way to show your rock and roll fashion with tees that celebrate the coolest guitars, amps, and more. As Fender says, you won't part with your Fender tees either"
+        ,"images/cloth_1.jpg","images/cloth_2.jpg",50);
+
+        return productDTO;
+    }
+
+    @Override
     public List<ProductDTO> retrieveAllProducts() {
         List<ProductDTO> products = new ArrayList<>();
         products.add(p1);
