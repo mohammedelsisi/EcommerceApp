@@ -6,9 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%--<form onsubmit="sendFilters();return false;">--%>
-    <c:set var="filter" value="${sessionScope.Filters}"/>
-    <c:out value="${filter.colors}"/>
+
     <div class="border p-4 rounded mb-4">
         <div class="mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>

@@ -23,6 +23,7 @@ public class searchFilter implements Filter {
             ProductFilter emptyFilter = ProductFilter.getEmptyFilter();
             httpServletRequest.getSession().setAttribute("Filters",emptyFilter);
             System.out.println(servletPath);
+            System.out.println("############");
         }
         chain.doFilter(request,response);
     }
