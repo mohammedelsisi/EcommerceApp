@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebFilter("/*")
+@WebFilter({"/Home","/About"})
 public class searchFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -23,7 +23,7 @@ public class searchFilter implements Filter {
             ProductFilter emptyFilter = ProductFilter.getEmptyFilter();
             httpServletRequest.getSession().setAttribute("Filters",emptyFilter);
             System.out.println(servletPath);
-            System.out.println("############");
+            System.out.println("I am empting the filter");
         }
         chain.doFilter(request,response);
     }
