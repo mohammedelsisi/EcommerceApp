@@ -31,7 +31,7 @@
 
     <servlet-mapping>
         <servlet-name>Registration</servlet-name>
-        <url-pattern>/register</url-pattern>
+        <url-pattern>/Register</url-pattern>
     </servlet-mapping>
         <servlet>
             <servlet-name>HomeServlet</servlet-name>
@@ -42,6 +42,17 @@
             <servlet-name>HomeServlet</servlet-name>
             <url-pattern>/HomeJsp</url-pattern>
         </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShopServlet</servlet-name>
+        <jsp-file>/Pages/common/shop.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ShopServlet</servlet-name>
+        <url-pattern>/ShopJsp</url-pattern>
+    </servlet-mapping>
+
 
 
 </web-app>
