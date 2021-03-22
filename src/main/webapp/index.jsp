@@ -11,7 +11,9 @@
     <title>Fashion Store</title>
 </head>
 <body>
-<h1> Welcome to Our Fashion Store  </h1>
+<%--<h1> Welcome to Our Fashion Store  </h1>--%>
+
+<%@ include file = "login.jsp" %>
 
 </body>
 </html>
