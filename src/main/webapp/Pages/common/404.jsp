@@ -55,6 +55,8 @@
 </head>
 
 <body>
+<%@include file="../toInclude/header.jsp" %>
+
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
@@ -63,5 +65,7 @@
     </div>
     <p>If you are the application owner check the logs for more information.</p>
   </div>
+<%@include file="../toInclude/footer.jsp"%>
+
 </body>
 </html>

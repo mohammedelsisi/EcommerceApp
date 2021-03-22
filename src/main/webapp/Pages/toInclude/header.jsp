@@ -8,6 +8,19 @@
 
 
     <header class="site-navbar" role="banner">
+        <c:if test="${param.error=='-'}">
+        <div class="shadow-lg p-2 mb-4 bg-white rounded" style="position: fixed; z-index:5">
+            <div class="card-header">
+                Cookies are disabled
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    Please Enable Your Cookies to Enjoy Naseej Website full features
+                </blockquote>
+            </div>
+        </div>
+        </c:if>
+
         <div class="site-navbar-top">
             <div class="container">
                 <div class="row align-items-center">

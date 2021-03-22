@@ -37,6 +37,16 @@
             <servlet-name>HomeServlet</servlet-name>
             <url-pattern>/HomeJsp</url-pattern>
         </servlet-mapping>
+    <servlet>
+        <servlet-name>Error</servlet-name>
+        <jsp-file>/Pages/common/404.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Error</servlet-name>
+        <url-pattern>/404</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>ShopServlet</servlet-name>
