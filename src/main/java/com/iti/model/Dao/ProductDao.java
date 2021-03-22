@@ -9,5 +9,7 @@ public interface ProductDao {
     List<ProductDTO> retriveMaxiQuant ();
     List<ProductDTO> retrieveAllProducts ();
     List<ProductDTO> retrieveFilteredProducts (ProductFilter productFilter);
+     List<String> getSizes();
+     List<String> getColors();
 
 }

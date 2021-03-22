@@ -20,12 +20,23 @@ public class ProductsService {
     public List<ProductDTO> retriveMaxiQuant() {
         return productDao.retriveMaxiQuant();
     }
+
     public List<ProductDTO> retrieveAllProducts() {
         return productDao.retrieveAllProducts();
     }
+
     public List<ProductDTO> retrieveFilteredProducts(ProductFilter productFilter) {
 
         return productDao.retrieveFilteredProducts(productFilter);
     }
 
+
+    public List<String> getSizes() {
+
+        return productDao.getSizes();
+    }
+    public List<String> getColors( ) {
+
+        return productDao.getColors();
+    }
 }

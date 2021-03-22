@@ -6,6 +6,7 @@ import com.iti.model.Dao.ProductDao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class ProductDaoImp implements ProductDao {
     private static final ProductDaoImp productDAOImp = new ProductDaoImp();
@@ -50,6 +51,24 @@ public class ProductDaoImp implements ProductDao {
     }
 
     @Override
+    public List<String> getSizes() {
+        List<String> list = new ArrayList<>();
+        list.add("Small");
+        list.add("Medium");
+        list.add("Large");
+        return list;
+    }
+
+    @Override
+    public List<String> getColors() {
+        List<String> list = new ArrayList<>();
+        list.add("Red");
+        list.add("Green");
+        list.add("Blue");
+        return list;
+    }
+
+    @Override
     public List<ProductDTO> retrieveAllProducts() {
         List<ProductDTO> products = new ArrayList<>();
         products.add(p1);
@@ -90,4 +109,5 @@ public class ProductDaoImp implements ProductDao {
 
         return products;
     }
+
 }

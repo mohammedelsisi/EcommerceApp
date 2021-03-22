@@ -20,6 +20,8 @@ public class ContextListener implements ServletContextListener {
         servletContext.setAttribute("RegistrationService",registrationService);
         servletContext.setAttribute("LoginService",loginService);
         servletContext.setAttribute("ProductsService", productsService);
+        servletContext.setAttribute("Colors",productsService.getColors());
+        servletContext.setAttribute("Sizes",productsService.getSizes());
     }
 
     @Override

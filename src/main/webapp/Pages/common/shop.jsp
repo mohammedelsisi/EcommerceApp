@@ -44,10 +44,10 @@
                 <div class="row align-items-center">
 
                     <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-                        <form action="" class="site-block-top-search">
+                        <div class="site-block-top-search">
                             <span class="icon icon-search2"></span>
-                            <input type="text" class="form-control border-0" placeholder="Search">
-                        </form>
+                            <input id="searchField" type="text" class="form-control border-0" placeholder="Search" onkeypress="searchAndFilter(event)">
+                        </div>
                     </div>
 
                     <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
@@ -189,51 +189,7 @@
                             <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(2,124)</span></a></li>
                         </ul>
                     </div>
-                    <form>
-                    <div class="border p-4 rounded mb-4">
-                        <div class="mb-4">
-                            <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
-                            <br>
-                            <div style="margin-left: 20px;margin-right: 20px">
-                                <input type="text" id="slider" class="slider" />
-                            </div>
-
-
-
-                        </div>
-
-                        <div class="mb-4">
-                            <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
-                            <label for="s_sm" class="d-flex">
-                                <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small (2,319)</span>
-                            </label>
-                            <label for="s_md" class="d-flex">
-                                <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Medium (1,282)</span>
-                            </label>
-                            <label for="s_lg" class="d-flex">
-                                <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large (1,392)</span>
-                            </label>
-                        </div>
-
-                        <div class="mb-4">
-                            <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
-                            <label for="s_sm" class="d-flex ">
-                                <input type="checkbox" id="c_red" class="mr-2 mt-1">  <span class="text-black">Red (2,429)</span>
-                            </label>
-                            <label for="s_sm" class="d-flex ">
-                                <input type="checkbox" id="c_green" class="mr-2 mt-1">  <span class="text-black">Green (2,429)</span>
-                            </label>
-                            <label for="s_sm" class="d-flex ">
-                                <input type="checkbox" id="c_blue" class="mr-2 mt-1">  <span class="text-black">Blue (2,429)</span>
-                            </label>
-                            <label for="s_sm" class="d-flex ">
-                                <input type="checkbox" id="c_purple" class="mr-2 mt-1">  <span class="text-black">Purple (2,429)</span>
-                            </label>
-                        </div>
-                        <input class="btn btn-primary " type="submit" value="Submit">
-                    </div>
-
-                    </form>
+                    <%@include file="../toInclude/sizeAndColorForm.jsp" %>
                 </div>
             </div>
 
@@ -381,6 +337,7 @@
 <script src="layout/js/rSlider.js"></script>
 <script src="js/rSlider.min.js"></script>
 <script src="layout/js/rSlider.min.js"></script>
+<script src="layout/js/shopscript.js"></script>
 <script>
     let activePageNum=+$("#ActivePage").html()
     let beforePage = activePageNum-1;
@@ -394,24 +351,23 @@
 
 </script>
 <script>
-    (function () {
-        'use strict';
-
-        var init = function () {
-
-            var slider = new rSlider({
-                target: '#slider',
-                values: [0,250, 500, 750, 1000, 1250, 1500, 1750, 2000],
-                range: true,
-                labels: false,
-                set: [0, 2500],
-                onChange: function (vals) {
-                    console.log(vals);
-                }
-            });
+    <c:forEach items="${sessionScope.Filters.colors}" var="color">
+    $("input[name=Color]").each(function (){
+        if(this.id=="${color}"){
+            this.setAttribute("checked",true);
         };
-        window.onload = init;
-    })();
+    })
+    </c:forEach>
+    <c:forEach items="${sessionScope.Filters.sizes}" var="size">
+    $("input[name=Size]").each(function (){
+        if(this.id=="${size}"){
+            this.setAttribute("checked",true);
+        };
+    })
+    </c:forEach>
+
+
+
 </script>
 </body>
 </html>
