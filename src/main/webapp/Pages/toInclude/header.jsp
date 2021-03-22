@@ -13,10 +13,12 @@
                 <div class="row align-items-center">
 
                     <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-                        <form action="" class="site-block-top-search">
+                        <form method="post" action="Shop" class="site-block-top-search">
                             <span class="icon icon-search2"></span>
-                            <input type="text" class="form-control border-0" placeholder="Search">
-                        </form>
+                            <input name="Search" id="searchField" type="text" class="form-control border-0" placeholder="Search">
+                            <input name="minPrice" type="hidden" value="0" id="minValue">
+                            <input name="maxPrice" type="hidden" value="2000"  id="maxValue">
+
                     </div>
 
                     <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
@@ -54,13 +56,13 @@
             <div class="container">
                 <ul class="site-menu js-clone-nav d-none d-md-block">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="Home">Home</a>
                     </li>
                     <li >
-                        <a href="about.html">About</a>
+                        <a href="About">About</a>
 
                     </li>
-                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="Shop">Shop</a></li>
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">New Arrivals</a></li>
                     <li><a href="contact.html">Contact</a></li>

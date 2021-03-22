@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <footer class="site-footer border-top">
+    </form>
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-5 mb-lg-0">
