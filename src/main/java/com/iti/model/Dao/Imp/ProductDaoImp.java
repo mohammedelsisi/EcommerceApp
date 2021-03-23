@@ -13,13 +13,13 @@ public class ProductDaoImp implements ProductDao {
         return productDAOImp;
     }
 
-    ProductDTO p1=new ProductDTO(1,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","men");
-    ProductDTO p2=new ProductDTO(2,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","men");
-    ProductDTO p3=new ProductDTO(3,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","men");
-    ProductDTO p4=new ProductDTO(4,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","men");
-    ProductDTO p5=new ProductDTO(5,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","men");
+    ProductDTO p1=new ProductDTO(1,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","Men");
+    ProductDTO p2=new ProductDTO(2,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","Women");
+    ProductDTO p3=new ProductDTO(3,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","Men");
+    ProductDTO p4=new ProductDTO(4,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","Men");
+    ProductDTO p5=new ProductDTO(5,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","Men");
 
-    List<ProductDTO> products = new ArrayList<>();
+
 
     @Override
     public List<ProductDTO> retriveMaxiQuant() {
@@ -29,12 +29,13 @@ public class ProductDaoImp implements ProductDao {
 //        products.add(p4);
 //        products.add(p5);
 
-        return products;
+        return null;
 
     }
 
     @Override
     public List<ProductDTO> retrieveAllProducts() {
+        List<ProductDTO> products = new ArrayList<>();
         products.add(p1);
         products.add(p2);
         products.add(p3);

@@ -15,19 +15,65 @@ import java.util.List;
 
 @WebServlet("/ProductsTable")
 public class ProductsTable extends HttpServlet {
-    List<ProductDTO> products = new ArrayList<>();
+
     Gson json = new Gson();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DataTablesService dataTablesService =(DataTablesService) request.getServletContext().getAttribute("DataTablesService");
-        products= dataTablesService.retriveAllProducts();
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        String prods= json.toJson(products);
 
-        response.getWriter().write(prods);
+        String action= request.getParameter("action");
+
+        switch (action)
+        {
+            case "load" : {
+                //TODO : make method get products filtered
+                //ProductDTO filter = getFilter(request);
+                //List<ProductDTO>  filteredProducts =dataTablesService.retriveAllProducts(filter);
+                List<ProductDTO> products =dataTablesService.retriveAllProducts();
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                String prods= json.toJson(products);
+                response.getWriter().write(prods);
+                break;
+            }
+            case "update":{
+                System.out.println(request.getParameter("prodID"));
+                ProductDTO productToInset = getProductFromRequest(request);
+                System.out.println(productToInset);
+                break;
+            }
+            case "insert":{
+                System.out.println(request.getParameter("prodID"));
+                ProductDTO productToInset = getProductFromRequest(request);
+                System.out.println(productToInset);
+                break;
+            }
+            case "delete":{
+                System.out.println(request.getParameter("prodID"));
+                ProductDTO productToInset = getProductFromRequest(request);
+                System.out.println(productToInset);
+                break;
+            }
+        }
 
 
+    }
+
+
+
+    private ProductDTO getProductFromRequest(HttpServletRequest request){
+        ProductDTO filter = new ProductDTO();
+        filter.setProdID(Integer.parseInt(request.getParameter("prodID")));
+        filter.setProdType(request.getParameter("prodType"));
+        //filter.setProdDesc();
+        filter.setProdQuantity(Integer.parseInt(request.getParameter("prodQuantity")));
+        filter.setFirstProdImg(request.getParameter("firstProdImg"));
+        filter.setSecondProdImg(request.getParameter("secondProdImg"));
+        filter.setProductPrice(Double.parseDouble(request.getParameter("productPrice")));
+        filter.setSize(request.getParameter("size"));
+        filter.setCategory(request.getParameter("category"));
+
+        return filter;
     }
 }

@@ -12,6 +12,9 @@ public class ProductDTO  {
     private String size;
     private String category;
 
+    public ProductDTO() {
+    }
+
     public int getProdID() {
         return prodID;
     }
