@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="P" uri="/WEB-INF/tlds/productLib" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +15,14 @@
   <title>Login</title>
 
   <!-- Custom fonts for this template-->
-  <link href="../../layout/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../layout/css/sb-admin-2.css" rel="stylesheet">
-
+  <link href="layout/css/sb-admin-2.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Oswald&display=swap" rel="stylesheet">
 </head>
 
 <body class="bg-gradient-primary">
@@ -38,18 +42,46 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                      <c:choose>
+                          <c:when test="${not empty param.email}">
+                              <h1 class="h4 text-gray-900 mb-4" style="font-family: Oswald,serif"> Registration Success</h1>
+
+                          </c:when>
+                          <c:when test="${not empty param.invalid}">
+                              <h1 class="h4 text-gray-900 mb-4" style="font-family: Oswald,serif"> Welcome!</h1>
+                              <label class="alert-danger" role="alert">
+                                Invalid Email or password please try again!
+                              </label>
+                          </c:when>
+                          <c:otherwise>
+                              <h1 class="h4 text-gray-900 mb-4"  style="font-family: Chango,serif">Welcome!</h1>
+                          </c:otherwise>
+                      </c:choose>
+
+
                   </div>
-                  <form class="user" action="FilterServlet" method="post">
+                  <form class="user" action="SignIn" method="post">
                     <div class="form-group">
-                      <input type="email" name="user" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
+                        <c:choose>
+                            <c:when test="${not empty param.email}">
+                                <input value="${param.email}" type="email" name="userEmail" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
+                                <script>
+                                    window.onload = function() {
+                                        document.getElementById("exampleInputPassword").focus();
+                                    }
+                                </script>
+                            </c:when>
+                            <c:when test="${empty param.email}">
+                                <input type="email" name="userEmail" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required autofocus>
+                            </c:when>
+                        </c:choose>
                     </div>
                     <div class="form-group">
-                      <input type="password" name="pwd" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" required>
+                      <input type="password" name="userPassword" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" required>
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <input name="rememberMe" type="checkbox" class="custom-control-input" id="customCheck">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
@@ -69,7 +101,7 @@
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="register.html">Create an Account!</a>
+                    <a class="small" href="Register">Create an Account!</a>
                   </div>
                 </div>
               </div>
@@ -83,10 +115,10 @@
 
   </div>
 
-  <script src="../../layout/js/jquery-3.4.0.min.js"></script>
-  <script src="../../layout/js/bootstrap.min.js"></script>
-  <script src="../../layout/js/fontawesome.js"></script>
-  <script src="../../layout/js/sb-admin-2.js"></script>
+  <script src="layout/js/jquery-3.4.0.min.js"></script>
+  <script src="layout/js/bootstrap.min.js"></script>
+  <script src="layout/js/fontawesome.js"></script>
+  <script src="layout/js/sb-admin-2.js"></script>
 </body>
 
 </html>

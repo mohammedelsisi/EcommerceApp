@@ -21,11 +21,12 @@ class Encryptor {
     public static synchronized Encryptor getEncryptor (){
         return encryptor;
     }
-    String encrypt(String ss){
-        return textEncryptor.encrypt(ss);
+    String encrypt(String email,String password){
+
+        return textEncryptor.encrypt(email+"@@"+password);
     }
-    String decrypt(String ss){
-        return textEncryptor.decrypt(ss);
+    String [] decrypt(String ss){
+        return textEncryptor.decrypt(ss).split("@@");
     }
 
 }

@@ -28,7 +28,7 @@ public class SignUp extends HttpServlet {
         UserDTO userDTO = fillUserData(req);
         RegistrationService registrationService = (RegistrationService) req.getServletContext().getAttribute("RegistrationService");
         registrationService.register(userDTO);
-        resp.sendRedirect("Login");
+        resp.sendRedirect("Login?email="+userDTO.getEmail());
 
 
     }
