@@ -55,6 +55,19 @@
                 <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                 <div class="col-lg-7">
                     <div class="p-5">
+                        <div class="row align-items-center">
+                            <div class="col-12 mb-md-0 order-1 order-md-2 text-center">
+                                <div class="site-logo">
+                                    <a href="Home" class="js-logo-clone">
+                                        <div class="brand-icon ">
+                                            <i class="fas fa-store"></i>
+                                        </div>
+                                        <h2 class="brand-text mx-3">Naseej Store</h2>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                         </div>

@@ -23,6 +23,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Chango&family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <!-- to add down arrow to menus -->
+    <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="layout/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="layout/css/magnific-popup.css"> -->
+    <link rel="stylesheet" href="layout/css/jquery-ui.css">
+    <!-- to let horizontal scrolling -->
+    <link rel="stylesheet" href="layout/css/owl.carousel.min.css">
+    <!-- to add animations on vertical scrolling -->
+    <link rel="stylesheet" href="layout/css/aos.css">
+    <!-- main Style file -->
+    <link rel="stylesheet" href="layout/css/style.css">
+    <link rel="stylesheet" href="layout/css/rangeSlider.css"/>
+    <link rel="stylesheet" href="layout/css/slider-style.css"/>
+    <!-- for font awsowome icon -->
+    <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/rSlider.min.css">
+    <link rel="stylesheet" href="layout/css/rSlider.min.css"/>
+    <link rel="stylesheet" href="layout/css/rSlider.css"/>
+
 </head>
 
 <body class="bg-gradient-primary">
@@ -39,10 +60,28 @@
             <!-- Nested Row within Card Body -->
             <div class="row">
               <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+
               <div class="col-lg-6">
-                <div class="p-5">
-                  <div class="text-center">
-                      <c:choose>
+
+                  <div class="p-5">
+                      <div class="row align-items-center">
+                          <div class="col-12 mb-md-0 order-1 order-md-2 text-center">
+                              <div class="site-logo">
+                                  <a href="Home" class="js-logo-clone">
+                                      <div class="brand-icon ">
+                                          <i class="fas fa-store"></i>
+                                      </div>
+                                      <h2 class="brand-text mx-3">Naseej Store</h2>
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                      <br>
+
+
+                      <div class="text-center">
+
+                        <c:choose>
                           <c:when test="${not empty param.email}">
                               <h1 class="h4 text-gray-900 mb-4" style="font-family: Oswald,serif"> Registration Success</h1>
 
