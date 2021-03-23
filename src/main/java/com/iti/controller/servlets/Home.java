@@ -2,7 +2,7 @@ package com.iti.controller.servlets;
 
 import com.iti.model.DTO.ProductDTO;
 
-import com.iti.service.HomeService;
+import com.iti.service.ProductsService;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -18,8 +18,8 @@ public class Home extends HttpServlet {
     List<ProductDTO> products = new ArrayList<>();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HomeService homeService=(HomeService) req.getServletContext().getAttribute("HomeService");
-        products=homeService.retriveMaxiQuant();
+        ProductsService productsService =(ProductsService) req.getServletContext().getAttribute("ProductsService");
+        products= productsService.retriveMaxiQuant();
         req.setAttribute("data",products);
         System.out.println(products);
         RequestDispatcher view = req.getRequestDispatcher("HomeJsp");

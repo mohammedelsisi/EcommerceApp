@@ -1,4 +1,4 @@
 package com.iti.controller.filters;
 
-public class MainFilter {
+public class MainFilter  {
 }
