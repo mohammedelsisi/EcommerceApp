@@ -1,5 +1,7 @@
 package com.iti.model.DTO;
 
+import com.iti.model.RoleUser;
+
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +14,7 @@ public class UserDTO {
     private Date birthday;
     private String password;
     private List<String> interests;
+    private RoleUser Role;
     private List<String> addresses;
     private String image;
 
@@ -28,7 +31,6 @@ public class UserDTO {
                 ", password='" + password + '\'' +
                 ", interests=" + interests +
                 ", addresses=" + addresses +
-                ", image=" + image +
                 '}';
     }
 
@@ -115,6 +117,14 @@ public class UserDTO {
 
     public void setInterests(List<String> interests) {
         this.interests = interests;
+    }
+
+    public RoleUser getRole() {
+        return Role;
+    }
+
+    public void setRole(RoleUser role) {
+        Role = role;
     }
 
     public void setAddresses(List<String> addresses) {

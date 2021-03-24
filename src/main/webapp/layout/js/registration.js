@@ -49,7 +49,7 @@ $(document).ready(function () {
         if (result == "Valid") {
             validEmailUI();
         } else {
-            inValidEmailUi(" This Email has an account go to login >> <a href=\"login\">Login</a>");
+            inValidEmailUi(" This Email has an account go to login >> <a href='Login'>Login</a>");
         }
     }
 
