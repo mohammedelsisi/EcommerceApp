@@ -255,8 +255,7 @@
 
                             <input type="File" name="ChosenUserimage" id="ChosenUserimag2e">
 
-                            <form action="upload.php" method="post" enctype="multipart/form-data">
-
+                            <form id="imageData" method="post" enctype="multipart/form-data">
                                 <label for="ChosenUserimage">
                                     <div class="profile-pic" id="UserImage"
                                          style="background-image: url('images/img_avatar2.png')">
@@ -264,7 +263,7 @@
                                         <span class="fas fa-camera"></span>
                                         <span >Change Image</span>
                                         </div>
-                                        <input type="File" name="ChosenUserimage" id="ChosenUserimage">
+                                        <input type="File" name="ChosenUserImageName" id="ChosenUserimage">
 
                                     </div>
                                 </label>
@@ -405,67 +404,11 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/fontawesome.js"></script>
 <script src="js/sb-admin-2.js"></script>
-<script>
-
-    (function () {
-        'use strict'
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                }, false)
-            })
-    })()
-
-    $('.nav-item').on('click', function(){
-        var isAlreadySelected = $(this).hasClass('background_selected');
-        $('.nav-item').removeClass('background_selected');
-        if(!isAlreadySelected) {
-            $(this).addClass('background_selected');
-        }
-    });
+<script src="js/sb-admin-2.js"></script>
+<script src="layout/js/profileScript.js"></script>
 
 
-        function chooseimage() {
-            document.getElementById("UserImage").style = "background-image: url('" + document.getElementById("ChosenUserimage") + "')";
-            //url = "images/img_avatar.png";
 
-        }
-</script>
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#UserImage').css('background-image', 'url('+e.target.result +')');
-                $('#UserImage').hide();
-                $('#UserImage').fadeIn(650);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $("#ChosenUserimage").change(function() {
-        readURL(this);
-    });
-</script>
-<script>
-    function sendData(){
-        let userName = $("#usernameInputExample").val();
-        let birthDate = $("#userDateId").val();
-        let userJob =$("#userJobId").val();
-        let creditLimit =$("#exampleInputCreditLimit").val();
-        console
-    }
-</script>
 </body>
 
 </html>
