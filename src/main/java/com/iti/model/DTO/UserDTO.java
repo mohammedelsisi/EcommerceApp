@@ -3,7 +3,9 @@ package com.iti.model.DTO;
 import com.iti.model.RoleUser;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class UserDTO {
     private long id;
@@ -15,6 +17,7 @@ public class UserDTO {
     private String password;
     private List<String> interests;
     private RoleUser Role;
+     Set<CartItemDTO> cartItem=new HashSet<>();
 
     @Override
     public String toString() {
@@ -123,5 +126,13 @@ public class UserDTO {
 
     public void setRole(RoleUser role) {
         Role = role;
+    }
+
+    public Set<CartItemDTO> getCartItem() {
+        return cartItem;
+    }
+
+    public void setCartItem(Set<CartItemDTO> cartItem) {
+        this.cartItem = cartItem;
     }
 }

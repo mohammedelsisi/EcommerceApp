@@ -74,6 +74,15 @@
         <url-pattern>/ShopJsp</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <jsp-file>/Pages/common/Cart.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/CartJSP</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

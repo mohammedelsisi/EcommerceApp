@@ -1,5 +1,6 @@
 package com.iti.controller.listners;
 
+import com.iti.service.BuyingService;
 import com.iti.service.ProductsService;
 import com.iti.service.LoginService;
 import com.iti.service.RegistrationService;
@@ -16,12 +17,15 @@ public class ContextListener implements ServletContextListener {
         RegistrationService registrationService = RegistrationService.getInstance();
         LoginService loginService = LoginService.getInstance();
         ProductsService productsService = ProductsService.getInstance();
+        BuyingService buyingService=BuyingService.getInstance();
         ServletContext servletContext = sce.getServletContext();
+
         servletContext.setAttribute("RegistrationService",registrationService);
         servletContext.setAttribute("LoginService",loginService);
         servletContext.setAttribute("ProductsService", productsService);
         servletContext.setAttribute("Colors",productsService.getColors());
         servletContext.setAttribute("Sizes",productsService.getSizes());
+        servletContext.setAttribute("BuyingService",buyingService);
     }
 
     @Override
