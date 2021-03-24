@@ -253,7 +253,7 @@
   padding: 10px;
   text-align: center;">
 
-                            <input type="File" name="ChosenUserimage" id="ChosenUserimag2e">
+<%--                            <input type="File" name="ChosenUserimage" id="ChosenUserimag2e">--%>
 
                             <form action="upload.php" method="post" enctype="multipart/form-data">
 
@@ -268,39 +268,46 @@
 
                                     </div>
                                 </label>
+                                </label>
                             </form>
-                            <button onclick="chooseimage()">Try it</button>
+
                         </div>
                     </div>
                     <form class="user needs-validation" method="post" id="ProfileForm"
                           enctype="multipart/form-data" action="EditingUser" novalidate style="margin-top: 60px" onsubmit="sendData();return false">
                         <h1 class="h4 text-gray-900 mb-4" STYLE="text-align: center">${sessionScope.currentUser.email}</h1>
-                        <div class="form-group row">
+
+
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control form-control-user" id="userDateId"
+                                       placeholder="Your Birthdate .. " max="2010-01-01" value="${sessionScope.currentUser.birthday}" required>
+                                <label style="color: grey" >Birth Date</label>
+                            </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control form-control-user" id="usernameInputExample"
-                                       placeholder="User Name .. " value="${sessionScope.currentUser.userName}" required>
+                                       placeholder="User Name..." value="${sessionScope.currentUser.userName}">
                                 <label style="color: grey" >User Name</label>
                             </div>
-                            <div class="form-group">
-                                <input type="date" class="form-control form-control-user" id="userDateId"
-                                       placeholder="Birthdate .. " max="2010-01-01" value="${sessionScope.currentUser.birthday}" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="number" class="form-control form-control-user" id="exampleInputCreditLimit"
-                                       placeholder="Credit limit..." value="${sessionScope.currentUser.creditLimit}">
-                            </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control form-control-user" id="exampleInputPhoneNumber"
+                                   placeholder="Your Phone Number" value="${sessionScope.currentUser.creditLimit}">
+                            <label style="color: grey" >Phone Number</label>
                         </div>
-
-
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control form-control-user" id="exampleInputCreditLimit"
+                                   placeholder="Your Credit Limit" value="${sessionScope.currentUser.creditLimit}">
+                            <label style="color: grey" >Credit Limit</label>
+                        </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control form-control-user" id="userJobId"
                                    placeholder="Your Job" value="${sessionScope.currentUser.job}">
                             <label style="color: grey" >Job</label>
                         </div>
-
-                        <table>
+<center>
+                        <table >
                         <td><div style="margin-right:2px; margin-left: 2px;" class="form-group row">
-                            <button type="submit" class="btn btn-primary btn-user btn-block">Edit Profile</button>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">Save Changes</button>
                         </div></td>
                         <td><div style="margin-right:2px; margin-left: 2px;" class="form-group row">
                             <a href="#" class="btn btn-primary btn-user btn-block"
@@ -308,6 +315,7 @@
                             Change Password</a></div></td>
                         </table>
 
+</center>
                     </form>
 
                 </div>

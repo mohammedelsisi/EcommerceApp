@@ -246,15 +246,13 @@
                             <table STYLE=" position: absolute;  bottom: 0;">
                                 <tr>
                                     <td style="padding-right: 50px;">
-                                        <div class="form-group">
-                                            <input type="submit" class="btn btn-primary btn-user btn-block "
-                                                   value="save"
-                                                   style="bottom:0; margin-top: 10%">
-                                        </div>
+
 
 
                                     </td>
-                                    <td>
+
+                                    <td style="padding-left: 110px">
+                                       
                                         <div class="form-group">
                                             <button onclick="appendAddress()"
                                                     class="btn btn-primary btn-user btn-block "
@@ -262,6 +260,7 @@
                                             </button>
 
                                         </div>
+                                        
                                     </td>
 
                                 </tr>
