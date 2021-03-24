@@ -15,15 +15,33 @@
         <servlet-name>Registration</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
-        <servlet>
-            <servlet-name>HomeServlet</servlet-name>
-            <jsp-file>/Pages/common/Home.jsp</jsp-file>
-        </servlet>
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <jsp-file>/Pages/common/Home.jsp</jsp-file>
+    </servlet>
 
-        <servlet-mapping>
-            <servlet-name>HomeServlet</servlet-name>
-            <url-pattern>/HomeJsp</url-pattern>
-        </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/HomeJsp</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UserProfile</servlet-name>
+        <jsp-file>/Pages/common/profile.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserProfile</servlet-name>
+        <url-pattern>/ProfileJsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Addresses</servlet-name>
+        <jsp-file>/Pages/common/address.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Addresses</servlet-name>
+        <url-pattern>/AddressesJsp</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

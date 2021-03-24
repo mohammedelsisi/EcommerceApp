@@ -1,4 +1,4 @@
-package com.iti.controller.servlets;
+package com.iti.controller.screens;
 
 import com.iti.model.DTO.UserDTO;
 import com.iti.service.ProfileService;
@@ -20,39 +20,30 @@ import java.util.Date;
 import java.util.List;
 
 import static java.lang.Double.parseDouble;
-import static java.lang.Double.valueOf;
 
-@WebServlet("/Addresses")
-public class Addresses extends HttpServlet {
+@WebServlet("/ChangePassword")
+public class UserPassword extends HttpServlet {
 
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        List Data = changePassword(req);
         ProfileService profileService = (ProfileService) req.getServletContext().getAttribute("ProfileService");
-        if (req.getParameter("SelectOrAdd").equals("add")) {
-            String newaddress = AddAddress(req);
-            profileService.addAddress(newaddress);
-        } else if (req.getParameter("SelectOrAdd").equals("select")) {
-            int selectedaddress = SelectAddress(req);
-            profileService.selectAddress(selectedaddress);
-        }
+        profileService.changePassword( (String) Data.get(1),(String) Data.get(2));
     }
 
 
-    private String AddAddress(HttpServletRequest req) {
+    private List changePassword(HttpServletRequest req) {
 
         //System.out.println(req.getParameterMap());
-        String newaddress = req.getParameter("New Address");
-
-        return newaddress;
-    }
-
-    private int SelectAddress(HttpServletRequest req) {
-
-        //System.out.println(req.getParameterMap());
-      String  selectedaddress = req.getParameter("selected Address");
-
-        return Integer.parseInt(selectedaddress);
+        String currentPassword = req.getParameter("CurrentPassowrd");
+        double newPassword = parseDouble(req.getParameter("NewPassword"));
+        List<Object> Data = new ArrayList<>();
+        Data.add(currentPassword);
+        Data.add(newPassword);
+        return Data;
     }
 
 }
+

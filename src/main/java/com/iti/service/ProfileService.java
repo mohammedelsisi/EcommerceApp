@@ -1,5 +1,6 @@
 package com.iti.service;
 
+import com.iti.controller.servlets.Addresses;
 import com.iti.model.DTO.UserDTO;
 import com.iti.model.Dao.Imp.UserDAOImp;
 import com.iti.model.Dao.UserDao;
@@ -9,6 +10,8 @@ import java.util.List;
 
 public class ProfileService {
     private final UserDao userDao = UserDAOImp.getInstance();
+
+
     private static final ProfileService profileService = new ProfileService();
 
     public static synchronized ProfileService getInstance() {
@@ -25,23 +28,18 @@ public class ProfileService {
 
     }
 
-    public boolean changePassword(UserDTO user, String oldpassword, String newpassword) {
-        if (user.getPassword().equals(oldpassword)) {
-            user.setPassword(newpassword);
-            return true;
-        } else {
-            return false;
-        }
+   public boolean changePassword(String oldpassword, String newpassword){
+        return userDao.changePassword( oldpassword, newpassword);
+    }
+
+    public boolean addAddress (String address) {
+        return userDao.addAddress(address) ;
     }
 
 
-    public boolean addAddress(UserDTO user, String address) {
-        user.getAddresses().add(address);
-        return true;
+    public String selectAddress( int selectedAddress) {
+
+        return userDao.selectAddress(selectedAddress);
     }
 
-
-    public String selectAddress(UserDTO user, int selectedAddress) {
-        return user.getAddresses().get(selectedAddress);
-    }
 }

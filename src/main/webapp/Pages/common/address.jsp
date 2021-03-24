@@ -13,15 +13,15 @@
 
     <!-- Custom fonts for this template-->
 
-    <link href="../../css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
     <!-- Custom styles for this template-->
 
-    <link rel="stylesheet" href="../../css/all.min.css"/>
-    <link rel="stylesheet" href="../../css/style.css"/>
-    <link href="../../css/sb-admin-2.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="css/sb-admin-2.css" rel="stylesheet">
 </head>
 
 <body class="bg-gradient-primary">
@@ -124,7 +124,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="profile.html">
+            <a class="nav-link" href="ProfileJsp">
                 <i class="fas fa-user"></i>
                 <span>Profile</span></a>
 
@@ -158,7 +158,7 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
         <li class="nav-item" style="background-color : #bcbcbc;">
-            <a class="nav-link" href="address.html">
+            <a class="nav-link" href="address.jsp">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>Addresses</span></a>
         </li>
@@ -211,52 +211,63 @@
                     <div>
                         <h1 class="h4 text-gray-900 mb-4" STYLE="text-align: center; "> Addresses</h1>
                         <form class="user">
+                            <ul id="Addresses" style=" list-style-type: none;">
+                                <li>
+                                    <input type="radio" id="address1" name="address" style="margin-top: 10%">
+                                    <label for="address1"> Dokki, Cairo, Egypt</label><br>
+                                    <!-- Divider -->
+                                    <hr class="sidebar-divider my-0">
+                                </li>
+                                <li>
+                                    <input type="radio" id="address2" name="address" style="margin-top: 10%">
+                                    <label for="address2">Zahabia, Hurghada, Egypt</label><br>
+                                    <!-- Divider -->
+                                    <hr class="sidebar-divider my-0">
+                                </li>
+                                <li>
+                                    <input type="radio" id="address3" name="address" style="margin-top:10%">
+                                    <label for="address3">Campcheaser,Alexandia, Egypt</label><br>
+                                    <!-- Divider -->
+                                    <hr class="sidebar-divider my-0">
+                                </li>
+                            </ul>
 
-                            <input type="radio" id="address1" name="address" style="margin-top: 10%">
-                            <label for="address1"> Dokki, Cairo, Egypt</label><br>
-                            <!-- Divider -->
-                            <hr class="sidebar-divider my-0">
-                            <input type="radio" id="address2" name="address" style="margin-top: 10%">
-                            <label for="address2">Zahabia, Hurghada, Egypt</label><br>
-                            <!-- Divider -->
-                            <hr class="sidebar-divider my-0">
-                            <input type="radio" id="address3" name="address" style="margin-top:10%">
-                            <label for="address3">Campcheaser,Alexandia, Egypt</label><br>
-                            <!-- Divider -->
-                            <hr class="sidebar-divider my-0">
 
                             <div class="form-group">
-                            <input type="text" class="form-control form-control-user"
-                                   id="exampleInputAddress"STYLE=" position: absolute;  bottom: 100px; width: 85%"
-                                   placeholder="Address...">
+                                <input type="text" class="form-control form-control-user"
+                                       id="exampleInputAddress" STYLE=" position: absolute;  bottom: 100px; width: 85%"
+                                       placeholder="Address...">
                             </div>
 
-                            <div class="form-group">
 
-                                <table STYLE=" position: absolute;  bottom: 0;">
-                                    <tr>
-                                        <td style="padding-right: 50px;">
-                                            <div class="form-group">
-                                                <input type="submit" class="btn btn-primary btn-user btn-block " value="save"
-                                                       style="bottom:0; margin-top: 10%">
-                                            </div>
+                        </form>
+                        <div class="form-group">
+
+                            <table STYLE=" position: absolute;  bottom: 0;">
+                                <tr>
+                                    <td style="padding-right: 50px;">
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary btn-user btn-block "
+                                                   value="save"
+                                                   style="bottom:0; margin-top: 10%">
+                                        </div>
 
 
-                                        </td>
-                                        <td>
-                                            <div class="form-group">
-                                            <button class="btn btn-primary btn-user btn-block "
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <button onclick="appendAddress()"
+                                                    class="btn btn-primary btn-user btn-block "
                                                     style="margin-top: 10%">Add
                                             </button>
 
-                                            </div>
-                                        </td>
+                                        </div>
+                                    </td>
 
-                                    </tr>
-                                </table>
-                            </div>
+                                </tr>
+                            </table>
 
-                        </form>
+                        </div>
                     </div>
 
                 </div>
@@ -338,29 +349,39 @@
         </div>
     </div>
 </div>
-<script src="../../js/jquery-3.4.0.min.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/fontawesome.js"></script>
-<script src="../../js/sb-admin-2.js"></script>
+<script src="js/jquery-3.4.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/fontawesome.js"></script>
+<script src="js/sb-admin-2.js"></script>
 <script>
     (function () {
-    'use strict'
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
+        'use strict'
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
 
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
 
-                form.classList.add('was-validated')
-            }, false)
-        })
-})()
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+
+    function appendAddress() {
+
+        var node = document.createElement("LI");
+
+        node.innerHTML = ('<input type="radio" id="address1" name="address" style="margin-top: 10%"> <label for="address1">' + document.getElementById("exampleInputAddress").value + '</label><!-- Divider --><hr class="sidebar-divider my-0">');
+
+        document.getElementById("Addresses").appendChild(node);
+
+    }
 </script>
 
 </body>

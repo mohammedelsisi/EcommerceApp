@@ -13,15 +13,15 @@
 
     <!-- Custom fonts for this template-->
 
-    <link href="../../css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link rel="stylesheet" href="../../css/all.min.css"/>
-    <link rel="stylesheet" href="../../css/style.css"/>
-    <link href="../../css/sb-admin-2.css" rel="stylesheet">
-    <link href="../../css/changephoto.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/changephoto.css" rel="stylesheet">
 
 
     <meta charset="utf-8">
@@ -31,19 +31,19 @@
     <meta name="author" content="">
 
     <!-- Custom fonts for this template-->
-    <link href="../../css/bootstrap/bootstrap_5.0.css" rel="stylesheet">
+    <link href="css/bootstrap/bootstrap_5.0.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../../css/sb-admin-2.css" rel="stylesheet">
-    <link href="../../css/new_all.min/all.min.css">
-    <script src="../../js/JQuery/jquery-3.6.0.js"></script>
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/new_all.min/all.min.css">
+    <script src="js/JQuery/jquery-3.6.0.js"></script>
 
     <!--     to add the multiple selection plugin -->
-    <link href="../../css/filter_multi_select.css" rel="stylesheet">
-    <script src="../../js/filter-multi-select-bundle.js"></script>
+    <link href="css/filter_multi_select.css" rel="stylesheet">
+    <script src="js/filter-multi-select-bundle.js"></script>
 <style>
     .nav-item {
         background-color : #ffffff;
@@ -255,22 +255,29 @@
 
 
                             <form action="upload.php" method="post" enctype="multipart/form-data">
-                                <label for="fileToUpload">
-                                    <div class="profile-pic"
-                                         style="background-image: url('../../images/img_avatar2.png')">
+
+                                <label for="ChosenUserimage">
+                                    <div class="profile-pic" id="UserImage"
+                                         style="background-image: url('images/img_avatar2.png')">
+                                        <div style="">
                                         <span class="fas fa-camera"></span>
-                                        <span>Change Image</span>
+                                        <span >Change Image</span>
+                                        </div>
                                     </div>
                                 </label>
-                                <input type="File" name="fileToUpload" id="fileToUpload">
+                                <input type="File" name="ChosenUserimage" id="ChosenUserimage">
                             </form>
-
+                            <button onclick="chooseimage()">Try it</button>
                         </div>
                     </div>
                     <form class="user needs-validation" method="post" id="ProfileForm"
                           enctype="multipart/form-data" action="" novalidate style="margin-top: 60px">
-                        <h1 class="h4 text-gray-900 mb-4" STYLE="text-align: center"> Timmy Turner</h1>
+                        <h1 class="h4 text-gray-900 mb-4" STYLE="text-align: center">ReginaFlange@gmail.com</h1>
                         <div class="form-group row">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="usernameInputExample"
+                                       placeholder="User Name .. " required>
+                            </div>
                             <div class="form-group">
                                 <input type="date" class="form-control form-control-user" id="userDateId"
                                        placeholder="Birthdate .. " max="2010-01-01" value="1990-01-01" required>
@@ -283,23 +290,9 @@
 
 
                         <div class="form-floating mb-3">
-
-                            <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                       aria-describedby="emailHelp" placeholder="Email Address..." required>
-
-                            <label style="color: grey" for="exampleInputEmail">Email address</label>
-                            <div style="padding-left: 25px" class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div style="padding-left: 25px" class="invalid-feedback">
-                                Email must be at format xx@xx.xx
-                            </div>
-                        </div>
-
-                        <div class="form-floating mb-3">
                             <input type="text" class="form-control form-control-user" id="userJobId"
                                    placeholder="Your Job">
-                            <label style="color: grey" for="exampleInputEmail">Job</label>
+                            <label style="color: grey" >Job</label>
                         </div>
 
                         <table>
@@ -364,7 +357,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel2">Change Password</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
+                    <span aria-hidden="true">x</span>
                 </button>
             </div>
             <form class="user needs-validation" method="post"  id="registrationForm"
@@ -381,8 +374,6 @@
                     <div class="form-group">
                     <input type="password" class="form-control form-control-user"
                            id="exampleInputPassword" placeholder="Password" minlength="6" required>
-                    <label style="padding-left:25px;color: grey"
-                           for="exampleInputPassword">Password</label>
                     <div style="padding-left: 25px" class="valid-feedback">
                         Looks good!
                     </div>
@@ -394,8 +385,7 @@
                 <div class="form-group">
                     <input type="password" class="form-control form-control-user"
                            id="exampleRepeatPassword" placeholder="Repeat Password" minlength="6" required>
-                    <label style="padding-left:25px;color: grey" for="exampleRepeatPassword">Repeat
-                        Password</label>
+
 
                 </div>
                 <div class="modal-footer">
@@ -407,10 +397,11 @@
         </div>
     </div>
 </div>
-<script src="../../js/jquery-3.4.0.min.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/fontawesome.js"></script>
-<script src="../../js/sb-admin-2.js"></script>
+
+<script src="js/jquery-3.4.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/fontawesome.js"></script>
+<script src="js/sb-admin-2.js"></script>
 <script>
 
     (function () {
@@ -439,6 +430,12 @@
             $(this).addClass('background_selected');
         }
     });
+
+
+        function chooseimage() {
+        document.getElementById("UserImage"). style="background-image: url('" +  document.getElementById("ChosenUserimage") + "')";
+            //url = "images/img_avatar.png";
+    }
 </script>
 </body>
 
