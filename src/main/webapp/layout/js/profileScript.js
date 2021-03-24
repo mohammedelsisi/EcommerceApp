@@ -26,11 +26,6 @@
     });
 
 
-    function chooseimage() {
-        document.getElementById("UserImage").style = "background-image: url('" + document.getElementById("ChosenUserimage") + "')";
-        //url = "images/img_avatar.png";
-
-    }
 
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -64,27 +59,6 @@
         });
     });
 
-    function sendData() {
-        let userName = $("#usernameInputExample").val();
-        let birthDate = $("#userDateId").val();
-        let userJob = $("#userJobId").val();
-        let creditLimit = $("#exampleInputCreditLimit").val();
-        console.log({"userName": userName, "date": birthDate, "job": userJob, "creditLimit": creditLimit});
-        $.ajax({
-            url: "EditingUser",
-            method: "POST",
-            dataType: "html",
-            data: {
-                "userName": userName,
-                "birthDate": birthDate,
-                "job": userJob,
-                "phone": "+201027579113",
-                "creditLimit": creditLimit
-            }
-
-        })
-    }
-
     $("#imageData").submit(function (e) {
         e.preventDefault();
         var formData = new FormData(this);
@@ -102,4 +76,27 @@
             processData: false
         });
     });
-})()
+})();
+
+
+
+function sendData() {
+    let userName = $("#usernameInputExample").val();
+    let birthDate = $("#userDateId").val();
+    let userJob = $("#userJobId").val();
+    let creditLimit = $("#exampleInputCreditLimit").val();
+    console.log({"userName": userName, "date": birthDate, "job": userJob, "creditLimit": creditLimit});
+    $.ajax({
+        url: "EditingUser",
+        method: "POST",
+        dataType: "html",
+        data: {
+            "userName": userName,
+            "birthDate": birthDate,
+            "job": userJob,
+            "phone": "+201027579113",
+            "creditLimit": creditLimit
+        }
+
+    })
+}

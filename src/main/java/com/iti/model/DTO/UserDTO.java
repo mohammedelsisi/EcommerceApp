@@ -17,7 +17,15 @@ public class UserDTO {
     private RoleUser Role;
     private List<String> addresses;
     private String image;
+    private String phoneNumber;
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     @Override
     public String toString() {
