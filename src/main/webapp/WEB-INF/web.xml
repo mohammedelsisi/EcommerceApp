@@ -80,7 +80,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UserProfile</servlet-name>
-        <url-pattern>/ProfileJsp</url-pattern>
+        <url-pattern>/Profile</url-pattern>
     </servlet-mapping>
 
     <servlet>

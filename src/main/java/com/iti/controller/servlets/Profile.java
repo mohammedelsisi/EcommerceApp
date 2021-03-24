@@ -21,7 +21,7 @@ import java.util.List;
 
 import static java.lang.Double.parseDouble;
 
-@WebServlet("/Profile")
+@WebServlet("/EditingUser")
 public class Profile extends HttpServlet {
 
 

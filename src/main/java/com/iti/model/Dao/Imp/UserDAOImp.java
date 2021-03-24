@@ -4,6 +4,7 @@ import com.iti.model.DTO.UserDTO;
 import com.iti.model.Dao.UserDao;
 
 import javax.xml.crypto.Data;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,7 +31,11 @@ public class UserDAOImp implements UserDao {
     @Override
     public UserDTO getUser(String email, String password) {
         if (email.equals("true@true.com") && password.equals("123456")) {
-            return new UserDTO("ahmed", email, password);
+            LocalDate localDate = LocalDate.of(1994,11,26);
+            UserDTO userDTO = new UserDTO("ahmed", email, password);
+            userDTO.setBirthday(java.sql.Date.valueOf(localDate));
+            userDTO.setCreditLimit(12.0);
+            return userDTO;
         } else {
             return null;
         }
