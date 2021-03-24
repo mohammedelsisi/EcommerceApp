@@ -56,6 +56,7 @@
   }
   </style>
 
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
   <!-- to add down arrow to menus -->
   <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
@@ -72,6 +73,7 @@
   <!-- for font awsowome icon -->
   <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="layout/css/about.css" rel="stylesheet" type="text/css">
+
   <style>
     h1 {
       font-size: 100%;
@@ -93,6 +95,14 @@
     <p>If you are the application owner check the logs for more information.</p>
   </div>
 <%@include file="../toInclude/footer.jsp"%>
+
+<script src="layout/js/jquery-ui.js"></script>
+<script src="layout/js/jquery-3.3.1.min.js"></script>
+<script src="layout/js/popper.min.js"></script>
+<script src="layout/js/bootstrap.min.js"></script>
+<script src="layout/js/owl.carousel.min.js"></script>
+<script src="layout/js/jquery.magnific-popup.min.js"></script>
+<script src="layout/js/aos.js"></script>
 
 </body>
 </html>
