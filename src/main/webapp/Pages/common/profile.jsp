@@ -253,6 +253,7 @@
   padding: 10px;
   text-align: center;">
 
+                            <input type="File" name="ChosenUserimage" id="ChosenUserimag2e">
 
                             <form action="upload.php" method="post" enctype="multipart/form-data">
 
@@ -263,35 +264,37 @@
                                         <span class="fas fa-camera"></span>
                                         <span >Change Image</span>
                                         </div>
+                                        <input type="File" name="ChosenUserimage" id="ChosenUserimage">
+
                                     </div>
                                 </label>
-                                <input type="File" name="ChosenUserimage" id="ChosenUserimage">
                             </form>
                             <button onclick="chooseimage()">Try it</button>
                         </div>
                     </div>
                     <form class="user needs-validation" method="post" id="ProfileForm"
-                          enctype="multipart/form-data" action="" novalidate style="margin-top: 60px">
-                        <h1 class="h4 text-gray-900 mb-4" STYLE="text-align: center">ReginaFlange@gmail.com</h1>
+                          enctype="multipart/form-data" action="EditingUser" novalidate style="margin-top: 60px" onsubmit="sendData();return false">
+                        <h1 class="h4 text-gray-900 mb-4" STYLE="text-align: center">${sessionScope.currentUser.email}</h1>
                         <div class="form-group row">
-                            <div class="form-group">
+                            <div class="form-floating mb-3">
                                 <input type="text" class="form-control form-control-user" id="usernameInputExample"
-                                       placeholder="User Name .. " required>
+                                       placeholder="User Name .. " value="${sessionScope.currentUser.userName}" required>
+                                <label style="color: grey" >User Name</label>
                             </div>
                             <div class="form-group">
                                 <input type="date" class="form-control form-control-user" id="userDateId"
-                                       placeholder="Birthdate .. " max="2010-01-01" value="1990-01-01" required>
+                                       placeholder="Birthdate .. " max="2010-01-01" value="${sessionScope.currentUser.birthday}" required>
                             </div>
                             <div class="form-group">
                                 <input type="number" class="form-control form-control-user" id="exampleInputCreditLimit"
-                                       placeholder="Credit limit...">
+                                       placeholder="Credit limit..." value="${sessionScope.currentUser.creditLimit}">
                             </div>
                         </div>
 
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control form-control-user" id="userJobId"
-                                   placeholder="Your Job">
+                                   placeholder="Your Job" value="${sessionScope.currentUser.job}">
                             <label style="color: grey" >Job</label>
                         </div>
 
@@ -433,8 +436,34 @@
 
 
         function chooseimage() {
-        document.getElementById("UserImage"). style="background-image: url('" +  document.getElementById("ChosenUserimage") + "')";
+            document.getElementById("UserImage").style = "background-image: url('" + document.getElementById("ChosenUserimage") + "')";
             //url = "images/img_avatar.png";
+
+        }
+</script>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#UserImage').css('background-image', 'url('+e.target.result +')');
+                $('#UserImage').hide();
+                $('#UserImage').fadeIn(650);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#ChosenUserimage").change(function() {
+        readURL(this);
+    });
+</script>
+<script>
+    function sendData(){
+        let userName = $("#usernameInputExample").val();
+        let birthDate = $("#userDateId").val();
+        let userJob =$("#userJobId").val();
+        let creditLimit =$("#exampleInputCreditLimit").val();
+        console
     }
 </script>
 </body>
