@@ -2,7 +2,7 @@ package com.iti.controller.servlets.adminpanel;
 
 import com.google.gson.Gson;
 import com.iti.model.DTO.ProductDTO;
-import com.iti.service.DataTablesService;
+import com.iti.service.ProductsService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/ProductsTable")
@@ -20,7 +19,7 @@ public class ProductsTable extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DataTablesService dataTablesService =(DataTablesService) request.getServletContext().getAttribute("DataTablesService");
+        ProductsService productsService =(ProductsService) request.getServletContext().getAttribute("ProductsService");
 
         String action= request.getParameter("action");
 
@@ -30,7 +29,7 @@ public class ProductsTable extends HttpServlet {
                 //TODO : make method get products filtered
                 //ProductDTO filter = getFilter(request);
                 //List<ProductDTO>  filteredProducts =dataTablesService.retriveAllProducts(filter);
-                List<ProductDTO> products =dataTablesService.retriveAllProducts();
+                List<ProductDTO> products =productsService.retrieveAllProducts();
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 String prods= json.toJson(products);

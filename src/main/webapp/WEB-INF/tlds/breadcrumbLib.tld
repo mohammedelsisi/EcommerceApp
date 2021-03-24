@@ -4,32 +4,31 @@
         http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
         version="2.1">
     <tlib-version>1.0</tlib-version>
-    <short-name>Mytags</short-name>
-    <uri>/WEB-INF/tlds/productLib</uri>
+    <short-name>BreadCrumbTag</short-name>
+    <uri>/WEB-INF/tlds/breadcrumbLib</uri>
     <tag>
-        <name>product</name>
-        <tag-class>com.iti.model.utils.ProductTag</tag-class>
+        <name>BreadCrumb</name>
+        <tag-class>com.iti.model.utils.BreadCrumbTag</tag-class>
         <body-content>empty</body-content>
         <attribute>
-            <name>img</name>
+            <name>dir</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>desc</name>
+            <name>parentDir</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>src</name>
+            <name>fontIcon</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>price</name>
+            <name>pageTitle</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
-            <type>double</type>
         </attribute>
 
     </tag>
