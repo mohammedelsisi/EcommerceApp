@@ -273,8 +273,9 @@
                         </div>
                     </div>
                     <form class="user needs-validation" id="ProfileForm"
-                          enctype="multipart/form-data" novalidate style="margin-top: 60px" onsubmit="sendData();return false">
-                    <h1 class="h4 text-gray-900 mb-4"
+                          enctype="multipart/form-data" novalidate style="margin-top: 60px"
+                          onsubmit="sendData();return false">
+                        <h1 class="h4 text-gray-900 mb-4"
                             STYLE="text-align: center">${sessionScope.currentUser.email}</h1>
 
                         <div class="form-floating mb-3">
@@ -377,9 +378,9 @@
                     <span aria-hidden="true">x</span>
                 </button>
             </div>
-            <form class="user needs-validation" method="post" id="registrationForm"
+            <form class="user" id="registrationForm"
                   style="margin-left: 10px; margin-right: 10px;"
-                  enctype="multipart/form-data" action="">
+                  enctype="multipart/form-data" onsubmit="changePassword();return false;">
                 <div class="modal-body">
                     Enter your current password and new password to change the password
                 </div>
@@ -403,11 +404,9 @@
                 <div class="form-group">
                     <input type="password" class="form-control form-control-user"
                            id="exampleRepeatPassword" placeholder="Repeat Password" minlength="6" required>
-
-
                 </div>
                 <div class="modal-footer">
-                    <input class="btn btn-secondary" type="submit" value="Ok" data-dismiss="modal"
+                    <input class="btn btn-secondary" type="submit" value="Ok"
                            style="background: #4e73df; border: #4e73df"/>
                     <input class="btn btn-secondary" type="reset" value="Cancel" data-dismiss="modal"/>
                 </div>

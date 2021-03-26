@@ -6,18 +6,23 @@ import java.util.Date;
 import java.util.List;
 
 public class UserDTO {
+
     private long id;
     private String userName;
-    private double creditLimit;
+    private String phoneNumber;
     private String email;
+    private double creditLimit;
+    private String image;
+    private RoleUser Role;
+
+
+
     private String job;
     private Date birthday;
     private String password;
     private List<String> interests;
-    private RoleUser Role;
     private List<String> addresses;
-    private String image;
-    private String phoneNumber;
+
 
     public String getPhoneNumber() {
         return phoneNumber;

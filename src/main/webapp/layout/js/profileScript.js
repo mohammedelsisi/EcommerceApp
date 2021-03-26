@@ -26,7 +26,6 @@
     });
 
 
-
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -79,12 +78,12 @@
 })();
 
 
-
 function sendData() {
     let userName = $("#usernameInputExample").val();
     let birthDate = $("#userDateId").val();
     let userJob = $("#userJobId").val();
     let creditLimit = $("#exampleInputCreditLimit").val();
+    console.log({"userName": userName, "date": birthDate, "job": userJob, "creditLimit": creditLimit});
     console.log({"userName": userName, "date": birthDate, "job": userJob, "creditLimit": creditLimit});
     $.ajax({
         url: "EditingUser",
@@ -99,4 +98,32 @@ function sendData() {
         }
 
     })
+}
+
+
+function changePassword() {
+    let currentPassword = $("#exampleInputNPassword").val();
+    let newPassword = $("#exampleInputPassword").val();
+    let confirmPassword = $("#exampleRepeatPassword").val();
+    if (newPassword != confirmPassword) {
+        console.log("Passwords must Match")
+    } else {
+
+
+        $.ajax({
+            url: "changePassword",
+            method: "POST",
+            dataType: "html",
+            data: {
+                "currentPassword": currentPassword,
+                "newPassword": newPassword,
+                "confirmPassword": confirmPassword,
+            },
+            success:function (receivedData){
+
+               console.log(receivedData)
+            }
+
+        })
+    }
 }

@@ -31,7 +31,7 @@ public class UserDAOImp implements UserDao {
     @Override
     public UserDTO getUser(String email, String password) {
         if (email.equals("true@true.com") && password.equals("123456")) {
-            LocalDate localDate = LocalDate.of(1994,11,26);
+            LocalDate localDate = LocalDate.of(1994, 11, 26);
             UserDTO userDTO = new UserDTO("ahmed", email, password);
             userDTO.setBirthday(java.sql.Date.valueOf(localDate));
             userDTO.setPhoneNumber("+201027579113");
@@ -57,13 +57,13 @@ public class UserDAOImp implements UserDao {
 
     @Override
     public boolean changePassword(String oldpassword, String newpassword) {
-        UserDTO user = new UserDTO();
-        if (user.getPassword().equals(oldpassword)) {
-            user.setPassword(newpassword);
+        if (oldpassword.equals("hello")) {
             return true;
         } else {
             return false;
         }
+
+
     }
 
     @Override
@@ -108,7 +108,7 @@ public class UserDAOImp implements UserDao {
     }
 
     @Override
-    public boolean editImage (String image){
+    public boolean editImage(String image) {
         UserDTO user = new UserDTO();
         user.setImage(image);
         return true;

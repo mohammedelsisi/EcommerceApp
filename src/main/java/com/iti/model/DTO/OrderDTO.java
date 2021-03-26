@@ -1,33 +1,15 @@
 package com.iti.model.DTO;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class OrderDTO {
+    private long id;
+    private String email;
     private String selectedAddress;
-    private LocalDate purchaseDate;
+    private Date purchaseDate;
     private double totalAmount;
+//    Set<CartItem> cart;
 
-    public String getSelectedAddress() {
-        return selectedAddress;
-    }
 
-    public void setSelectedAddress(String selectedAddress) {
-        this.selectedAddress = selectedAddress;
-    }
-
-    public LocalDate getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public void setPurchaseDate(LocalDate purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
-
-    public double getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
 }
