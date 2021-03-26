@@ -102,11 +102,12 @@ function sendData() {
 
 
 function changePassword() {
+    let changeDiv = $("#confirmChange");
     let currentPassword = $("#exampleInputNPassword").val();
     let newPassword = $("#exampleInputPassword").val();
     let confirmPassword = $("#exampleRepeatPassword").val();
     if (newPassword != confirmPassword) {
-        console.log("Passwords must Match")
+        changeDiv.html("new passwords must Match");
     } else {
 
 
@@ -120,10 +121,11 @@ function changePassword() {
                 "confirmPassword": confirmPassword,
             },
             success:function (receivedData){
-
-               console.log(receivedData)
+                changeDiv.html(receivedData);
             }
 
         })
     }
+    $("#changePasswordModal").modal("hide")
+    $("#changeInfoModal").modal("show")
 }

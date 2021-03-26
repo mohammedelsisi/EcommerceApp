@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="P" uri="/WEB-INF/tlds/productLib" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,8 +93,7 @@
                                     <span class="count">2</span>
                                 </a>
                             </li>
-                            <li class="d-inline-block d-md-none ml-md-0"><a href="#"
-                                                                            class="site-menu-toggle js-menu-toggle"><span
+                            <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
                                     class="icon-menu"></span></a></li>
                         </ul>
                     </div>
@@ -348,6 +350,22 @@
 </div>
 <!-- End of Page Wrapper -->
 
+<%--confrim send data modal--%>
+<div class="modal fade" id="changeInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" style="align-self: center">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Changing Your Profile</h5>
+            </div>
+            <div style="text-align: center" class="modal-body" id="confirmChange"></div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true" style="align-self: center">
@@ -368,7 +386,7 @@
     </div>
 </div>
 <!--changePassword Modal-->
-<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="changePasswordModal" tabindex="0" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true" style="align-self: center">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
