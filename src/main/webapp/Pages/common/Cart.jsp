@@ -54,22 +54,22 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <c: var rowID=0;>
                             <c:forEach items="${requestScope.CartItems}" var="i">
-
-                            <tr>
+                            <tr id=rowID>
                                 <td class="product-thumbnail">
-                                    <img src="${i.itemImg}" alt="Image" class="img-fluid">
+                                    <img src=${i.itemImg} alt="Image" class="img-fluid">
                                 </td>
                                 <td class="product-name">
                                     <h2 class="h5 text-black">${i.itemType}</h2>
                                 </td>
-                                <td>${i.itemPrice}</td>
+                                <td>$${i.itemPrice}</td>
                                 <td>
                                     <div class="input-group mb-3" style="max-width: 120px;">
                                         <div class="input-group-prepend">
                                             <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                                         </div>
-                                        <input  type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                                         </div>
@@ -77,16 +77,17 @@
 
                                 </td>
                                 <td>$49.00</td>
-                                <td><a href="#" class="btn btn-primary btn-sm>X</a></td>
+                                <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
                             </tr>
                             </c:forEach>
+
                             </tbody>
                         </table>
                     </div>
                 </form>
             </div>
 
-            <div class= "row">
+            <div class="row">
                 <div class="col-md-6">
                     <div class="row mb-5">
                         <div class="col-md-6 mb-3 mb-md-0">
