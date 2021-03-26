@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
                       https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0"
@@ -28,15 +28,15 @@
         <servlet-name>About</servlet-name>
         <url-pattern>/About</url-pattern>
     </servlet-mapping>
-        <servlet>
-            <servlet-name>HomeServlet</servlet-name>
-            <jsp-file>/Pages/common/Home.jsp</jsp-file>
-        </servlet>
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <jsp-file>/Pages/common/Home.jsp</jsp-file>
+    </servlet>
 
-        <servlet-mapping>
-            <servlet-name>HomeServlet</servlet-name>
-            <url-pattern>/HomeJsp</url-pattern>
-        </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/HomeJsp</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>Error</servlet-name>
         <jsp-file>/Pages/common/404.jsp</jsp-file>
@@ -57,16 +57,34 @@
         <servlet-name>ShopServlet</servlet-name>
         <url-pattern>/ShopJsp</url-pattern>
     </servlet-mapping>
-
+    <!--Admin JSPs and servlets-->
     <servlet>
-            <servlet-name>ProductsData</servlet-name>
-            <jsp-file>/Pages/AdminPanel/products.jsp</jsp-file>
-        </servlet>
+        <servlet-name>ProductsData</servlet-name>
+        <jsp-file>/Pages/AdminPanel/products.jsp</jsp-file>
+    </servlet>
 
-        <servlet-mapping>
-            <servlet-name>ProductsData</servlet-name>
-            <url-pattern>/prod</url-pattern>
-        </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductsData</servlet-name>
+        <url-pattern>/proddata</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UsersData</servlet-name>
+        <jsp-file>/Pages/AdminPanel/users.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UsersData</servlet-name>
+        <url-pattern>/usersData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>OrdersData</servlet-name>
+        <jsp-file>/Pages/AdminPanel/orders.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>OrdersData</servlet-name>
+        <url-pattern>/ordersData</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

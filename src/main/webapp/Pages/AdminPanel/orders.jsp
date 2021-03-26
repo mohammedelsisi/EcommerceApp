@@ -46,8 +46,8 @@
 
         <%--TODO Make Home points to DashBoard                --%>
         <!-- Breadcramb navigation-->
-        <B:BreadCrumb dir="Users" parentDir="DataTables" fontIcon="fas fa-user"
-                      pageTitle="Users"/>
+        <B:BreadCrumb dir="Orders" parentDir="DataTables" fontIcon="fas fa-truck-moving"
+                      pageTitle="Orders"/>
 
         <%--Page Content Goes here--%>
         <div id="jsGrid"></div>
@@ -83,7 +83,7 @@
 <script type="text/javascript" src="layout/js/sb-admin-2.js"></script>
 <%-- Page custom scritps--%>
 <script type="text/javascript" src="layout/js/jsgrid.min.js"></script>
-<script type="text/javascript" src="layout/js/usersTableManager.js"></script>
+<script type="text/javascript" src="layout/js/ordersTableManager.js"></script>
 
 
 </body>

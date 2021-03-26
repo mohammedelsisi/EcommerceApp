@@ -1,7 +1,6 @@
 package com.iti.model.DTO;
 
 public class ProductDTO  {
-
     private int prodID;
     private String prodType;
     private String prodDesc;

@@ -35,6 +35,12 @@ public class ProductsService {
 
         return productDao.getSizes();
     }
+    public List<String> getCategories(){
+        return productDao.getCategories();
+    }
+    public List<String> getTypes(){
+        return productDao.getTypes();
+    }
     public List<String> getColors( ) {
 
         return productDao.getColors();

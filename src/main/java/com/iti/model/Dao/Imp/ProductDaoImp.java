@@ -76,6 +76,23 @@ public class ProductDaoImp implements ProductDao {
         return list;
     }
 
+    @Override
+    public List<String> getCategories() {
+        List<String> list = new ArrayList<>();
+        list.add("Men");
+        list.add("Women");
+        list.add("Children");
+        return list;
+    }
+
+    @Override
+    public List<String> getTypes() {
+        List<String> list = new ArrayList<>();
+        list.add("T-Shirt");
+        list.add("Shirt");
+        list.add("Cap");
+        return list;
+    }
 
 
     @Override

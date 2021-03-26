@@ -8,27 +8,24 @@ import java.util.List;
 public class UserDTO {
     private long id;
     private String userName;
+    private String image;
     private double creditLimit;
     private String email;
+    private String phoneNumber;
+    private RoleUser Role;
     private String job;
     private Date birthday;
     private String password;
     private List<String> interests;
-    private RoleUser Role;
-
-    @Override
-    public String toString() {
-        return "UserDTO{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", creditLimit=" + creditLimit +
-                ", email='" + email + '\'' +
-                ", job='" + job + '\'' +
-                ", birthday=" + birthday +
-                ", password='" + password + '\'' +
-                ", interests=" + interests +
-                ", addresses=" + addresses +
-                '}';
+    private List<String> addresses;
+    public UserDTO(long id, String userName, String image, double creditLimit, String email, String phoneNumber, RoleUser role) {
+        this.id = id;
+        this.userName = userName;
+        this.image = image;
+        this.creditLimit = creditLimit;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        Role = role;
     }
 
     public UserDTO(String userName, String email, String password) {
@@ -36,8 +33,6 @@ public class UserDTO {
         this.email = email;
         this.password = password;
     }
-
-    private List<String> addresses;
 
     public UserDTO(long id, String userName, double creditLimit, String email, String job, Date birthday, String password, List<String> interests) {
         this.id = id;
@@ -124,4 +119,30 @@ public class UserDTO {
     public void setRole(RoleUser role) {
         Role = role;
     }
+
+    public List<String> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<String> addresses) {
+        this.addresses = addresses;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+
 }

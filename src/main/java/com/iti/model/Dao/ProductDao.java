@@ -16,4 +16,8 @@ public interface ProductDao {
 
     List<String> getColors();
 
+    List<String> getCategories();
+
+    List<String> getTypes();
+
 }

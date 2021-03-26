@@ -10,9 +10,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/ProductsTable")
+@WebServlet("/ProductsServlet")
 public class ProductsTable extends HttpServlet {
 
     Gson json = new Gson();
@@ -34,6 +35,17 @@ public class ProductsTable extends HttpServlet {
                 response.setCharacterEncoding("UTF-8");
                 String prods= json.toJson(products);
                 response.getWriter().write(prods);
+                break;
+            }
+            case "getMeta":{
+                List<List<String>> meta = new ArrayList<>();
+                meta.add(productsService.getTypes());
+                meta.add(productsService.getSizes());
+                meta.add(productsService.getCategories());
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                String metaJson= json.toJson(meta);
+                response.getWriter().write(metaJson);
                 break;
             }
             case "update":{
