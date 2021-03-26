@@ -1,13 +1,13 @@
 package com.iti.model.Dao.Imp;
 
+import com.iti.model.DTO.CartItemDTOM;
+import com.iti.model.DTO.OrderDTO;
 import com.iti.model.DTO.UserDTO;
 import com.iti.model.Dao.UserDao;
 
 import javax.xml.crypto.Data;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class UserDAOImp implements UserDao {
     private static final UserDAOImp userDAOImp = new UserDAOImp();
@@ -36,6 +36,29 @@ public class UserDAOImp implements UserDao {
             userDTO.setBirthday(java.sql.Date.valueOf(localDate));
             userDTO.setPhoneNumber("+201027579113");
             userDTO.setCreditLimit(12.0);
+            CartItemDTOM cartItemDTOM = new CartItemDTOM();
+            cartItemDTOM.setItemType("Shirt");
+            cartItemDTOM.setItemPrice(1200);
+            cartItemDTOM.setItemQuantity(2);
+            CartItemDTOM cartItemDTOM2 = new CartItemDTOM();
+            cartItemDTOM2.setItemType("Pants");
+            cartItemDTOM2.setItemPrice(1500);
+            cartItemDTOM2.setItemQuantity(2);
+            Set<CartItemDTOM> items = new HashSet<>();
+            items.add(cartItemDTOM);
+            items.add(cartItemDTOM2);
+            OrderDTO orderDTO = new OrderDTO();
+            orderDTO.setId(123456L);
+            orderDTO.setPurchaseDate(new Date());
+            orderDTO.setItems(items);
+            OrderDTO orderDTO2 = new OrderDTO();
+            orderDTO2.setId(123456L);
+            orderDTO2.setPurchaseDate(new Date());
+            orderDTO2.setItems(items);
+            ArrayList<OrderDTO> objects = new ArrayList<>();
+            objects.add(orderDTO);
+            objects.add(orderDTO2);
+            userDTO.setOrders(objects);
             return userDTO;
         } else {
             return null;

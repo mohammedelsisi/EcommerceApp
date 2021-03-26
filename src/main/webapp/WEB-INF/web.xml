@@ -89,7 +89,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Orders</servlet-name>
-        <url-pattern>/Orders</url-pattern>
+        <url-pattern>/OrderJSP</url-pattern>
     </servlet-mapping>
 
     <servlet>

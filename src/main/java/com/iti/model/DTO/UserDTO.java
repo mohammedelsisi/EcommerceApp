@@ -21,7 +21,17 @@ public class UserDTO {
     private Date birthday;
     private String password;
     private List<String> interests;
+
+    public List<OrderDTO> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<OrderDTO> orders) {
+        this.orders = orders;
+    }
+
     private List<String> addresses;
+    private List<OrderDTO> orders;
 
 
     public String getPhoneNumber() {

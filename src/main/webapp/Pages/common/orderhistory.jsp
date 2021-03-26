@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -230,72 +231,46 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td align="center">
-                                <button data-target="#myModal"  data-toggle="modal" data-placement="top" title="View Order History" href="#" class="btn btn-info btn-lg">
-                                    <span >  <i class="fas fa-eye"></i></span>
-                                </button>
-                             </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td align="center">
-                                <button data-target="#myModal2"  data-toggle="modal" data-placement="top" title="View Order History" href="#" class="btn btn-info btn-lg">
-                                    <span >  <i class="fas fa-eye"></i></span>
-                                </button>
-                            </td>
-                        </tr>
+
+                        <c:forEach items="${requestScope.orders}" var="order">
+                            <tr>
+                                <th scope="row">${order.id}</th>
+                                <td>${order.purchaseDate}</td>
+                                <td>$${order.totalAmount}</td>
+                                <td align="center">
+                                    <button data-target="#myModal${order.id}"  data-toggle="modal" data-placement="top" title="View Order History" class="btn btn-info btn-lg">
+                                        <span >  <i class="fas fa-eye"></i></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <div id="myModal${order.id}" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body ">
+                                            <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+                                            <div class="px-4 py-5">
+                                                <h5 class="text-uppercase">Order Details </h5>
+                                                <h4 class="mt-5 theme-color mb-5">Thanks for your order</h4> <span class="theme-color">Payment Summary</span>
+                                                <div class="mb-3">
+                                                    <hr class="new1">
+                                                </div>
+                                                <c:forEach items="${order.items}" var="item">
+                                                    <div class="d-flex justify-content-between"> <span class="font-weight-bold">${item.itemType}-(Qty:${item.itemQuantity}) </span> <span class="text-muted">$${item.itemQuantity*item.itemPrice}</span> </div>
+                                                </c:forEach>
+
+                                                <div class="d-flex justify-content-between"> <small>Shipping</small> <small>$70.00</small> </div>
+                                                <div class="d-flex justify-content-between"> <small>Tax</small> <small>$30.00</small> </div>
+                                                <div class="d-flex justify-content-between mt-3"> <span class="font-weight-bold">Total</span> <span class="font-weight-bold theme-color">$${order.totalAmount}</span> </div>
+                                                <div class="text-center mt-5"> <button data-dismiss="modal" class="btn btn-primary">Close</button> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>
-                <div id="myModal" class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-body ">
-                                <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
-                                <div class="px-4 py-5">
-                                    <h5 class="text-uppercase">Yasmina </h5>
-                                    <h4 class="mt-5 theme-color mb-5">Thanks for your order</h4> <span class="theme-color">Payment Summary</span>
-                                    <div class="mb-3">
-                                        <hr class="new1">
-                                    </div>
-                                    <div class="d-flex justify-content-between"> <span class="font-weight-bold">Ether Chair(Qty:1)</span> <span class="text-muted">$1750.00</span> </div>
-                                    <div class="d-flex justify-content-between"> <small>Shipping</small> <small>$175.00</small> </div>
-                                    <div class="d-flex justify-content-between"> <small>Tax</small> <small>$200.00</small> </div>
-                                    <div class="d-flex justify-content-between mt-3"> <span class="font-weight-bold">Total</span> <span class="font-weight-bold theme-color">$2125.00</span> </div>
-                                    <div class="text-center mt-5"> <button data-dismiss="modal" class="btn btn-primary">Close</button> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="myModal2" class="modal fade" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-body ">
-                                <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
-                                <div class="px-4 py-5">
-                                    <h5 class="text-uppercase">Mohammed Elsisi</h5>
-                                    <h4 class="mt-5 theme-color mb-5">Thanks for your order</h4> <span class="theme-color">Payment Summary</span>
-                                    <div class="mb-3">
-                                        <hr class="new1">
-                                    </div>
-                                    <div class="d-flex justify-content-between"> <span class="font-weight-bold">Ether Chair(Qty:1)</span> <span class="text-muted">$1750.00</span> </div>
-                                    <div class="d-flex justify-content-between"> <small>Shipping</small> <small>$175.00</small> </div>
-                                    <div class="d-flex justify-content-between"> <small>Tax</small> <small>$200.00</small> </div>
-                                    <div class="d-flex justify-content-between mt-3"> <span class="font-weight-bold">Total</span> <span class="font-weight-bold theme-color">$2125.00</span> </div>
-                                    <div class="text-center mt-5"> <button data-dismiss="modal" class="btn btn-primary">Close</button> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
