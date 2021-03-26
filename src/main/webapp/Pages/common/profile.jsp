@@ -283,8 +283,8 @@
                             <label style="color: grey">User Name</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control form-control-user" id="exampleInputPhoneNumber"
-                                   placeholder="Your Phone Number" value="${sessionScope.currentUser.creditLimit}">
+                            <input type="text" class="form-control form-control-user" id="phoneNumber"
+                                   placeholder="Your Phone Number" value="${sessionScope.currentUser.phoneNumber}">
                             <label style="color: grey">Phone Number</label>
                         </div>
                         <div class="form-floating mb-3">

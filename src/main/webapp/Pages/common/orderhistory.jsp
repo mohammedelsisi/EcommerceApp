@@ -13,16 +13,25 @@
 
     <!-- Custom fonts for this template-->
 
-    <link href="css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
-    <!-- Custom styles for this template-->
 
-    <link rel="stylesheet" href="css/all.min.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <!-- to add down arrow to menus -->
+    <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="layout/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="layout/css/magnific-popup.css"> -->
+    <link rel="stylesheet" href="layout/css/jquery-ui.css">
+    <!-- to let horizontal scrolling -->
+    <link rel="stylesheet" href="layout/css/owl.carousel.min.css">
+    <!-- to add animations on vertical scrolling -->
+    <link rel="stylesheet" href="layout/css/aos.css">
+    <!-- main Style file -->
+    <link rel="stylesheet" href="layout/css/style.css">
+    <!-- for font awsowome icon -->
+    <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
+
     <link href="css/sb-admin-2.css" rel="stylesheet">
-    <script src="layout/js/bootstrap.min.js"></script>
+    <link href="layout/css/bootstrap/bootstrap_5.0.css" rel="stylesheet">
 
 </head>
 
@@ -196,83 +205,96 @@
 
             <div class="d-flex justify-content-center h-100" style="padding-top: 60px;">
                 <div class="user_card" style="
-    height: 650px;
-    width: 500px;
-    margin-top: auto;
+    width:80%;
+    /*margin-top: auto;*/
     margin-bottom: auto;
     background: #ffffff;
     position: relative;
     display: flex;
     flex-direction: column;
     padding: 0 5%;
-    padding-top: 10%;
+    padding-top: 6%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;">
-                    <div>
-                        <h1 class="h4 text-gray-900 mb-4" STYLE="text-align: center; "> Addresses</h1>
-                        <form class="user">
-                            <ul id="Addresses" style=" list-style-type: none;">
-                                <li>
-                                    <input type="radio" id="address1" name="address" style="margin-top: 10%">
-                                    <label for="address1"> Dokki, Cairo, Egypt</label><br>
-                                    <!-- Divider -->
-                                    <hr class="sidebar-divider my-0">
-                                </li>
-                                <li>
-                                    <input type="radio" id="address2" name="address" style="margin-top: 10%">
-                                    <label for="address2">Zahabia, Hurghada, Egypt</label><br>
-                                    <!-- Divider -->
-                                    <hr class="sidebar-divider my-0">
-                                </li>
-                                <li>
-                                    <input type="radio" id="address3" name="address" style="margin-top:10%">
-                                    <label for="address3">Campcheaser,Alexandia, Egypt</label><br>
-                                    <!-- Divider -->
-                                    <hr class="sidebar-divider my-0">
-                                </li>
-                            </ul>
-
-
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user"
-                                       id="exampleInputAddress" STYLE=" position: absolute;  bottom: 100px; width: 85%"
-                                       placeholder="Address...">
+                    <h2 align="center">Orders History</h2>
+                    <br>
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Order Id</th>
+                            <th scope="col">Date Added</th>
+                            <th scope="col">Total Amount</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td align="center">
+                                <button data-target="#myModal"  data-toggle="modal" data-placement="top" title="View Order History" href="#" class="btn btn-info btn-lg">
+                                    <span >  <i class="fas fa-eye"></i></span>
+                                </button>
+                             </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td align="center">
+                                <button data-target="#myModal2"  data-toggle="modal" data-placement="top" title="View Order History" href="#" class="btn btn-info btn-lg">
+                                    <span >  <i class="fas fa-eye"></i></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="myModal" class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body ">
+                                <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+                                <div class="px-4 py-5">
+                                    <h5 class="text-uppercase">Yasmina </h5>
+                                    <h4 class="mt-5 theme-color mb-5">Thanks for your order</h4> <span class="theme-color">Payment Summary</span>
+                                    <div class="mb-3">
+                                        <hr class="new1">
+                                    </div>
+                                    <div class="d-flex justify-content-between"> <span class="font-weight-bold">Ether Chair(Qty:1)</span> <span class="text-muted">$1750.00</span> </div>
+                                    <div class="d-flex justify-content-between"> <small>Shipping</small> <small>$175.00</small> </div>
+                                    <div class="d-flex justify-content-between"> <small>Tax</small> <small>$200.00</small> </div>
+                                    <div class="d-flex justify-content-between mt-3"> <span class="font-weight-bold">Total</span> <span class="font-weight-bold theme-color">$2125.00</span> </div>
+                                    <div class="text-center mt-5"> <button data-dismiss="modal" class="btn btn-primary">Close</button> </div>
+                                </div>
                             </div>
-
-
-                        </form>
-                        <div class="form-group">
-
-                            <table STYLE=" position: absolute;  bottom: 0;">
-                                <tr>
-                                    <td style="padding-right: 50px;">
-
-
-
-                                    </td>
-
-                                    <td style="padding-left: 110px">
-                                       
-                                        <div class="form-group">
-                                            <button onclick="appendAddress()"
-                                                    class="btn btn-primary btn-user btn-block "
-                                                    style="margin-top: 10%">Add
-                                            </button>
-
-                                        </div>
-                                        
-                                    </td>
-
-                                </tr>
-                            </table>
-
                         </div>
                     </div>
-
                 </div>
-
+                <div id="myModal2" class="modal fade" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body ">
+                                <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+                                <div class="px-4 py-5">
+                                    <h5 class="text-uppercase">Mohammed Elsisi</h5>
+                                    <h4 class="mt-5 theme-color mb-5">Thanks for your order</h4> <span class="theme-color">Payment Summary</span>
+                                    <div class="mb-3">
+                                        <hr class="new1">
+                                    </div>
+                                    <div class="d-flex justify-content-between"> <span class="font-weight-bold">Ether Chair(Qty:1)</span> <span class="text-muted">$1750.00</span> </div>
+                                    <div class="d-flex justify-content-between"> <small>Shipping</small> <small>$175.00</small> </div>
+                                    <div class="d-flex justify-content-between"> <small>Tax</small> <small>$200.00</small> </div>
+                                    <div class="d-flex justify-content-between mt-3"> <span class="font-weight-bold">Total</span> <span class="font-weight-bold theme-color">$2125.00</span> </div>
+                                    <div class="text-center mt-5"> <button data-dismiss="modal" class="btn btn-primary">Close</button> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <!-- Footer -->
@@ -350,12 +372,9 @@
         </div>
     </div>
 </div>
-<script src="layout/js/jquery-ui.js"></script>
-<script src="layout/js/JQuery/jquery-3.6.0.js"></script>
-<script src="layout/js/popper.min.js"></script>
-<script src="layout/js/bootstrap.min.js"></script>
-<script src="layout/js/owl.carousel.min.js"></script>
-<script src="layout/js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery-3.4.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/fontawesome.js"></script>
 <script src="js/sb-admin-2.js"></script>
 <script>
     (function () {

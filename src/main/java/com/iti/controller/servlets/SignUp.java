@@ -41,12 +41,13 @@ public class SignUp extends HttpServlet {
             double creditLimit = req.getParameter("creditLimit").equals("") ? 0:Double.parseDouble(req.getParameter("creditLimit"));
             String email = req.getParameter("email");
             String password = req.getParameter("password");
+            String phoneNumber = req.getParameter("phoneNumber");
             String job = req.getParameter("job");
             String birthDate = req.getParameter("birthDate");
             List<String> interests = new ArrayList<>();
             Collections.addAll(interests,req.getParameterValues("interests")==null?new String[0]:req.getParameterValues("interests"));
             Date parsedDate = new SimpleDateFormat("yyyy-MM-dd").parse(birthDate);
-            return new UserDTO(0l, userName, creditLimit, email, job, parsedDate, password, interests);
+            return new UserDTO( userName, creditLimit, email, job, parsedDate, password, interests,phoneNumber);
         } catch (ParseException e) {
             e.printStackTrace();
         }

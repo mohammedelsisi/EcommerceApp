@@ -34,6 +34,7 @@ public class UserDAOImp implements UserDao {
             LocalDate localDate = LocalDate.of(1994,11,26);
             UserDTO userDTO = new UserDTO("ahmed", email, password);
             userDTO.setBirthday(java.sql.Date.valueOf(localDate));
+            userDTO.setPhoneNumber("+201027579113");
             userDTO.setCreditLimit(12.0);
             return userDTO;
         } else {

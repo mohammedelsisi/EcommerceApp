@@ -84,6 +84,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>Orders</servlet-name>
+        <jsp-file>/Pages/common/orderhistory.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Orders</servlet-name>
+        <url-pattern>/Orders</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>Addresses</servlet-name>
         <jsp-file>/Pages/common/address.jsp</jsp-file>
     </servlet>

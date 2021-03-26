@@ -49,8 +49,7 @@ public class UserDTO {
     }
 
 
-    public UserDTO(long id, String userName, double creditLimit, String email, String job, Date birthday, String password, List<String> interests) {
-        this.id = id;
+    public UserDTO( String userName, double creditLimit, String email, String job, Date birthday, String password, List<String> interests,String phoneNumber) {
         this.userName = userName;
         this.creditLimit = creditLimit;
         this.email = email;
@@ -58,6 +57,7 @@ public class UserDTO {
         this.birthday = birthday;
         this.password = password;
         this.interests = interests;
+        this.phoneNumber=phoneNumber;
     }
 
     public UserDTO() {
