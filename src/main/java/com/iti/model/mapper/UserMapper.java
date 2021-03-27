@@ -11,19 +11,18 @@ import java.util.stream.Collectors;
 
 public class UserMapper {
     private static UserMapper userMapper;
-    private UserMapper(){
+
+    private UserMapper() {
 
     }
-    public static synchronized UserMapper getInstance(){
-        return Objects.requireNonNullElseGet(userMapper,UserMapper::getInstance);
-    }
 
-    public UserDetails getEntity(UserDTO userDTO) {
+    public static synchronized UserMapper getInstance() {
+        return Objects.requireNonNullElseGet(userMapper, UserMapper::getInstance);
+    }
 
     public UserDetails getUserEntity(UserDTO userDTO) {
 
         UserDetails userDetails = new UserDetails();
-
         userDetails.setId(userDTO.getId());
         userDetails.setBirthday(userDTO.getBirthday());
         userDetails.setCreditLimit(userDTO.getCreditLimit());
@@ -37,8 +36,6 @@ public class UserMapper {
         userDetails.setInterests(userDTO.getAddresses().stream().map(Interest::new).collect(Collectors.toSet()));
         return userDetails;
     }
-
-    public UserDTO getDTO(UserDetails userDetails) {
 
     public UserDTO getUserDTO(UserDetails userDetails) {
         UserDTO userDTO = new UserDTO();
