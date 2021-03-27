@@ -14,13 +14,33 @@ public class UserDTO {
     private double creditLimit;
     private String image;
     private RoleUser Role;
-
-
-
     private String job;
     private Date birthday;
     private String password;
     private List<String> interests;
+    private List<String> addresses;
+    private List<OrderDTO> orders;
+
+    public UserDTO(String userName, String email, String password) {
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+    }
+
+    public UserDTO(String userName, double creditLimit, String email, String job, Date birthday, String password, List<String> interests, String phoneNumber) {
+        this.userName = userName;
+        this.creditLimit = creditLimit;
+        this.email = email;
+        this.job = job;
+        this.birthday = birthday;
+        this.password = password;
+        this.interests = interests;
+        this.phoneNumber = phoneNumber;
+    }
+
+
+    public UserDTO() {
+    }
 
     public List<OrderDTO> getOrders() {
         return orders;
@@ -29,10 +49,6 @@ public class UserDTO {
     public void setOrders(List<OrderDTO> orders) {
         this.orders = orders;
     }
-
-    private List<String> addresses;
-    private List<OrderDTO> orders;
-
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -55,27 +71,6 @@ public class UserDTO {
                 ", interests=" + interests +
                 ", addresses=" + addresses +
                 '}';
-    }
-
-    public UserDTO(String userName, String email, String password) {
-        this.userName = userName;
-        this.email = email;
-        this.password = password;
-    }
-
-
-    public UserDTO( String userName, double creditLimit, String email, String job, Date birthday, String password, List<String> interests,String phoneNumber) {
-        this.userName = userName;
-        this.creditLimit = creditLimit;
-        this.email = email;
-        this.job = job;
-        this.birthday = birthday;
-        this.password = password;
-        this.interests = interests;
-        this.phoneNumber=phoneNumber;
-    }
-
-    public UserDTO() {
     }
 
     public long getId() {
@@ -150,19 +145,19 @@ public class UserDTO {
         Role = role;
     }
 
-    public void setAddresses(List<String> addresses) {
-        this.addresses = addresses;
-    }
-
     public List<String> getAddresses() {
         return this.addresses;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setAddresses(List<String> addresses) {
+        this.addresses = addresses;
     }
 
     public String getImage() {
         return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
