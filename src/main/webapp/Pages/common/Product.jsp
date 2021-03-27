@@ -105,13 +105,7 @@
         </nav>
     </header>
 
-    <div class="bg-light py-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <a href="index.html">Shop</a> <span class="mx-2 mb-0">/</span><strong class="text-black">Tank Top T-Shirt</strong></div>
-            </div>
-        </div>
-    </div>
+
 
     <div class="site-section">
         <div class="container">
@@ -122,7 +116,7 @@
 
 
 
-                    <c:set value="${requestScope.ProductItem}" var="item"/>
+                    <c:set value="${requestScope.ProductItem}" var="item" />
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -131,7 +125,7 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="${item.secondProdImg}" alt="First slide">
+                                <img class="d-block w-100" src="${item.secondProdImg}" alt="First slide" >
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="${item.firstProdImg}" alt="Second slide">
@@ -157,7 +151,7 @@
                     <h2 class="text-black">Tank Top T-Shirt</h2>
                     <p>${item.prodDesc}</p>
                     <!--            <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic magni iste, velit aperiam quis.</p>-->
-                    <p><strong class="text-primary h4">$${item.prodPrice}</strong></p>
+                    <p><strong class="text-primary h4">${item.prodPrice}</strong></p>
                     <!--            <div class="mb-1 d-flex">-->
                     <!--              <label for="option-sm" class="d-flex mr-3 mb-3">-->
                     <!--                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">Small</span>-->
@@ -173,19 +167,32 @@
                     <!--              </label>-->
                     <!--            </div>-->
 
+
+                    <p>
+<%--                        <a href="cart.html" class="buy-now btn btn-sm btn-primary">Add To Cart</a>--%>
+                    <form onsubmit= "sendData(); return false" >
+                    <div class="bg-light py-3">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <a href="index.html">Shop</a> <span class="mx-2 mb-0">/</span><input class="text-black" value="${item.prodName}"></div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="mb-5">
                         <div class="input-group mb-3" style="max-width: 120px;">
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                             </div>
-                            <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" id="Quantity">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                             </div>
                         </div>
 
                     </div>
-                    <p><a href="cart.html" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
+                    <input type="submit" value="Add To Card" class="buy-now btn btn-sm btn-primary" >
+                </form>
+                    </p>
 
                 </div>
             </div>
