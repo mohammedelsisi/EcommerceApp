@@ -35,6 +35,14 @@ public class UserDAOImp implements UserDao {
             UserDTO userDTO = new UserDTO("ahmed", email, password);
             userDTO.setBirthday(java.sql.Date.valueOf(localDate));
             userDTO.setPhoneNumber("+201027579113");
+            String add1 ="ss st";
+            String add3 ="ss st";
+            String add2 ="ss st";
+            List<String> adds =new ArrayList<>();
+            adds.add(add1);
+            adds.add(add2);
+            adds.add(add3);
+            userDTO.setAddresses(adds);
             userDTO.setCreditLimit(12.0);
             CartItemDTOM cartItemDTOM = new CartItemDTOM();
             cartItemDTOM.setItemType("Shirt");
