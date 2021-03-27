@@ -3,7 +3,8 @@ $(document).ready(function () {
         var patt = /^\d{11}$/i;
         return (patt.test(phone));
     }
-
+    let validEmail=false;
+    let validPass=false;
     let emailInValid = $("#invalidEmailDiv");
     let emailValid = $("#validEmailDiv");
     let passValid = $("#validPass");
@@ -20,6 +21,7 @@ $(document).ready(function () {
             passInValid.css({"display": "none"});
             passwordField.addClass("validEmail")
             passwordField.removeClass("invalidEmail")
+            validPass=true;
         }else {
             console.log("INNNN  Valid")
             passInValid.html("Passwords must match");
@@ -27,6 +29,8 @@ $(document).ready(function () {
             passInValid.css({"display": "block"});
             passwordField.addClass("invalidEmail")
             passwordField.removeClass("validEmail")
+            validPass=false;
+
         }
     }
 
@@ -53,8 +57,12 @@ $(document).ready(function () {
 
         if (result == "Valid") {
             validEmailUI();
+            validEmail=true;
         } else {
             inValidEmailUi(" This Email has an account go to login >> <a href='Login'>Login</a>");
+            validEmail=false;
+
+
         }
     }
 
@@ -93,11 +101,12 @@ $(document).ready(function () {
         Array.prototype.slice.call(forms)
             .forEach(function (form) {
                 form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
+                    if (!form.checkValidity()||!validEmail||!validPass) {
                         event.preventDefault()
                         event.stopPropagation()
                     }
-
+                                    console.log(validEmail);
+                    console.log(validPass)
                     form.classList.add('was-validated')
                 }, false)
             })

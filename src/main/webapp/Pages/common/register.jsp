@@ -96,13 +96,13 @@
                             </div>
                             <div class="form-floating mb-3">
                                 <input name="phoneNumber" type="text" class="form-control form-control-user" id="phoneNumber"
-                                       placeholder="Phone Number" minlength="10" required pattern="^\d{11}$">
-                                <label style="padding-left:25px;color: grey" for="exampleFirstName">Phone Number</label>
+                                       placeholder="Phone Number" minlength="10" required pattern="01\d{9}">
+                                <label style="color: grey" for="exampleFirstName">Phone Number</label>
                                 <div style="padding-left: 25px" class="valid-feedback">
                                     Looks good!
                                 </div>
                                 <div style="padding-left: 25px" class="invalid-feedback">
-                                    Please enter a valid phone number
+                                    Please enter a number in format (01xxxxxxxxx)
                                 </div>
                             </div>
 
@@ -156,7 +156,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0 form-floating">
                                     <input name="password" type="password" class="form-control form-control-user"
-                                           id="exampleInputPassword" placeholder="Password" minlength="6" required>
+                                           id="exampleInputPassword" placeholder="Password" pattern=".{6,}" required>
                                     <label style="padding-left:25px;color: grey"
                                            for="exampleInputPassword">Password</label>
                                     <div style="padding-left: 25px" class="valid-feedback">
@@ -169,7 +169,7 @@
                                 </div>
                                 <div class="col-sm-6 form-floating">
                                     <input type="password" class="form-control form-control-user"
-                                           id="exampleRepeatPassword" placeholder="Repeat Password" minlength="6" required>
+                                           id="exampleRepeatPassword" placeholder="Repeat Password"  pattern=".{6,}" required>
                                     <label style="padding-left:25px;color: grey" for="exampleRepeatPassword">Repeat
                                         Password</label>
                                     <div id="validPass" style="padding-left: 25px" class="valid-feedback">
