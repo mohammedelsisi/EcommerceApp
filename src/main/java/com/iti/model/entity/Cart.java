@@ -25,22 +25,22 @@ public class Cart  implements java.io.Serializable {
 
      private CartId id;
      private UserDetails userDetails;
-     private Products products;
+     private Product product;
      private Integer quantity;
 
     public Cart() {
     }
 
 	
-    public Cart(CartId id, UserDetails userdetails, Products products) {
+    public Cart(CartId id, UserDetails userdetails, Product product) {
         this.id = id;
         this.userDetails = userdetails;
-        this.products = products;
+        this.product = product;
     }
-    public Cart(CartId id, UserDetails userdetails, Products products, Integer quantity) {
+    public Cart(CartId id, UserDetails userdetails, Product product, Integer quantity) {
        this.id = id;
        this.userDetails = userdetails;
-       this.products = products;
+       this.product = product;
        this.quantity = quantity;
     }
    
@@ -70,12 +70,12 @@ public class Cart  implements java.io.Serializable {
 
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="product_id", nullable=false, insertable=false, updatable=false)
-    public Products getProducts() {
-        return this.products;
+    public Product getProducts() {
+        return this.product;
     }
     
-    public void setProducts(Products products) {
-        this.products = products;
+    public void setProducts(Product product) {
+        this.product = product;
     }
 
     

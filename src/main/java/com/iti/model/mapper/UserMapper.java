@@ -7,13 +7,16 @@ import java.util.Objects;
 
 public class UserMapper {
     private static UserMapper userMapper;
-    private UserMapper(){
+
+    private UserMapper() {
 
     }
-    public static synchronized UserMapper getInstance(){
-        return Objects.requireNonNullElseGet(userMapper,UserMapper::getInstance);
+
+    public static synchronized UserMapper getInstance() {
+        return Objects.requireNonNullElseGet(userMapper, UserMapper::getInstance);
     }
-    public UserDetails getEntity(UserDTO userDTO){
+
+    public UserDetails getEntity(UserDTO userDTO) {
         UserDetails userDetails = new UserDetails();
 
         userDetails.setId(userDTO.getId());
@@ -28,7 +31,8 @@ public class UserMapper {
         userDetails.setUserName(userDTO.getUserName());
         return userDetails;
     }
-    public UserDTO getDTO (UserDetails userDetails){
+
+    public UserDTO getDTO(UserDetails userDetails) {
 
     }
 }

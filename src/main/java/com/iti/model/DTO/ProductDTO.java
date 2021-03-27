@@ -1,10 +1,10 @@
 package com.iti.model.DTO;
 
 public class ProductDTO  {
-    private int prodID;
+    private long prodID;
     private String prodType;
-    private String prodDesc;
-    private int prodQuantity;
+    private String prodDescription;
+    private long prodQuantity;
     private String firstProdImg;
     private String secondProdImg;
     private double productPrice;
@@ -16,7 +16,7 @@ public class ProductDTO  {
         return "ProductDTO{" +
                 "prodID=" + prodID +
                 ", prodType='" + prodType + '\'' +
-                ", prodDesc='" + prodDesc + '\'' +
+                ", prodDesc='" + prodDescription + '\'' +
                 ", prodQuantity=" + prodQuantity +
                 ", firstProdImg='" + firstProdImg + '\'' +
                 ", secondProdImg='" + secondProdImg + '\'' +
@@ -74,17 +74,19 @@ public class ProductDTO  {
         this.secondProdImg = secondProdImg;
     }
 
-    public ProductDTO(String prodDesc, String firstProdImg, double prodPrice) {
-        this.prodDesc = prodDesc;
+    public ProductDTO(String prodDescription, String firstProdImg, double prodPrice) {
+        this.prodDescription = prodDescription;
         this.firstProdImg = firstProdImg;
         this.productPrice = prodPrice;
     }
+
+    public ProductDTO(){}
 
     public int getProdID() {
         return prodID;
     }
 
-    public void setProdID(int prodID) {
+    public void setProdID(long prodID) {
         this.prodID = prodID;
     }
 
@@ -96,19 +98,19 @@ public class ProductDTO  {
         this.prodType = prodName;
     }
 
-    public String getProdDesc() {
-        return prodDesc;
+    public String getProdDescription() {
+        return prodDescription;
     }
 
-    public void setProdDesc(String prodDesc) {
-        this.prodDesc = prodDesc;
+    public void setProdDescription(String prodDescription) {
+        this.prodDescription = prodDescription;
     }
 
     public int getProdQuantity() {
         return prodQuantity;
     }
 
-    public void setProdQuantity(int prodQuantity) {
+    public void setProdQuantity(long prodQuantity) {
         this.prodQuantity = prodQuantity;
     }
 

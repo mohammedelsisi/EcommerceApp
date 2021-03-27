@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Table(name="products"
     ,catalog="naseejstore"
 )
-public class Products  implements java.io.Serializable {
+public class Product implements java.io.Serializable {
 
 
      private long productId;
@@ -28,11 +28,11 @@ public class Products  implements java.io.Serializable {
      private String secondImg;
      private double price;
 
-    public Products() {
+    public Product() {
     }
 
 	
-    public Products(long productId, String type, long quantity, String size, String category, String firstImg, double price) {
+    public Product(long productId, String type, long quantity, String size, String category, String firstImg, double price) {
         this.productId = productId;
         this.type = type;
         this.quantity = quantity;

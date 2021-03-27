@@ -24,16 +24,16 @@ public class OrdersHasProducts  implements java.io.Serializable {
 
 
      private OrdersHasProductsId id;
-     private Products products;
+     private Product product;
      private Orders orders;
      private int quantity;
 
     public OrdersHasProducts() {
     }
 
-    public OrdersHasProducts(OrdersHasProductsId id, Products products, Orders orders, int quantity) {
+    public OrdersHasProducts(OrdersHasProductsId id, Product product, Orders orders, int quantity) {
        this.id = id;
-       this.products = products;
+       this.product = product;
        this.orders = orders;
        this.quantity = quantity;
     }
@@ -54,12 +54,12 @@ public class OrdersHasProducts  implements java.io.Serializable {
 
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="products_product_id", nullable=false, insertable=false, updatable=false)
-    public Products getProducts() {
-        return this.products;
+    public Product getProducts() {
+        return this.product;
     }
     
-    public void setProducts(Products products) {
-        this.products = products;
+    public void setProducts(Product product) {
+        this.product = product;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
