@@ -1,6 +1,6 @@
 package com.iti.service;
 
-import com.iti.controller.servlets.Addresses;
+import com.iti.controller.screens.Addresses;
 import com.iti.model.DTO.OrderDTO;
 import com.iti.model.DTO.UserDTO;
 import com.iti.model.Dao.Imp.UserDAOImp;

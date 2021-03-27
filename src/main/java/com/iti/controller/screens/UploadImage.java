@@ -1,4 +1,4 @@
-package com.iti.controller.servlets;
+package com.iti.controller.screens;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

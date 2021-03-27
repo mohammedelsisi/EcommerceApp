@@ -1,4 +1,4 @@
-package com.iti.controller.servlets;
+package com.iti.controller.screens;
 
 import com.iti.model.DTO.UserDTO;
 import com.iti.service.ProfileService;
