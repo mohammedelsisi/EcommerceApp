@@ -41,15 +41,15 @@
         <servlet-name>About</servlet-name>
         <url-pattern>/About</url-pattern>
     </servlet-mapping>
-        <servlet>
-            <servlet-name>HomeServlet</servlet-name>
-            <jsp-file>/Pages/common/Home.jsp</jsp-file>
-        </servlet>
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <jsp-file>/Pages/common/Home.jsp</jsp-file>
+    </servlet>
 
-        <servlet-mapping>
-            <servlet-name>HomeServlet</servlet-name>
-            <url-pattern>/HomeJsp</url-pattern>
-        </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/HomeJsp</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>Error</servlet-name>
         <jsp-file>/Pages/common/404.jsp</jsp-file>
@@ -74,6 +74,32 @@
         <url-pattern>/ShopJsp</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UserProfile</servlet-name>
+        <jsp-file>/Pages/common/profile.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserProfile</servlet-name>
+        <url-pattern>/Profile</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Orders</servlet-name>
+        <jsp-file>/Pages/common/orderhistory.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Orders</servlet-name>
+        <url-pattern>/OrderJSP</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Addresses</servlet-name>
+        <jsp-file>/Pages/common/address.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Addresses</servlet-name>
+        <url-pattern>/AddressesJsp</url-pattern>
+    </servlet-mapping>
 
 </web-app>

@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="P" uri="/WEB-INF/tlds/productLib" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,15 +47,15 @@
     <!--     to add the multiple selection plugin -->
     <link href="css/filter_multi_select.css" rel="stylesheet">
     <script src="js/filter-multi-select-bundle.js"></script>
-<style>
-    .nav-item {
-        background-color : #ffffff;
-    }
+    <style>
+        .nav-item {
+            background-color: #ffffff;
+        }
 
-    .background_selected {
-        background-color : #bcbcbc;
-    }
-</style>
+        .background_selected {
+            background-color: #bcbcbc;
+        }
+    </style>
 </head>
 
 <body class="bg-gradient-primary">
@@ -90,8 +93,7 @@
                                     <span class="count">2</span>
                                 </a>
                             </li>
-                            <li class="d-inline-block d-md-none ml-md-0"><a href="#"
-                                                                            class="site-menu-toggle js-menu-toggle"><span
+                            <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
                                     class="icon-menu"></span></a></li>
                         </ul>
                     </div>
@@ -253,58 +255,76 @@
   padding: 10px;
   text-align: center;">
 
+                            <%--                            <input type="File" name="ChosenUserimage" id="ChosenUserimag2e">--%>
 
-                            <form action="upload.php" method="post" enctype="multipart/form-data">
-
+                            <form id="imageData" method="post" enctype="multipart/form-data">
                                 <label for="ChosenUserimage">
                                     <div class="profile-pic" id="UserImage"
                                          style="background-image: url('images/img_avatar2.png')">
                                         <div style="">
-                                        <span class="fas fa-camera"></span>
-                                        <span >Change Image</span>
+                                            <span class="fas fa-camera"></span>
+                                            <span>Change Image</span>
                                         </div>
+                                        <input type="File" name="ChosenUserImageName" id="ChosenUserimage">
+
                                     </div>
                                 </label>
-                                <input type="File" name="ChosenUserimage" id="ChosenUserimage">
+                                </label>
                             </form>
-                            <button onclick="chooseimage()">Try it</button>
+
                         </div>
                     </div>
-                    <form class="user needs-validation" method="post" id="ProfileForm"
-                          enctype="multipart/form-data" action="" novalidate style="margin-top: 60px">
-                        <h1 class="h4 text-gray-900 mb-4" STYLE="text-align: center">ReginaFlange@gmail.com</h1>
-                        <div class="form-group row">
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="usernameInputExample"
-                                       placeholder="User Name .. " required>
-                            </div>
-                            <div class="form-group">
-                                <input type="date" class="form-control form-control-user" id="userDateId"
-                                       placeholder="Birthdate .. " max="2010-01-01" value="1990-01-01" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="number" class="form-control form-control-user" id="exampleInputCreditLimit"
-                                       placeholder="Credit limit...">
-                            </div>
+                    <form class="user needs-validation" id="ProfileForm"
+                          enctype="multipart/form-data" novalidate style="margin-top: 60px"
+                          onsubmit="sendData();return false">
+                        <h1 class="h4 text-gray-900 mb-4"
+                            STYLE="text-align: center">${sessionScope.currentUser.email}</h1>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control form-control-user" id="usernameInputExample"
+                                   placeholder="User Name..." value="${sessionScope.currentUser.userName}">
+                            <label style="color: grey">User Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control form-control-user" id="phoneNumber"
+                                   placeholder="Your Phone Number" value="${sessionScope.currentUser.phoneNumber}">
+                            <label style="color: grey">Phone Number</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control form-control-user" id="userDateId"
+                                   placeholder="Your Birthdate .. " max="2010-01-01"
+                                   value="${sessionScope.currentUser.birthday}" required>
+                            <label style="color: grey">Birth Date</label>
                         </div>
 
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control form-control-user" id="userJobId"
-                                   placeholder="Your Job">
-                            <label style="color: grey" >Job</label>
+                            <input type="text" class="form-control form-control-user" id="exampleInputCreditLimit"
+                                   placeholder="Your Credit Limit" value="${sessionScope.currentUser.creditLimit}">
+                            <label style="color: grey">Credit Limit</label>
                         </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control form-control-user" id="userJobId"
+                                   placeholder="Your Job" value="${sessionScope.currentUser.job}">
+                            <label style="color: grey">Job</label>
+                        </div>
+                        <center>
+                            <table>
+                                <td>
+                                    <div style="margin-right:2px; margin-left: 2px;" class="form-group row">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Save Changes
+                                        </button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="margin-right:2px; margin-left: 2px;" class="form-group row">
+                                        <a href="#" class="btn btn-primary btn-user btn-block"
+                                           data-toggle="modal" data-target="#changePasswordModal">
+                                            Change Password</a></div>
+                                </td>
+                            </table>
 
-                        <table>
-                        <td><div style="margin-right:2px; margin-left: 2px;" class="form-group row">
-                            <button type="submit" class="btn btn-primary btn-user btn-block">Edit Profile</button>
-                        </div></td>
-                        <td><div style="margin-right:2px; margin-left: 2px;" class="form-group row">
-                            <a href="#" class="btn btn-primary btn-user btn-block"
-                               data-toggle="modal" data-target="#changePasswordModal">
-                            Change Password</a></div></td>
-                        </table>
-
+                        </center>
                     </form>
 
                 </div>
@@ -330,6 +350,22 @@
 </div>
 <!-- End of Page Wrapper -->
 
+<%--confrim send data modal--%>
+<div class="modal fade" id="changeInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" style="align-self: center">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Changing Your Profile</h5>
+            </div>
+            <div style="text-align: center" class="modal-body" id="confirmChange"></div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true" style="align-self: center">
@@ -350,7 +386,7 @@
     </div>
 </div>
 <!--changePassword Modal-->
-<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="changePasswordModal" tabindex="0" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true" style="align-self: center">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -360,9 +396,9 @@
                     <span aria-hidden="true">x</span>
                 </button>
             </div>
-            <form class="user needs-validation" method="post"  id="registrationForm"
+            <form class="user" id="registrationForm"
                   style="margin-left: 10px; margin-right: 10px;"
-                  enctype="multipart/form-data" action="" >
+                  enctype="multipart/form-data" onsubmit="changePassword();return false;">
                 <div class="modal-body">
                     Enter your current password and new password to change the password
                 </div>
@@ -372,24 +408,23 @@
                                placeholder="Current password..." required>
                     </div>
                     <div class="form-group">
-                    <input type="password" class="form-control form-control-user"
-                           id="exampleInputPassword" placeholder="Password" minlength="6" required>
-                    <div style="padding-left: 25px" class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div style="padding-left: 25px" class="invalid-feedback">
-                        Password must be at least 6 characters.
-                    </div>
+                        <input type="password" class="form-control form-control-user"
+                               id="exampleInputPassword" placeholder="Password" minlength="6" required>
+                        <div style="padding-left: 25px" class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div style="padding-left: 25px" class="invalid-feedback">
+                            Password must be at least 6 characters.
+                        </div>
 
-                    </div></div>
+                    </div>
+                </div>
                 <div class="form-group">
                     <input type="password" class="form-control form-control-user"
                            id="exampleRepeatPassword" placeholder="Repeat Password" minlength="6" required>
-
-
                 </div>
                 <div class="modal-footer">
-                    <input class="btn btn-secondary" type="submit" value="Ok" data-dismiss="modal"
+                    <input class="btn btn-secondary" type="submit" value="Ok"
                            style="background: #4e73df; border: #4e73df"/>
                     <input class="btn btn-secondary" type="reset" value="Cancel" data-dismiss="modal"/>
                 </div>
@@ -402,41 +437,10 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/fontawesome.js"></script>
 <script src="js/sb-admin-2.js"></script>
-<script>
-
-    (function () {
-        'use strict'
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                }, false)
-            })
-    })()
-
-    $('.nav-item').on('click', function(){
-        var isAlreadySelected = $(this).hasClass('background_selected');
-        $('.nav-item').removeClass('background_selected');
-        if(!isAlreadySelected) {
-            $(this).addClass('background_selected');
-        }
-    });
+<script src="js/sb-admin-2.js"></script>
+<script src="layout/js/profileScript.js"></script>
 
 
-        function chooseimage() {
-        document.getElementById("UserImage"). style="background-image: url('" +  document.getElementById("ChosenUserimage") + "')";
-            //url = "images/img_avatar.png";
-    }
-</script>
 </body>
 
 </html>

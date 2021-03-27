@@ -94,11 +94,21 @@
 
                                 </div>
                             </div>
-
+                            <div class="form-floating mb-3">
+                                <input name="phoneNumber" type="text" class="form-control form-control-user" id="phoneNumber"
+                                       placeholder="Phone Number" minlength="10" required pattern="^\d{11}$">
+                                <label style="padding-left:25px;color: grey" for="exampleFirstName">Phone Number</label>
+                                <div style="padding-left: 25px" class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div style="padding-left: 25px" class="invalid-feedback">
+                                    Please enter a valid phone number
+                                </div>
+                            </div>
 
                             <div class="form-floating mb-3">
                                 <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail2"
-                                       placeholder="Email Address" required>
+                                       placeholder="Email Address" pattern="\S+@\S+\.\S+" required>
                                 <label style="color: grey" for="exampleInputEmail2">Email address</label>
                                 <div id="validEmailDiv" style="padding-left: 25px" class="valid-feedback">
                                     Looks good!

@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    function isValidPhone(phone){
+        var patt = /^\d{11}$/i;
+        return (patt.test(phone));
+    }
+
     let emailInValid = $("#invalidEmailDiv");
     let emailValid = $("#validEmailDiv");
     let passValid = $("#validPass");

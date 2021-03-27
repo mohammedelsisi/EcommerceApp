@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="css/all.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link href="css/sb-admin-2.css" rel="stylesheet">
+    <script src="layout/js/bootstrap.min.js"></script>
+
 </head>
 
 <body class="bg-gradient-primary">
@@ -246,15 +248,13 @@
                             <table STYLE=" position: absolute;  bottom: 0;">
                                 <tr>
                                     <td style="padding-right: 50px;">
-                                        <div class="form-group">
-                                            <input type="submit" class="btn btn-primary btn-user btn-block "
-                                                   value="save"
-                                                   style="bottom:0; margin-top: 10%">
-                                        </div>
+
 
 
                                     </td>
-                                    <td>
+
+                                    <td style="padding-left: 110px">
+                                       
                                         <div class="form-group">
                                             <button onclick="appendAddress()"
                                                     class="btn btn-primary btn-user btn-block "
@@ -262,6 +262,7 @@
                                             </button>
 
                                         </div>
+                                        
                                     </td>
 
                                 </tr>
@@ -349,9 +350,12 @@
         </div>
     </div>
 </div>
-<script src="js/jquery-3.4.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/fontawesome.js"></script>
+<script src="layout/js/jquery-ui.js"></script>
+<script src="layout/js/JQuery/jquery-3.6.0.js"></script>
+<script src="layout/js/popper.min.js"></script>
+<script src="layout/js/bootstrap.min.js"></script>
+<script src="layout/js/owl.carousel.min.js"></script>
+<script src="layout/js/jquery.magnific-popup.min.js"></script>
 <script src="js/sb-admin-2.js"></script>
 <script>
     (function () {

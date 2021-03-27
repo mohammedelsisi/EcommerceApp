@@ -1,6 +1,7 @@
 package com.iti.service;
 
 import com.iti.controller.servlets.Addresses;
+import com.iti.model.DTO.OrderDTO;
 import com.iti.model.DTO.UserDTO;
 import com.iti.model.Dao.Imp.UserDAOImp;
 import com.iti.model.Dao.UserDao;
@@ -10,10 +11,7 @@ import java.util.List;
 
 public class ProfileService {
     private final UserDao userDao = UserDAOImp.getInstance();
-
-
     private static final ProfileService profileService = new ProfileService();
-
     public static synchronized ProfileService getInstance() {
         return profileService;
     }
