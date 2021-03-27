@@ -30,6 +30,10 @@ public class Address implements java.io.Serializable {
         this.address = address;
     }
 
+    public Address(String address) {
+        this.address = address;
+    }
+
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false, insertable = false, updatable = false)
