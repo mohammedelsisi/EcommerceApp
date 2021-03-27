@@ -126,7 +126,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="ProfileJsp">
+            <a class="nav-link" href="Profile">
                 <i class="fas fa-user"></i>
                 <span>Profile</span></a>
 

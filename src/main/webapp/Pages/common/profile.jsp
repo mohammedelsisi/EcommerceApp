@@ -47,6 +47,7 @@
     <!--     to add the multiple selection plugin -->
     <link href="css/filter_multi_select.css" rel="stylesheet">
     <script src="js/filter-multi-select-bundle.js"></script>
+
     <style>
         .nav-item {
             background-color: #ffffff;
@@ -60,7 +61,7 @@
 
 <body class="bg-gradient-primary">
 
-<header class="site-navbar" role="banner">
+<!--<header class="site-navbar" role="banner">
     <div class="site-navbar-top">
         <div class="container">
             <div class="row align-items-center">
@@ -136,7 +137,8 @@
             </ul>
         </div>
     </nav>
-</header>
+</header>-->
+<%@include file="../toInclude/header.jsp"%>
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -192,8 +194,9 @@
                 <span>Addresses</span></a>
         </li>
 
-
-        <li class="nav-item" STYLE=" position: absolute;  bottom: 0;">
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+        <li class="nav-item" >
             <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw"></i>
                 <span>Logout</span></a>
@@ -265,7 +268,7 @@
                                             <span class="fas fa-camera"></span>
                                             <span>Change Image</span>
                                         </div>
-                                        <input type="File" name="ChosenUserImageName" id="ChosenUserimage">
+                                        <input type="File" name="ChosenUserImageName" id="ChosenUserimage" hidden>
 
                                     </div>
                                 </label>
@@ -335,13 +338,14 @@
 
         </div>
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
+       <!-- <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
                     <span>Copyright &copy; ITI 2021</span>
                 </div>
             </div>
-        </footer>
+        </footer>-->
+        <%@include file="../toInclude/footer.jsp"%>
         <!-- End of Footer -->
 
     </div>
