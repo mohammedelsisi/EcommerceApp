@@ -29,13 +29,13 @@ public class Addresses extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ProfileService profileService = (ProfileService) req.getServletContext().getAttribute("ProfileService");
-        if (req.getParameter("SelectOrAdd").equals("add")) {
+        //if (req.getParameter("SelectOrAdd").equals("add")) {
             String newaddress = AddAddress(req);
             profileService.addAddress(newaddress);
-        } else if (req.getParameter("SelectOrAdd").equals("select")) {
-            int selectedaddress = SelectAddress(req);
-            profileService.selectAddress(selectedaddress);
-        }
+       //} else if (req.getParameter("SelectOrAdd").equals("select")) {
+            //int selectedaddress = SelectAddress(req);
+           //profileService.selectAddress(selectedaddress);
+       // }
     }
 
 
@@ -46,13 +46,13 @@ public class Addresses extends HttpServlet {
 
         return newaddress;
     }
-
-    private int SelectAddress(HttpServletRequest req) {
+    // TODO: 3/27/2021  : this function is now happens in the "checkout" proccess
+  /*  private int SelectAddress(HttpServletRequest req) {
 
         //System.out.println(req.getParameterMap());
       String  selectedaddress = req.getParameter("selected Address");
 
         return Integer.parseInt(selectedaddress);
-    }
+    }*/
 
 }

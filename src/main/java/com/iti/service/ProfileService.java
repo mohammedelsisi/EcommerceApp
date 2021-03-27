@@ -34,10 +34,10 @@ public class ProfileService {
         return userDao.addAddress(address) ;
     }
 
-
-    public String selectAddress( int selectedAddress) {
+//todo: this function is now in the "checkout process"
+    /*public String selectAddress( int selectedAddress) {
 
         return userDao.selectAddress(selectedAddress);
-    }
+    }*/
 
 }
