@@ -27,45 +27,64 @@ public class Cart  implements java.io.Serializable {
      private UserDetails userDetails;
      private Product product;
      private Integer quantity;
+    private CartId id;
+    private Product product;
+    private UserDetails userDetails;
+    private Integer quantity;
 
     public Cart() {
     }
 
 	
     public Cart(CartId id, UserDetails userdetails, Product product) {
+
+    public Cart(CartId id, Product product, UserDetails userDetails) {
         this.id = id;
         this.userDetails = userdetails;
         this.product = product;
+        this.product = product;
+        this.userDetails = userDetails;
     }
     public Cart(CartId id, UserDetails userdetails, Product product, Integer quantity) {
        this.id = id;
        this.userDetails = userdetails;
        this.product = product;
        this.quantity = quantity;
+    public Cart(CartId id, Product product, UserDetails userDetails, Integer quantity) {
+        this.id = id;
+        this.product = product;
+        this.userDetails = userDetails;
+        this.quantity = quantity;
     }
-   
-     @EmbeddedId
 
-    
+    @EmbeddedId
+
+
     @AttributeOverrides( {
-        @AttributeOverride(name="userId", column=@Column(name="user_id", nullable=false) ), 
-        @AttributeOverride(name="productId", column=@Column(name="product_id", nullable=false) ) } )
+            @AttributeOverride(name="productId", column=@Column(name="product_id", nullable=false) ),
+            @AttributeOverride(name="userId", column=@Column(name="user_id", nullable=false) ) } )
     public CartId getId() {
         return this.id;
     }
-    
+
     public void setId(CartId id) {
         this.id = id;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="product_id", nullable=false, insertable=false, updatable=false)
+    public Product getProduct() {
+        return this.product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="user_id", nullable=false, insertable=false, updatable=false)
     public UserDetails getUserDetails() {
         return this.userDetails;
-    }
-    
-    public void setUserDetails(UserDetails userdetails) {
-        this.userDetails = userdetails;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -73,17 +92,19 @@ public class Cart  implements java.io.Serializable {
     public Product getProducts() {
         return this.product;
     }
-    
+
     public void setProducts(Product product) {
         this.product = product;
+    public void setUserDetails(UserDetails userDetails) {
+        this.userDetails = userDetails;
     }
 
-    
+
     @Column(name="quantity")
     public Integer getQuantity() {
         return this.quantity;
     }
-    
+
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }

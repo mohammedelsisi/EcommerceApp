@@ -2,17 +2,18 @@ package com.iti.model.Dao;
 
 import com.iti.model.DTO.OrderDTO;
 import com.iti.model.DTO.UserDTO;
+import com.iti.model.entity.UserDetails;
 
 import javax.xml.crypto.Data;
 import java.util.Date;
 import java.util.List;
 
 public interface UserDao {
-   boolean insertUser(UserDTO u);
+   boolean insertUser(UserDetails u);
 
    boolean isUserEmail(String email);
 
-   UserDTO getUser(String email, String password);
+   UserDetails getUser(String email, String password);
 
    List<UserDTO> retriveall();
 

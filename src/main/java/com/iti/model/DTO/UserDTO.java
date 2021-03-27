@@ -1,7 +1,5 @@
 package com.iti.model.DTO;
 
-import com.iti.model.RoleUser;
-
 import java.util.Date;
 import java.util.List;
 

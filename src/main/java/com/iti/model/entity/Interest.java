@@ -12,13 +12,17 @@ import javax.persistence.*;
 @Table(name = "interests"
         , catalog = "naseejstore"
 )
-public class Interests implements java.io.Serializable {
+public class Interest implements java.io.Serializable {
 
 
     private String interest;
     private UserDetails userDetails;
 
-    public Interests() {
+    public Interest() {
+    }
+
+    public Interest(String interest) {
+        this.interest = interest;
     }
 
     @Id

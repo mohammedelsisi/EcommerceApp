@@ -1,4 +1,4 @@
-package com.iti.model;
+package com.iti.model.DTO;
 
 public enum RoleUser {
     CustomerRole,
