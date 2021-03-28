@@ -1,10 +1,7 @@
 package com.iti.controller.servlets.adminpanel;
 
 import com.google.gson.Gson;
-import com.iti.model.DTO.ProductDTO;
-import com.iti.model.DTO.UserDTO;
-import com.iti.model.RoleUser;
-import com.iti.service.ProductsService;
+import com.iti.model.DTO.*;
 import com.iti.service.UsersService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
