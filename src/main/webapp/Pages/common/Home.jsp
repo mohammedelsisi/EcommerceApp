@@ -142,7 +142,7 @@
                     <div class="nonloop-block-3 owl-carousel">
 
                         <c:forEach items="${requestScope.data}" var="i">
-                            <P:product img="${i.firstProdImg}" desc="${i.prodDescription}" src="#" price="${i.prodPrice}"/>
+                            <P:product img="${i.firstProdImg}" desc="${i.prodDescription}" src="ProductItem?id=${i.prodID}" price="${i.productPrice}"/>
                         </c:forEach>
                     </div>
                 </div>

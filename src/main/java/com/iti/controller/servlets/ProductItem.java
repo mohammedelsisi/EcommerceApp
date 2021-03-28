@@ -19,13 +19,13 @@ public class ProductItem extends HttpServlet {
         try {
 
             long id = Long.parseLong(req.getParameter("id"));
-            ProductsService productsService=(ProductsService) req.getServletContext().getAttribute("ProductsService");
-            ProductDTO productDTO = productsService.retriveItem((int) id);
-//        req.setAttribute("ProductItem",  productsService.retriveItem(id));
+            ProductsService productsService = (ProductsService) req.getServletContext().getAttribute("ProductsService");
+            ProductDTO productDTO = productsService.retrieveItem(id);
+            req.setAttribute("ProductItem", productDTO);
             RequestDispatcher view = req.getRequestDispatcher("ProductItemJsp");
             view.forward(req, resp);
-        }catch (NumberFormatException e){
-            System.out.println("Bad request");
+        } catch (NumberFormatException e) {
+            resp.sendRedirect("Home");
         }
 
     }

@@ -39,15 +39,21 @@ public class ProductsService {
     public List<ProductDTO> retrieveFilteredProducts(ProductFilter productFilter) {
         ProductDao productDao = ProductDaoImp.getInstance();
         List<Product> products = productDao.retrieveFilteredProducts(productFilter);
-        List<ProductDTO>list = products.stream().map(ProductMapper.getInstance()::getDTO).collect(Collectors.toList());
+        List<ProductDTO> list = products.stream().map(ProductMapper.getInstance()::getDTO).collect(Collectors.toList());
         productDao.close();
         return list;
 
     }
 
-    public  ProductDTO retriveItem(int id){
-        return productDao.retriveItem(id);
-
+    public ProductDTO retrieveItem(long id) {
+        ProductDao productDao = ProductDaoImp.getInstance();
+        ProductDTO dto = null;
+        Product product = productDao.retrieveItem(id);
+        if (product != null) {
+            dto = ProductMapper.getInstance().getDTO(product);
+        }
+        productDao.close();
+        return dto;
     }
 
 
@@ -66,13 +72,15 @@ public class ProductsService {
         list.add("Blue");
         return list;
     }
-    public List<String> getCategories(){
+
+    public List<String> getCategories() {
 //        return productDao.getCategories();
         return null;
     }
-    public List<String> getTypes(){
+
+    public List<String> getTypes() {
 //        return productDao.getTypes();
-        return  null;
+        return null;
     }
 
 }

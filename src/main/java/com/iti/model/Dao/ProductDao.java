@@ -16,6 +16,6 @@ public interface ProductDao {
     List<String> getCategories();
 
     List<String> getTypes();
-    ProductDTO retriveItem(int id);
+    Product retrieveItem(long id);
 
 }
