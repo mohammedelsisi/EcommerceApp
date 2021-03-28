@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>FashionStore</title>
+    <title>NaseejStore</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -142,7 +142,7 @@
                     <div class="nonloop-block-3 owl-carousel">
 
                         <c:forEach items="${requestScope.data}" var="i">
-                            <P:product img="${i.firstProdImg}" desc="${i.prodDesc}" src="#" price="${i.prodPrice}"/>
+                            <P:product img="${i.firstProdImg}" desc="${i.prodDescription}" src="#" price="${i.prodPrice}"/>
                         </c:forEach>
                     </div>
                 </div>

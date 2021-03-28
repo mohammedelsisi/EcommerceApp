@@ -1,8 +1,15 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="P" uri="/WEB-INF/tlds/productLib" %>
 <!DOCTYPE html>
 <html>
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
   <style>
   body {
     background-color: #EFEFEF;
@@ -31,11 +38,7 @@
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+
 
   div.dialog > p {
     margin: 0 0 1em;
@@ -52,6 +55,32 @@
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
   </style>
+
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+  <!-- to add down arrow to menus -->
+  <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="layout/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="layout/css/magnific-popup.css"> -->
+  <link rel="stylesheet" href="layout/css/jquery-ui.css">
+  <!-- to let horizontal scrolling -->
+  <link rel="stylesheet" href="layout/css/owl.carousel.min.css">
+  <!-- to add animations on vertical scrolling -->
+  <link rel="stylesheet" href="layout/css/aos.css">
+  <!-- main Style file -->
+  <link rel="stylesheet" href="layout/css/style.css">
+  <!-- for font awsowome icon -->
+  <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="layout/css/about.css" rel="stylesheet" type="text/css">
+
+  <style>
+    h1 {
+      font-size: 100%;
+      color: #730E15;
+      line-height: 1.5em;
+    }
+  </style>
 </head>
 
 <body>
@@ -66,6 +95,14 @@
     <p>If you are the application owner check the logs for more information.</p>
   </div>
 <%@include file="../toInclude/footer.jsp"%>
+
+<script src="layout/js/jquery-ui.js"></script>
+<script src="layout/js/jquery-3.3.1.min.js"></script>
+<script src="layout/js/popper.min.js"></script>
+<script src="layout/js/bootstrap.min.js"></script>
+<script src="layout/js/owl.carousel.min.js"></script>
+<script src="layout/js/jquery.magnific-popup.min.js"></script>
+<script src="layout/js/aos.js"></script>
 
 </body>
 </html>

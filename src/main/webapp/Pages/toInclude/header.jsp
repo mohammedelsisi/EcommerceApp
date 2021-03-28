@@ -36,11 +36,11 @@
 
                     <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
                         <div class="site-logo">
-                            <a href="index.html" class="js-logo-clone">
+                            <a href="Home" class="js-logo-clone">
                                 <div class="brand-icon ">
                                     <i class="fas fa-store"></i>
                                 </div>
-                                <div class="brand-text mx-3">Fashion Store</div>
+                                <div class="brand-text mx-3">Naseej Store</div>
                             </a>
                         </div>
                     </div>
@@ -49,8 +49,28 @@
                         <div class="site-top-icons">
                             <ul >
                                 <li> <a href="#"></a></li>
-                                <li><a href="#"><span class="icon icon-person"></span></a></li>
-                                <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                                <c:choose>
+                                    <c:when test="${sessionScope.login==true}">
+                                        <li><a href="#"><span class="icon icon-person"></span></a></li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li> <a href="#"></a>
+                                            <div class="dropdown" >
+                                                <a style="background-color: #e6e7e9" class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Hello! Log in
+                                                </a>
+                                                <div style="text-align: center" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <a class="btn btn-primary" style="color:white" href="Login">Log In</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <label class="dropdown-item">Don't Have an Account?</label>
+                                                    <a style="text-align: center" class="dropdown-item" href="Register">Sign Up</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </c:otherwise>
+                                </c:choose>
+
+
                                 <li>
                                     <a href="cart.html" class="site-cart">
                                         <span class="icon icon-shopping_cart"></span>

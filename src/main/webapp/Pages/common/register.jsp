@@ -55,6 +55,19 @@
                 <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                 <div class="col-lg-7">
                     <div class="p-5">
+                        <div class="row align-items-center">
+                            <div class="col-12 mb-md-0 order-1 order-md-2 text-center">
+                                <div class="site-logo">
+                                    <a href="Home" class="js-logo-clone">
+                                        <div class="brand-icon ">
+                                            <i class="fas fa-store"></i>
+                                        </div>
+                                        <h2 class="brand-text mx-3">Naseej Store</h2>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                         </div>
@@ -81,11 +94,21 @@
 
                                 </div>
                             </div>
-
+                            <div class="form-floating mb-3">
+                                <input name="phoneNumber" type="text" class="form-control form-control-user" id="phoneNumber"
+                                       placeholder="Phone Number" minlength="10" required pattern="01\d{9}">
+                                <label style="color: grey" for="exampleFirstName">Phone Number</label>
+                                <div style="padding-left: 25px" class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div style="padding-left: 25px" class="invalid-feedback">
+                                    Please enter a number in format (01xxxxxxxxx)
+                                </div>
+                            </div>
 
                             <div class="form-floating mb-3">
                                 <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail2"
-                                       placeholder="Email Address" required>
+                                       placeholder="Email Address" pattern="\S+@\S+\.\S+" required>
                                 <label style="color: grey" for="exampleInputEmail2">Email address</label>
                                 <div id="validEmailDiv" style="padding-left: 25px" class="valid-feedback">
                                     Looks good!
@@ -133,7 +156,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0 form-floating">
                                     <input name="password" type="password" class="form-control form-control-user"
-                                           id="exampleInputPassword" placeholder="Password" minlength="6" required>
+                                           id="exampleInputPassword" placeholder="Password" pattern=".{6,}" required>
                                     <label style="padding-left:25px;color: grey"
                                            for="exampleInputPassword">Password</label>
                                     <div style="padding-left: 25px" class="valid-feedback">
@@ -146,7 +169,7 @@
                                 </div>
                                 <div class="col-sm-6 form-floating">
                                     <input type="password" class="form-control form-control-user"
-                                           id="exampleRepeatPassword" placeholder="Repeat Password" minlength="6" required>
+                                           id="exampleRepeatPassword" placeholder="Repeat Password"  pattern=".{6,}" required>
                                     <label style="padding-left:25px;color: grey" for="exampleRepeatPassword">Repeat
                                         Password</label>
                                     <div id="validPass" style="padding-left: 25px" class="valid-feedback">
@@ -173,7 +196,7 @@
                             <a class="small" href="forgot-password.html">Forgot Password?</a>
                         </div>
                         <div class="text-center">
-                            <a class="small" href="login.html">Already have an account? Login!</a>
+                            <a class="small" href="Login">Already have an account? Login!</a>
                         </div>
                     </div>
                 </div>

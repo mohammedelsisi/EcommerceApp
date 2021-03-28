@@ -1,15 +1,24 @@
 package com.iti.model.DTO;
 
 public class ProductDTO  {
-    private int prodID;
+    private long prodID;
     private String prodType;
-    private String prodDesc;
-    private int prodQuantity;
+    private String prodDescription;
+    private long prodQuantity;
     private String firstProdImg;
     private String secondProdImg;
     private double productPrice;
     private String size;
     private String category;
+    private String color;
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     public ProductDTO() {
     }
@@ -91,7 +100,7 @@ public class ProductDTO  {
         return "ProductDTO{" +
                 "prodID=" + prodID +
                 ", prodType='" + prodType + '\'' +
-                ", prodDesc='" + prodDesc + '\'' +
+                ", prodDesc='" + prodDescription + '\'' +
                 ", prodQuantity=" + prodQuantity +
                 ", firstProdImg='" + firstProdImg + '\'' +
                 ", secondProdImg='" + secondProdImg + '\'' +
@@ -113,4 +122,54 @@ public class ProductDTO  {
         this.size = size;
         this.category = category;
     }
+
+    public ProductDTO(String prodDescription, String firstProdImg, double prodPrice) {
+        this.prodDescription = prodDescription;
+        this.firstProdImg = firstProdImg;
+        this.productPrice = prodPrice;
+    }
+
+    public ProductDTO(){}
+
+    public long getProdID() {
+        return prodID;
+    }
+
+    public void setProdID(long prodID) {
+        this.prodID = prodID;
+    }
+
+    public String getProdName() {
+        return prodType;
+    }
+
+    public void setProdName(String prodName) {
+        this.prodType = prodName;
+    }
+
+    public String getProdDescription() {
+        return prodDescription;
+    }
+
+    public void setProdDescription(String prodDescription) {
+        this.prodDescription = prodDescription;
+    }
+
+    public long getProdQuantity() {
+        return prodQuantity;
+    }
+
+    public void setProdQuantity(long prodQuantity) {
+        this.prodQuantity = prodQuantity;
+    }
+
+
+
+    public double getProdPrice() {
+        return productPrice;
+    }
+
+
+
+
 }

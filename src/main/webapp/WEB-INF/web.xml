@@ -19,6 +19,19 @@
         <servlet-name>Registration</servlet-name>
         <url-pattern>/Register</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <jsp-file>/Pages/common/login.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+
+
     <servlet>
         <servlet-name>About</servlet-name>
         <jsp-file>/Pages/common/about.jsp</jsp-file>
@@ -46,7 +59,10 @@
         <servlet-name>Error</servlet-name>
         <url-pattern>/404</url-pattern>
     </servlet-mapping>
-
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404</location>
+    </error-page>
 
     <servlet>
         <servlet-name>ShopServlet</servlet-name>
@@ -86,5 +102,33 @@
         <url-pattern>/ordersData</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>UserProfile</servlet-name>
+        <jsp-file>/Pages/common/profile.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserProfile</servlet-name>
+        <url-pattern>/Profile</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Orders</servlet-name>
+        <jsp-file>/Pages/common/orderhistory.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Orders</servlet-name>
+        <url-pattern>/OrderJSP</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Addresses</servlet-name>
+        <jsp-file>/Pages/common/address.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Addresses</servlet-name>
+        <url-pattern>/AddressesJsp</url-pattern>
+    </servlet-mapping>
 
 </web-app>

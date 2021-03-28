@@ -17,7 +17,7 @@ public class CookiesFilter implements Filter {
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         Cookie[] cookies = httpServletRequest.getCookies();
         String url = httpServletRequest.getServletPath().substring(1);
-        if (url.equals("Home") && request.getParameter("error") != null) {
+        if (url.equals("Home") && request.getParameter("error") != null||url.contains("layout")) {
             chain.doFilter(request, response);
         } else {
             System.out.println(httpServletRequest.getServletPath());
