@@ -42,6 +42,11 @@ public class ProductsService {
 
     }
 
+    public  ProductDTO retriveItem(int id){
+        return productDao.retriveItem(id);
+
+    }
+
 
     public List<String> getSizes() {
 

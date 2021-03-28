@@ -130,5 +130,14 @@
         <servlet-name>Addresses</servlet-name>
         <url-pattern>/AddressesJsp</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ProductItemServlet</servlet-name>
+        <jsp-file>/Pages/common/Product.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ProductItemServlet</servlet-name>
+        <url-pattern>/ProductItemJsp</url-pattern>
+    </servlet-mapping>
 
 </web-app>

@@ -31,14 +31,14 @@ public class ProductDaoImp implements ProductDao {
 
     @Override
     public List<Product> reteriveMaxProducts() {
-      return entityManager.createQuery("from Product order by quantity desc ",Product.class).setMaxResults(4).getResultList();
+        return entityManager.createQuery("from Product order by quantity desc ",Product.class).setMaxResults(4).getResultList();
 
     }
 
     @Override
     public List<ProductDTO> retrieveFilteredProducts(ProductFilter productFilter) {
         if(productFilter.isEmpty()){
-           return retrieveAllProducts();
+            return retrieveAllProducts();
         }else {
 
             List<ProductDTO> products = new ArrayList<>();
@@ -78,7 +78,7 @@ public class ProductDaoImp implements ProductDao {
     @Override
     public void close() {
         if(entityManager.isOpen())
-        entityManager.close();
+            entityManager.close();
     }
 
     @Override
@@ -140,6 +140,14 @@ public class ProductDaoImp implements ProductDao {
         products.add(p2);
 
         return products;
+    }
+    @Override
+    public  ProductDTO retriveItem(int id) {
+
+        ProductDTO productDTO=new ProductDTO("Get ready to hum, strum, and succumb to officially licensed Fender styles! If you've always wanted your very own Stratocaster guitar, now is your chance to get one! Or... at least get one on a rockin' tee! America's favorite guitar brand is the perfect way to show your rock and roll fashion with tees that celebrate the coolest guitars, amps, and more. As Fender says, you won't part with your Fender tees either"
+                ,"images/cloth_1.jpg","images/cloth_2.jpg",50);
+
+        return productDTO;
     }
 
 }

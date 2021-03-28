@@ -165,7 +165,7 @@
 
           <username>admin</username>
           <password>admin</password>
-          <url>http://localhost:9595/manager/text</url>
+          <url>http://localhost:9191/manager/text</url>
           <path>/fashion_store</path>
         </configuration>
       </plugin>
