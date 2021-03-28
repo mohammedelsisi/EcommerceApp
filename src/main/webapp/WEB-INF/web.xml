@@ -6,10 +6,6 @@
          version="5.0"
          metadata-complete="false">
 
-    <welcome-file-list>
-        <welcome-file>Home</welcome-file>
-    </welcome-file-list>
-
     <servlet>
         <servlet-name>Registration</servlet-name>
         <jsp-file>/Pages/common/register.jsp</jsp-file>
@@ -17,89 +13,26 @@
 
     <servlet-mapping>
         <servlet-name>Registration</servlet-name>
-        <url-pattern>/Register</url-pattern>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
+        <servlet>
+            <servlet-name>HomeServlet</servlet-name>
+            <jsp-file>/Pages/common/Home.jsp</jsp-file>
+        </servlet>
 
-
+        <servlet-mapping>
+            <servlet-name>HomeServlet</servlet-name>
+            <url-pattern>/HomeJsp</url-pattern>
+        </servlet-mapping>
     <servlet>
-        <servlet-name>Login</servlet-name>
-        <jsp-file>/Pages/common/login.jsp</jsp-file>
-    </servlet>
+            <servlet-name>ProductsData</servlet-name>
+            <jsp-file>/Pages/AdminPanel/products.jsp</jsp-file>
+        </servlet>
 
-    <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/Login</url-pattern>
-    </servlet-mapping>
+        <servlet-mapping>
+            <servlet-name>ProductsData</servlet-name>
+            <url-pattern>/prod</url-pattern>
+        </servlet-mapping>
 
-
-    <servlet>
-        <servlet-name>About</servlet-name>
-        <jsp-file>/Pages/common/about.jsp</jsp-file>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>About</servlet-name>
-        <url-pattern>/About</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>HomeServlet</servlet-name>
-        <jsp-file>/Pages/common/Home.jsp</jsp-file>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>HomeServlet</servlet-name>
-        <url-pattern>/HomeJsp</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>Error</servlet-name>
-        <jsp-file>/Pages/common/404.jsp</jsp-file>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Error</servlet-name>
-        <url-pattern>/404</url-pattern>
-    </servlet-mapping>
-    <error-page>
-        <error-code>404</error-code>
-        <location>/404</location>
-    </error-page>
-
-    <servlet>
-        <servlet-name>ShopServlet</servlet-name>
-        <jsp-file>/Pages/common/shop.jsp</jsp-file>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ShopServlet</servlet-name>
-        <url-pattern>/ShopJsp</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>UserProfile</servlet-name>
-        <jsp-file>/Pages/common/profile.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UserProfile</servlet-name>
-        <url-pattern>/Profile</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Orders</servlet-name>
-        <jsp-file>/Pages/common/orderhistory.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Orders</servlet-name>
-        <url-pattern>/OrderJSP</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Addresses</servlet-name>
-        <jsp-file>/Pages/common/address.jsp</jsp-file>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Addresses</servlet-name>
-        <url-pattern>/AddressesJsp</url-pattern>
-    </servlet-mapping>
 
 </web-app>

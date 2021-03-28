@@ -1,9 +1,8 @@
 package com.iti.controller.listners;
 
-import com.iti.controller.servlets.Profile;
-import com.iti.service.ProductsService;
+import com.iti.service.DataTablesService;
+import com.iti.service.HomeService;
 import com.iti.service.LoginService;
-import com.iti.service.ProfileService;
 import com.iti.service.RegistrationService;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.annotation.WebListener;
@@ -16,16 +15,14 @@ public class ContextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("ContextListener.contextInitialized");
         RegistrationService registrationService = RegistrationService.getInstance();
-        ProfileService profileService = ProfileService.getInstance();
         LoginService loginService = LoginService.getInstance();
-        ProductsService productsService = ProductsService.getInstance();
+        HomeService homeService=HomeService.getInstance();
+        DataTablesService dataTablesService = DataTablesService.getInstance();
         ServletContext servletContext = sce.getServletContext();
         servletContext.setAttribute("RegistrationService",registrationService);
-        servletContext.setAttribute("ProfileService",profileService);
         servletContext.setAttribute("LoginService",loginService);
-        servletContext.setAttribute("ProductsService", productsService);
-        servletContext.setAttribute("Colors",productsService.getColors());
-        servletContext.setAttribute("Sizes",productsService.getSizes());
+        servletContext.setAttribute("HomeService",homeService);
+        servletContext.setAttribute("DataTablesService",dataTablesService);
     }
 
     @Override

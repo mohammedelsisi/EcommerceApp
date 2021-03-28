@@ -1,6 +1,7 @@
 package com.iti.model.DTO;
 
 public class ProductDTO  {
+
     private int prodID;
     private String prodType;
     private String prodDesc;
@@ -11,73 +12,7 @@ public class ProductDTO  {
     private String size;
     private String category;
 
-    @Override
-    public String toString() {
-        return "ProductDTO{" +
-                "prodID=" + prodID +
-                ", prodType='" + prodType + '\'' +
-                ", prodDesc='" + prodDesc + '\'' +
-                ", prodQuantity=" + prodQuantity +
-                ", firstProdImg='" + firstProdImg + '\'' +
-                ", secondProdImg='" + secondProdImg + '\'' +
-                ", productPrice=" + productPrice +
-                ", size='" + size + '\'' +
-                ", category='" + category + '\'' +
-                '}';
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getProdType() {
-        return prodType;
-    }
-
-    public void setProdType(String prodType) {
-        this.prodType = prodType;
-    }
-
-    public double getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(double productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public String getFirstProdImg() {
-        return firstProdImg;
-    }
-
-    public void setFirstProdImg(String firstProdImg) {
-        this.firstProdImg = firstProdImg;
-    }
-
-    public String getSecondProdImg() {
-        return secondProdImg;
-    }
-
-    public void setSecondProdImg(String secondProdImg) {
-        this.secondProdImg = secondProdImg;
-    }
-
-    public ProductDTO(String prodDesc, String firstProdImg, double prodPrice) {
-        this.prodDesc = prodDesc;
-        this.firstProdImg = firstProdImg;
-        this.productPrice = prodPrice;
+    public ProductDTO() {
     }
 
     public int getProdID() {
@@ -88,12 +23,12 @@ public class ProductDTO  {
         this.prodID = prodID;
     }
 
-    public String getProdName() {
+    public String getProdType() {
         return prodType;
     }
 
-    public void setProdName(String prodName) {
-        this.prodType = prodName;
+    public void setProdType(String prodType) {
+        this.prodType = prodType;
     }
 
     public String getProdDesc() {
@@ -112,13 +47,71 @@ public class ProductDTO  {
         this.prodQuantity = prodQuantity;
     }
 
+    public String getFirstProdImg() {
+        return firstProdImg;
+    }
 
+    public void setFirstProdImg(String firstProdImg) {
+        this.firstProdImg = firstProdImg;
+    }
 
-    public double getProdPrice() {
+    public String getSecondProdImg() {
+        return secondProdImg;
+    }
+
+    public void setSecondProdImg(String secondProdImg) {
+        this.secondProdImg = secondProdImg;
+    }
+
+    public double getProductPrice() {
         return productPrice;
     }
 
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductDTO{" +
+                "prodID=" + prodID +
+                ", prodType='" + prodType + '\'' +
+                ", prodDesc='" + prodDesc + '\'' +
+                ", prodQuantity=" + prodQuantity +
+                ", firstProdImg='" + firstProdImg + '\'' +
+                ", secondProdImg='" + secondProdImg + '\'' +
+                ", productPrice=" + productPrice +
+                ", size='" + size + '\'' +
+                ", category='" + category + '\'' +
+                '}';
+    }
 
 
-
+    public ProductDTO(int prodID, String prodType, String prodDesc, int prodQuantity, String firstProdImg, String secondProdImg, double productPrice, String size, String category) {
+        this.prodID = prodID;
+        this.prodType = prodType;
+        this.prodDesc = prodDesc;
+        this.prodQuantity = prodQuantity;
+        this.firstProdImg = firstProdImg;
+        this.secondProdImg = secondProdImg;
+        this.productPrice = productPrice;
+        this.size = size;
+        this.category = category;
+    }
 }
