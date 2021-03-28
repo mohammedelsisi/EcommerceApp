@@ -16,8 +16,29 @@
     <title>Addresses</title>
 
     <!-- Custom fonts for this template-->
+    <link href="layout/css/order.css" rel="stylesheet">
 
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <!-- to add down arrow to menus -->
+    <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
+    <link type="text/css" rel="stylesheet" href="layout/css/jsgrid.min.css"/>
+    <link type="text/css" rel="stylesheet" href="layout/css/jsgrid-theme.min.css"/>
+    <link rel="stylesheet" href="layout/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="layout/css/magnific-popup.css"> -->
+    <link rel="stylesheet" href="layout/css/jquery-ui.css">
+    <!-- to let horizontal scrolling -->
+    <link rel="stylesheet" href="layout/css/owl.carousel.min.css">
+    <!-- to add animations on vertical scrolling -->
+    <link rel="stylesheet" href="layout/css/aos.css">
+    <!-- main Style file -->
+    <link rel="stylesheet" href="layout/css/style.css">
+    <!-- for font awsowome icon -->
+    <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
+
+    <link href="layout/css/bootstrap/bootstrap_5.0.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="layout/css/sb-admin-2.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
     <!-- to add down arrow to menus -->
     <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
@@ -34,9 +55,6 @@
     <!-- for font awsowome icon -->
     <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
 
-    <link href="css/sb-admin-2.css" rel="stylesheet">
-    <link href="layout/css/bootstrap/bootstrap_5.0.css" rel="stylesheet">
-
 
 </head>
 <!-- Page Wrapper -->
@@ -48,15 +66,14 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-light
-      accordion" id="accordionSidebar" style="background: white; ">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-light accordion" id="accordionSidebar" style="background: white; ">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html ">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-paw"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">PeTopia</div>
+            <div class="sidebar-brand-text mx-3">Nassej</div>
         </a>
 
         <!-- Divider -->

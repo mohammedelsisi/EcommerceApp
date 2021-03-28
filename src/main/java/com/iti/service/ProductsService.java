@@ -10,6 +10,7 @@ import com.iti.model.mapper.ProductMapper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProductsService {
 
@@ -36,9 +37,11 @@ public class ProductsService {
     }
 
     public List<ProductDTO> retrieveFilteredProducts(ProductFilter productFilter) {
-
-//        return productDao.retrieveFilteredProducts(productFilter);
-        return null;
+        ProductDao productDao = ProductDaoImp.getInstance();
+        List<Product> products = productDao.retrieveFilteredProducts(productFilter);
+        List<ProductDTO>list = products.stream().map(ProductMapper.getInstance()::getDTO).collect(Collectors.toList());
+        productDao.close();
+        return list;
 
     }
 
@@ -49,13 +52,19 @@ public class ProductsService {
 
 
     public List<String> getSizes() {
-
-//        return productDao.getSizes();
-        return null;
+        List<String> list = new ArrayList<>();
+        list.add("Small");
+        list.add("Medium");
+        list.add("Large");
+        return list;
     }
 
     public List<String> getColors() {
-        return null;
+        List<String> list = new ArrayList<>();
+        list.add("Red");
+        list.add("Green");
+        list.add("Blue");
+        return list;
     }
     public List<String> getCategories(){
 //        return productDao.getCategories();

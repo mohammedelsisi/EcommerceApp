@@ -30,6 +30,22 @@ public class Product implements java.io.Serializable {
         return color;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", type='" + type + '\'' +
+                ", description='" + description + '\'' +
+                ", quantity=" + quantity +
+                ", size='" + size + '\'' +
+                ", color='" + color + '\'' +
+                ", category='" + category + '\'' +
+                ", firstImg='" + firstImg + '\'' +
+                ", secondImg='" + secondImg + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
     public void setColor(String color) {
         this.color = color;
     }
