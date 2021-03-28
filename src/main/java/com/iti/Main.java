@@ -23,9 +23,9 @@ public class Main {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
-        /*  Inserting Products */
-        for (int i = 0; i < 5; i++) {
-
+//        /*  Inserting Products */
+//        for (int i = 0; i < 5; i++) {
+//
 
 //            ProductDTO p1 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_1.jpg", 50);
 //            p1.setProdType("T-Shirt");
@@ -105,6 +105,7 @@ public class Main {
 //        List<UserDetails> from_userDetails = entityManager.createQuery("from UserDetails", UserDetails.class).setFirstResult(0).setMaxResults(4).getResultList();
 //        System.out.println(from_userDetails);
 
-        entityManager.close();
-    }}
+//        entityManager.close();
+//    }}
+    }
 }
