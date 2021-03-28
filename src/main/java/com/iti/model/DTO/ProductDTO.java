@@ -82,7 +82,7 @@ public class ProductDTO  {
 
     public ProductDTO(){}
 
-    public int getProdID() {
+    public long getProdID() {
         return prodID;
     }
 
@@ -106,7 +106,7 @@ public class ProductDTO  {
         this.prodDescription = prodDescription;
     }
 
-    public int getProdQuantity() {
+    public long getProdQuantity() {
         return prodQuantity;
     }
 

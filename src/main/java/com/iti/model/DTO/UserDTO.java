@@ -11,7 +11,7 @@ public class UserDTO {
     private String email;
     private double creditLimit;
     private String image;
-    private RoleUser Role;
+    private RoleUser Role = RoleUser.CustomerRole;
     private String job;
     private Date birthday;
     private String password;

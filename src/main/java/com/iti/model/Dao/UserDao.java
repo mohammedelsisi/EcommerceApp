@@ -14,7 +14,7 @@ public interface UserDao {
    boolean isUserEmail(String email);
 
    UserDetails getUser(String email, String password);
-
+   void close();
    List<UserDTO> retriveall();
 
    boolean changePassword(String oldpassword, String newpassword);

@@ -10,5 +10,8 @@ public class DatabaseManager {
     public synchronized static EntityManagerFactory getFactory(){
         return entityManagerFactory;
     }
+    public static void closeConnection(){
+        entityManagerFactory.close();
+    }
 
 }

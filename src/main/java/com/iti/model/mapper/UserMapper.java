@@ -10,14 +10,14 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class UserMapper {
-    private static UserMapper userMapper;
+    private static final UserMapper userMapper = new UserMapper();
 
     private UserMapper() {
 
     }
 
     public static synchronized UserMapper getInstance() {
-        return Objects.requireNonNullElseGet(userMapper, UserMapper::getInstance);
+        return userMapper;
     }
 
     public UserDetails getUserEntity(UserDTO userDTO) {
@@ -33,12 +33,13 @@ public class UserMapper {
         userDetails.setPhoneNumber(userDTO.getPhoneNumber());
         userDetails.setRole(userDTO.getRole().name());
         userDetails.setUserName(userDTO.getUserName());
-        userDetails.setInterests(userDTO.getAddresses().stream().map(Interest::new).collect(Collectors.toSet()));
+        userDetails.setInterests(userDTO.getInterests().stream().map(Interest::new).collect(Collectors.toSet()));
         return userDetails;
     }
 
     public UserDTO getUserDTO(UserDetails userDetails) {
         UserDTO userDTO = new UserDTO();
+        System.out.println("USer user"+userDetails);
         userDTO.setId(userDetails.getId());
         userDTO.setBirthday(userDetails.getBirthday());
         userDTO.setCreditLimit(userDetails.getCreditLimit());

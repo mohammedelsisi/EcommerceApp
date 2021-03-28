@@ -1,6 +1,7 @@
 package com.iti.controller.listners;
 
 import com.iti.controller.servlets.Profile;
+import com.iti.persistence.DatabaseManager;
 import com.iti.service.ProductsService;
 import com.iti.service.LoginService;
 import com.iti.service.ProfileService;
@@ -30,6 +31,7 @@ public class ContextListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
+        DatabaseManager.closeConnection();
         System.out.println("ContextListener.contextDestroyed");
     }
 }

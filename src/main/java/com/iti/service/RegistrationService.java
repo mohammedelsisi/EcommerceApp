@@ -9,19 +9,24 @@ import com.iti.model.mapper.UserMapper;
 import java.util.List;
 
 public class RegistrationService {
-    private final UserDao userDao= UserDAOImp.getInstance();
     private static final RegistrationService registrationService = new RegistrationService();
 
-    public static synchronized RegistrationService getInstance(){
+    public static synchronized RegistrationService getInstance() {
         return registrationService;
     }
 
-    public boolean register (UserDTO userDTO){
-        UserDetails userEntity = UserMapper.getInstance().getUserEntity(userDTO);
-        return userDao.insertUser(userEntity);
-
+    public boolean register(UserDTO userDTO) {
+        UserDao userDao = UserDAOImp.getInstance();
+        System.out.println("###DTO"+userDTO);
+        UserDetails userDetails = UserMapper.getInstance().getUserEntity(userDTO);
+        System.out.println("###DETAILS"+userDetails);
+        userDao.insertUser(userDetails);
+        userDao.close();
+        return true;
     }
-    public boolean isUserEmail (String email){
-      return   userDao.isUserEmail(email);
+
+    public boolean isUserEmail(String email) {
+//      return   userDao.isUserEmail(email);
+        return false;
     }
 }

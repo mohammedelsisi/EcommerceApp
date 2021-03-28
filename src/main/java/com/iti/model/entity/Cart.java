@@ -18,15 +18,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="cart"
-    ,catalog="naseejstore"
+        ,catalog="naseejstore"
 )
 public class Cart  implements java.io.Serializable {
 
 
-     private CartId id;
-     private UserDetails userDetails;
-     private Product product;
-     private Integer quantity;
     private CartId id;
     private Product product;
     private UserDetails userDetails;
@@ -35,21 +31,12 @@ public class Cart  implements java.io.Serializable {
     public Cart() {
     }
 
-	
-    public Cart(CartId id, UserDetails userdetails, Product product) {
 
     public Cart(CartId id, Product product, UserDetails userDetails) {
         this.id = id;
-        this.userDetails = userdetails;
-        this.product = product;
         this.product = product;
         this.userDetails = userDetails;
     }
-    public Cart(CartId id, UserDetails userdetails, Product product, Integer quantity) {
-       this.id = id;
-       this.userDetails = userdetails;
-       this.product = product;
-       this.quantity = quantity;
     public Cart(CartId id, Product product, UserDetails userDetails, Integer quantity) {
         this.id = id;
         this.product = product;
@@ -87,29 +74,23 @@ public class Cart  implements java.io.Serializable {
         return this.userDetails;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="product_id", nullable=false, insertable=false, updatable=false)
-    public Product getProducts() {
-        return this.product;
+    public void setUserDetails(UserDetails userDetails) {
+        this.userDetails = userDetails;
     }
 
-    public void setProducts(Product product){
-                this.product = product;
-                public void setUserDetails (UserDetails userDetails){
-                    this.userDetails = userDetails;
-                }
+
+    @Column(name="quantity")
+    public Integer getQuantity() {
+        return this.quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 
 
-                @Column(name = "quantity")
-                public Integer getQuantity () {
-                    return this.quantity;
-                }
-
-                public void setQuantity (Integer quantity){
-                    this.quantity = quantity;
-                }
 
 
-            }
+}
 
 

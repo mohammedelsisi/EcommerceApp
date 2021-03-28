@@ -15,19 +15,36 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class UserDAOImp implements UserDao {
-    private static final UserDAOImp userDAOImp = new UserDAOImp();
+    //    private static final UserDAOImp userDAOImp = new UserDAOImp();
+    EntityManager entityManager;
 
-    public static synchronized UserDAOImp getInstance() {
-        return userDAOImp;
+    private UserDAOImp() {
+        entityManager = DatabaseManager.getFactory().createEntityManager();
+    }
+
+    public static UserDAOImp getInstance() {
+        return new UserDAOImp();
+    }
+
+    public void close() {
+        if (entityManager.isOpen())
+            entityManager.close();
     }
 
     @Override
     public boolean insertUser(UserDetails userDetails) {
-        EntityManager entityManager = DatabaseManager.getFactory().createEntityManager();
+
         entityManager.getTransaction().begin();
+
         entityManager.persist(userDetails);
+
+        userDetails.getInterests().stream().forEach((e)->{
+            e.setUserDetails(userDetails);
+            entityManager.persist(e);
+        });
+
         entityManager.getTransaction().commit();
-        entityManager.close();
+
         return true;
 
     }
@@ -40,45 +57,17 @@ public class UserDAOImp implements UserDao {
     }
 
     @Override
-    public UserDetails getUser(String email, String password) {
-        EntityManager entityManager = DatabaseManager.getFactory().createEntityManager();
-        entityManager.getTransaction().begin();
-        List<UserDetails> resultList = entityManager.createQuery("select from UserDetails where email=" + email + "and password= " + password, UserDetails.class).getResultList();
-        return resultList.get(0);
+    public UserDetails getUser(String userEmail, String userPassword) {
 
-//        if (email.equals("true@true.com") && password.equals("123456")) {
-//            LocalDate localDate = LocalDate.of(1994, 11, 26);
-//            UserDTO userDTO = new UserDTO("ahmed", email, password);
-//            userDTO.setBirthday(java.sql.Date.valueOf(localDate));
-//            userDTO.setPhoneNumber("+201027579113");
-//            userDTO.setCreditLimit(12.0);
-//            CartItemDTOM cartItemDTOM = new CartItemDTOM();
-//            cartItemDTOM.setItemType("Shirt");
-//            cartItemDTOM.setItemPrice(1200);
-//            cartItemDTOM.setItemQuantity(2);
-//            CartItemDTOM cartItemDTOM2 = new CartItemDTOM();
-//            cartItemDTOM2.setItemType("Pants");
-//            cartItemDTOM2.setItemPrice(1500);
-//            cartItemDTOM2.setItemQuantity(2);
-//            Set<CartItemDTOM> items = new HashSet<>();
-//            items.add(cartItemDTOM);
-//            items.add(cartItemDTOM2);
-//            OrderDTO orderDTO = new OrderDTO();
-//            orderDTO.setId(123456L);
-//            orderDTO.setPurchaseDate(new Date());
-//            orderDTO.setItems(items);
-//            OrderDTO orderDTO2 = new OrderDTO();
-//            orderDTO2.setId(123456L);
-//            orderDTO2.setPurchaseDate(new Date());
-//            orderDTO2.setItems(items);
-//            ArrayList<OrderDTO> objects = new ArrayList<>();
-//            objects.add(orderDTO);
-//            objects.add(orderDTO2);
-//            userDTO.setOrders(objects);
-//            return userDTO;
-//        } else {
-//            return null;
-//        }
+        String query = "from UserDetails where email = '" + userEmail.toLowerCase() + "' and password= '" + userPassword+"'";
+        System.out.println(query);
+        List<UserDetails> resultList = entityManager.createQuery(query, UserDetails.class).getResultList();
+        if (resultList.size() == 1) {
+            System.out.println(resultList.get(0));
+            return resultList.get(0);
+        } else {
+            return null;
+        }
     }
 
     @Override
@@ -161,14 +150,14 @@ public class UserDAOImp implements UserDao {
     @Override
     public boolean EditProfile(UserDTO user) {
         //I need the id of the current user here
-int id = 0;
+        int id = 0;
         EntityManager entityManager = DatabaseManager.getFactory().createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.createQuery("update userDetails set  birthDay =" + user.getBirthday() +
-                        ", credit_limit= " + user.getCreditLimit() +
-                        " , phone_number= " + user.getPhoneNumber() +
+                ", credit_limit= " + user.getCreditLimit() +
+                " , phone_number= " + user.getPhoneNumber() +
                 " , job= " + user.getJob() +
-                " , user_name= " + user.getUserName()+ " where id = " + id  ,UserDetails.class).getResultList();
+                " , user_name= " + user.getUserName() + " where id = " + id, UserDetails.class).getResultList();
         entityManager.getTransaction().commit();
         entityManager.close();
         return true;

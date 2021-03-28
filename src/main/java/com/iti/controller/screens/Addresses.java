@@ -34,7 +34,7 @@ public class Addresses extends HttpServlet {
             profileService.addAddress(newaddress);
         } else if (req.getParameter("SelectOrAdd").equals("select")) {
             int selectedaddress = SelectAddress(req);
-            profileService.selectAddress(selectedaddress);
+//            profileService.selectAddress(selectedaddress);
         }
     }
 

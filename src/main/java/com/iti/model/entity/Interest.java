@@ -46,6 +46,12 @@ public class Interest implements java.io.Serializable {
     }
 
 
+    @Override
+    public String toString() {
+        return "Interest{" +
+                "interest='" + interest + '\'' +
+                '}';
+    }
 }
 
 

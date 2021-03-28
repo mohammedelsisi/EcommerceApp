@@ -19,6 +19,23 @@ import static javax.persistence.GenerationType.IDENTITY;
 )
 public class UserDetails  implements java.io.Serializable {
 
+    @Override
+    public String toString() {
+        return "UserDetails{" +
+                "id=" + id +
+                ", birthday=" + birthday +
+                ", creditLimit=" + creditLimit +
+                ", email='" + email + '\'' +
+                ", image='" + image + '\'' +
+                ", job='" + job + '\'' +
+                ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", role='" + role + '\'' +
+                ", userName='" + userName + '\'' +
+                ", addresses=" + addresses +
+                ", interests=" + interests +
+                '}';
+    }
 
     private long id;
     private Date birthday;
@@ -144,7 +161,7 @@ public class UserDetails  implements java.io.Serializable {
     }
 
 
-    @Column(name="role", length=45)
+    @Column(name="role",nullable = false, length=45)
     public String getRole() {
         return this.role;
     }

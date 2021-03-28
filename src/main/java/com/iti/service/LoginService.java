@@ -7,16 +7,21 @@ import com.iti.model.entity.UserDetails;
 import com.iti.model.mapper.UserMapper;
 
 public class LoginService {
-    private final UserDao userDao= UserDAOImp.getInstance();
     private static final LoginService loginService = new LoginService();
 
-    public static synchronized LoginService getInstance(){
+    public static synchronized LoginService getInstance() {
         return loginService;
     }
 
 
-    public UserDTO getUser(String email,String password){
+    public UserDTO getUser(String email, String password) {
+        UserDao userDao = UserDAOImp.getInstance();
         UserDetails user = userDao.getUser(email, password);
-        return UserMapper.getInstance().getUserDTO(user);
+        UserDTO userDTO = null;
+        if (user != null) {
+            userDTO = UserMapper.getInstance().getUserDTO(user);
+        }
+        userDao.close();
+        return userDTO;
     }
 }
