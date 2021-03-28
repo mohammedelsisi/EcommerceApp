@@ -93,25 +93,23 @@ public class Cart  implements java.io.Serializable {
         return this.product;
     }
 
-    public void setProducts(Product product) {
-        this.product = product;
-    public void setUserDetails(UserDetails userDetails) {
-        this.userDetails = userDetails;
-    }
+    public void setProducts(Product product){
+                this.product = product;
+                public void setUserDetails (UserDetails userDetails){
+                    this.userDetails = userDetails;
+                }
 
 
-    @Column(name="quantity")
-    public Integer getQuantity() {
-        return this.quantity;
-    }
+                @Column(name = "quantity")
+                public Integer getQuantity () {
+                    return this.quantity;
+                }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-
+                public void setQuantity (Integer quantity){
+                    this.quantity = quantity;
+                }
 
 
-}
+            }
 
 

@@ -35,6 +35,14 @@ public class UserDTO {
         this.interests = interests;
         this.phoneNumber = phoneNumber;
     }
+//this is used in create user for edit profile
+    public UserDTO(String userName, double creditLimit, String job, Date birthday, String phoneNumber) {
+        this.userName = userName;
+        this.creditLimit = creditLimit;
+        this.job = job;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+    }
 
 
     public UserDTO() {

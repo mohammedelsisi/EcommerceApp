@@ -4,7 +4,9 @@ import com.iti.model.DTO.CartItemDTOM;
 import com.iti.model.DTO.OrderDTO;
 import com.iti.model.DTO.UserDTO;
 import com.iti.model.Dao.UserDao;
+import com.iti.model.entity.Address;
 import com.iti.model.entity.UserDetails;
+import com.iti.model.mapper.UserMapper;
 import com.iti.persistence.DatabaseManager;
 
 import javax.persistence.EntityManager;
@@ -84,24 +86,15 @@ public class UserDAOImp implements UserDao {
         return null;
     }
 
-
-    @Override
+//these methods are replaced with (Edit profile) method
+/*    @Override
     public boolean editName(String name) {
         UserDTO user = new UserDTO();
         user.setUserName(name);
         return true;
     }
 
-    @Override
-    public boolean changePassword(String oldpassword, String newpassword) {
-        if (oldpassword.equals("hello")) {
-            return true;
-        } else {
-            return false;
-        }
 
-
-    }
 
     @Override
     public boolean editCreditLimit(Double credit) {
@@ -124,16 +117,6 @@ public class UserDAOImp implements UserDao {
         return true;
     }
 
-    @Override
-    public boolean addAddress(String address) {
-        UserDTO user = new UserDTO();
-        List<String> Addresses = new ArrayList<>();
-        Addresses.add("221B Barker St.");
-        user.setAddresses(Addresses);
-        user.getAddresses().add(address);
-        return true;
-    }
-
 
     @Override
     public String selectAddress(int selectedAddress) {
@@ -142,12 +125,53 @@ public class UserDAOImp implements UserDao {
         Addresses.add("221B Barker St.");
         user.setAddresses(Addresses);
         return user.getAddresses().get(selectedAddress);
+    }*/
+
+    @Override
+    public boolean changePassword(String oldpassword, String newpassword) {
+        if (oldpassword.equals("hello")) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
+    @Override
+    public boolean addAddress(String address) {
+        //I need the id of the current user here
+        int id = 0;
+        Address newAddress = new Address();
+        EntityManager entityManager = DatabaseManager.getFactory().createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(newAddress);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return true;
+    }
+
 
     @Override
     public boolean editImage(String image) {
         UserDTO user = new UserDTO();
         user.setImage(image);
         return true;
+    }
+
+
+    @Override
+    public boolean EditProfile(UserDTO user) {
+        //I need the id of the current user here
+int id = 0;
+        EntityManager entityManager = DatabaseManager.getFactory().createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.createQuery("update userDetails set  birthDay =" + user.getBirthday() +
+                        ", credit_limit= " + user.getCreditLimit() +
+                        " , phone_number= " + user.getPhoneNumber() +
+                " , job= " + user.getJob() +
+                " , user_name= " + user.getUserName()+ " where id = " + id  ,UserDetails.class).getResultList();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return true;
+
     }
 }

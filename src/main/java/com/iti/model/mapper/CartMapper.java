@@ -37,19 +37,19 @@ public class CartMapper {
         return cart;
     }
 
-    public ProductDTO getDTO(Product product) {
-        ProductDTO productdto = new ProductDTO();
-
-        productdto.setProdID(product.getProductId());
-        productdto.setProdName(product.getType());
-        productdto.setProdDescription(product.getDescription());
-        productdto.setProdQuantity(product.getQuantity());
-        productdto.setSize(product.getSize());
-        productdto.setCategory(product.getCategory());
-        productdto.setFirstProdImg(product.getFirstImg());
-        productdto.setSecondProdImg(product.getSecondImg());
-        productdto.setProductPrice(product.getPrice());
-
-        return productdto;
-    }
+//    public ProductDTO getDTO(Product product) {
+//        ProductDTO productdto = new ProductDTO();
+//
+//        productdto.setProdID(product.getProductId());
+//        productdto.setProdName(product.getType());
+//        productdto.setProdDescription(product.getDescription());
+//        productdto.setProdQuantity(product.getQuantity());
+//        productdto.setSize(product.getSize());
+//        productdto.setCategory(product.getCategory());
+//        productdto.setFirstProdImg(product.getFirstImg());
+//        productdto.setSecondProdImg(product.getSecondImg());
+//        productdto.setProductPrice(product.getPrice());
+//
+//        return productdto;
+//    }
 }

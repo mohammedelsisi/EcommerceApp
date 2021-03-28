@@ -17,20 +17,22 @@ public interface UserDao {
 
    List<UserDTO> retriveall();
 
-   boolean editName(String name);
-
    boolean changePassword(String oldpassword, String newpassword);
 
-   boolean editCreditLimit(Double credit);
-
-   boolean editBirthDate(Date birthdate);
-
-   boolean editJob(String job);
+//   boolean editName(String name);
+//
+//   boolean editCreditLimit(Double credit);
+//
+//   boolean editBirthDate(Date birthdate);
+//
+//   boolean editJob(String job);
+//
+//   String selectAddress(int selectedAddress);
 
    boolean addAddress(String Address);
 
-   String selectAddress(int selectedAddress);
-
    boolean editImage (String image);
+
+   boolean EditProfile (UserDTO user);
 
 }
