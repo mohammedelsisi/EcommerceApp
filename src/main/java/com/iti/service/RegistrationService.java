@@ -17,16 +17,16 @@ public class RegistrationService {
 
     public boolean register(UserDTO userDTO) {
         UserDao userDao = UserDAOImp.getInstance();
-        System.out.println("###DTO"+userDTO);
         UserDetails userDetails = UserMapper.getInstance().getUserEntity(userDTO);
-        System.out.println("###DETAILS"+userDetails);
         userDao.insertUser(userDetails);
         userDao.close();
         return true;
     }
 
     public boolean isUserEmail(String email) {
-//      return   userDao.isUserEmail(email);
-        return false;
+        UserDao userDao = UserDAOImp.getInstance();
+        boolean isEmail= userDao.isUserEmail(email);
+        userDao.close();
+        return isEmail;
     }
 }

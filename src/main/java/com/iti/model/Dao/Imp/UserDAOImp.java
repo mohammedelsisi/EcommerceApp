@@ -33,33 +33,27 @@ public class UserDAOImp implements UserDao {
 
     @Override
     public boolean insertUser(UserDetails userDetails) {
-
         entityManager.getTransaction().begin();
-
         entityManager.persist(userDetails);
-
-        userDetails.getInterests().stream().forEach((e)->{
+        userDetails.getInterests().stream().forEach((e) -> {
             e.setUserDetails(userDetails);
             entityManager.persist(e);
         });
-
         entityManager.getTransaction().commit();
-
         return true;
-
     }
 
+
     @Override
-    public boolean isUserEmail(String email) {
-        if (email.equals("true@true.com"))
-            return true;
-        else return false;
+    public boolean isUserEmail(String userEmail) {
+        List<String> resultList = entityManager.createQuery("select email from UserDetails where email ='" + userEmail.toLowerCase() + "'", String.class).getResultList();
+        return resultList.size() > 0;
     }
 
     @Override
     public UserDetails getUser(String userEmail, String userPassword) {
 
-        String query = "from UserDetails where email = '" + userEmail.toLowerCase() + "' and password= '" + userPassword+"'";
+        String query = "from UserDetails where email = '" + userEmail.toLowerCase() + "' and password= '" + userPassword + "'";
         System.out.println(query);
         List<UserDetails> resultList = entityManager.createQuery(query, UserDetails.class).getResultList();
         if (resultList.size() == 1) {
