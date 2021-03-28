@@ -8,14 +8,10 @@ public class UserDTO {
     private long id;
     private String userName;
     private String phoneNumber;
-    private String image;
-    private double creditLimit;
     private String email;
     private double creditLimit;
     private String image;
     private RoleUser Role = RoleUser.CustomerRole;
-    private String phoneNumber;
-    private RoleUser Role;
     private String job;
     private Date birthday;
     private String password;
@@ -39,7 +35,7 @@ public class UserDTO {
         this.interests = interests;
         this.phoneNumber = phoneNumber;
     }
-//this is used in create user for edit profile
+    //this is used in create user for edit profile
     public UserDTO(String userName, double creditLimit, String job, Date birthday, String phoneNumber) {
         this.userName = userName;
         this.creditLimit = creditLimit;
@@ -81,35 +77,6 @@ public class UserDTO {
                 ", interests=" + interests +
                 ", addresses=" + addresses +
                 '}';
-    private List<String> addresses;
-    public UserDTO(long id, String userName, String image, double creditLimit, String email, String phoneNumber, RoleUser role) {
-        this.id = id;
-        this.userName = userName;
-        this.image = image;
-        this.creditLimit = creditLimit;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        Role = role;
-    }
-
-    public UserDTO(String userName, String email, String password) {
-        this.userName = userName;
-        this.email = email;
-        this.password = password;
-    }
-
-    public UserDTO(long id, String userName, double creditLimit, String email, String job, Date birthday, String password, List<String> interests) {
-        this.id = id;
-        this.userName = userName;
-        this.creditLimit = creditLimit;
-        this.email = email;
-        this.job = job;
-        this.birthday = birthday;
-        this.password = password;
-        this.interests = interests;
-    }
-
-    public UserDTO() {
     }
 
     public long getId() {
@@ -199,30 +166,4 @@ public class UserDTO {
     public void setImage(String image) {
         this.image = image;
     }
-
-    public List<String> getAddresses() {
-        return addresses;
-    }
-
-    public void setAddresses(List<String> addresses) {
-        this.addresses = addresses;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-
 }

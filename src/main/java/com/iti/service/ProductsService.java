@@ -50,15 +50,15 @@ public class ProductsService {
     }
 
     public List<String> getColors() {
-    public List<String> getCategories(){
-        return productDao.getCategories();
-    }
-    public List<String> getTypes(){
-        return productDao.getTypes();
-    }
-    public List<String> getColors( ) {
-
-//        return productDao.getColors();
         return null;
     }
+    public List<String> getCategories(){
+//        return productDao.getCategories();
+        return null;
+    }
+    public List<String> getTypes(){
+//        return productDao.getTypes();
+        return  null;
+    }
+
 }

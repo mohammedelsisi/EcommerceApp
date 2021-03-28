@@ -10,19 +10,9 @@ public interface ProductDao {
     List<Product>  reteriveMaxProducts ();
     List<ProductDTO> retrieveAllProducts ();
     List<ProductDTO> retrieveFilteredProducts (ProductFilter productFilter);
-     List<String> getSizes();
-     List<String> getColors();
-    void close();
-    List<ProductDTO> retriveMaxiQuant();
-
-    List<ProductDTO> retrieveAllProducts();
-
-    List<ProductDTO> retrieveFilteredProducts(ProductFilter productFilter);
-
     List<String> getSizes();
-
     List<String> getColors();
-
+    void close();
     List<String> getCategories();
 
     List<String> getTypes();

@@ -1,6 +1,6 @@
 package com.iti.model.DTO;
 
 public enum RoleUser {
-    Admin,
-    User
+    CustomerRole,
+    Admin_Role
 }

@@ -1,8 +1,8 @@
 package com.iti.model.Dao;
 
-import com.iti.model.DTO.OrderDTO;
-import com.iti.model.DTO.UserDTO;
-import com.iti.model.RoleUser;
+
+import com.iti.model.DTO.*;
+
 
 import com.iti.model.entity.UserDetails;
 
@@ -14,14 +14,14 @@ public interface UserDao {
    boolean insertUser(UserDetails u);
 
    boolean isUserEmail(String email);
-   UserDTO getUser(String email,String password);
-   List<UserDTO> retriveall ();
+   List<UserDTO> retriveall();
    List<UserDTO> retrieveFilteredUsers(UserDTO userFilter);
    List<RoleUser> getRoles();
 
-   UserDetails getUser(String email, String password);
+   UserDetails getUser(String userEmail, String userPassword);
    void close();
-   List<UserDTO> retriveall();
+
+
 
    boolean changePassword(String oldpassword, String newpassword);
 

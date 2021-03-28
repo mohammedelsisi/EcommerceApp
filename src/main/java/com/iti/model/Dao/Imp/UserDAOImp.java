@@ -1,14 +1,12 @@
 package com.iti.model.Dao.Imp;
 
-import com.iti.model.DTO.CartItemDTOM;
-import com.iti.model.DTO.OrderDTO;
-import com.iti.model.DTO.UserDTO;
+
+import com.iti.model.DTO.*;
 import com.iti.model.Dao.UserDao;
-import com.iti.model.entity.Address;
-import com.iti.model.entity.UserDetails;
-import com.iti.model.mapper.UserMapper;
+import com.iti.model.entity.*;
+
+
 import com.iti.persistence.DatabaseManager;
-import com.iti.model.RoleUser;
 
 import javax.persistence.EntityManager;
 import javax.xml.crypto.Data;
@@ -73,12 +71,8 @@ public class UserDAOImp implements UserDao {
     @Override
     public List<UserDTO> retriveall() {
 
-        List<UserDTO> dummyUsers= new ArrayList<>();
-        dummyUsers.add(new UserDTO(20,"ahmed","layout/images/men.jpg",250,"a@ss.com","01007707317", RoleUser.Admin));
-        dummyUsers.add(new UserDTO(21,"mohmed","layout/images/men.jpg",250,"mo@ss.com","01007707317", RoleUser.User));
-        dummyUsers.add(new UserDTO(22,"Mahmoud","layout/images/men.jpg",250,"ma@ss.com","01007707317", RoleUser.Admin));
-        dummyUsers.add(new UserDTO(22,"ali","layout/images/men.jpg",250,"al@ss.com","01007707317", RoleUser.User));
-        return dummyUsers;
+        //TODO access ORM to Retrieve Users
+        return null;
     }
 
     @Override
@@ -86,46 +80,7 @@ public class UserDAOImp implements UserDao {
         return null;
     }
 
-//these methods are replaced with (Edit profile) method
-/*    @Override
-    public boolean editName(String name) {
-        UserDTO user = new UserDTO();
-        user.setUserName(name);
-        return true;
-    }
 
-
-
-    @Override
-    public boolean editCreditLimit(Double credit) {
-        UserDTO user = new UserDTO();
-        user.setCreditLimit(credit);
-        return true;
-    }
-
-    @Override
-    public boolean editBirthDate(Date birthdate) {
-        UserDTO user = new UserDTO();
-        user.setBirthday(birthdate);
-        return true;
-    }
-
-    @Override
-    public boolean editJob(String job) {
-        UserDTO user = new UserDTO();
-        user.setJob(job);
-        return true;
-    }
-
-
-    @Override
-    public String selectAddress(int selectedAddress) {
-        UserDTO user = new UserDTO();
-        List<String> Addresses = new ArrayList<>();
-        Addresses.add("221B Barker St.");
-        user.setAddresses(Addresses);
-        return user.getAddresses().get(selectedAddress);
-    }*/
 
     @Override
     public boolean changePassword(String oldpassword, String newpassword) {
@@ -178,8 +133,8 @@ public class UserDAOImp implements UserDao {
     @Override
     public List<RoleUser> getRoles() {
         List<RoleUser> rolesList = new ArrayList<>();
-        rolesList.add(RoleUser.Admin);
-        rolesList.add(RoleUser.User);
+        rolesList.add(RoleUser.Admin_Role);
+        rolesList.add(RoleUser.CustomerRole);
         return rolesList;
     }
 

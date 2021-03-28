@@ -21,11 +21,6 @@ public class ProductDaoImp implements ProductDao {
     private ProductDaoImp(){
         entityManager= DatabaseManager.getFactory().createEntityManager();
     }
-    ProductDTO p1=new ProductDTO(1,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","Men");
-    ProductDTO p2=new ProductDTO(2,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","Women");
-    ProductDTO p3=new ProductDTO(3,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","Men");
-    ProductDTO p4=new ProductDTO(4,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","Men");
-    ProductDTO p5=new ProductDTO(5,"T-Shirt","Good T-shirt",50,"layout/images/men.jpg","layout/images/pass.jpg",300,"Large","Men");
 
     ProductDTO p1=new ProductDTO("Finding perfect t-shirt","layout/images/cloth_1.jpg",50);
     ProductDTO p2=new ProductDTO("Finding perfect t-shirt","layout/images/cloth_2.jpg",50);

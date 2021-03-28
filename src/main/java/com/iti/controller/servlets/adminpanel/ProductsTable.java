@@ -74,17 +74,18 @@ public class ProductsTable extends HttpServlet {
 
 
     private ProductDTO getProductFromRequest(HttpServletRequest request){
-        ProductDTO filter = new ProductDTO();
-        filter.setProdID(Integer.parseInt(request.getParameter("prodID")));
-        filter.setProdType(request.getParameter("prodType"));
-        //filter.setProdDesc();
-        filter.setProdQuantity(Integer.parseInt(request.getParameter("prodQuantity")));
-        filter.setFirstProdImg(request.getParameter("firstProdImg"));
-        filter.setSecondProdImg(request.getParameter("secondProdImg"));
-        filter.setProductPrice(Double.parseDouble(request.getParameter("productPrice")));
-        filter.setSize(request.getParameter("size"));
-        filter.setCategory(request.getParameter("category"));
-
-        return filter;
+//        ProductDTO filter = new ProductDTO();
+//        filter.setProdID(Integer.parseInt(request.getParameter("prodID")));
+//        filter.setProdType(request.getParameter("prodType"));
+//        //filter.setProdDesc();
+//        filter.setProdQuantity(Integer.parseInt(request.getParameter("prodQuantity")));
+//        filter.setFirstProdImg(request.getParameter("firstProdImg"));
+//        filter.setSecondProdImg(request.getParameter("secondProdImg"));
+//        filter.setProductPrice(Double.parseDouble(request.getParameter("productPrice")));
+//        filter.setSize(request.getParameter("size"));
+//        filter.setCategory(request.getParameter("category"));
+//
+//        return filter;
+        return null;
     }
 }
