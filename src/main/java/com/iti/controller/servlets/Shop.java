@@ -34,7 +34,7 @@ public class Shop extends HttpServlet {
         ProductsService productsService = (ProductsService) req.getServletContext().getAttribute("ProductsService");
         List<ProductDTO> allProduct = productsService.retrieveFilteredProducts(productFilter);
         int pages= allProduct.size()/12+1;
-        List<ProductDTO> collectedProducts = allProduct.stream().skip(n*12).limit(12).collect(Collectors.toList());
+        List<ProductDTO> collectedProducts = allProduct.stream().skip(n* 12L).limit(12).collect(Collectors.toList());
         req.setAttribute("Products", collectedProducts);
         req.setAttribute("Pages", pages);
         RequestDispatcher view = req.getRequestDispatcher("ShopJsp");

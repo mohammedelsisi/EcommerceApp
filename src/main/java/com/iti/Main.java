@@ -2,6 +2,9 @@ package com.iti;
 
 
 import com.iti.model.DTO.ProductDTO;
+import com.iti.model.DTO.ProductFilter;
+import com.iti.model.Dao.Imp.ProductDaoImp;
+import com.iti.model.Dao.ProductDao;
 import com.iti.model.entity.Address;
 import com.iti.model.entity.Product;
 import com.iti.model.entity.UserDetails;
@@ -11,18 +14,39 @@ import com.iti.persistence.DatabaseManager;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("mmd");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+//        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("mmd");
+//        EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        entityManager.getTransaction().begin();
+//        entityManager.getTransaction().begin();
+        List<String>colors = new ArrayList<>();
+//        colors.add("Red");
+//        colors.add("Black");
+        List<String>sizes = new ArrayList<>();
+//        sizes.add("Small");
+//        sizes.add("Medium");
+        String search  = "children";
+        double minPrice = 0;
+        double maxPrice = 2000;
+        ProductFilter productFilter = new ProductFilter();
+        productFilter.setColors(colors);
+        productFilter.setMinPrice(minPrice);
+        productFilter.setMaxPrice(maxPrice);
+        productFilter.setEmpty(false);
+        productFilter.setSizes(sizes);
+        productFilter.setSearch(search);
+
+        ProductDao productDao = ProductDaoImp.getInstance();
+        List<Product> products = productDao.retrieveFilteredProducts(productFilter);
+        products.stream().forEach((e)->{
+            System.out.println(e.getType());
+        });
+
+
 //        /*  Inserting Products */
 //        for (int i = 0; i < 5; i++) {
 //

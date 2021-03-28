@@ -3,20 +3,18 @@ package com.iti.model.DTO;
 import java.util.*;
 
 public class ProductFilter {
-    List<String> colors;
-    List<String> sizes;
-    String search;
-    double minPrice;
-    double maxPrice;
-    boolean isEmpty;
+    List<String> colors = new ArrayList<>();
+    List<String> sizes = new ArrayList<>();
+    String search="";
+    double minPrice=0.0;
+    double maxPrice=2000.;
+    boolean isEmpty= true;
 
     public ProductFilter() {
     }
 
     public static ProductFilter getEmptyFilter(){
-       ProductFilter productFilter = new ProductFilter();
-       productFilter.setEmpty(true);
-       return productFilter;
+        return new ProductFilter();
    }
 
     public boolean isEmpty() {
@@ -62,6 +60,7 @@ public class ProductFilter {
                 ", search='" + search + '\'' +
                 ", minPrice=" + minPrice +
                 ", maxPrice=" + maxPrice +
+                ", isEmpty=" + isEmpty +
                 '}';
     }
 
