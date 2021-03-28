@@ -9,14 +9,14 @@ import java.util.Objects;
 
 public class ProductMapper {
 
-    private static ProductMapper productMapper;
+    private static final ProductMapper productMapper = new ProductMapper();
 
     private ProductMapper() {
 
     }
 
     public static synchronized ProductMapper getInstance() {
-        return Objects.requireNonNullElseGet(productMapper, ProductMapper::getInstance);
+        return productMapper;
     }
 
     public Product getEntity(ProductDTO productDTO) {
@@ -31,6 +31,7 @@ public class ProductMapper {
         product.setFirstImg(productDTO.getFirstProdImg());
         product.setSecondImg(productDTO.getSecondProdImg());
         product.setPrice(productDTO.getProdPrice());
+        product.setColor(productDTO.getColor());
 
         return product;
     }
@@ -47,6 +48,7 @@ public class ProductMapper {
         productdto.setFirstProdImg(product.getFirstImg());
         productdto.setSecondProdImg(product.getSecondImg());
         productdto.setProductPrice(product.getPrice());
+        productdto.setColor(product.getColor());
 
         return productdto;
     }

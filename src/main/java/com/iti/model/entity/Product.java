@@ -23,7 +23,18 @@ public class Product implements java.io.Serializable {
      private String description;
      private long quantity;
      private String size;
-     private String category;
+     private String color;
+
+    @Column(name="color", nullable=false, length=45)
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    private String category;
      private String firstImg;
      private String secondImg;
      private double price;
@@ -135,8 +146,6 @@ public class Product implements java.io.Serializable {
     public void setPrice(double price) {
         this.price = price;
     }
-
-
 
 
 }

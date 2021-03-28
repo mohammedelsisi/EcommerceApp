@@ -20,11 +20,11 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class OrderDetail implements java.io.Serializable {
 
 
-    private Integer orderId;
+    private long orderId;
     private UserDetails userDetails;
     private Date purchaseDate;
     private String selectedAddress;
-    private Set<OrderHasProducts> orderHasProductses = new HashSet<OrderHasProducts>(0);
+    private Set<OrderHasProducts> orderHasProducts = new HashSet<OrderHasProducts>(0);
 
     public OrderDetail() {
     }
@@ -39,18 +39,18 @@ public class OrderDetail implements java.io.Serializable {
         this.userDetails = userDetails;
         this.purchaseDate = purchaseDate;
         this.selectedAddress = selectedAddress;
-        this.orderHasProductses = orderHasProductses;
+        this.orderHasProducts = orderHasProductses;
     }
 
     @Id @GeneratedValue(strategy=IDENTITY)
 
 
     @Column(name="order_id", unique=true, nullable=false)
-    public Integer getOrderId() {
+    public long getOrderId() {
         return this.orderId;
     }
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(long orderId) {
         this.orderId = orderId;
     }
 
@@ -85,12 +85,12 @@ public class OrderDetail implements java.io.Serializable {
     }
 
     @OneToMany(fetch=FetchType.LAZY, mappedBy="orderDetails")
-    public Set<OrderHasProducts> getOrderHasProductses() {
-        return this.orderHasProductses;
+    public Set<OrderHasProducts> getOrderHasProducts() {
+        return this.orderHasProducts;
     }
 
-    public void setOrderHasProductses(Set<OrderHasProducts> orderHasProductses) {
-        this.orderHasProductses = orderHasProductses;
+    public void setOrderHasProducts(Set<OrderHasProducts> orderHasProductses) {
+        this.orderHasProducts = orderHasProductses;
     }
 
 

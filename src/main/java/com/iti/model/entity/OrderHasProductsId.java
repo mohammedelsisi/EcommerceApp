@@ -13,13 +13,13 @@ import javax.persistence.Embeddable;
 public class OrderHasProductsId  implements java.io.Serializable {
 
 
-    private int ordersOrderId;
-    private int productsProductId;
+    private long ordersOrderId;
+    private long productsProductId;
 
     public OrderHasProductsId() {
     }
 
-    public OrderHasProductsId(int ordersOrderId, int productsProductId) {
+    public OrderHasProductsId(long ordersOrderId, long productsProductId) {
         this.ordersOrderId = ordersOrderId;
         this.productsProductId = productsProductId;
     }
@@ -27,7 +27,7 @@ public class OrderHasProductsId  implements java.io.Serializable {
 
 
     @Column(name="orders_order_id", nullable=false)
-    public int getOrdersOrderId() {
+    public long getOrdersOrderId() {
         return this.ordersOrderId;
     }
 
@@ -37,11 +37,11 @@ public class OrderHasProductsId  implements java.io.Serializable {
 
 
     @Column(name="products_product_id", nullable=false)
-    public int getProductsProductId() {
+    public long getProductsProductId() {
         return this.productsProductId;
     }
 
-    public void setProductsProductId(int productsProductId) {
+    public void setProductsProductId(long productsProductId) {
         this.productsProductId = productsProductId;
     }
 
@@ -57,11 +57,11 @@ public class OrderHasProductsId  implements java.io.Serializable {
     }
 
     public int hashCode() {
-        int result = 17;
+        long result = 17;
 
         result = 37 * result + this.getOrdersOrderId();
         result = 37 * result + this.getProductsProductId();
-        return result;
+        return (int)result;
     }
 
 

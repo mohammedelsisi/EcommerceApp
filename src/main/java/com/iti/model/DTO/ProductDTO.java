@@ -10,6 +10,15 @@ public class ProductDTO  {
     private double productPrice;
     private String size;
     private String category;
+    private String color;
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     @Override
     public String toString() {

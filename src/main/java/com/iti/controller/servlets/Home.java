@@ -19,7 +19,7 @@ public class Home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ProductsService productsService =(ProductsService) req.getServletContext().getAttribute("ProductsService");
-        products= productsService.retriveMaxiQuant();
+        products= productsService.retrieveMaxQuant();
         req.setAttribute("data",products);
         System.out.println(products);
         RequestDispatcher view = req.getRequestDispatcher("HomeJsp");

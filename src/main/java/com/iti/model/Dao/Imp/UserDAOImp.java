@@ -27,8 +27,11 @@ public class UserDAOImp implements UserDao {
     }
 
     public void close() {
-        if (entityManager.isOpen())
+        if (entityManager.isOpen()){
+            System.out.println("Closing Entity Manger of user ");
             entityManager.close();
+
+        }
     }
 
     @Override
@@ -46,16 +49,16 @@ public class UserDAOImp implements UserDao {
 
     @Override
     public boolean isUserEmail(String userEmail) {
-        List<String> resultList = entityManager.createQuery("select email from UserDetails where email ='" + userEmail.toLowerCase() + "'", String.class).getResultList();
+        List<String> resultList = entityManager.createQuery("select email from UserDetails where email = :userEmail", String.class).setParameter("userEmail",userEmail.toLowerCase()).getResultList();
         return resultList.size() > 0;
     }
 
     @Override
     public UserDetails getUser(String userEmail, String userPassword) {
-
-        String query = "from UserDetails where email = '" + userEmail.toLowerCase() + "' and password= '" + userPassword + "'";
-        System.out.println(query);
-        List<UserDetails> resultList = entityManager.createQuery(query, UserDetails.class).getResultList();
+        List<UserDetails> resultList = entityManager.createQuery("from UserDetails where email = :userEmail and password = :userPassword", UserDetails.class)
+                                        .setParameter("userEmail", userEmail.toLowerCase())
+                                        .setParameter("userPassword", userPassword)
+                                        .getResultList();
         if (resultList.size() == 1) {
             System.out.println(resultList.get(0));
             return resultList.get(0);
@@ -66,6 +69,7 @@ public class UserDAOImp implements UserDao {
 
     @Override
     public List<UserDTO> retriveall() {
+
         return null;
     }
 
