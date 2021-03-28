@@ -1,9 +1,12 @@
 package com.iti.controller.listners;
 
-import com.iti.service.DataTablesService;
-import com.iti.service.HomeService;
+import com.iti.controller.servlets.Profile;
+import com.iti.persistence.DatabaseManager;
+import com.iti.service.ProductsService;
 import com.iti.service.LoginService;
+import com.iti.service.ProfileService;
 import com.iti.service.RegistrationService;
+import com.iti.service.UsersService;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.ServletContextEvent;
@@ -15,18 +18,24 @@ public class ContextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("ContextListener.contextInitialized");
         RegistrationService registrationService = RegistrationService.getInstance();
+        ProfileService profileService = ProfileService.getInstance();
         LoginService loginService = LoginService.getInstance();
-        HomeService homeService=HomeService.getInstance();
-        DataTablesService dataTablesService = DataTablesService.getInstance();
+        ProductsService productsService = ProductsService.getInstance();
+        UsersService usersService = UsersService.getInstance();
         ServletContext servletContext = sce.getServletContext();
         servletContext.setAttribute("RegistrationService",registrationService);
+        servletContext.setAttribute("ProfileService",profileService);
         servletContext.setAttribute("LoginService",loginService);
-        servletContext.setAttribute("HomeService",homeService);
-        servletContext.setAttribute("DataTablesService",dataTablesService);
+        servletContext.setAttribute("ProductsService", productsService);
+        servletContext.setAttribute("Colors",productsService.getColors());
+        servletContext.setAttribute("Sizes",productsService.getSizes());
+        servletContext.setAttribute("UsersService",usersService);
+        servletContext.setAttribute("UserRoles",usersService.getRoles());
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
+        DatabaseManager.closeConnection();
         System.out.println("ContextListener.contextDestroyed");
     }
 }

@@ -2,7 +2,7 @@ package com.iti.controller.servlets.adminpanel;
 
 import com.google.gson.Gson;
 import com.iti.model.DTO.ProductDTO;
-import com.iti.service.DataTablesService;
+import com.iti.service.ProductsService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,14 +13,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/ProductsTable")
+@WebServlet("/ProductsServlet")
 public class ProductsTable extends HttpServlet {
 
     Gson json = new Gson();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DataTablesService dataTablesService =(DataTablesService) request.getServletContext().getAttribute("DataTablesService");
+        ProductsService productsService =(ProductsService) request.getServletContext().getAttribute("ProductsService");
 
         String action= request.getParameter("action");
 
@@ -30,11 +30,22 @@ public class ProductsTable extends HttpServlet {
                 //TODO : make method get products filtered
                 //ProductDTO filter = getFilter(request);
                 //List<ProductDTO>  filteredProducts =dataTablesService.retriveAllProducts(filter);
-                List<ProductDTO> products =dataTablesService.retriveAllProducts();
+                List<ProductDTO> products =productsService.retrieveAllProducts();
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 String prods= json.toJson(products);
                 response.getWriter().write(prods);
+                break;
+            }
+            case "getMeta":{
+                List<List<String>> meta = new ArrayList<>();
+                meta.add(productsService.getTypes());
+                meta.add(productsService.getSizes());
+                meta.add(productsService.getCategories());
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                String metaJson= json.toJson(meta);
+                response.getWriter().write(metaJson);
                 break;
             }
             case "update":{
@@ -63,17 +74,18 @@ public class ProductsTable extends HttpServlet {
 
 
     private ProductDTO getProductFromRequest(HttpServletRequest request){
-        ProductDTO filter = new ProductDTO();
-        filter.setProdID(Integer.parseInt(request.getParameter("prodID")));
-        filter.setProdType(request.getParameter("prodType"));
-        //filter.setProdDesc();
-        filter.setProdQuantity(Integer.parseInt(request.getParameter("prodQuantity")));
-        filter.setFirstProdImg(request.getParameter("firstProdImg"));
-        filter.setSecondProdImg(request.getParameter("secondProdImg"));
-        filter.setProductPrice(Double.parseDouble(request.getParameter("productPrice")));
-        filter.setSize(request.getParameter("size"));
-        filter.setCategory(request.getParameter("category"));
-
-        return filter;
+//        ProductDTO filter = new ProductDTO();
+//        filter.setProdID(Integer.parseInt(request.getParameter("prodID")));
+//        filter.setProdType(request.getParameter("prodType"));
+//        //filter.setProdDesc();
+//        filter.setProdQuantity(Integer.parseInt(request.getParameter("prodQuantity")));
+//        filter.setFirstProdImg(request.getParameter("firstProdImg"));
+//        filter.setSecondProdImg(request.getParameter("secondProdImg"));
+//        filter.setProductPrice(Double.parseDouble(request.getParameter("productPrice")));
+//        filter.setSize(request.getParameter("size"));
+//        filter.setCategory(request.getParameter("category"));
+//
+//        return filter;
+        return null;
     }
 }

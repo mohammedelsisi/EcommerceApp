@@ -1,9 +1,8 @@
 package com.iti.controller.filters;
 
 import com.iti.model.DTO.UserDTO;
-import com.iti.model.RoleUser;
+import com.iti.model.DTO.RoleUser;
 import jakarta.servlet.*;
-import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 

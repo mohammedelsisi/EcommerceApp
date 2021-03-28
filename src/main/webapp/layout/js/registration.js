@@ -59,7 +59,8 @@ $(document).ready(function () {
             validEmailUI();
             validEmail=true;
         } else {
-            inValidEmailUi(" This Email has an account go to login >> <a href='Login'>Login</a>");
+           let ss= " This Email has an account go to login >> <a href=Login?email="+emailField.val()+">Login</a>"
+            inValidEmailUi(ss);
             validEmail=false;
 
 

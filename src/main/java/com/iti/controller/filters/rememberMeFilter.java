@@ -18,14 +18,15 @@ public class rememberMeFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
-        UserDTO userIfPresent = SavingUserService.getInstance().getUserIfPresent(req);
-        if(userIfPresent!=null){
-            req.getSession().setAttribute("login", true);
-            req.getSession().setAttribute("currentUser",userIfPresent);
-            if(!req.getServletPath().contains("/layout"))
-                SavingUserService.getInstance().extendLoggingTime(req,resp);
+        if(req.getSession().getAttribute("currentUser")==null){
+            UserDTO userIfPresent = SavingUserService.getInstance().getUserIfPresent(req);
+            if(userIfPresent!=null){
+                req.getSession().setAttribute("login", true);
+                req.getSession().setAttribute("currentUser",userIfPresent);
+                if(!req.getServletPath().contains("/layout"))
+                    SavingUserService.getInstance().extendLoggingTime(req,resp);
+            }
         }
-
         chain.doFilter(request,response);
     }
 

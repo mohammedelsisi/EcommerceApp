@@ -27,38 +27,38 @@ public class Profile extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //TODO We can't have a list of raw type to represent the user  + we don't need the image here
-//        List Data = fillUserData(req);
-//        ProfileService profileService = (ProfileService) req.getServletContext().getAttribute("ProfileService");
-//        profileService.editProfile( (String) Data.get(1),(double) Data.get(2),(Date) Data.get(3),(String) Data.get(4), (String) Data.get(5) );
+        //TODO Done : no image, no row date list (used DTO instead)
+        UserDTO user = fillUserData(req);
+        ProfileService profileService = (ProfileService) req.getServletContext().getAttribute("ProfileService");
+        profileService.editProfile( user );
         // TODO data receive here now we need to use it.
 
-        String userName = req.getParameter("userName");
+     /*   String userName = req.getParameter("userName");
         double creditLimit = parseDouble(req.getParameter("creditLimit"));
         String birthDate = req.getParameter("birthDate");
         String job = req.getParameter("job");
         System.out.println(userName);
         System.out.println(creditLimit);
         System.out.println(birthDate);
-        System.out.println(job);
+        System.out.println(job);*/
+
+
     }
 
 
-    private List fillUserData(HttpServletRequest req) {
+    private UserDTO fillUserData(HttpServletRequest req) {
 
-        //System.out.println(req.getParameterMap());
+        Date birthDate;
         String userName = req.getParameter("userName");
         double creditLimit = parseDouble(req.getParameter("creditLimit"));
-        String birthDate = req.getParameter("birthDate");
+        String birthDateString = req.getParameter("birthDate");
+        try {
+            birthDate= new SimpleDateFormat("dd/MM/yyyy").parse(birthDateString);
+        }catch (Exception e){birthDate = new Date(2001, 11, 26);}
         String job = req.getParameter("job");
-        String image = req.getParameter("image");
-        List<Object> Data = new ArrayList<>();
-        Data.add(userName);
-        Data.add(creditLimit);
-        Data.add(job);
-        Data.add(birthDate);
-        Data.add(image);
-        return Data;
+        String PhoneNumber = req.getParameter("phoneNumber");
+        UserDTO user = new UserDTO(userName ,creditLimit,job,birthDate,PhoneNumber);
+        return user;
     }
 
 }

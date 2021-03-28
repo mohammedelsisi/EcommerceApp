@@ -1,65 +1,68 @@
 package com.iti.model.Dao.Imp;
 
-import com.iti.model.DTO.CartItemDTOM;
-import com.iti.model.DTO.OrderDTO;
-import com.iti.model.DTO.UserDTO;
-import com.iti.model.Dao.UserDao;
 
+import com.iti.model.DTO.*;
+import com.iti.model.Dao.UserDao;
+import com.iti.model.entity.*;
+
+
+import com.iti.persistence.DatabaseManager;
+
+import javax.persistence.EntityManager;
 import javax.xml.crypto.Data;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAOImp implements UserDao {
-    private static final UserDAOImp userDAOImp = new UserDAOImp();
+    //    private static final UserDAOImp userDAOImp = new UserDAOImp();
+    EntityManager entityManager;
 
-    public static synchronized UserDAOImp getInstance() {
-        return userDAOImp;
+    private UserDAOImp() {
+        entityManager = DatabaseManager.getFactory().createEntityManager();
+    }
+
+    public static UserDAOImp getInstance() {
+        return new UserDAOImp();
+    }
+
+    public void close() {
+        if (entityManager.isOpen()){
+            System.out.println("Closing Entity Manger of user ");
+            entityManager.close();
+
+        }
     }
 
     @Override
-    public boolean insertUser(UserDTO u) {
+    public boolean insertUser(UserDetails userDetails) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(userDetails);
+        userDetails.getInterests().stream().forEach((e) -> {
+            e.setUserDetails(userDetails);
+            entityManager.persist(e);
+        });
+        entityManager.getTransaction().commit();
         return true;
     }
 
+
     @Override
-    public boolean isUserEmail(String email) {
-        if (email.equals("true@true.com"))
-            return true;
-        else return false;
+    public boolean isUserEmail(String userEmail) {
+        List<String> resultList = entityManager.createQuery("select email from UserDetails where email = :userEmail", String.class).setParameter("userEmail",userEmail.toLowerCase()).getResultList();
+        return resultList.size() > 0;
     }
 
     @Override
-    public UserDTO getUser(String email, String password) {
-        if (email.equals("true@true.com") && password.equals("123456")) {
-            LocalDate localDate = LocalDate.of(1994, 11, 26);
-            UserDTO userDTO = new UserDTO("ahmed", email, password);
-            userDTO.setBirthday(java.sql.Date.valueOf(localDate));
-            userDTO.setPhoneNumber("+201027579113");
-            userDTO.setCreditLimit(12.0);
-            CartItemDTOM cartItemDTOM = new CartItemDTOM();
-            cartItemDTOM.setItemType("Shirt");
-            cartItemDTOM.setItemPrice(1200);
-            cartItemDTOM.setItemQuantity(2);
-            CartItemDTOM cartItemDTOM2 = new CartItemDTOM();
-            cartItemDTOM2.setItemType("Pants");
-            cartItemDTOM2.setItemPrice(1500);
-            cartItemDTOM2.setItemQuantity(2);
-            Set<CartItemDTOM> items = new HashSet<>();
-            items.add(cartItemDTOM);
-            items.add(cartItemDTOM2);
-            OrderDTO orderDTO = new OrderDTO();
-            orderDTO.setId(123456L);
-            orderDTO.setPurchaseDate(new Date());
-            orderDTO.setItems(items);
-            OrderDTO orderDTO2 = new OrderDTO();
-            orderDTO2.setId(123456L);
-            orderDTO2.setPurchaseDate(new Date());
-            orderDTO2.setItems(items);
-            ArrayList<OrderDTO> objects = new ArrayList<>();
-            objects.add(orderDTO);
-            objects.add(orderDTO2);
-            userDTO.setOrders(objects);
-            return userDTO;
+    public UserDetails getUser(String userEmail, String userPassword) {
+        List<UserDetails> resultList = entityManager.createQuery("from UserDetails where email = :userEmail and password = :userPassword", UserDetails.class)
+                                        .setParameter("userEmail", userEmail.toLowerCase())
+                                        .setParameter("userPassword", userPassword)
+                                        .getResultList();
+        if (resultList.size() == 1) {
+            System.out.println(resultList.get(0));
+            return resultList.get(0);
         } else {
             return null;
         }
@@ -67,16 +70,17 @@ public class UserDAOImp implements UserDao {
 
     @Override
     public List<UserDTO> retriveall() {
+
+        //TODO access ORM to Retrieve Users
+        return null;
+    }
+
+    @Override
+    public List<UserDTO> retrieveFilteredUsers(UserDTO userFilter) {
         return null;
     }
 
 
-    @Override
-    public boolean editName(String name) {
-        UserDTO user = new UserDTO();
-        user.setUserName(name);
-        return true;
-    }
 
     @Override
     public boolean changePassword(String oldpassword, String newpassword) {
@@ -85,50 +89,21 @@ public class UserDAOImp implements UserDao {
         } else {
             return false;
         }
-
-
-    }
-
-    @Override
-    public boolean editCreditLimit(Double credit) {
-        UserDTO user = new UserDTO();
-        user.setCreditLimit(credit);
-        return true;
-    }
-
-    @Override
-    public boolean editBirthDate(Date birthdate) {
-        UserDTO user = new UserDTO();
-        user.setBirthday(birthdate);
-        return true;
-    }
-
-    @Override
-    public boolean editJob(String job) {
-        UserDTO user = new UserDTO();
-        user.setJob(job);
-        return true;
     }
 
     @Override
     public boolean addAddress(String address) {
-        UserDTO user = new UserDTO();
-        List<String> Addresses = new ArrayList<>();
-        Addresses.add("221B Barker St.");
-        user.setAddresses(Addresses);
-        user.getAddresses().add(address);
+        //I need the id of the current user here
+        int id = 0;
+        Address newAddress = new Address();
+        EntityManager entityManager = DatabaseManager.getFactory().createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(newAddress);
+        entityManager.getTransaction().commit();
+        entityManager.close();
         return true;
     }
 
-
-    @Override
-    public String selectAddress(int selectedAddress) {
-        UserDTO user = new UserDTO();
-        List<String> Addresses = new ArrayList<>();
-        Addresses.add("221B Barker St.");
-        user.setAddresses(Addresses);
-        return user.getAddresses().get(selectedAddress);
-    }
 
     @Override
     public boolean editImage(String image) {
@@ -136,4 +111,32 @@ public class UserDAOImp implements UserDao {
         user.setImage(image);
         return true;
     }
+
+
+    @Override
+    public boolean EditProfile(UserDTO user) {
+        //I need the id of the current user here
+        int id = 0;
+        EntityManager entityManager = DatabaseManager.getFactory().createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.createQuery("update userDetails set  birthDay =" + user.getBirthday() +
+                ", credit_limit= " + user.getCreditLimit() +
+                " , phone_number= " + user.getPhoneNumber() +
+                " , job= " + user.getJob() +
+                " , user_name= " + user.getUserName() + " where id = " + id, UserDetails.class).getResultList();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return true;
+
+    }
+
+    @Override
+    public List<RoleUser> getRoles() {
+        List<RoleUser> rolesList = new ArrayList<>();
+        rolesList.add(RoleUser.Admin_Role);
+        rolesList.add(RoleUser.CustomerRole);
+        return rolesList;
+    }
+
+
 }

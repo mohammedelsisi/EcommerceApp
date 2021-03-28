@@ -5,6 +5,7 @@ import com.iti.model.DTO.OrderDTO;
 import com.iti.model.DTO.UserDTO;
 import com.iti.model.Dao.Imp.UserDAOImp;
 import com.iti.model.Dao.UserDao;
+import com.iti.model.entity.UserDetails;
 
 import java.util.Date;
 import java.util.List;
@@ -16,14 +17,8 @@ public class ProfileService {
         return profileService;
     }
 
-    public boolean editProfile(String name, Double credit, Date birthdate, String job, String image) {
-        return
-                userDao.editName(name)
-                        & userDao.editCreditLimit(credit)
-                        & userDao.editBirthDate(birthdate)
-                        & userDao.editJob(job)
-                        & userDao.editImage(image);
-
+    public boolean editProfile(UserDTO user) {
+     return userDao.EditProfile(user);
     }
 
    public boolean changePassword(String oldpassword, String newpassword){
@@ -34,10 +29,10 @@ public class ProfileService {
         return userDao.addAddress(address) ;
     }
 
-
-    public String selectAddress( int selectedAddress) {
+//Todo: this must be in the checkout
+  /*  public String selectAddress( int selectedAddress) {
 
         return userDao.selectAddress(selectedAddress);
-    }
+    }*/
 
 }

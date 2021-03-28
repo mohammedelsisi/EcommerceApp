@@ -39,7 +39,7 @@ public class SignUp extends HttpServlet {
         System.out.println(req.getParameterMap());
             String userName = req.getParameter("userName");
             double creditLimit = req.getParameter("creditLimit").equals("") ? 0:Double.parseDouble(req.getParameter("creditLimit"));
-            String email = req.getParameter("email");
+            String email = req.getParameter("email").toLowerCase();
             String password = req.getParameter("password");
             String phoneNumber = req.getParameter("phoneNumber");
             String job = req.getParameter("job");
