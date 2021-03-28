@@ -148,7 +148,7 @@
                     <div class="row mb-5">
                         <c:forEach items="${requestScope.Products}" var="i">
                             <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                            <P:product img="${i.firstProdImg}" desc="${i.prodDesc}" src="#" price="${i.prodPrice}"/>
+                            <P:product img="${i.firstProdImg}" desc="${i.prodDesc}" src="ProductItem?id=${i.prodID}" price="${i.prodPrice}"/>
                             </div>
                         </c:forEach>
                     </div>

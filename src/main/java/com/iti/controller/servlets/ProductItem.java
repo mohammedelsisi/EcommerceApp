@@ -16,12 +16,17 @@ import java.util.List;
 public class ProductItem extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ProductsService productsService=(ProductsService) req.getServletContext().getAttribute("ProductsService");
-        //req.getAttribute("id");
+        try {
 
-        req.setAttribute("ProductItem",  productsService.retriveItem(1));
-        RequestDispatcher view = req.getRequestDispatcher("ProductItemJsp");
-        view.forward(req, resp);
+            long id = Long.parseLong(req.getParameter("id"));
+            ProductsService productsService=(ProductsService) req.getServletContext().getAttribute("ProductsService");
+            ProductDTO productDTO = productsService.retriveItem((int) id);
+//        req.setAttribute("ProductItem",  productsService.retriveItem(id));
+            RequestDispatcher view = req.getRequestDispatcher("ProductItemJsp");
+            view.forward(req, resp);
+        }catch (NumberFormatException e){
+            System.out.println("Bad request");
+        }
 
     }
 }
