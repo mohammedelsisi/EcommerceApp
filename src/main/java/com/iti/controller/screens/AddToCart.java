@@ -1,4 +1,4 @@
-package com.iti.controller.servlets;
+package com.iti.controller.screens;
 
 
 import jakarta.servlet.ServletException;
@@ -14,7 +14,7 @@ public class AddToCart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String prodName  = req.getParameter("prodName");
+        String prodName  = req.getParameter("productID");
         String Quantity = req.getParameter("Quantity");
 
         System.out.println(prodName);

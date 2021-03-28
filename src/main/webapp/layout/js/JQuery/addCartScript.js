@@ -7,9 +7,10 @@ function sendData() {
         url: "AddToCart",
         method: "POST",
         dataType: "html",
-        data: {
-            "prodName": prodName,
-            "Quantity": Quantity
+        data: $("#formCart").serialize(),
+        success:function (){
+            console.log("fuck fuck")
+            $("#exampleModal").modal("show");
         }
 
     })
