@@ -1,10 +1,5 @@
 $(function () {
 
-    // var Roles = [
-    //     {Name: "User", Id: 0},
-    //     {Name: "Admin", Id: 1}
-    // ];
-
 
     $("#jsGrid").jsGrid({
         height: "600",
