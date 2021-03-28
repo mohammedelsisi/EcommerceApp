@@ -155,8 +155,8 @@
                 </div>
                 <div class="col-md-6">
                     <h2 class="text-black">${item.prodType}</h2>
-                    <p>${item.prodDesc}</p>
-                    <p><strong class="text-primary h4">$${item.prodPrice}</strong></p>
+                    <p>${item.prodDescription}</p>
+                    <p><strong class="text-primary h4">$${item.productPrice}</strong></p>
                    <form id="formCart" onsubmit="sendData();return false;">
 
 

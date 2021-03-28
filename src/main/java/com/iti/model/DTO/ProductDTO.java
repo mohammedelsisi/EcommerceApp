@@ -89,7 +89,7 @@ public class ProductDTO  {
         this.productPrice = prodPrice;
     }
     public ProductDTO(String prodDesc, String firstProdImg, String secondProdImg,double prodPrice) {
-        this.prodDesc = prodDesc;
+        this.prodDescription = prodDesc;
         this.firstProdImg = firstProdImg;
         this.productPrice = prodPrice;
         this.secondProdImg=secondProdImg;
