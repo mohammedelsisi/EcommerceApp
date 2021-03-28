@@ -24,6 +24,30 @@
     <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
 
 </head>
+<script>
+    function removeRow(id){
+        document.getElementById(id).remove();
+    }
+    function updateAddTotal(valID,tdID,price){
+        var total= parseInt(document.getElementById(valID).value) + 1;
+        document.getElementById(tdID).innerHTML="$"+(total) * price ;
+        if(total<=0)
+        {
+            document.getElementById(tdID).innerHTML="$"+0;
+        }
+    }
+    function updateSubTotal(valID,tdID,price){
+        var total= parseInt(document.getElementById(valID).value) - 1;
+        document.getElementById(tdID).innerHTML="$"+(total) * price ;
+        if(total<=0)
+        {
+            document.getElementById(tdID).innerHTML="$"+0;
+        }
+    }
+</script>
+<script>
+
+</script>
 <body>
 
 <div class="site-wrap">
@@ -54,9 +78,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c: var rowID=0;>
-                            <c:forEach items="${requestScope.CartItems}" var="i">
-                            <tr id=rowID>
+
+                            <c:forEach items="${requestScope.CartItems}" var="i" >
+                            <tr id="${i.productID}">
                                 <td class="product-thumbnail">
                                     <img src=${i.itemImg} alt="Image" class="img-fluid">
                                 </td>
@@ -67,18 +91,23 @@
                                 <td>
                                     <div class="input-group mb-3" style="max-width: 120px;">
                                         <div class="input-group-prepend">
-                                            <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                                            <button class="btn btn-outline-primary js-btn-minus" type="button" onclick="updateSubTotal('counter${i.productID}','td${i.productID}',${i.itemPrice})">&minus;</button>
                                         </div>
-                                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                        <input id="counter${i.productID}" type="text" class="form-control text-center" value="${i.itemQuantity}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                                            <button class="btn btn-outline-primary js-btn-plus" type="button" onclick="updateAddTotal('counter${i.productID}','td${i.productID}',${i.itemPrice})">&plus;</button>
                                         </div>
                                     </div>
 
                                 </td>
-                                <td>$49.00</td>
-                                <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
+
+                                <td id="td${i.productID}">$${i.itemPrice*i.itemQuantity}</td>
+                                <td> <input class="btn btn-primary"  onclick="removeRow(${i.productID})" value="Remove" id="${i.productID} "></td>
+
+
+
                             </tr>
+
                             </c:forEach>
 
                             </tbody>
@@ -137,7 +166,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
+                                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Checkout</button>
                                 </div>
                             </div>
                         </div>

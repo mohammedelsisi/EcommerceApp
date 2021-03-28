@@ -5,12 +5,14 @@ public class CartItemDTO {
     private double ItemPrice;
     private int ItemQuantity;
     private String ItemImg;
+    private int ProductID;
 
-    public CartItemDTO(String itemType, double itemPrice, int itemQuantity, String itemImg) {
+    public CartItemDTO(String itemType, double itemPrice, int itemQuantity, String itemImg,int productID) {
         ItemType = itemType;
         ItemPrice = itemPrice;
         ItemQuantity = itemQuantity;
         ItemImg = itemImg;
+        ProductID=productID;
     }
 
     public String getItemType() {
@@ -43,5 +45,13 @@ public class CartItemDTO {
 
     public void setItemImg(String itemImg) {
         ItemImg = itemImg;
+    }
+
+    public int getProductID() {
+        return ProductID;
+    }
+
+    public void setProductID(int productID) {
+        ProductID = productID;
     }
 }
