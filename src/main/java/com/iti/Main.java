@@ -5,9 +5,7 @@ import com.iti.model.DTO.ProductDTO;
 import com.iti.model.DTO.ProductFilter;
 import com.iti.model.Dao.Imp.ProductDaoImp;
 import com.iti.model.Dao.ProductDao;
-import com.iti.model.entity.Address;
-import com.iti.model.entity.Product;
-import com.iti.model.entity.UserDetails;
+import com.iti.model.entity.*;
 import com.iti.model.mapper.ProductMapper;
 import com.iti.persistence.DatabaseManager;
 
@@ -23,6 +21,23 @@ public class Main {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
+        Product product = new Product();
+        product.setProductId(8);
+
+        Cart cart = new Cart();
+        /*   you only need to create the composite key       */
+//        cart.setProduct(product);
+        cart.setQuantity(12);
+        CartId cartId = new CartId();
+        cartId.setProductId(product.getProductId());
+        cartId.setUserId(1L);
+        cart.setId(cartId);
+//        cart.setUserDetails(entityManager.find(UserDetails.class,1L));
+
+        entityManager.persist(cart);
+
+
+        entityManager.getTransaction().commit();
 //        List<String>colors = new ArrayList<>();
 //        colors.add("Red");
 //        colors.add("Black");
@@ -48,55 +63,55 @@ public class Main {
 
 
 //        /*  Inserting Products */
-        for (int i = 0; i < 5; i++) {
-
-
-            ProductDTO p1 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_1.jpg", 50);
-            p1.setProdType("T-Shirt");
-            p1.setProdQuantity(50);
-            p1.setSize("Small");
-            p1.setCategory("Men");
-            p1.setColor("Black");
-            p1.setSecondProdImg("layout/images/cloth_1.jpg");
-
-
-            ProductDTO p2 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_2.jpg", 50);
-            p2.setProdType("T-Shirt");
-            p2.setProdQuantity(16);
-            p2.setSize("Large");
-            p2.setCategory("Men");
-            p2.setColor("White");
-            p2.setSecondProdImg("layout/images/cloth_1.jpg");
-            ProductDTO p3 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_3.jpg", 50);
-            p3.setProdType("Pants");
-            p3.setProdQuantity(25);
-            p3.setSize("Small");
-            p3.setCategory("Women");
-            p3.setColor("Blue");
-            p3.setSecondProdImg("layout/images/cloth_1.jpg");
-
-            ProductDTO p4 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_4.jpg", 50);
-            p4.setProdType("Hoodie");
-            p4.setProdQuantity(40);
-            p4.setSize("Medium");
-            p4.setCategory("Children");
-            p4.setColor("Red");
-            p4.setSecondProdImg("\"layout/images/cloth_1.jpg\"");
-
-            Product entity = ProductMapper.getInstance().getEntity(p1);
-            Product entity2 = ProductMapper.getInstance().getEntity(p2);
-            Product entity3 = ProductMapper.getInstance().getEntity(p3);
-            Product entity4 = ProductMapper.getInstance().getEntity(p4);
-            System.out.println(entity);
-
-            entityManager.persist(entity);
-            entityManager.persist(entity2);
-            entityManager.persist(entity3);
-            entityManager.persist(entity4);
-
-        }
-
-        entityManager.getTransaction().commit();
+//        for (int i = 0; i < 5; i++) {
+//
+//
+//            ProductDTO p1 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_1.jpg", 50);
+//            p1.setProdType("T-Shirt");
+//            p1.setProdQuantity(50);
+//            p1.setSize("Small");
+//            p1.setCategory("Men");
+//            p1.setColor("Black");
+//            p1.setSecondProdImg("layout/images/cloth_1.jpg");
+//
+//
+//            ProductDTO p2 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_2.jpg", 50);
+//            p2.setProdType("T-Shirt");
+//            p2.setProdQuantity(16);
+//            p2.setSize("Large");
+//            p2.setCategory("Men");
+//            p2.setColor("White");
+//            p2.setSecondProdImg("layout/images/cloth_1.jpg");
+//            ProductDTO p3 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_3.jpg", 50);
+//            p3.setProdType("Pants");
+//            p3.setProdQuantity(25);
+//            p3.setSize("Small");
+//            p3.setCategory("Women");
+//            p3.setColor("Blue");
+//            p3.setSecondProdImg("layout/images/cloth_1.jpg");
+//
+//            ProductDTO p4 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_4.jpg", 50);
+//            p4.setProdType("Hoodie");
+//            p4.setProdQuantity(40);
+//            p4.setSize("Medium");
+//            p4.setCategory("Children");
+//            p4.setColor("Red");
+//            p4.setSecondProdImg("\"layout/images/cloth_1.jpg\"");
+//
+//            Product entity = ProductMapper.getInstance().getEntity(p1);
+//            Product entity2 = ProductMapper.getInstance().getEntity(p2);
+//            Product entity3 = ProductMapper.getInstance().getEntity(p3);
+//            Product entity4 = ProductMapper.getInstance().getEntity(p4);
+//            System.out.println(entity);
+//
+//            entityManager.persist(entity);
+//            entityManager.persist(entity2);
+//            entityManager.persist(entity3);
+//            entityManager.persist(entity4);
+//
+//        }
+//
+//        entityManager.getTransaction().commit();
 
 
 

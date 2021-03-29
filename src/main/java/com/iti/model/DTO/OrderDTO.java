@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.Set;
 
 public class OrderDTO {
-    Set<CartItemDTOM> items;
+    Set<CartItemDTO> items;
     private long id;
     private String email;
     private String selectedAddress;
@@ -52,11 +52,11 @@ public class OrderDTO {
         this.totalAmount = totalAmount;
     }
 
-    public Set<CartItemDTOM> getItems() {
+    public Set<CartItemDTO> getItems() {
         return items;
     }
 
-    public void setItems(Set<CartItemDTOM> items) {
+    public void setItems(Set<CartItemDTO> items) {
         this.items = items;
     }
 }

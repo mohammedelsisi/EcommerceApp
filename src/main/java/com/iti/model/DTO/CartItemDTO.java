@@ -1,57 +1,71 @@
 package com.iti.model.DTO;
 
 public class CartItemDTO {
-    private String ItemType;
-    private double ItemPrice;
-    private int ItemQuantity;
-    private String ItemImg;
-    private int ProductID;
-
-    public CartItemDTO(String itemType, double itemPrice, int itemQuantity, String itemImg,int productID) {
-        ItemType = itemType;
-        ItemPrice = itemPrice;
-        ItemQuantity = itemQuantity;
-        ItemImg = itemImg;
-        ProductID=productID;
-    }
+    private String itemType;
+    private double itemPrice;
+    private long itemQuantity;
+    private String itemImg;
+    private long productID;
 
     public String getItemType() {
-        return ItemType;
+        return itemType;
     }
 
     public void setItemType(String itemType) {
-        ItemType = itemType;
+        this.itemType = itemType;
     }
 
     public double getItemPrice() {
-        return ItemPrice;
+        return itemPrice;
     }
 
     public void setItemPrice(double itemPrice) {
-        ItemPrice = itemPrice;
+        this.itemPrice = itemPrice;
     }
 
-    public int getItemQuantity() {
-        return ItemQuantity;
+    public long getItemQuantity() {
+        return itemQuantity;
     }
 
-    public void setItemQuantity(int itemQuantity) {
-        ItemQuantity = itemQuantity;
+    public void setItemQuantity(long itemQuantity) {
+        this.itemQuantity = itemQuantity;
     }
 
     public String getItemImg() {
-        return ItemImg;
+        return itemImg;
     }
 
     public void setItemImg(String itemImg) {
-        ItemImg = itemImg;
+        this.itemImg = itemImg;
     }
 
-    public int getProductID() {
-        return ProductID;
+    public long getProductID() {
+        return productID;
     }
 
-    public void setProductID(int productID) {
-        ProductID = productID;
+    public CartItemDTO() {
+    }
+
+    public void setProductID(long productID) {
+        this.productID = productID;
+    }
+
+    public CartItemDTO(String itemType, double itemPrice, long itemQuantity, String itemImg, long productID) {
+        this.itemType = itemType;
+        this.itemPrice = itemPrice;
+        this.itemQuantity = itemQuantity;
+        this.itemImg = itemImg;
+        this.productID = productID;
+    }
+
+    @Override
+    public String toString() {
+        return "CartItemDTO{" +
+                "itemType='" + itemType + '\'' +
+                ", itemPrice=" + itemPrice +
+                ", itemQuantity=" + itemQuantity +
+                ", itemImg='" + itemImg + '\'' +
+                ", productID=" + productID +
+                '}';
     }
 }

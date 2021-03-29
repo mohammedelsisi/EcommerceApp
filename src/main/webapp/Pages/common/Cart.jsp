@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,23 +24,30 @@
 
 </head>
 <script>
-    function removeRow(id){
+    let removedItems = [];
+
+    function removeRow(id) {
         document.getElementById(id).remove();
+        console.log(id)
+        removedItems.push(id);
+        console.log(removedItems)
     }
-    function updateAddTotal(valID,tdID,price){
-        var total= parseInt(document.getElementById(valID).value) + 1;
-        document.getElementById(tdID).innerHTML="$"+(total) * price ;
-        if(total<=0)
-        {
-            document.getElementById(tdID).innerHTML="$"+0;
+
+    function updateAddTotal(valID, tdID, price) {
+        var total = parseInt(document.getElementById(valID).value) + 1;
+        document.getElementById(tdID).innerHTML = "$" + (total) * price;
+        if (total <= 0) {
+            document.getElementById(tdID).innerHTML = "$" + 0;
         }
     }
-    function updateSubTotal(valID,tdID,price){
-        var total= parseInt(document.getElementById(valID).value) - 1;
-        document.getElementById(tdID).innerHTML="$"+(total) * price ;
-        if(total<=0)
-        {
-            document.getElementById(tdID).innerHTML="$"+0;
+
+    function updateSubTotal(valID, tdID, price) {
+        var total = parseInt(document.getElementById(valID).value) - 1;
+        document.getElementById(tdID).innerHTML = "$" + (total) * price;
+        if (total <= 0) {
+            document.getElementById(tdID).innerHTML = "$" + 0;
+            console.log(tdID)
+            removeRow(tdID.substr(2))
         }
     }
 </script>
@@ -51,12 +57,13 @@
 <body>
 
 <div class="site-wrap">
-    <%@include file="../toInclude/header.jsp"%>
+    <%@include file="../toInclude/header.jsp" %>
 
     <div class="bg-light py-3">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Cart</strong></div>
+                <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
+                        class="text-black">Cart</strong></div>
             </div>
         </div>
     </div>
@@ -79,34 +86,43 @@
                             </thead>
                             <tbody>
 
-                            <c:forEach items="${requestScope.CartItems}" var="i" >
-                            <tr id="${i.productID}">
-                                <td class="product-thumbnail">
-                                    <img src=${i.itemImg} alt="Image" class="img-fluid">
-                                </td>
-                                <td class="product-name">
-                                    <h2 class="h5 text-black">${i.itemType}</h2>
-                                </td>
-                                <td>$${i.itemPrice}</td>
-                                <td>
-                                    <div class="input-group mb-3" style="max-width: 120px;">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-outline-primary js-btn-minus" type="button" onclick="updateSubTotal('counter${i.productID}','td${i.productID}',${i.itemPrice})">&minus;</button>
+                            <c:forEach items="${requestScope.CartItems}" var="i">
+                                <tr id="${i.productID}">
+                                    <td class="product-thumbnail">
+                                        <img src=${i.itemImg} alt="Image" class="img-fluid">
+                                    </td>
+                                    <td class="product-name">
+                                        <h2 class="h5 text-black">${i.itemType}</h2>
+                                    </td>
+                                    <td>$${i.itemPrice}</td>
+                                    <td>
+                                        <div class="input-group mb-3" style="max-width: 120px;">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-outline-primary js-btn-minus" type="button"
+                                                        onclick="updateSubTotal('counter${i.productID}','td${i.productID}',${i.itemPrice})">
+                                                    &minus;
+                                                </button>
+                                            </div>
+                                            <input id="counter${i.productID}" name="cartItem" type="text"
+                                                   class="form-control text-center cartItem" value="${i.itemQuantity}"
+                                                   placeholder="" aria-label="Example text with button addon"
+                                                   aria-describedby="button-addon1">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-primary js-btn-plus" type="button"
+                                                        onclick="updateAddTotal('counter${i.productID}','td${i.productID}',${i.itemPrice})">
+                                                    &plus;
+                                                </button>
+                                            </div>
                                         </div>
-                                        <input id="counter${i.productID}" type="text" class="form-control text-center" value="${i.itemQuantity}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-primary js-btn-plus" type="button" onclick="updateAddTotal('counter${i.productID}','td${i.productID}',${i.itemPrice})">&plus;</button>
-                                        </div>
-                                    </div>
 
-                                </td>
+                                    </td>
 
-                                <td id="td${i.productID}">$${i.itemPrice*i.itemQuantity}</td>
-                                <td> <input class="btn btn-primary"  onclick="removeRow(${i.productID})" value="Remove" id="${i.productID} "></td>
+                                    <td id="td${i.productID}">$${i.itemPrice*i.itemQuantity}</td>
+                                    <td><input class="btn btn-primary" onclick="removeRow(${i.productID})"
+                                               value="Remove" id="${i.productID} "></td>
 
 
-
-                            </tr>
+                                </tr>
 
                             </c:forEach>
 
@@ -120,7 +136,8 @@
                 <div class="col-md-6">
                     <div class="row mb-5">
                         <div class="col-md-6 mb-3 mb-md-0">
-                            <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
+                            <button onclick="sendCartItems()" class="btn btn-primary btn-sm btn-block">Update Cart
+                            </button>
                         </div>
                         <div class="col-md-6">
                             <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
@@ -166,7 +183,9 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Checkout</button>
+                                    <button class="btn btn-primary btn-lg py-3 btn-block"
+                                            onclick="window.location='checkout.html'">Checkout
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -176,18 +195,50 @@
         </div>
     </div>
 
-    <%@include file="../toInclude/footer.jsp"%>
+    <%@include file="../toInclude/footer.jsp" %>
 </div>
 
 <script src="layout/js/jquery-ui.js"></script>
-<script src="layout/js/JQuery/jquery-3.6.0.js"></script>>
+<script src="layout/js/JQuery/jquery-3.6.0.js"></script>
+>
 <script src="layout/js/popper.min.js"></script>
 <script src="layout/js/bootstrap.min.js"></script>
 <script src="layout/js/owl.carousel.min.js"></script>
 <script src="layout/js/jquery.magnific-popup.min.js"></script>
 <script src="layout/js/aos.js"></script>
 <script src="layout/js/main.js"></script>
+<script>
+    function sendCartItems() {
 
+
+       let productIDs= [];
+       let productQtns= [];
+        var elemenst = document.querySelectorAll(".cartItem");
+        console.log(elemenst.value);
+
+
+        elemenst.forEach(function (e) {
+            productIDs.push(+e.id.substr(7));
+            productQtns.push(+e.value);
+        })
+        $.ajax({
+            url: "UpdateCart",
+            method: "POST",
+            data: {
+                "productIds": JSON.stringify(productIDs),
+                "productQtn":JSON.stringify(productQtns),
+                "removedItems": JSON.stringify(removedItems),
+            },
+            dataType: "html",
+
+            success:function (txt){
+                console.log(txt)
+            }
+
+        })
+
+    }
+</script>
 
 </body>
 </html>

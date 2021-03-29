@@ -26,7 +26,7 @@ public class Cart  implements java.io.Serializable {
     private CartId id;
     private Product product;
     private UserDetails userDetails;
-    private Integer quantity;
+    private long quantity;
 
     public Cart() {
     }
@@ -80,11 +80,11 @@ public class Cart  implements java.io.Serializable {
 
 
     @Column(name="quantity")
-    public Integer getQuantity() {
+    public long getQuantity() {
         return this.quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(long quantity) {
         this.quantity = quantity;
     }
 

@@ -1,9 +1,10 @@
 package com.iti.model.mapper;
 
-import com.iti.model.DTO.CartItemDTOM;
+import com.iti.model.DTO.CartItemDTO;
 import com.iti.model.DTO.ProductDTO;
 import com.iti.model.DTO.UserDTO;
 import com.iti.model.entity.Cart;
+import com.iti.model.entity.CartId;
 import com.iti.model.entity.Product;
 import com.iti.model.entity.UserDetails;
 
@@ -11,29 +12,23 @@ import java.util.Objects;
 
 public class CartMapper {
 
-    private static com.iti.model.mapper.CartMapper cartMapper;
+    private static final CartMapper cartMapper = new CartMapper();
 
     private CartMapper() {
 
     }
 
     public static synchronized CartMapper getInstance() {
-        return Objects.requireNonNullElseGet(cartMapper, com.iti.model.mapper.CartMapper::getInstance);
+        return cartMapper;
     }
 
-    public Cart getEntity(CartItemDTOM cartDTO) {
+    public Cart getEntity(CartItemDTO cartDTO,long userId) {
         Cart cart = new Cart();
-//Todo the ID is composite between user and product ,need some decisions.
-//        cart.setProductId(cartDTO.getCArtId());
-//        cart.setType(productDTO.getProdName());
-//        cart.setDescription(productDTO.getProdDescription());
-//        cart.setQuantity(productDTO.getProdQuantity());
-//        product.setSize(productDTO.getSize());
-//        product.setCategory(productDTO.getCategory());
-//        product.setFirstImg(productDTO.getFirstProdImg());
-//        product.setSecondImg(productDTO.getSecondProdImg());
-//        product.setPrice(productDTO.getProdPrice());
-
+        CartId cartId = new CartId();
+        cartId.setProductId(cartDTO.getProductID());
+        cartId.setUserId(userId);
+        cart.setId(cartId);
+        cart.setQuantity(cartDTO.getItemQuantity());
         return cart;
     }
 
