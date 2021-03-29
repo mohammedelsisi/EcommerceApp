@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
     <!-- to add down arrow to menus -->
     <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
+    <link href="layout/css/bootstrap/bootstrap_5.0.css" rel="stylesheet">
 
     <link rel="stylesheet" href="layout/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="layout/css/magnific-popup.css"> -->
@@ -31,7 +32,7 @@
     <div class="bg-light py-3">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
+                <div class="col-md-12 mb-0"><a href="Home">Home</a> <span class="mx-2 mb-0">/</span> <strong
                         class="text-black">Cart</strong></div>
             </div>
         </div>
@@ -104,14 +105,22 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="row mb-5">
-                        <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="col-md-5 mb-3 mb-md-0">
                             <button onclick="sendCartItems()" class="btn btn-primary btn-sm btn-block">Update Cart
-                            </button>
+                               </button>
                         </div>
-                        <div class="col-md-6">
-                            <a href="Shop" class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</a>
+                        <div class="col-md-2 mb-3 mb-md-0">
+                            <div id="spinner" class="spinner-border" role="status" style="display:none;"></div>
+
+                        </div>
+
+                        <div class="col-md-5">
+                            <a href="Shop" class="btn btn-outline-primary btn-sm btn-block">Continue Shopping
+                            </a>
+
                         </div>
                     </div>
+
                 </div>
                 <div class="col-md-6 pl-5">
                     <div class="row justify-content-end">
@@ -141,7 +150,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <button class="btn btn-primary btn-lg py-3 btn-block"
-                                            onclick="window.location='checkout.html'">Checkout
+                                            onclick="goToCheckout()">Checkout
                                     </button>
                                 </div>
                             </div>

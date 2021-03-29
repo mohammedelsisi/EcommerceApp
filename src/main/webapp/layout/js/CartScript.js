@@ -53,8 +53,10 @@ function sendCartItems() {
         }
 
     })
+    show();
 
 }
+
 
 function sumTotal() {
 
@@ -66,9 +68,39 @@ function sumTotal() {
     })
 
     $("#subTotal").html("$" + x + ".00")
-    x=x+100;
+    x = x + 100;
     $("#total").html("$" + x + ".00")
 
 }
+
 sumTotal();
 document.addEventListener("click", sumTotal);
+
+
+var myDiv = document.getElementById("spinner");
+
+show = function () {
+    myDiv.style.display = "block";
+    setTimeout(hide, 1500); // 5 seconds
+
+}
+hide = function () {
+    myDiv.style.display = "none";
+}
+
+
+function goToCheckout(){
+    sendCartItems();;
+    setTimeout(move,1500);
+
+}
+move = function (){
+    window.location="Checkout";
+
+}
+
+
+
+
+
+

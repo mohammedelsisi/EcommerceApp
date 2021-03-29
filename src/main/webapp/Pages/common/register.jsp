@@ -62,7 +62,7 @@
                                         <div class="brand-icon ">
                                             <i class="fas fa-store"></i>
                                         </div>
-                                        <h2 class="brand-text mx-3">Naseej Store</h2>
+                                        <h2 href="Home" class="brand-text mx-3">Naseej Store</h2>
                                     </a>
                                 </div>
                             </div>

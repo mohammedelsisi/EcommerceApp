@@ -15,9 +15,10 @@ public class CartItemDaoImp implements CartItemDao {
     CartItemDTO c1 = new CartItemDTO("shirt", 10.0, 2, "images/cloth_1.jpg", 1);
     CartItemDTO c2 = new CartItemDTO("shirt", 50.0, 1, "images/cloth_2.jpg", 2);
 
-    public CartItemDaoImp() {
+    private CartItemDaoImp() {
         entityManager = DatabaseManager.getFactory().createEntityManager();
     }
+
 
     public static synchronized CartItemDaoImp getInstance() {
         return new CartItemDaoImp();

@@ -1,6 +1,7 @@
 package com.iti.service;
 
 import com.iti.model.DTO.CartItemDTO;
+import com.iti.model.DTO.OrderDTO;
 import com.iti.model.DTO.ProductDTO;
 import com.iti.model.DTO.UserDTO;
 import com.iti.model.Dao.CartItemDao;
@@ -9,8 +10,10 @@ import com.iti.model.Dao.Imp.ProductDaoImp;
 import com.iti.model.Dao.ProductDao;
 import com.iti.model.entity.Cart;
 import com.iti.model.entity.CartId;
+import com.iti.model.entity.OrderDetail;
 import com.iti.model.entity.UserDetails;
 import com.iti.model.mapper.CartMapper;
+import com.iti.model.mapper.OrderMapper;
 import com.iti.model.mapper.UserMapper;
 
 import java.util.ArrayList;
@@ -53,6 +56,15 @@ public class BuyingService {
             cartList.add(cart);
         }
         cartItemDao.removeCartItems(cartList);
+        cartItemDao.close();
+    }
+    public void makeOrder(UserDTO userDTO, OrderDTO orderDTO) {
+        CartItemDao cartItemDao = CartItemDaoImp.getInstance();
+
+        UserDetails userDetails = UserMapper.getInstance().getUserEntity(userDTO);
+        OrderDetail entity = OrderMapper.getInstance().getEntity(orderDTO, userDetails);
+
+
         cartItemDao.close();
     }
 
