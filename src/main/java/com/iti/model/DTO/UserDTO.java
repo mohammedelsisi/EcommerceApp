@@ -1,7 +1,9 @@
 package com.iti.model.DTO;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class UserDTO {
 
@@ -18,6 +20,7 @@ public class UserDTO {
     private List<String> interests;
     private List<String> addresses;
     private List<OrderDTO> orders;
+    Set<CartItemDTO> cartItem=new HashSet<>();
 
     public UserDTO(String userName, String email, String password) {
         this.userName = userName;
@@ -165,5 +168,13 @@ public class UserDTO {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Set<CartItemDTO> getCartItem() {
+        return cartItem;
+    }
+
+    public void setCartItem(Set<CartItemDTO> cartItem) {
+        this.cartItem = cartItem;
     }
 }

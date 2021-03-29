@@ -31,6 +31,8 @@ public class ContextListener implements ServletContextListener {
         servletContext.setAttribute("Sizes",productsService.getSizes());
         servletContext.setAttribute("UsersService",usersService);
         servletContext.setAttribute("UserRoles",usersService.getRoles());
+        servletContext.setAttribute("BuyingService",buyingService);
+
     }
 
     @Override
