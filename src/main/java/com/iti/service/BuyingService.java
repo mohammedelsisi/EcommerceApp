@@ -60,10 +60,9 @@ public class BuyingService {
     }
     public void makeOrder(UserDTO userDTO, OrderDTO orderDTO) {
         CartItemDao cartItemDao = CartItemDaoImp.getInstance();
-
         UserDetails userDetails = UserMapper.getInstance().getUserEntity(userDTO);
         OrderDetail entity = OrderMapper.getInstance().getEntity(orderDTO, userDetails);
-
+        cartItemDao.makeOrder(entity,orderDTO.getItems());
 
         cartItemDao.close();
     }

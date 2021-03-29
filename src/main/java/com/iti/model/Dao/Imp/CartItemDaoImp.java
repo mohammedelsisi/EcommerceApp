@@ -1,14 +1,17 @@
 package com.iti.model.Dao.Imp;
 
 import com.iti.model.DTO.CartItemDTO;
-import com.iti.model.DTO.ProductDTO;
 import com.iti.model.Dao.CartItemDao;
 import com.iti.model.entity.Cart;
+import com.iti.model.entity.OrderDetail;
+import com.iti.model.entity.OrderHasProducts;
+import com.iti.model.entity.OrderHasProductsId;
 import com.iti.persistence.DatabaseManager;
 
 import javax.persistence.EntityManager;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CartItemDaoImp implements CartItemDao {
     EntityManager entityManager;
@@ -26,6 +29,22 @@ public class CartItemDaoImp implements CartItemDao {
 
     public void close() {
         if (entityManager.isOpen()) entityManager.close();
+    }
+
+    @Override
+    public void makeOrder(OrderDetail orderDetail, Set<CartItemDTO> list) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(orderDetail);
+        list.forEach(e -> {
+            OrderHasProductsId orderHasProductsId = new OrderHasProductsId();
+            orderHasProductsId.setOrdersOrderId(orderDetail.getOrderId());
+            orderHasProductsId.setProductsProductId(e.getProductID());
+            OrderHasProducts orderHasProducts =  new OrderHasProducts();
+            orderHasProducts.setId(orderHasProductsId);
+            orderHasProducts.setQuantity((int)e.getItemQuantity());
+            entityManager.persist(orderHasProducts);
+        });
+        entityManager.getTransaction().commit();
     }
 
     @Override
@@ -52,8 +71,8 @@ public class CartItemDaoImp implements CartItemDao {
         System.out.println("CartItemDaoImp.removeCartItems");
 
         list.stream().forEach((e) -> {
-         entityManager.createQuery("delete from Cart where user_id=:id and product_id=:pId").setParameter("id",e.getId().getUserId())
-                 .setParameter("pId",e.getId().getProductId()).executeUpdate();
+            entityManager.createQuery("delete from Cart where user_id=:id and product_id=:pId").setParameter("id", e.getId().getUserId())
+                    .setParameter("pId", e.getId().getProductId()).executeUpdate();
         });
         entityManager.getTransaction().commit();
 

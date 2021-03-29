@@ -64,7 +64,7 @@ public class OrderDetail implements java.io.Serializable {
         this.userDetails = userDetails;
     }
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name="purchaseDate", nullable=false, length=10)
     public Date getPurchaseDate() {
         return this.purchaseDate;

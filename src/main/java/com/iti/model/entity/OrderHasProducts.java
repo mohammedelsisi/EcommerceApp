@@ -18,7 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="orders_has_products"
-    ,catalog="naseejstore"
+        ,catalog="naseejstore"
 )
 public class OrderHasProducts  implements java.io.Serializable {
 

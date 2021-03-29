@@ -11,22 +11,26 @@ import java.util.Date;
 import java.util.List;
 
 public class ProfileService {
-    private final UserDao userDao = UserDAOImp.getInstance();
+//    private final UserDao userDao = UserDAOImp.getInstance();
     private static final ProfileService profileService = new ProfileService();
     public static synchronized ProfileService getInstance() {
         return profileService;
     }
 
     public boolean editProfile(UserDTO user) {
-     return userDao.EditProfile(user);
+//     return userDao.EditProfile(user);
+        return false;
     }
 
    public boolean changePassword(String oldpassword, String newpassword){
-        return userDao.changePassword( oldpassword, newpassword);
+//        return userDao.changePassword( oldpassword, newpassword);
+       return false;
     }
 
     public boolean addAddress (String address) {
-        return userDao.addAddress(address) ;
+//        return userDao.addAddress(address) ;return false;
+        return false;
+
     }
 
 //Todo: this must be in the checkout

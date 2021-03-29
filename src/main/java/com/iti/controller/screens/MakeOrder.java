@@ -9,6 +9,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+import java.sql.Timestamp;
 import java.util.*;
 import java.io.IOException;
 
@@ -27,7 +29,6 @@ public class MakeOrder extends HttpServlet {
         });
         orderDTO.setItems(itemsSet);
         orderDTO.setPurchaseDate(new Date());
-
         BuyingService.getInstance().makeOrder(userDTO,orderDTO);
     }
 }

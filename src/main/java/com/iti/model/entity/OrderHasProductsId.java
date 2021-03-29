@@ -31,7 +31,7 @@ public class OrderHasProductsId  implements java.io.Serializable {
         return this.ordersOrderId;
     }
 
-    public void setOrdersOrderId(int ordersOrderId) {
+    public void setOrdersOrderId(long ordersOrderId) {
         this.ordersOrderId = ordersOrderId;
     }
 

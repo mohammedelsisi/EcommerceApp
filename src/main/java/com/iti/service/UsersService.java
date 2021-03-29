@@ -10,25 +10,26 @@ import java.util.List;
 public class UsersService {
 
     private static final UsersService USERS_SERVICE = new UsersService();
-    private final UserDao userDao = UserDAOImp.getInstance();
+//    private final UserDao userDao = UserDAOImp.getInstance();
 
     public static synchronized UsersService getInstance() {
         return USERS_SERVICE;
     }
 
     public List<UserDTO> retrieveAllUsers() {
-        return userDao.retriveall();
+//        return userDao.retriveall();
+        return null;
     }
 
     public List<UserDTO> retrieveFilteredUsers(UserDTO userFilter) {
 
-        return userDao.retrieveFilteredUsers(userFilter);
+        return null;
     }
 
 
     public List<RoleUser> getRoles() {
 
-        return userDao.getRoles();
+        return null;
     }
 
 }
