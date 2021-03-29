@@ -149,4 +149,14 @@
         <url-pattern>/ProductItemJsp</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Checkouts</servlet-name>
+        <jsp-file>/Pages/common/checkout.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Checkouts</servlet-name>
+        <url-pattern>/Checkout</url-pattern>
+    </servlet-mapping>
+
 </web-app>
