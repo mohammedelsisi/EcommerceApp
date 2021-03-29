@@ -23,37 +23,6 @@
     <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
 
 </head>
-<script>
-    let removedItems = [];
-
-    function removeRow(id) {
-        document.getElementById(id).remove();
-        console.log(id)
-        removedItems.push(id);
-        console.log(removedItems)
-    }
-
-    function updateAddTotal(valID, tdID, price) {
-        var total = parseInt(document.getElementById(valID).value) + 1;
-        document.getElementById(tdID).innerHTML = "$" + (total) * price;
-        if (total <= 0) {
-            document.getElementById(tdID).innerHTML = "$" + 0;
-        }
-    }
-
-    function updateSubTotal(valID, tdID, price) {
-        var total = parseInt(document.getElementById(valID).value) - 1;
-        document.getElementById(tdID).innerHTML = "$" + (total) * price;
-        if (total <= 0) {
-            document.getElementById(tdID).innerHTML = "$" + 0;
-            console.log(tdID)
-            removeRow(tdID.substr(2))
-        }
-    }
-</script>
-<script>
-
-</script>
 <body>
 
 <div class="site-wrap">
@@ -117,7 +86,7 @@
 
                                     </td>
 
-                                    <td id="td${i.productID}">$${i.itemPrice*i.itemQuantity}</td>
+                                    <td class="totalItem" id="td${i.productID}">$${i.itemPrice*i.itemQuantity}</td>
                                     <td><input class="btn btn-primary" onclick="removeRow(${i.productID})"
                                                value="Remove" id="${i.productID} "></td>
 
@@ -140,19 +109,7 @@
                             </button>
                         </div>
                         <div class="col-md-6">
-                            <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label class="text-black h4" for="coupon">Coupon</label>
-                            <p>Enter your coupon code if you have one.</p>
-                        </div>
-                        <div class="col-md-8 mb-3 mb-md-0">
-                            <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
-                        </div>
-                        <div class="col-md-4">
-                            <button class="btn btn-primary btn-sm">Apply Coupon</button>
+                            <a href="Shop" class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</a>
                         </div>
                     </div>
                 </div>
@@ -169,7 +126,7 @@
                                     <span class="text-black">Subtotal</span>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <strong class="text-black">$230.00</strong>
+                                    <strong id="subTotal" class="text-black"></strong>
                                 </div>
                             </div>
                             <div class="row mb-5">
@@ -177,7 +134,7 @@
                                     <span class="text-black">Total</span>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <strong class="text-black">$230.00</strong>
+                                    <strong id="total" class="text-black">$230.00</strong>
                                 </div>
                             </div>
 
@@ -200,45 +157,13 @@
 
 <script src="layout/js/jquery-ui.js"></script>
 <script src="layout/js/JQuery/jquery-3.6.0.js"></script>
->
 <script src="layout/js/popper.min.js"></script>
 <script src="layout/js/bootstrap.min.js"></script>
 <script src="layout/js/owl.carousel.min.js"></script>
 <script src="layout/js/jquery.magnific-popup.min.js"></script>
 <script src="layout/js/aos.js"></script>
 <script src="layout/js/main.js"></script>
-<script>
-    function sendCartItems() {
-
-
-       let productIDs= [];
-       let productQtns= [];
-        var elemenst = document.querySelectorAll(".cartItem");
-        console.log(elemenst.value);
-
-
-        elemenst.forEach(function (e) {
-            productIDs.push(+e.id.substr(7));
-            productQtns.push(+e.value);
-        })
-        $.ajax({
-            url: "UpdateCart",
-            method: "POST",
-            data: {
-                "productIds": JSON.stringify(productIDs),
-                "productQtn":JSON.stringify(productQtns),
-                "removedItems": JSON.stringify(removedItems),
-            },
-            dataType: "html",
-
-            success:function (txt){
-                console.log(txt)
-            }
-
-        })
-
-    }
-</script>
+<script src="layout/js/CartScript.js"></script>
 
 </body>
 </html>
