@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface ProductDao {
     List<Product>  reteriveMaxProducts ();
-    List<ProductDTO> retrieveAllProducts ();
-    List<ProductDTO> retrieveFilteredProducts (ProductFilter productFilter);
+//    List<Product> retrieveAllProducts ();
+    List<Product> retrieveFilteredProducts (ProductFilter productFilter);
     List<String> getSizes();
     List<String> getColors();
     void close();
@@ -17,4 +17,11 @@ public interface ProductDao {
 
     List<String> getTypes();
 
+    List<Product> retrieveProductswithFilter(Product filteredProduct);
+
+    Boolean updateProduct(Product updatingProduct);
+
+    Boolean insertProduct(Product insertingProduct);
+
+    Boolean deleteProduct(Product deletingProduct);
 }

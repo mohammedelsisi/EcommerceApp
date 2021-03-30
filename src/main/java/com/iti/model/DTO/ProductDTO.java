@@ -1,6 +1,6 @@
 package com.iti.model.DTO;
 
-public class ProductDTO  {
+public class ProductDTO {
     private long prodID;
     private String prodType;
     private String prodDescription;
@@ -11,6 +11,15 @@ public class ProductDTO  {
     private String size;
     private String category;
     private String color;
+
+    public ProductDTO(String prodDescription, String firstProdImg, double prodPrice) {
+        this.prodDescription = prodDescription;
+        this.firstProdImg = firstProdImg;
+        this.productPrice = prodPrice;
+    }
+
+    public ProductDTO() {
+    }
 
     public String getColor() {
         return color;
@@ -25,13 +34,14 @@ public class ProductDTO  {
         return "ProductDTO{" +
                 "prodID=" + prodID +
                 ", prodType='" + prodType + '\'' +
-                ", prodDesc='" + prodDescription + '\'' +
+                ", prodDescription='" + prodDescription + '\'' +
                 ", prodQuantity=" + prodQuantity +
                 ", firstProdImg='" + firstProdImg + '\'' +
                 ", secondProdImg='" + secondProdImg + '\'' +
                 ", productPrice=" + productPrice +
                 ", size='" + size + '\'' +
                 ", category='" + category + '\'' +
+                ", color='" + color + '\'' +
                 '}';
     }
 
@@ -83,14 +93,6 @@ public class ProductDTO  {
         this.secondProdImg = secondProdImg;
     }
 
-    public ProductDTO(String prodDescription, String firstProdImg, double prodPrice) {
-        this.prodDescription = prodDescription;
-        this.firstProdImg = firstProdImg;
-        this.productPrice = prodPrice;
-    }
-
-    public ProductDTO(){}
-
     public long getProdID() {
         return prodID;
     }
@@ -124,12 +126,9 @@ public class ProductDTO  {
     }
 
 
-
     public double getProdPrice() {
         return productPrice;
     }
-
-
 
 
 }

@@ -11,22 +11,22 @@ $(function () {
             url: "ProductsServlet?action=getMeta",
             success: function (response) {
                 MetaData = response.map(function (list, index) {
-                    var obj = new Object();
+                    var obj = {};
                     obj.l = list;
                     return obj;
                 });
                 Types = MetaData[0].l.map(function (list, index) {
-                    var obj = new Object();
+                    var obj = {};
                     obj.Name = list;
                     return obj;
                 });
                 Sizes = MetaData[1].l.map(function (list, index) {
-                    var obj = new Object();
+                    var obj = {};
                     obj.Name = list;
                     return obj;
                 });
                 Categories = MetaData[2].l.map(function (list, index) {
-                    var obj = new Object();
+                    var obj = {};
                     obj.Name = list;
                     return obj;
                 });
@@ -52,6 +52,7 @@ $(function () {
                 pageButtonCount: 5,
                 controller: {
                     loadData: function (filter) {
+                        console.log(filter);
                         return $.ajax({
                             type: "GET",
                             url: "ProductsServlet?action=load",
@@ -66,6 +67,7 @@ $(function () {
                         });
                     },
                     updateItem: function (item) {
+                        console.log(item);
                         return $.ajax({
                             type: "GET",
                             url: "ProductsServlet?action=update",
@@ -87,11 +89,6 @@ $(function () {
                         title: "ID",
                         type: "number",
                         editing: false,
-                        validate: {
-                            validator: "min",
-                            message: "Product ID must be above 0",
-                            param: 0
-                        },
                         align: "center",
                         width: 60
                     },
@@ -115,25 +112,33 @@ $(function () {
                             param: 0
                         },
                         align: "center",
-                        width: 50
+                        width: 40
                     },
                     {
                         name: "firstProdImg",
                         title: "Img1",
                         itemTemplate: function (val, item) {
+                            this.currentimgVal = val;
                             return $("<img>").attr("src", val).css({height: 50, width: 50});
                         },
                         insertTemplate: function () {
                             return this.insertControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
                         },
                         insertValue: function () {
-                            return "layout/images/" + this.insertControl[0].files[0].name;
+                            if (this.insertControl[0].files[0] != undefined)
+                                return "layout/images/" + this.insertControl[0].files[0].name;
+                            //TODO add default Image
+                            else return "layout/images/children.jpg";
+
                         },
                         editTemplate: function () {
                             return this.updatetControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
                         },
                         editValue: function () {
-                            return "layout/images/" + this.updatetControl[0].files[0].name;
+                            if (this.updatetControl[0].files[0] != undefined)
+                                return "layout/images/" + this.updatetControl[0].files[0].name;
+                            else
+                                return this.currentimgVal;
                         },
                         align: "center",
                         width: 60
@@ -142,19 +147,27 @@ $(function () {
                         name: "secondProdImg",
                         title: "Img2",
                         itemTemplate: function (val, item) {
+                            this.currentimgVal = val;
                             return $("<img>").attr("src", val).css({height: 50, width: 50});
                         },
                         insertTemplate: function () {
                             return this.insertControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
                         },
                         insertValue: function () {
-                            return "layout/images/" + this.insertControl[0].files[0].name;
+                            if (this.insertControl[0].files[0] != undefined)
+                                return "layout/images/" + this.insertControl[0].files[0].name;
+                            else
+                                return "layout/images/children.jpg";
                         },
                         editTemplate: function () {
                             return this.updatetControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
                         },
                         editValue: function () {
-                            return "layout/images/" + this.updatetControl[0].files[0].name;
+                            if (this.updatetControl[0].files[0] != undefined)
+                                return "layout/images/" + this.updatetControl[0].files[0].name;
+                            else
+                                return this.currentimgVal;
+
                         },
                         align: "center",
                         width: 60
@@ -169,7 +182,7 @@ $(function () {
                             param: 0
                         },
                         align: "center",
-                        width: 50
+                        width: 40
                     },
                     {
                         name: "size",
@@ -184,7 +197,7 @@ $(function () {
                     },
                     {
                         name: "category",
-                        title: "categry",
+                        title: "category",
                         type: "select",
                         items: Categories,
                         valueField: "Name",
@@ -193,6 +206,15 @@ $(function () {
                         align: "center",
                         validate: "required"
                     },
+                    {
+                        name: "color",
+                        title: "Color",
+                        type: "text",
+                        width: 50,
+                        align: "center",
+                        validate: "required"
+                    },
+
                     {type: "control"}
                 ]
             })
