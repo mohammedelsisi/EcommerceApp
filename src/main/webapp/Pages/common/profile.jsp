@@ -21,10 +21,10 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link rel="stylesheet" href="layout/css/all.min.css"/> <!--removed the logo-->
-    <link rel="stylesheet" href="layout/css/style.css"/> <!--the top bar style-->
+    <link rel="stylesheet" href="layout/css/all.min.css"/>
+    <link rel="stylesheet" href="layout/css/style.css"/>
     <link href="layout/css/sb-admin-2.css" rel="stylesheet">
-    <link href="layout/css/ProfileCss/changephoto.css" rel="stylesheet"> <!--the image-->
+    <link href="layout/css/changephoto.css" rel="stylesheet">
 
 
     <meta charset="utf-8">
@@ -34,19 +34,19 @@
     <meta name="author" content="">
 
     <!-- Custom fonts for this template-->
-    <link href="layout/css/ProfileCss/bootstrap/bootstrap_5.0.css" rel="stylesheet"> <!--the main card place-->
+    <link href="layout/css/bootstrap/bootstrap_5.0.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="layout/css/ProfileCss/sb-admin-2.css" rel="stylesheet"> <!--side bar-->
-    <link href="layout/css/new_all.min/all.min.css"> <!--no change-->
-
+    <link href="layout/css/sb-admin-2.css" rel="stylesheet">
+    <link href="layout/css/new_all.min/all.min.css">
+    <script src="layout/js/JQuery/jquery-3.6.0.js"></script>
 
     <!--     to add the multiple selection plugin -->
-    <link href="layout/css/filter_multi_select.css" rel="stylesheet"> <!--footer-->
-
+    <link href="layout/css/filter_multi_select.css" rel="stylesheet">
+    <script src="layout/js/filter-multi-select-bundle.js"></script>
 
     <style>
         .nav-item {
@@ -61,8 +61,7 @@
 
 <body class="bg-gradient-primary">
 
-
-<%@include file="../toInclude/header.jsp"%>
+<%@include file="../toInclude/header.jsp" %>
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -120,7 +119,7 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider">
-        <li class="nav-item" >
+        <li class="nav-item">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw"></i>
                 <span>Logout</span></a>
@@ -185,17 +184,18 @@
                             <%--                            <input type="File" name="ChosenUserimage" id="ChosenUserimag2e">--%>
 
                             <form id="imageData" method="post" enctype="multipart/form-data">
-                                <label for="ChosenUserimage">
-                                    <div class="profile-pic" id="UserImage"
-                                         style="background-image: url('layout/images/img_avatar2.png')">
-                                        <div style="">
-                                            <span class="fas fa-camera"></span>
-                                            <span>Change Image</span>
-                                        </div>
-                                        <input type="File" name="ChosenUserImageName" id="ChosenUserimage" hidden>
-
+                                <div class="profile-pic" id="UserImage"
+                                     style="background-image: url('layout/images/img_avatar2.png')">
+                                    <div style="">
+                                        <span class="fas fa-camera"></span>
+                                        <span>Change Image</span>
                                     </div>
-                                </label>
+                                    <input type="File" name="ChosenUserImageName" id="ChosenUserimage" hidden>
+
+                                    <label for="ChosenUserimage"/>
+
+                                </div>
+
                                 </label>
                             </form>
 
@@ -261,9 +261,8 @@
 
 
         </div>
-
-        </footer>
-        <%@include file="../toInclude/footer.jsp"%>
+        <!-- Footer -->
+        <%@include file="../toInclude/footer.jsp" %>
         <!-- End of Footer -->
 
     </div>
@@ -361,8 +360,7 @@
 <script src="layout/js/sb-admin-2.js"></script>
 <script src="layout/js/sb-admin-2.js"></script>
 <script src="layout/js/profileScript.js"></script>
-<script src="layout/js/filter-multi-select-bundle.js"></script>
-<script src="layout/js/JQuery/jquery-3.6.0.js"></script>
+
 
 </body>
 
