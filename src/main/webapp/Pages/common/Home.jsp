@@ -247,24 +247,24 @@
                         </div>
                         <div class="col-md-6 col-lg-4">
                             <ul class="list-unstyled">
-                                <li><a href="#">Sell online</a></li>
-                                <li><a href="#">Features</a></li>
-                                <li><a href="#">Shopping cart</a></li>
-                                <li><a href="#">Store builder</a></li>
+                                <li><a href="/fashion_store/Shop">Shoping</a></li>
+                                <li><a href="/fashion_store/ProductItem">Store</a></li>
+<%--                                <li><a href="#">Shopping cart</a></li>--%>
+<%--                                <li><a href="#">Store builder</a></li>--%>
                             </ul>
                         </div>
                         <div class="col-md-6 col-lg-4">
                             <ul class="list-unstyled">
-                                <li><a href="#">Mobile commerce</a></li>
-                                <li><a href="#">Dropshipping</a></li>
-                                <li><a href="#">Website development</a></li>
+                                <li><a href="/fashion_store/Home"> Home</a></li>
+                                <li><a href="/fashion_store/SignUp">Sign Up</a></li>
+
+
+
                             </ul>
                         </div>
                         <div class="col-md-6 col-lg-4">
                             <ul class="list-unstyled">
-                                <li><a href="#">Point of sale</a></li>
-                                <li><a href="#">Hardware</a></li>
-                                <li><a href="#">Software</a></li>
+                                <h1 style="font-size: 70px; color: #0a58ca" > NaseJ </h1>
                             </ul>
                         </div>
                     </div>
@@ -272,8 +272,8 @@
                 <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <h3 class="footer-heading mb-4">Promo</h3>
                     <a href="#" class="block-6">
-                        <img src="../../images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-                        <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
+                        <img src="images/footer.jpg"alt="Image placeholder" class="img-fluid rounded mb-4">
+                        <h3 class="font-weight-light  mb-0">Finding Your Perfect order</h3>
                         <p>Promo from nuary 15 &mdash; 25, 2021</p>
                     </a>
                 </div>
@@ -283,7 +283,7 @@
                         <ul class="list-unstyled">
                             <li class="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
                             <li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
-                            <li class="email">emailaddress@domain.com</li>
+                            <li class="email">NaseJ@gmail.com</li>
                         </ul>
                     </div>
 
