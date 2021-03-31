@@ -81,6 +81,7 @@
 function sendData() {
     let userName = $("#usernameInputExample").val();
     let birthDate = $("#userDateId").val();
+    let phone = $("#phoneNumber").val();
     let userJob = $("#userJobId").val();
     let creditLimit = $("#exampleInputCreditLimit").val();
     console.log({"userName": userName, "date": birthDate, "job": userJob, "creditLimit": creditLimit});
@@ -93,7 +94,7 @@ function sendData() {
             "userName": userName,
             "birthDate": birthDate,
             "job": userJob,
-            "phone": "+201027579113",
+            "phone": phone,
             "creditLimit": creditLimit
         }
 
