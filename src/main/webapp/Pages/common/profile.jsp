@@ -41,7 +41,7 @@
 
     <!-- Custom styles for this template-->
     <link href="layout/css/ProfileCss/sb-admin-2.css" rel="stylesheet"> <!--side bar-->
-<%--    <link href="css/new_all.min/all.min.css">--%> <!--no change-->
+    <link href="layout/css/new_all.min/all.min.css"> <!--no change-->
 
 
     <!--     to add the multiple selection plugin -->
@@ -261,14 +261,8 @@
 
 
         </div>
-        <!-- Footer -->
-       <!-- <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; ITI 2021</span>
-                </div>
-            </div>
-        </footer>-->
+
+        </footer>
         <%@include file="../toInclude/footer.jsp"%>
         <!-- End of Footer -->
 
