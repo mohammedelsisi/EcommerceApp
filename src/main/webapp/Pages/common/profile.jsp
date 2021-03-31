@@ -21,8 +21,8 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
     <!-- Custom styles for this template-->
-<%--    <link rel="stylesheet" href="css/all.min.css"/>--%> <!--removed the logo-->
-<%--    <link rel="stylesheet" href="css/style.css"/>--%> <!--the top bar style-->
+    <link rel="stylesheet" href="layout/css/all.min.css"/> <!--removed the logo-->
+    <link rel="stylesheet" href="layout/css/style.css"/> <!--the top bar style-->
 <%--    <link href="css/sb-admin-2.css" rel="stylesheet">--%>
     <link href="layout/css/ProfileCss/changephoto.css" rel="stylesheet"> <!--the image-->
 
@@ -45,7 +45,7 @@
 
 
     <!--     to add the multiple selection plugin -->
-<%--    <link href="css/filter_multi_select.css" rel="stylesheet">--%> <!--footer-->
+    <link href="layout/css/filter_multi_select.css" rel="stylesheet"> <!--footer-->
 
 
     <style>
