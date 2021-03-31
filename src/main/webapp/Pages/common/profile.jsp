@@ -61,7 +61,8 @@
 
 <body class="bg-gradient-primary">
 
-<%@include file="../toInclude/header.jsp" %>
+
+<%@include file="../toInclude/header.jsp"%>
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -84,8 +85,7 @@
             <a class="nav-link" href="profile.jsp">
                 <i class="fas fa-user"></i>
                 <span>Profile</span></a>
-        </li>
-        <!-- Divider -->
+        </li><!-- Divider -->
         <hr class="sidebar-divider">
         <li class="nav-item">
             <a class="nav-link" href="cart.html">
@@ -119,7 +119,7 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider">
-        <li class="nav-item">
+        <li class="nav-item" >
             <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw"></i>
                 <span>Logout</span></a>
@@ -184,18 +184,17 @@
                             <%--                            <input type="File" name="ChosenUserimage" id="ChosenUserimag2e">--%>
 
                             <form id="imageData" method="post" enctype="multipart/form-data">
-                                <div class="profile-pic" id="UserImage"
-                                     style="background-image: url('layout/images/img_avatar2.png')">
-                                    <div style="">
-                                        <span class="fas fa-camera"></span>
-                                        <span>Change Image</span>
+                                <label for="ChosenUserimage">
+                                    <div class="profile-pic" id="UserImage"
+                                         style="background-image: url('layout/images/img_avatar2.png')">
+                                        <div style="">
+                                            <span class="fas fa-camera"></span>
+                                            <span>Change Image</span>
+                                        </div>
+                                        <input type="File" name="ChosenUserImageName" id="ChosenUserimage" hidden>
+
                                     </div>
-                                    <input type="File" name="ChosenUserImageName" id="ChosenUserimage" hidden>
-
-                                    <label for="ChosenUserimage"/>
-
-                                </div>
-
+                                </label>
                                 </label>
                             </form>
 
@@ -262,7 +261,7 @@
 
         </div>
         <!-- Footer -->
-        <%@include file="../toInclude/footer.jsp" %>
+        <%@include file="../toInclude/footer.jsp"%>
         <!-- End of Footer -->
 
     </div>
