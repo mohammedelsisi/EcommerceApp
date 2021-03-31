@@ -21,10 +21,10 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link rel="stylesheet" href="css/all.min.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link href="css/sb-admin-2.css" rel="stylesheet">
-    <link href="css/changephoto.css" rel="stylesheet">
+<%--    <link rel="stylesheet" href="css/all.min.css"/>--%> <!--removed the logo-->
+<%--    <link rel="stylesheet" href="css/style.css"/>--%> <!--the top bar style-->
+<%--    <link href="css/sb-admin-2.css" rel="stylesheet">--%>
+    <link href="layout/css/ProfileCss/changephoto.css" rel="stylesheet"> <!--the image-->
 
 
     <meta charset="utf-8">
@@ -34,19 +34,19 @@
     <meta name="author" content="">
 
     <!-- Custom fonts for this template-->
-    <link href="css/bootstrap/bootstrap_5.0.css" rel="stylesheet">
+    <link href="layout/css/ProfileCss/bootstrap/bootstrap_5.0.css" rel="stylesheet"> <!--the main card place-->
 
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
-    <link href="css/new_all.min/all.min.css">
-    <script src="js/JQuery/jquery-3.6.0.js"></script>
+    <link href="layout/css/ProfileCss/sb-admin-2.css" rel="stylesheet"> <!--side bar-->
+<%--    <link href="css/new_all.min/all.min.css">--%> <!--no change-->
+
 
     <!--     to add the multiple selection plugin -->
-    <link href="css/filter_multi_select.css" rel="stylesheet">
-    <script src="js/filter-multi-select-bundle.js"></script>
+<%--    <link href="css/filter_multi_select.css" rel="stylesheet">--%> <!--footer-->
+
 
     <style>
         .nav-item {
@@ -61,83 +61,7 @@
 
 <body class="bg-gradient-primary">
 
-<%--<header class="site-navbar" role="banner">--%>
-<%--    <div class="site-navbar-top">--%>
-<%--        <div class="container">--%>
-<%--            <div class="row align-items-center">--%>
-<%--                <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">--%>
-<%--                    <form action="" class="site-block-top-search">--%>
-<%--                        <span class="icon icon-search2"></span>--%>
-<%--                        <input type="text" class="form-control border-0" placeholder="Search">--%>
-<%--                    </form>--%>
-<%--                </div>--%>
 
-<%--                <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">--%>
-<%--                    <div class="site-logo">--%>
-<%--                        <a href="index.html" class="js-logo-clone">--%>
-<%--                            <div class="brand-icon rotate-n-15">--%>
-<%--                                <i class="fas fa-paw"></i>--%>
-<%--                            </div>--%>
-<%--                            <div class="brand-text mx-3">PeTopia</div>--%>
-<%--                        </a>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-
-<%--                <div class="col-6 col-md-4 order-3 order-md-3 text-right">--%>
-<%--                    <div class="site-top-icons">--%>
-<%--                        <ul>--%>
-<%--                            <li><a href="#"><span class="icon icon-person"></span></a></li>--%>
-<%--                            <li><a href="#"><span class="icon icon-heart-o"></span></a></li>--%>
-<%--                            <li>--%>
-<%--                                <a href="cart.html" class="site-cart">--%>
-<%--                                    <span class="icon icon-shopping_cart"></span>--%>
-<%--                                    <span class="count">2</span>--%>
-<%--                                </a>--%>
-<%--                            </li>--%>
-<%--                            <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span--%>
-<%--                                    class="icon-menu"></span></a></li>--%>
-<%--                        </ul>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--    <nav class="site-navigation text-right text-md-center" role="navigation">--%>
-<%--        <div class="container">--%>
-<%--            <ul class="site-menu js-clone-nav d-none d-md-block">--%>
-<%--                <li class="has-children active">--%>
-<%--                    <a href="index.html">Home</a>--%>
-<%--                    <ul class="dropdown">--%>
-<%--                        <li><a href="#">Menu One</a></li>--%>
-<%--                        <li><a href="#">Menu Two</a></li>--%>
-<%--                        <li><a href="#">Menu Three</a></li>--%>
-<%--                        <li class="has-children">--%>
-<%--                            <a href="#">Sub Menu</a>--%>
-<%--                            <ul class="dropdown">--%>
-<%--                                <li><a href="#">Menu One</a></li>--%>
-<%--                                <li><a href="#">Menu Two</a></li>--%>
-<%--                                <li><a href="#">Menu Three</a></li>--%>
-<%--                            </ul>--%>
-<%--                        </li>--%>
-<%--                    </ul>--%>
-<%--                </li>--%>
-<%--                <li class="has-children">--%>
-<%--                    <a href="about.html">About</a>--%>
-<%--                    <ul class="dropdown">--%>
-<%--                        <li><a href="#">Menu One</a></li>--%>
-<%--                        <li><a href="#">Menu Two</a></li>--%>
-<%--                        <li><a href="#">Menu Three</a></li>--%>
-<%--                    </ul>--%>
-<%--                </li>--%>
-<%--                <li><a href="shop.html">Shop</a></li>--%>
-<%--                <li><a href="#">Catalogue</a></li>--%>
-<%--                <li><a href="#">New Arrivals</a></li>--%>
-<%--                <li><a href="contact.html">Contact</a></li>--%>
-<%--            </ul>--%>
-<%--        </div>--%>
-<%--    </nav>--%>
-<%--</header>--%>
 <%@include file="../toInclude/header.jsp"%>
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -263,7 +187,7 @@
                             <form id="imageData" method="post" enctype="multipart/form-data">
                                 <label for="ChosenUserimage">
                                     <div class="profile-pic" id="UserImage"
-                                         style="background-image: url('images/img_avatar2.png')">
+                                         style="background-image: url('layout/images/img_avatar2.png')">
                                         <div style="">
                                             <span class="fas fa-camera"></span>
                                             <span>Change Image</span>
@@ -338,13 +262,13 @@
 
         </div>
         <!-- Footer -->
-        <!-- <footer class="sticky-footer bg-white">
-             <div class="container my-auto">
-                 <div class="copyright text-center my-auto">
-                     <span>Copyright &copy; ITI 2021</span>
-                 </div>
-             </div>
-         </footer>-->
+       <!-- <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; ITI 2021</span>
+                </div>
+            </div>
+        </footer>-->
         <%@include file="../toInclude/footer.jsp"%>
         <!-- End of Footer -->
 
@@ -443,7 +367,8 @@
 <script src="js/sb-admin-2.js"></script>
 <script src="js/sb-admin-2.js"></script>
 <script src="layout/js/profileScript.js"></script>
-
+<script src="js/filter-multi-select-bundle.js"></script>
+<script src="js/JQuery/jquery-3.6.0.js"></script>
 
 </body>
 
