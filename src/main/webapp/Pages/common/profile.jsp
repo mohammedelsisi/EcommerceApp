@@ -16,14 +16,14 @@
 
     <!-- Custom fonts for this template-->
 
-    <link href="css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link rel="stylesheet" href="layout/css/all.min.css"/> <!--removed the logo-->
     <link rel="stylesheet" href="layout/css/style.css"/> <!--the top bar style-->
-<%--    <link href="css/sb-admin-2.css" rel="stylesheet">--%>
+    <link href="layout/css/sb-admin-2.css" rel="stylesheet">
     <link href="layout/css/ProfileCss/changephoto.css" rel="stylesheet"> <!--the image-->
 
 
@@ -355,14 +355,14 @@
     </div>
 </div>
 
-<script src="js/jquery-3.4.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/fontawesome.js"></script>
-<script src="js/sb-admin-2.js"></script>
-<script src="js/sb-admin-2.js"></script>
+<script src="layout/js/jquery-3.4.0.min.js"></script>
+<script src="layout/js/bootstrap.min.js"></script>
+<script src="layout/js/fontawesome.js"></script>
+<script src="layout/js/sb-admin-2.js"></script>
+<script src="layout/js/sb-admin-2.js"></script>
 <script src="layout/js/profileScript.js"></script>
-<script src="js/filter-multi-select-bundle.js"></script>
-<script src="js/JQuery/jquery-3.6.0.js"></script>
+<script src="layout/js/filter-multi-select-bundle.js"></script>
+<script src="layout/js/JQuery/jquery-3.6.0.js"></script>
 
 </body>
 
