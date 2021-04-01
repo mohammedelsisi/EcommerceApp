@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="P" uri="/WEB-INF/tlds/productLib" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,8 +29,11 @@
 
 </head>
 
-<body class="bg-gradient-primary">
-<%@include file="../toInclude/header.jsp"%>
+<body class="site-wrap">
+
+
+<%@include file="../toInclude/header.jsp" %>
+</form>
 
 <!-- Page Wrapper -->
 <div id="wrapper">

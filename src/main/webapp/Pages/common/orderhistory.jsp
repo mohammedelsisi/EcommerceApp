@@ -58,10 +58,12 @@
 
 </head>
 <!-- Page Wrapper -->
-<body class="bg-gradient-primary">
+<body class="site-wrap">
 
-<%@include file="../toInclude/header.jsp"%>
+
+<%@include file="../toInclude/header.jsp" %>
 </form>
+
 
 <div id="wrapper">
 

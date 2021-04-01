@@ -28,7 +28,7 @@
     <!-- to add down arrow to menus -->
     <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
 
-<%--    <link rel="stylesheet" href="layout/css/bootstrap.min.css">--%>
+    <%--    <link rel="stylesheet" href="layout/css/bootstrap.min.css">--%>
     <!-- <link rel="stylesheet" href="layout/css/magnific-popup.css"> -->
     <link rel="stylesheet" href="layout/css/jquery-ui.css">
     <!-- to let horizontal scrolling -->
@@ -38,7 +38,7 @@
     <!-- main Style file -->
     <link rel="stylesheet" href="layout/css/style.css">
     <!-- for font awsowome icon -->
-<%--    <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">--%>
+    <%--    <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">--%>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,10 +71,12 @@
     </style>
 </head>
 
-<body class="bg-gradient-primary">
+<body class="site-wrap">
 
 
-<%@include file="../toInclude/header.jsp"%>
+<%@include file="../toInclude/header.jsp" %>
+</form>
+
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -209,7 +211,7 @@
 
         </div>
         <!-- Footer -->
-        <%@include file="../toInclude/footer.jsp"%>
+        <%@include file="../toInclude/footer.jsp" %>
         <!-- End of Footer -->
 
     </div>
@@ -305,7 +307,6 @@
 <script src="layout/js/bootstrap.min.js"></script>
 <script src="layout/js/fontawesome.js"></script>
 <script src="layout/js/sb-admin-2.js"></script>
-<script src="layout/js/profileScript.js"></script>
 <script src="layout/js/jquery-ui.js"></script>
 <script src="layout/js/JQuery/jquery-3.6.0.js"></script>
 <script src="layout/js/popper.min.js"></script>
@@ -314,6 +315,7 @@
 <script src="layout/js/aos.js"></script>
 <script src="layout/js/main.js"></script>
 
+<script src="layout/js/profileScript.js"></script>
 
 </body>
 
