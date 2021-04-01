@@ -106,14 +106,7 @@ public class ProductDaoImp implements ProductDao {
             entityManager.close();
     }
 
-    @Override
-    public List<String> getCategories() {
-        List<String> list = new ArrayList<>();
-        list.add("Men");
-        list.add("Women");
-        list.add("Children");
-        return list;
-    }
+
     @Override
     public List<String> getTypes() {
         List<String> list = new ArrayList<>();
@@ -224,6 +217,33 @@ public class ProductDaoImp implements ProductDao {
         List<Product> products = entityManager.createQuery(criteriaQuery).getResultList();
 
         return products;
+    }
+
+    @Override
+    public Boolean updateProduct(Product updatingProduct) {
+        try {
+            entityManager.getTransaction().begin();
+            Product prodToUpdate = entityManager.find(Product.class, updatingProduct.getProductId());
+            prodToUpdate.setType(updatingProduct.getType());
+            prodToUpdate.setColor(updatingProduct.getColor());
+            prodToUpdate.setCategory(updatingProduct.getCategory());
+            prodToUpdate.setPrice(updatingProduct.getPrice());
+            prodToUpdate.setQuantity(updatingProduct.getQuantity());
+            prodToUpdate.setFirstImg(updatingProduct.getFirstImg());
+            prodToUpdate.setSecondImg(updatingProduct.getSecondImg());
+            prodToUpdate.setSize(updatingProduct.getSize());
+            //TODO discuss description with Cici
+            prodToUpdate.setDescription(prodToUpdate.getDescription());
+            entityManager.merge(prodToUpdate);
+            entityManager.getTransaction().commit();
+            return true;
+            //TODO check exception type
+        } catch (RuntimeException e) {
+            entityManager.getTransaction().rollback();
+            return false;
+        }
+
+
     }
 
     @Override
