@@ -19,6 +19,7 @@ public class OrdersService {
 
     public List<OrderDTO> retrieveOrdersWithFilter(OrderDTO filter){
         OrderDao orderDao = OrderDaoImp.getInstance();
-        OrderDetail order = OrderMapper
+//        OrderDetail order = OrderMapper
+        return null;
     }
 }
