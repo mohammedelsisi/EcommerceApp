@@ -2,11 +2,7 @@ package com.iti.controller.listners;
 
 import com.iti.controller.servlets.Profile;
 import com.iti.persistence.DatabaseManager;
-import com.iti.service.ProductsService;
-import com.iti.service.LoginService;
-import com.iti.service.ProfileService;
-import com.iti.service.RegistrationService;
-import com.iti.service.UsersService;
+import com.iti.service.*;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.ServletContextEvent;
@@ -22,6 +18,7 @@ public class ContextListener implements ServletContextListener {
         LoginService loginService = LoginService.getInstance();
         ProductsService productsService = ProductsService.getInstance();
         UsersService usersService = UsersService.getInstance();
+        OrdersService ordersService = OrdersService.getInstance();
         ServletContext servletContext = sce.getServletContext();
         servletContext.setAttribute("RegistrationService",registrationService);
         servletContext.setAttribute("ProfileService",profileService);
@@ -30,6 +27,7 @@ public class ContextListener implements ServletContextListener {
         servletContext.setAttribute("Colors",productsService.getColors());
         servletContext.setAttribute("Sizes",productsService.getSizes());
         servletContext.setAttribute("UsersService",usersService);
+        servletContext.setAttribute("OrdersService",ordersService);
         servletContext.setAttribute("UserRoles",usersService.getRoles());
     }
 

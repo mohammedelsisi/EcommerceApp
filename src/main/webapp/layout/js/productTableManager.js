@@ -83,7 +83,6 @@ $(function () {
                     },
                 },
                 fields: [
-
                     {
                         name: "prodID",
                         title: "ID",
