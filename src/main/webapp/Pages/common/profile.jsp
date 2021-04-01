@@ -304,11 +304,11 @@
 </div>
 
 <%--<script src="layout/js/jquery-3.4.0.min.js"></script>--%>
+<script src="layout/js/JQuery/jquery-3.6.0.js"></script>
+<script src="layout/js/jquery-ui.js"></script>
 <script src="layout/js/bootstrap.min.js"></script>
 <script src="layout/js/fontawesome.js"></script>
 <script src="layout/js/sb-admin-2.js"></script>
-<script src="layout/js/jquery-ui.js"></script>
-<script src="layout/js/JQuery/jquery-3.6.0.js"></script>
 <script src="layout/js/popper.min.js"></script>
 <script src="layout/js/owl.carousel.min.js"></script>
 <script src="layout/js/jquery.magnific-popup.min.js"></script>
