@@ -13,17 +13,17 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="products"
-    ,catalog="naseejstore"
+        ,catalog="naseejstore"
 )
 public class Product implements java.io.Serializable {
 
 
-     private long productId;
-     private String type;
-     private String description;
-     private long quantity;
-     private String size;
-     private String color;
+    private long productId;
+    private String type;
+    private String description;
+    private long quantity;
+    private String size;
+    private String color;
 
     @Column(name="color", nullable=false, length=45)
     public String getColor() {
@@ -51,14 +51,14 @@ public class Product implements java.io.Serializable {
     }
 
     private String category;
-     private String firstImg;
-     private String secondImg;
-     private double price;
+    private String firstImg;
+    private String secondImg;
+    private double price;
 
     public Product() {
     }
 
-	
+
     public Product(long productId, String type, long quantity, String size, String category, String firstImg, double price) {
         this.productId = productId;
         this.type = type;
@@ -69,96 +69,96 @@ public class Product implements java.io.Serializable {
         this.price = price;
     }
 
-   
-     @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
     @Column(name="product_id", unique=true, nullable=false)
     public long getProductId() {
         return this.productId;
     }
-    
+
     public void setProductId(long productId) {
         this.productId = productId;
     }
 
-    
+
     @Column(name="type", nullable=false, length=60)
     public String getType() {
         return this.type;
     }
-    
+
     public void setType(String type) {
         this.type = type;
     }
 
-    
+
     @Column(name="description")
     public String getDescription() {
         return this.description;
     }
-    
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    
+
     @Column(name="quantity", nullable=false)
     public long getQuantity() {
         return this.quantity;
     }
-    
+
     public void setQuantity(long quantity) {
         this.quantity = quantity;
     }
 
-    
+
     @Column(name="size", nullable=false, length=45)
     public String getSize() {
         return this.size;
     }
-    
+
     public void setSize(String size) {
         this.size = size;
     }
 
-    
+
     @Column(name="category", nullable=false, length=45)
     public String getCategory() {
         return this.category;
     }
-    
+
     public void setCategory(String category) {
         this.category = category;
     }
 
-    
+
     @Column(name="first_img", nullable=false, length=45)
     public String getFirstImg() {
         return this.firstImg;
     }
-    
+
     public void setFirstImg(String firstImg) {
         this.firstImg = firstImg;
     }
 
-    
+
     @Column(name="second_img", length=45)
     public String getSecondImg() {
         return this.secondImg;
     }
-    
+
     public void setSecondImg(String secondImg) {
         this.secondImg = secondImg;
     }
 
-    
+
     @Column(name="price", nullable=false, precision=10, scale=3)
     public double getPrice() {
         return this.price;
     }
-    
+
     public void setPrice(double price) {
         this.price = price;
     }

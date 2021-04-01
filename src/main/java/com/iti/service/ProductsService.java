@@ -44,7 +44,6 @@ public class ProductsService {
         return list;
 
     }
-
     public ProductDTO retrieveItem(long id) {
         ProductDao productDao = ProductDaoImp.getInstance();
         ProductDTO dto = null;
@@ -58,29 +57,61 @@ public class ProductsService {
 
 
     public List<String> getSizes() {
-        List<String> list = new ArrayList<>();
-        list.add("Small");
-        list.add("Medium");
-        list.add("Large");
-        return list;
+        ProductDao productDao = ProductDaoImp.getInstance();
+        return productDao.getSizes();
     }
 
     public List<String> getColors() {
-        List<String> list = new ArrayList<>();
-        list.add("Red");
-        list.add("Green");
-        list.add("Blue");
+        ProductDao productDao = ProductDaoImp.getInstance();
+        return productDao.getColors();
+    }
+    public List<String> getCategories(){
+        ProductDao productDao = ProductDaoImp.getInstance();
+        return productDao.getCategories();
+    }
+    public List<String> getTypes(){
+        ProductDao productDao = ProductDaoImp.getInstance();
+        return productDao.getTypes();
+    }
+
+    public List<ProductDTO> retrieveProductswithFilter(ProductDTO filter) {
+        ProductDao productDao = ProductDaoImp.getInstance();
+        Product filteringProduct = ProductMapper.getInstance().getEntity(filter);
+        List<Product> products = productDao.retrieveProductswithFilter(filteringProduct);
+        List<ProductDTO> list = new ArrayList<>();
+        products.forEach(e->{
+            list.add(ProductMapper.getInstance().getDTO(e));
+        });
+        productDao.close();
         return list;
     }
+    public Boolean updateProduct(ProductDTO productToUpdate) {
 
-    public List<String> getCategories() {
-//        return productDao.getCategories();
-        return null;
+        ProductDao productDao = ProductDaoImp.getInstance();
+        Product updatingProduct = ProductMapper.getInstance().getEntity(productToUpdate);
+        Boolean status = productDao.updateProduct(updatingProduct);
+        productDao.close();
+
+        return status;
     }
 
-    public List<String> getTypes() {
-//        return productDao.getTypes();
-        return null;
+    public Boolean insertProduct(ProductDTO productToInsert) {
+        ProductDao productDao = ProductDaoImp.getInstance();
+        Product insertingProduct = ProductMapper.getInstance().getEntity(productToInsert);
+        Boolean status = productDao.insertProduct(insertingProduct);
+        productDao.close();
+
+        return status;
+
     }
 
+    public Boolean deleteProduct(ProductDTO productToDelete) {
+        ProductDao productDao = ProductDaoImp.getInstance();
+        Product deletingProduct = ProductMapper.getInstance().getEntity(productToDelete);
+        Boolean status = productDao.deleteProduct(deletingProduct);
+        productDao.close();
+
+        return status;
+
+    }
 }

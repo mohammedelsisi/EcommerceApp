@@ -18,5 +18,12 @@ public interface ProductDao {
     List<String> getTypes();
     Product retrieveItem(long id);
     Product getProductById(long id);
+    List<Product> retrieveProductswithFilter(Product filteredProduct);
+
+    Boolean updateProduct(Product updatingProduct);
+
+    Boolean insertProduct(Product insertingProduct);
+
+    Boolean deleteProduct(Product deletingProduct);
 
 }

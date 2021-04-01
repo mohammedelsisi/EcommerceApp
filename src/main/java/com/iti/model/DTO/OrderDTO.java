@@ -44,7 +44,7 @@ public class OrderDTO {
     }
 
     public double getTotalAmount() {
-        return items.stream().mapToDouble(e -> e.getItemPrice() * e.getItemQuantity()).sum()+100;
+        return items.stream().mapToDouble(e -> e.getItemPrice() * e.getItemQuantity()).sum() + 100;
 
     }
 

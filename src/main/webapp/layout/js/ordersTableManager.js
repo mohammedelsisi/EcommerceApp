@@ -5,7 +5,6 @@ $(function () {
         height: "600",
         width: "100%",
         filtering: true,
-        editing: true,
         sorting: true,
         paging: true,
         autoload: true,
@@ -13,6 +12,7 @@ $(function () {
         pageButtonCount: 5,
         controller: {
             loadData: function (filter) {
+                console.log(filter)
                 return $.ajax({
                     type: "GET",
                     url: "OrdersServlet?action=load",
@@ -22,98 +22,41 @@ $(function () {
 
         },
         fields: [
-            //TODO Add Orders' fields
             {
                 name: "id",
-                title: "ID",
+                title: "OrderId",
                 type: "number",
                 editing: false,
-                validate: {
-                    validator: "min",
-                    message: "Product ID must be above 0",
-                    param: 0
-                },
-                width: 50
-            },
-            {
-                name: "userName",
-                title: "Name",
-                type: "text",
-                editing: false,
-                width: 60,
-                validate: "required"
-            },
-            {
-                name: "creditLimit",
-                title: "Limit",
-                type: "number",
-                editing: false,
-                validate: {
-                    validator: "min",
-                    message: "Product ID must be above 0",
-                    param: 0
-                },
+                align: "center",
                 width: 50
             },
             {
                 name: "email",
-                title: "Email",
+                title: "userEmail",
                 type: "text",
                 editing: false,
-                width: 60,
-                validate: "required"
-            },
-            {
-                name: "job",
-                title: "Job",
-                type: "text",
-                editing: false,
-                width: 50,
-                validate: "required"
-            },
-            {
-                name: "birthday",
-                title: "DOB",
-                type: "text",
-                editing: false,
-                width: 50,
-                validate: "required"
-            },
-            {
-                name: "Role",
-                title: "Role",
-                type: "select",
-                items: Roles,
-                valueField: "Name",
-                textField: "Name",
-                width: 50,
-                validate: "required"
-            },
-            {
-                name: "userImg",
-                title: "Image",
-                itemTemplate: function (val, item) {
-                    return $("<img>").attr("src", val).css({height: 50, width: 50});
-                },
-                insertTemplate: function () {
-                    return this.insertControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
-                },
-                insertValue: function () {
-                    return "layout/images/" + this.insertControl[0].files[0].name;
-                },
-                editTemplate: function () {
-                    return this.updatetControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
-                },
-                editValue: function () {
-                    return "layout/images/" + this.updatetControl[0].files[0].name;
-                },
                 align: "center",
-                width: 60
+                width: 60,
+            },
+            {
+                name: "selectedAddress",
+                title: "Delevery Address",
+                type: "text",
+                editing: false,
+                align: "center",
+                width: 80
+            },
+            {
+                name: "purchaseDate",
+                title: "Order Date",
+                type: "text",
+                editing: false,
+                align: "center",
+                width: 60,
             },
 
             {type: "control"}
         ]
     });
 
-    // });
 });

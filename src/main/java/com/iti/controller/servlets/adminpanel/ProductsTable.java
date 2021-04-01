@@ -18,74 +18,80 @@ public class ProductsTable extends HttpServlet {
 
     Gson json = new Gson();
 
+    private static ProductDTO getProductFromRequest(HttpServletRequest request) {
+        ProductDTO filter = new ProductDTO();
+
+
+        if (request.getParameter("prodID") != null)
+            filter.setProdID(Long.parseLong(request.getParameter("prodID")));
+        filter.setProdType(request.getParameter("prodType"));
+
+        filter.setProdDescription(request.getParameter("prodDesc"));
+
+        if (request.getParameter("prodQuantity") != null)
+            filter.setProdQuantity(Integer.parseInt(request.getParameter("prodQuantity")));
+
+        filter.setFirstProdImg(request.getParameter("firstProdImg"));
+        filter.setSecondProdImg(request.getParameter("secondProdImg"));
+
+        if (request.getParameter("productPrice") != null)
+            filter.setProductPrice(Double.parseDouble(request.getParameter("productPrice")));
+
+        filter.setSize(request.getParameter("size"));
+        filter.setColor(request.getParameter("color"));
+        filter.setCategory(request.getParameter("category"));
+
+        return filter;
+
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductsService productsService =(ProductsService) request.getServletContext().getAttribute("ProductsService");
+        ProductsService productsService = (ProductsService) request.getServletContext().getAttribute("ProductsService");
 
-        String action= request.getParameter("action");
+        String action = request.getParameter("action");
 
-        switch (action)
-        {
-            case "load" : {
-                //TODO : make method get products filtered
-                //ProductDTO filter = getFilter(request);
-                //List<ProductDTO>  filteredProducts =dataTablesService.retriveAllProducts(filter);
-                List<ProductDTO> products =productsService.retrieveAllProducts();
+        switch (action) {
+            case "load": {
+                List<ProductDTO> products;
+                ProductDTO filter = getProductFromRequest(request);
+                products = productsService.retrieveProductswithFilter(filter);
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
-                String prods= json.toJson(products);
+                String prods = json.toJson(products);
                 response.getWriter().write(prods);
                 break;
             }
-            case "getMeta":{
+            case "getMeta": {
                 List<List<String>> meta = new ArrayList<>();
                 meta.add(productsService.getTypes());
                 meta.add(productsService.getSizes());
                 meta.add(productsService.getCategories());
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
-                String metaJson= json.toJson(meta);
+                String metaJson = json.toJson(meta);
                 response.getWriter().write(metaJson);
                 break;
             }
-            case "update":{
-                System.out.println(request.getParameter("prodID"));
-                ProductDTO productToInset = getProductFromRequest(request);
-                System.out.println(productToInset);
+            case "update": {
+                ProductDTO productToUpdate = getProductFromRequest(request);
+                productsService.updateProduct(productToUpdate);
                 break;
             }
-            case "insert":{
-                System.out.println(request.getParameter("prodID"));
-                ProductDTO productToInset = getProductFromRequest(request);
-                System.out.println(productToInset);
+            case "insert": {
+                ProductDTO productToInsert = getProductFromRequest(request);
+                Boolean status = productsService.insertProduct(productToInsert);
+                System.out.println(status);
                 break;
             }
-            case "delete":{
-                System.out.println(request.getParameter("prodID"));
-                ProductDTO productToInset = getProductFromRequest(request);
-                System.out.println(productToInset);
+            case "delete": {
+                ProductDTO productToDelete = getProductFromRequest(request);
+                Boolean status = productsService.deleteProduct(productToDelete);
+                System.out.println(status);
                 break;
             }
         }
 
 
-    }
-
-
-
-    private ProductDTO getProductFromRequest(HttpServletRequest request){
-//        ProductDTO filter = new ProductDTO();
-//        filter.setProdID(Integer.parseInt(request.getParameter("prodID")));
-//        filter.setProdType(request.getParameter("prodType"));
-//        //filter.setProdDesc();
-//        filter.setProdQuantity(Integer.parseInt(request.getParameter("prodQuantity")));
-//        filter.setFirstProdImg(request.getParameter("firstProdImg"));
-//        filter.setSecondProdImg(request.getParameter("secondProdImg"));
-//        filter.setProductPrice(Double.parseDouble(request.getParameter("productPrice")));
-//        filter.setSize(request.getParameter("size"));
-//        filter.setCategory(request.getParameter("category"));
-//
-//        return filter;
-        return null;
     }
 }

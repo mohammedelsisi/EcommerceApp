@@ -12,6 +12,15 @@ public class ProductDTO  {
     private String category;
     private String color;
 
+    public ProductDTO(String prodDescription, String firstProdImg, double prodPrice) {
+        this.prodDescription = prodDescription;
+        this.firstProdImg = firstProdImg;
+        this.productPrice = prodPrice;
+    }
+
+    public ProductDTO() {
+    }
+
     public String getColor() {
         return color;
     }
@@ -25,13 +34,14 @@ public class ProductDTO  {
         return "ProductDTO{" +
                 "prodID=" + prodID +
                 ", prodType='" + prodType + '\'' +
-                ", prodDesc='" + prodDescription + '\'' +
+                ", prodDescription='" + prodDescription + '\'' +
                 ", prodQuantity=" + prodQuantity +
                 ", firstProdImg='" + firstProdImg + '\'' +
                 ", secondProdImg='" + secondProdImg + '\'' +
                 ", productPrice=" + productPrice +
                 ", size='" + size + '\'' +
                 ", category='" + category + '\'' +
+                ", color='" + color + '\'' +
                 '}';
     }
 
@@ -83,19 +93,6 @@ public class ProductDTO  {
         this.secondProdImg = secondProdImg;
     }
 
-    public ProductDTO(String prodDescription, String firstProdImg, double prodPrice) {
-        this.prodDescription = prodDescription;
-        this.firstProdImg = firstProdImg;
-        this.productPrice = prodPrice;
-    }
-    public ProductDTO(String prodDesc, String firstProdImg, String secondProdImg,double prodPrice) {
-        this.prodDescription = prodDesc;
-        this.firstProdImg = firstProdImg;
-        this.productPrice = prodPrice;
-        this.secondProdImg=secondProdImg;
-    }
-
-    public ProductDTO(){}
 
     public long getProdID() {
         return prodID;
