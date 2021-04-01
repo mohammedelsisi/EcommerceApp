@@ -23,9 +23,22 @@
     <!-- Custom styles for this template-->
     <link rel="stylesheet" href="layout/css/all.min.css"/>
     <link rel="stylesheet" href="layout/css/style.css"/>
-    <link href="layout/css/sb-admin-2.css" rel="stylesheet">
-    <link href="layout/css/changephoto.css" rel="stylesheet">
+    <link href="layout/css/ProfileCss/changephoto.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <!-- to add down arrow to menus -->
+    <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
 
+<%--    <link rel="stylesheet" href="layout/css/bootstrap.min.css">--%>
+    <!-- <link rel="stylesheet" href="layout/css/magnific-popup.css"> -->
+    <link rel="stylesheet" href="layout/css/jquery-ui.css">
+    <!-- to let horizontal scrolling -->
+    <link rel="stylesheet" href="layout/css/owl.carousel.min.css">
+    <!-- to add animations on vertical scrolling -->
+    <link rel="stylesheet" href="layout/css/aos.css">
+    <!-- main Style file -->
+    <link rel="stylesheet" href="layout/css/style.css">
+    <!-- for font awsowome icon -->
+<%--    <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">--%>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,7 +55,6 @@
     <!-- Custom styles for this template-->
     <link href="layout/css/sb-admin-2.css" rel="stylesheet">
     <link href="layout/css/new_all.min/all.min.css">
-    <script src="layout/js/JQuery/jquery-3.6.0.js"></script>
 
     <!--     to add the multiple selection plugin -->
     <link href="layout/css/filter_multi_select.css" rel="stylesheet">
@@ -66,70 +78,6 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-light
-      accordion" id="accordionSidebar" style="background: white; ">
-
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html ">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-paw"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">PeTopia</div>
-        </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item" style="background: #bcbcbc;">
-            <a class="nav-link" href="profile.jsp">
-                <i class="fas fa-user"></i>
-                <span>Profile</span></a>
-        </li><!-- Divider -->
-        <hr class="sidebar-divider">
-        <li class="nav-item">
-            <a class="nav-link" href="cart.html">
-                <i class="fas fa-shopping-bag"></i>
-                <span>Orders</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-money-bill"></i>
-                <span>Payments</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-wallet"></i>
-                <span>Wallet</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-        <li class="nav-item">
-            <a class="nav-link" href="AddressesJsp">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Addresses</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-        <li class="nav-item" >
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw"></i>
-                <span>Logout</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-    </ul>
-    <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -353,12 +301,18 @@
     </div>
 </div>
 
-<script src="layout/js/jquery-3.4.0.min.js"></script>
+<%--<script src="layout/js/jquery-3.4.0.min.js"></script>--%>
 <script src="layout/js/bootstrap.min.js"></script>
 <script src="layout/js/fontawesome.js"></script>
 <script src="layout/js/sb-admin-2.js"></script>
-<script src="layout/js/sb-admin-2.js"></script>
 <script src="layout/js/profileScript.js"></script>
+<script src="layout/js/jquery-ui.js"></script>
+<script src="layout/js/JQuery/jquery-3.6.0.js"></script>
+<script src="layout/js/popper.min.js"></script>
+<script src="layout/js/owl.carousel.min.js"></script>
+<script src="layout/js/jquery.magnific-popup.min.js"></script>
+<script src="layout/js/aos.js"></script>
+<script src="layout/js/main.js"></script>
 
 
 </body>
