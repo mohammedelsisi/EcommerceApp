@@ -76,6 +76,15 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label for="c_email_address" class="text-black">Credit Limit<span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="c_credit_limit" name="c_email_address"
+                                           value="${sessionScope.currentUser.creditLimit}" disabled>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label for="c_country" class="text-black">Address<span
                                         class="text-danger">*</span></label>
@@ -91,8 +100,8 @@
                                 <label for="c_ship_different_address" class="text-black" data-toggle="collapse"
                                        href="#ship_different_address" role="button" aria-expanded="false"
                                        aria-controls="ship_different_address"><input onclick="disable()" type="checkbox"
-                                                                                                         value="1"
-                                                                                                         id="c_ship_different_address">
+                                                                                     value="1"
+                                                                                     id="c_ship_different_address">
                                     Ship To
                                     A Different Address?</label>
                                 <div class="collapse" id="ship_different_address">
@@ -101,7 +110,8 @@
                                             <div class="col-md-12">
                                                 <label for="c_addresssss" class="text-black">Use Custom address<span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="c_addresssss" name="c_address"
+                                                <input type="text" class="form-control" id="c_addresssss"
+                                                       name="c_address"
                                                        placeholder="Write you address here in details, please">
                                             </div>
                                         </div>
@@ -189,7 +199,80 @@
     </form>
     <!-- </form> -->
 </div>
+
+
+<div id="noAvailableModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Not Enough Quantity</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Sorry, the Items you requested aren't available with the requierd quntities
+                <table class='table table-bordered'>
+                    <thead class='thead-light'>
+                    <tr align="center">
+                        <td>Product</td>
+                        <td>Available Quantity</td>
+                    </tr>
+                    </thead>
+                    <tbody id="tableBody">
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="Shop" type="button" class="btn btn-primary">Go To Shop</a>
+            </div>
+        </div>
+    </div>
 </div>
+<div id="NotEnoughModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabe2l">Not Enough Credit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="modalValue" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="Cart" type="button" class="btn btn-primary">Go To Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="successModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Order Succeeded</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Your Order has been successfully placed
+            </div>
+            <div class="modal-footer">
+                <a href="Orders" type="button" class="btn btn-secondary">Go To Orders</a>
+                <a href="Shop" type="button" class="btn btn-primary">Go To Shop</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <form>
     <%@include file="../toInclude/footer.jsp" %>
     </div>
@@ -204,43 +287,59 @@
 
     <script src="layout/js/main.js"></script>
 
-        <script>
-            let addressDisable = false;
-            function disable() {
+    <script>
+        let addressDisable = false;
 
-                if (!addressDisable){
-                    $("#c_country").attr("disabled", true)
-                    $("#c_addresssss").attr("required", true)
+        function disable() {
 
-                    addressDisable=true
-                }
-                else {
-                    $("#c_country").removeAttr("disabled")
-                    $("#c_addresssss").removeAttr("required")
+            if (!addressDisable) {
+                $("#c_country").attr("disabled", true)
+                $("#c_addresssss").attr("required", true)
 
-                    addressDisable = false;
-                }
+                addressDisable = true
+            } else {
+                $("#c_country").removeAttr("disabled")
+                $("#c_addresssss").removeAttr("required")
+
+                addressDisable = false;
             }
-            function makeOrder(){
-                let address;
-                if(addressDisable){
-                    address  = $("#c_addresssss").val();
-                }else {
-                    address  = $("#c_country").val();
-                }
-                console.log(address)
-                $.ajax({
-                    url:"MakeOrder",
-                    method:"POST",
-                    data:{
-                        "address":address
+        }
+
+        function makeOrder() {
+            let address;
+            if (addressDisable) {
+                address = $("#c_addresssss").val();
+            } else {
+                address = $("#c_country").val();
+            }
+            console.log(address)
+            $.ajax({
+                url: "MakeOrder",
+                method: "POST",
+                data: {
+                    "address": address
+                },
+                dataType: "json",
+                statusCode: {
+                    215: function (data) {
+                        console.log(data)
+                        $("#modalValue").html(data)
+                        $("#NotEnoughModal").modal("show")
                     },
-                    success:function (){
-                        console.log("Hi Received new Order")
+                    210: function (data) {
+                        let elementById = document.getElementById("tableBody");
+                        elementById.innerHTML = "";
+                        for (const prop in data) {
+                            elementById.innerHTML += "<tr align='center'><td>" + prop + "</td><td>" + data[prop] + "</td></tr>"
+                        }
+                        $("#noAvailableModal").modal("show")
+                    },
+                    200: function (data){
+                        $("#successModal").modal("show")
                     }
-
-                })
-            }
-        </script>
+                }
+            })
+        }
+    </script>
 </body>
 </html>

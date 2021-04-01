@@ -7,7 +7,9 @@ import com.iti.model.DTO.UserDTO;
 import com.iti.model.Dao.CartItemDao;
 import com.iti.model.Dao.Imp.CartItemDaoImp;
 import com.iti.model.Dao.Imp.ProductDaoImp;
+import com.iti.model.Dao.Imp.UserDAOImp;
 import com.iti.model.Dao.ProductDao;
+import com.iti.model.Dao.UserDao;
 import com.iti.model.entity.Cart;
 import com.iti.model.entity.CartId;
 import com.iti.model.entity.OrderDetail;
@@ -63,8 +65,10 @@ public class BuyingService {
         UserDetails userDetails = UserMapper.getInstance().getUserEntity(userDTO);
         OrderDetail entity = OrderMapper.getInstance().getEntity(orderDTO, userDetails);
         cartItemDao.makeOrder(entity,orderDTO.getItems());
-
         cartItemDao.close();
+        //TODO Update User Here to minus his credit and return user with orders
+//        UserDao userDao = UserDAOImp.getInstance();
+
     }
 
 }

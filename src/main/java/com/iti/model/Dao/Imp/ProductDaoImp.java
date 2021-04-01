@@ -177,4 +177,9 @@ public class ProductDaoImp implements ProductDao {
 
     }
 
+    @Override
+    public Product getProductById(long prodId) {
+        return entityManager.createQuery("from Product where id =:prodId",Product.class).setParameter("prodId", prodId).getSingleResult();
+    }
+
 }
