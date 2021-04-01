@@ -184,16 +184,19 @@
                                 <button type="submit" class="btn btn-primary btn-user btn-block">Create Account</button>
                             </div>
                             <hr>
-                            <a href="index.html" class="btn btn-google btn-user btn-block">
+                            <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-google btn-user btn-block">
                                 <i class="fab fa-google fa-fw"></i> Register with Google
                             </a>
-                            <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                            <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-facebook btn-user btn-block">
                                 <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
                             </a>
+
                         </form>
+
+
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            <a  href="#" class="small" data-toggle="modal" data-target="#exampleModal" >Forgot Password?</a>
                         </div>
                         <div class="text-center">
                             <a class="small" href="Login">Already have an account? Login!</a>
@@ -205,7 +208,34 @@
     </div>
 
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Feature to Come</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                This Feature will be available Soon :)
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="layout/js/registration.js" async></script>
+
+<script src="layout/js/jquery-3.3.1.min.js"></script>
+<script src="layout/js/popper.min.js"></script>
+<script src="layout/js/bootstrap.min.js"></script>
+<script src="layout/js/owl.carousel.min.js"></script>
+<script src="layout/js/jquery.magnific-popup.min.js"></script>
+<script src="layout/js/aos.js"></script>
+<script src="layout/js/JQuery/addCartScript.js"></script>
 
 </body>
 
