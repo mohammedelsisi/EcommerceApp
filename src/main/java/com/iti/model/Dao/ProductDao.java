@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface ProductDao {
     List<Product>  reteriveMaxProducts ();
-    List<ProductDTO> retrieveAllProducts ();
     List<Product> retrieveFilteredProducts (ProductFilter productFilter);
     List<String> getSizes();
     List<String> getColors();

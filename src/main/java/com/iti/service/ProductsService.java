@@ -58,19 +58,23 @@ public class ProductsService {
 
     public List<String> getSizes() {
         ProductDao productDao = ProductDaoImp.getInstance();
+        productDao.close();
         return productDao.getSizes();
     }
 
     public List<String> getColors() {
         ProductDao productDao = ProductDaoImp.getInstance();
+        productDao.close();
         return productDao.getColors();
     }
     public List<String> getCategories(){
         ProductDao productDao = ProductDaoImp.getInstance();
+        productDao.close();
         return productDao.getCategories();
     }
     public List<String> getTypes(){
         ProductDao productDao = ProductDaoImp.getInstance();
+        productDao.close();
         return productDao.getTypes();
     }
 

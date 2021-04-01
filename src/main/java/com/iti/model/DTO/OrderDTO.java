@@ -11,6 +11,17 @@ public class OrderDTO {
     private Date purchaseDate;
     private double totalAmount;
 
+    @Override
+    public String toString() {
+        return "OrderDTO{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", selectedAddress='" + selectedAddress + '\'' +
+                ", purchaseDate=" + purchaseDate +
+                ", totalAmount=" + totalAmount +
+                '}';
+    }
+
     public long getId() {
         return id;
     }

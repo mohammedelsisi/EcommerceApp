@@ -119,62 +119,10 @@ public class ProductDaoImp implements ProductDao {
 
 
 
-    @Override
-    public List<ProductDTO> retrieveAllProducts() {
-        List<ProductDTO> products = new ArrayList<>();
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
 
-        return products;
-    }
     public  Product retrieveItem(long id) {
 
         return entityManager.find(Product.class,id);
-
     }
 
     @Override
@@ -183,7 +131,7 @@ public class ProductDaoImp implements ProductDao {
     }
     @Override
     public List<Product> retrieveProductswithFilter(Product filteredProduct) {
-        System.out.println(filteredProduct);
+
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Product> criteriaQuery = criteriaBuilder.createQuery(Product.class);
         Root<Product> itemRoot = criteriaQuery.from(Product.class);
@@ -223,21 +171,9 @@ public class ProductDaoImp implements ProductDao {
     public Boolean updateProduct(Product updatingProduct) {
         try {
             entityManager.getTransaction().begin();
-            Product prodToUpdate = entityManager.find(Product.class, updatingProduct.getProductId());
-            prodToUpdate.setType(updatingProduct.getType());
-            prodToUpdate.setColor(updatingProduct.getColor());
-            prodToUpdate.setCategory(updatingProduct.getCategory());
-            prodToUpdate.setPrice(updatingProduct.getPrice());
-            prodToUpdate.setQuantity(updatingProduct.getQuantity());
-            prodToUpdate.setFirstImg(updatingProduct.getFirstImg());
-            prodToUpdate.setSecondImg(updatingProduct.getSecondImg());
-            prodToUpdate.setSize(updatingProduct.getSize());
-            //TODO discuss description with Cici
-            prodToUpdate.setDescription(prodToUpdate.getDescription());
-            entityManager.merge(prodToUpdate);
+            entityManager.merge(updatingProduct);
             entityManager.getTransaction().commit();
             return true;
-            //TODO check exception type
         } catch (RuntimeException e) {
             entityManager.getTransaction().rollback();
             return false;
@@ -250,16 +186,7 @@ public class ProductDaoImp implements ProductDao {
     public Boolean insertProduct(Product insertingProduct) {
         try {
             entityManager.getTransaction().begin();
-            Product prodToInsert = new Product();
-            prodToInsert.setType(insertingProduct.getType());
-            prodToInsert.setColor(insertingProduct.getColor());
-            prodToInsert.setCategory(insertingProduct.getCategory());
-            prodToInsert.setPrice(insertingProduct.getPrice());
-            prodToInsert.setQuantity(insertingProduct.getQuantity());
-            prodToInsert.setFirstImg(insertingProduct.getFirstImg());
-            prodToInsert.setSecondImg(insertingProduct.getSecondImg());
-            prodToInsert.setSize(insertingProduct.getSize());
-            entityManager.persist(prodToInsert);
+            entityManager.persist(insertingProduct);
             entityManager.getTransaction().commit();
             return true;
             //TODO check exception type
@@ -273,8 +200,8 @@ public class ProductDaoImp implements ProductDao {
     public Boolean deleteProduct(Product deletingProduct) {
         try {
             entityManager.getTransaction().begin();
-            Product prodToDelete = entityManager.find(Product.class, deletingProduct.getProductId());
-            entityManager.remove(prodToDelete);
+            Long id = deletingProduct.getProductId();
+            entityManager.createQuery("delete from Product p where p.id = ?1").setParameter(1,id).executeUpdate();
             entityManager.getTransaction().commit();
             return true;
             //TODO check exception type
