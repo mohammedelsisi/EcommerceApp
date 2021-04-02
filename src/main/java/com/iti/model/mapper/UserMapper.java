@@ -33,6 +33,7 @@ public class UserMapper {
         userDetails.setPhoneNumber(userDTO.getPhoneNumber());
         userDetails.setRole(userDTO.getRole().name());
         userDetails.setUserName(userDTO.getUserName());
+        userDetails.setAddresses(userDTO.getAddresses().stream().map(Address::new).collect(Collectors.toSet()));
         userDetails.setInterests(userDTO.getInterests().stream().map(Interest::new).collect(Collectors.toSet()));
         return userDetails;
     }
@@ -52,7 +53,7 @@ public class UserMapper {
         userDTO.setUserName(userDetails.getUserName());
         userDTO.setInterests(userDetails.getInterests().stream().map(Interest::getInterest).collect(Collectors.toList()));
         userDTO.setAddresses(userDetails.getAddresses().stream().map(Address::getAddress).collect(Collectors.toList()));
-//        userDTO.setOrders(userDetails.getOrderDetails().stream().map(OrderDetail::getAddress).collect(Collectors.toList()));
+        //userDTO.setOrders(userDetails.getOrderDetails().stream().map(OrderDetail::getAddress).collect(Collectors.toList()));
         return userDTO;
 
     }

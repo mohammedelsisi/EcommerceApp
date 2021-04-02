@@ -29,30 +29,13 @@ public class Addresses extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ProfileService profileService = (ProfileService) req.getServletContext().getAttribute("ProfileService");
-        if (req.getParameter("SelectOrAdd").equals("add")) {
-            String newaddress = AddAddress(req);
-            profileService.addAddress(newaddress);
-        } else if (req.getParameter("SelectOrAdd").equals("select")) {
-            int selectedaddress = SelectAddress(req);
-//            profileService.selectAddress(selectedaddress);
-        }
+
+        String newaddress = req.getParameter("newAddress");
+
+        UserDTO user = (UserDTO) req.getSession().getAttribute("currentUser");
+        user.getAddresses().add(newaddress);
+        profileService.editProfile(user);
     }
 
-
-    private String AddAddress(HttpServletRequest req) {
-
-        //System.out.println(req.getParameterMap());
-        String newaddress = req.getParameter("New Address");
-
-        return newaddress;
-    }
-
-    private int SelectAddress(HttpServletRequest req) {
-
-        //System.out.println(req.getParameterMap());
-        String  selectedaddress = req.getParameter("selected Address");
-
-        return Integer.parseInt(selectedaddress);
-    }
 
 }
