@@ -72,13 +72,18 @@ public class UserDTO {
         return "UserDTO{" +
                 "id=" + id +
                 ", userName='" + userName + '\'' +
-                ", creditLimit=" + creditLimit +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
+                ", creditLimit=" + creditLimit +
+                ", image='" + image + '\'' +
+                ", Role=" + Role +
                 ", job='" + job + '\'' +
                 ", birthday=" + birthday +
                 ", password='" + password + '\'' +
                 ", interests=" + interests +
                 ", addresses=" + addresses +
+                ", orders=" + orders +
+                ", cartItem=" + cartItem +
                 '}';
     }
 

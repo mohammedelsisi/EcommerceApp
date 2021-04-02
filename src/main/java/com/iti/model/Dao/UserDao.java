@@ -11,34 +11,25 @@ import java.util.Date;
 import java.util.List;
 
 public interface UserDao {
-   boolean insertUser(UserDetails u);
+    boolean insertUser(UserDetails u);
 
-   boolean isUserEmail(String email);
-   List<UserDTO> retriveall();
-   List<UserDTO> retrieveFilteredUsers(UserDTO userFilter);
-   List<RoleUser> getRoles();
+    boolean isUserEmail(String email);
 
-   UserDetails getUser(String userEmail, String userPassword);
-   void close();
+    List<UserDTO> retriveall();
+
+    List<UserDTO> retrieveFilteredUsers(UserDTO userFilter);
+
+    List<RoleUser> getRoles();
+
+    UserDetails getUser(String userEmail, String userPassword);
+
+    void close();
+
+    boolean changePassword(UserDetails user, String oldpassword, String newpassword);
 
 
+    boolean editImage(String image);
 
-   boolean changePassword(String oldpassword, String newpassword);
-
-//   boolean editName(String name);
-//
-//   boolean editCreditLimit(Double credit);
-//
-//   boolean editBirthDate(Date birthdate);
-//
-//   boolean editJob(String job);
-//
-//   String selectAddress(int selectedAddress);
-
-   boolean addAddress(String Address);
-
-   boolean editImage (String image);
-
-   boolean EditProfile (UserDTO user);
+    UserDetails EditProfile(UserDetails user);
 
 }

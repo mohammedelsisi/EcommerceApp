@@ -6,37 +6,35 @@ import com.iti.model.DTO.UserDTO;
 import com.iti.model.Dao.Imp.UserDAOImp;
 import com.iti.model.Dao.UserDao;
 import com.iti.model.entity.UserDetails;
+import com.iti.model.mapper.UserMapper;
 
 import java.util.Date;
 import java.util.List;
 
 public class ProfileService {
-//    private final UserDao userDao = UserDAOImp.getInstance();
+
     private static final ProfileService profileService = new ProfileService();
+
     public static synchronized ProfileService getInstance() {
         return profileService;
     }
 
     public boolean editProfile(UserDTO user) {
-//     return userDao.EditProfile(user);
-        return false;
+        UserDao userDao = UserDAOImp.getInstance();
+        UserDetails userEntity = UserMapper.getInstance().getUserEntity(user);
+        userDao.EditProfile(userEntity);
+        userDao.close();
+        return true;
     }
 
-   public boolean changePassword(String oldpassword, String newpassword){
-//        return userDao.changePassword( oldpassword, newpassword);
-       return false;
-    }
-
-    public boolean addAddress (String address) {
-//        return userDao.addAddress(address) ;return false;
-        return false;
+    public boolean changePassword(UserDTO user, String oldpassword, String newpassword) {
+        UserDao userDao = UserDAOImp.getInstance();
+        UserDetails userEntity = UserMapper.getInstance().getUserEntity(user);
+        boolean b = userDao.changePassword(userEntity, oldpassword, newpassword);
+        userDao.close();
+        return b;
 
     }
 
-//Todo: this must be in the checkout
-  /*  public String selectAddress( int selectedAddress) {
-
-        return userDao.selectAddress(selectedAddress);
-    }*/
 
 }

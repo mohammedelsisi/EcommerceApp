@@ -7,6 +7,7 @@ import com.iti.model.entity.*;
 
 
 import com.iti.persistence.DatabaseManager;
+import jakarta.inject.Scope;
 
 import javax.persistence.EntityManager;
 import javax.xml.crypto.Data;
@@ -28,7 +29,7 @@ public class UserDAOImp implements UserDao {
     }
 
     public void close() {
-        if (entityManager.isOpen()){
+        if (entityManager.isOpen()) {
             System.out.println("Closing Entity Manger of user ");
             entityManager.close();
 
@@ -50,16 +51,16 @@ public class UserDAOImp implements UserDao {
 
     @Override
     public boolean isUserEmail(String userEmail) {
-        List<String> resultList = entityManager.createQuery("select email from UserDetails where email = :userEmail", String.class).setParameter("userEmail",userEmail.toLowerCase()).getResultList();
+        List<String> resultList = entityManager.createQuery("select email from UserDetails where email = :userEmail", String.class).setParameter("userEmail", userEmail.toLowerCase()).getResultList();
         return resultList.size() > 0;
     }
 
     @Override
     public UserDetails getUser(String userEmail, String userPassword) {
         List<UserDetails> resultList = entityManager.createQuery("from UserDetails where email = :userEmail and password = :userPassword", UserDetails.class)
-                                        .setParameter("userEmail", userEmail.toLowerCase())
-                                        .setParameter("userPassword", userPassword)
-                                        .getResultList();
+                .setParameter("userEmail", userEmail.toLowerCase())
+                .setParameter("userPassword", userPassword)
+                .getResultList();
         if (resultList.size() == 1) {
             System.out.println(resultList.get(0));
             return resultList.get(0);
@@ -80,28 +81,29 @@ public class UserDAOImp implements UserDao {
         return null;
     }
 
-
-
     @Override
-    public boolean changePassword(String oldpassword, String newpassword) {
-        if (oldpassword.equals("hello")) {
+    public boolean changePassword(UserDetails user ,String oldPassword,  String newpassword) {
+        if (user.getPassword().equals(oldPassword)) {
+            entityManager.getTransaction().begin();
+            user.setPassword(newpassword);
+
+            user.getInterests().stream().forEach((e) -> {
+                e.setUserDetails(user);
+                entityManager.merge(e);
+            });
+            user.getAddresses().stream().forEach(e->{
+                e.setUserDetails(user);
+                entityManager.merge(e);
+            });
+            entityManager.merge(user);
+
+            entityManager.getTransaction().commit();
+            System.out.println("password updated");
             return true;
         } else {
+            System.out.println("Failed to change password");
             return false;
         }
-    }
-
-    @Override
-    public boolean addAddress(String address) {
-        //I need the id of the current user here
-        int id = 0;
-        Address newAddress = new Address();
-        EntityManager entityManager = DatabaseManager.getFactory().createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.persist(newAddress);
-        entityManager.getTransaction().commit();
-        entityManager.close();
-        return true;
     }
 
 
@@ -114,20 +116,26 @@ public class UserDAOImp implements UserDao {
 
 
     @Override
-    public boolean EditProfile(UserDTO user) {
-        //I need the id of the current user here
-        int id = 0;
-        EntityManager entityManager = DatabaseManager.getFactory().createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.createQuery("update userDetails set  birthDay =" + user.getBirthday() +
-                ", credit_limit= " + user.getCreditLimit() +
-                " , phone_number= " + user.getPhoneNumber() +
-                " , job= " + user.getJob() +
-                " , user_name= " + user.getUserName() + " where id = " + id, UserDetails.class).getResultList();
-        entityManager.getTransaction().commit();
-        entityManager.close();
-        return true;
+    public UserDetails EditProfile(UserDetails user) {
 
+        System.out.println("############# +" + user);
+        entityManager.getTransaction().begin();
+
+        user.getInterests().stream().forEach((e) -> {
+            e.setUserDetails(user);
+            entityManager.merge(e);
+        });
+        user.getAddresses().stream().forEach(e->{
+            e.setUserDetails(user);
+            entityManager.merge(e);
+        });
+        entityManager.merge(user);
+        entityManager.getTransaction().commit();
+
+
+
+
+        return entityManager.find(UserDetails.class,user.getId());
     }
 
     @Override

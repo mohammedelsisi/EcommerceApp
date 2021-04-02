@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Addresses</title>
+    <title>Order History</title>
 
     <!-- Custom fonts for this template-->
     <link href="layout/css/order.css" rel="stylesheet">
@@ -58,80 +58,13 @@
 
 </head>
 <!-- Page Wrapper -->
-<body class="bg-gradient-primary">
+<body class="site-wrap">
 
-<%@include file="../toInclude/header.jsp"%>
+<%@include file="../toInclude/header.jsp" %>
 </form>
 
+
 <div id="wrapper">
-
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-light accordion" id="accordionSidebar" style="background: white; ">
-
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Home">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-paw"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">Nassej</div>
-        </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
-            <a class="nav-link" href="ProfileJsp">
-                <i class="fas fa-user"></i>
-                <span>Profile</span></a>
-
-
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-        <li class="nav-item">
-            <a class="nav-link" href="cart.html">
-                <i class="fas fa-shopping-bag"></i>
-                <span>Orders</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-money-bill"></i>
-                <span>Payments</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-wallet"></i>
-                <span>Wallet</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-        <li class="nav-item" style="background-color : #bcbcbc;">
-            <a class="nav-link" href="address.jsp">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Addresses</span></a>
-        </li>
-
-
-        <li class="nav-item" STYLE=" position: absolute;  bottom: 0;">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw"></i>
-                <span>Logout</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-    </ul>
-    <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -218,13 +151,7 @@
                 </div>
             </div>
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; ITI 2021</span>
-                    </div>
-                </div>
-            </footer>
+            <%@include file="../toInclude/footer.jsp" %>
             <!-- End of Footer -->
 
         </div>
