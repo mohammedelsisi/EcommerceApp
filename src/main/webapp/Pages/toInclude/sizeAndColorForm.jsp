@@ -17,6 +17,19 @@
 
         </div>
 
+
+
+
+        <div class="mb-4">
+            <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
+            <c:forEach items="${applicationScope.Categories}" var="Category">
+                <label for="${Category}" class="d-flex">
+                    <input name='Category' value="${Category}" type="checkbox" id="${Category}" class="mr-2 mt-1"> <span class="text-black">${Category}</span>
+                </label>
+            </c:forEach>
+
+        </div>
+
         <div class="mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
             <c:forEach items="${applicationScope.Sizes}" var="Size">
