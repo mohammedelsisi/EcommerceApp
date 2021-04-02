@@ -6,6 +6,9 @@ import com.iti.model.entity.Address;
 import com.iti.model.entity.Interest;
 import com.iti.model.entity.UserDetails;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -21,10 +24,16 @@ public class UserMapper {
     }
 
     public UserDetails getUserEntity(UserDTO userDTO) {
+
+
         System.out.println("UserMapper.getUserEntity");
+
         UserDetails userDetails = new UserDetails();
         userDetails.setId(userDTO.getId());
+
         userDetails.setBirthday(userDTO.getBirthday());
+
+
         userDetails.setCreditLimit(userDTO.getCreditLimit());
         userDetails.setEmail(userDTO.getEmail());
         userDetails.setImage(userDTO.getImage());
@@ -41,13 +50,17 @@ public class UserMapper {
         if (userDTO.getInterests() != null)
             userDetails.setInterests(userDTO.getInterests().stream().map(Interest::new).collect(Collectors.toSet()));
         return userDetails;
+
     }
 
     public UserDTO getUserDTO(UserDetails userDetails) {
+
+
         UserDTO userDTO = new UserDTO();
         System.out.println("USer user" + userDetails);
         userDTO.setId(userDetails.getId());
         userDTO.setBirthday(userDetails.getBirthday());
+
         userDTO.setCreditLimit(userDetails.getCreditLimit());
         userDTO.setEmail(userDetails.getEmail());
         userDTO.setImage(userDetails.getImage());

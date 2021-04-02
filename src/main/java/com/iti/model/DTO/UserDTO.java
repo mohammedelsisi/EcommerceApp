@@ -1,18 +1,20 @@
 package com.iti.model.DTO;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class UserDTO {
-
+    Set<CartItemDTO> cartItem = new HashSet<>();
+    private String dateView;
     private long id;
     private String userName;
     private String phoneNumber;
     private String email;
     private double creditLimit;
-    private String image;
+    private String image = "layout/images/img_avatar.png";
     private RoleUser Role = RoleUser.CustomerRole;
     private String job;
     private Date birthday;
@@ -20,14 +22,11 @@ public class UserDTO {
     private List<String> interests;
     private List<String> addresses;
     private List<OrderDTO> orders;
-    Set<CartItemDTO> cartItem=new HashSet<>();
-
     public UserDTO(String userName, String email, String password) {
         this.userName = userName;
         this.email = email;
         this.password = password;
     }
-
     public UserDTO(String userName, double creditLimit, String email, String job, Date birthday, String password, List<String> interests, String phoneNumber) {
         this.userName = userName;
         this.creditLimit = creditLimit;
@@ -38,6 +37,7 @@ public class UserDTO {
         this.interests = interests;
         this.phoneNumber = phoneNumber;
     }
+
     //this is used in create user for edit profile
     public UserDTO(String userName, double creditLimit, String job, Date birthday, String phoneNumber) {
         this.userName = userName;
@@ -47,8 +47,16 @@ public class UserDTO {
         this.phoneNumber = phoneNumber;
     }
 
-
     public UserDTO() {
+    }
+
+    public String getDateView() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        return formatter.format(birthday);
+    }
+
+    public void setDateView(String dateView) {
+        this.dateView = dateView;
     }
 
     public List<OrderDTO> getOrders() {
@@ -132,6 +140,7 @@ public class UserDTO {
     }
 
     public void setBirthday(Date birthday) {
+
         this.birthday = birthday;
     }
 

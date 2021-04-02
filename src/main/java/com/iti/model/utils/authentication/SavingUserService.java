@@ -63,6 +63,7 @@ public class SavingUserService {
     }
     // TODO Invalidate User when he logout
     public void invalidateUser(HttpServletRequest request, HttpServletResponse response) {
+        request.getSession().invalidate();
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             Optional<Cookie> xs = Arrays.stream(cookies).filter(e -> e.getName().equals("xp")).findFirst();

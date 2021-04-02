@@ -39,14 +39,17 @@ public class Profile extends HttpServlet {
 
         Date birthDate;
         user.setUserName(req.getParameter("userName"));
-        user.setCreditLimit(parseDouble(req.getParameter("creditLimit")));
+        double creditLimit = req.getParameter("creditLimit").equals("") ? 0 : Double.parseDouble(req.getParameter("creditLimit"));
+        user.setCreditLimit(creditLimit);
         String birthDateString = req.getParameter("birthDate");
+        Date parsedDate=null;
         try {
-            birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(birthDateString);
+            parsedDate = new SimpleDateFormat("yyyy-MM-dd").parse(birthDateString);
+
         } catch (Exception e) {
-            birthDate = new Date(2001, 11, 26);
+           e.printStackTrace();
         }
-        user.setBirthday(birthDate);
+        user.setBirthday(parsedDate);
         user.setJob(req.getParameter("job"));
         user.setPhoneNumber(req.getParameter("phoneNumber"));
         return user;
