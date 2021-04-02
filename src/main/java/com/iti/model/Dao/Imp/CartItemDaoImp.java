@@ -37,13 +37,13 @@ public class CartItemDaoImp implements CartItemDao {
         entityManager.persist(orderDetail);
         list.forEach(e -> {
             long prodQtn = entityManager.createQuery("select quantity from Product where id =:prodId", Long.class).setParameter("prodId", e.getProductID()).getSingleResult();
-            entityManager.createQuery("update Product set quantity =:newQtn where id =:prodId").setParameter("newQtn",prodQtn-e.getItemQuantity()).setParameter("prodId", e.getProductID()).executeUpdate();
+            entityManager.createQuery("update Product set quantity =:newQtn where id =:prodId").setParameter("newQtn", prodQtn - e.getItemQuantity()).setParameter("prodId", e.getProductID()).executeUpdate();
             OrderHasProductsId orderHasProductsId = new OrderHasProductsId();
             orderHasProductsId.setOrdersOrderId(orderDetail.getOrderId());
             orderHasProductsId.setProductsProductId(e.getProductID());
-            OrderHasProducts orderHasProducts =  new OrderHasProducts();
+            OrderHasProducts orderHasProducts = new OrderHasProducts();
             orderHasProducts.setId(orderHasProductsId);
-            orderHasProducts.setQuantity((int)e.getItemQuantity());
+            orderHasProducts.setQuantity((int) e.getItemQuantity());
             entityManager.persist(orderHasProducts);
         });
         entityManager.getTransaction().commit();
@@ -51,7 +51,7 @@ public class CartItemDaoImp implements CartItemDao {
 
     @Override
     public List<Cart> retrieveAllItems(long userID) {
-        return entityManager.createQuery("From Cart where id=:user", Cart.class).setParameter("user", userID).getResultList();
+        return entityManager.createQuery("From Cart where user_id=:user", Cart.class).setParameter("user", userID).getResultList();
     }
 
     @Override
@@ -76,6 +76,15 @@ public class CartItemDaoImp implements CartItemDao {
             entityManager.createQuery("delete from Cart where user_id=:id and product_id=:pId").setParameter("id", e.getId().getUserId())
                     .setParameter("pId", e.getId().getProductId()).executeUpdate();
         });
+        entityManager.getTransaction().commit();
+
+    }
+
+    @Override
+    public void removeCartItems(long userId) {
+        entityManager.getTransaction().begin();
+        entityManager.createQuery("delete from Cart where user_id=:id").setParameter("id", userId)
+                .executeUpdate();
         entityManager.getTransaction().commit();
 
     }

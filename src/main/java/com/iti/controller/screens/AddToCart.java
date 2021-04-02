@@ -37,7 +37,7 @@ public class AddToCart extends HttpServlet {
             CartItemDTO cartItemDTO = new CartItemDTO();
             cartItemDTO.setProductID(productDTO.getProdID());
             cartItemDTO.setItemImg(productDTO.getFirstProdImg());
-            cartItemDTO.setItemPrice(productDTO.getProdPrice());
+            cartItemDTO.setItemPrice(productDTO.getProductPrice());
             cartItemDTO.setItemType(productDTO.getProdType());
             cartItemDTO.setItemQuantity(Quantity);
             items.add(cartItemDTO);

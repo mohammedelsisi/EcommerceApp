@@ -63,15 +63,23 @@ public class ProductsService {
 
     public List<String> getColors() {
         ProductDao productDao = ProductDaoImp.getInstance();
-        return productDao.getColors();
+
+        List<String> colors = productDao.getColors();
+        productDao.close();
+        return colors;
     }
     public List<String> getCategories(){
         ProductDao productDao = ProductDaoImp.getInstance();
-        return productDao.getCategories();
+
+        List<String> categories = productDao.getCategories();
+        productDao.close();
+        return categories;
     }
     public List<String> getTypes(){
         ProductDao productDao = ProductDaoImp.getInstance();
-        return productDao.getTypes();
+        List<String> types = productDao.getTypes();
+        productDao.close();
+        return types;
     }
 
     public List<ProductDTO> retrieveProductswithFilter(ProductDTO filter) {

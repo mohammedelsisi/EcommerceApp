@@ -173,6 +173,16 @@
 <script src="layout/js/aos.js"></script>
 <script src="layout/js/main.js"></script>
 <script src="layout/js/CartScript.js"></script>
+<script>
+    move = function (){
+        <c:if test="${empty sessionScope.currentUser}">
+        window.location="Login?checkout";
+        </c:if>
+        <c:if test="${not empty sessionScope.currentUser}">
+        window.location="Checkout";
+        </c:if>
 
+    }
+</script>
 </body>
 </html>

@@ -33,11 +33,15 @@ public class SignIn extends HttpServlet {
                 SavingUserService.getInstance().saveUserCredentials(req,resp);
             }
             List<CartItemDTO> list= (List<CartItemDTO>) req.getSession().getAttribute("Cart");
+            BuyingService buyingService=(BuyingService)req.getServletContext().getAttribute("BuyingService");
+
             if(list.size()==0)
             {
-                BuyingService buyingService=(BuyingService)req.getServletContext().getAttribute("BuyingService");
                 list=buyingService.retrieveAllItems(userDTO.getId());
                 req.getSession().setAttribute("Cart",list);
+            }else{
+                buyingService.removeCartItems(userDTO.getId());
+                buyingService.updateCart(userDTO.getId(),list);
             }
             resp.sendRedirect("Home");
         }

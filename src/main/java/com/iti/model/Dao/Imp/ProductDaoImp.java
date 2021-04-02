@@ -93,7 +93,6 @@ public class ProductDaoImp implements ProductDao {
     @Override
     public List<String> getColors() {
         List<String> list = new ArrayList<>();
-
         list.add("Red");
         list.add("Green");
         list.add("Blue");

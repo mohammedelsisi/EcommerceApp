@@ -64,6 +64,11 @@ public class BuyingService {
         cartItemDao.removeCartItems(cartList);
         cartItemDao.close();
     }
+    public void removeCartItems(long userId) {
+        CartItemDao cartItemDao = CartItemDaoImp.getInstance();
+        cartItemDao.removeCartItems(userId);
+        cartItemDao.close();
+    }
     public void makeOrder(UserDTO userDTO, OrderDTO orderDTO) {
         CartItemDao cartItemDao = CartItemDaoImp.getInstance();
         UserDetails userDetails = UserMapper.getInstance().getUserEntity(userDTO);

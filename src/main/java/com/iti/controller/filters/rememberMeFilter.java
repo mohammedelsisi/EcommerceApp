@@ -28,11 +28,15 @@ public class rememberMeFilter implements Filter {
                 req.getSession().setAttribute("login", true);
                 req.getSession().setAttribute("currentUser",userIfPresent);
                 List<CartItemDTO> list= (List<CartItemDTO>) req.getSession().getAttribute("Cart");
+                BuyingService buyingService=(BuyingService)req.getServletContext().getAttribute("BuyingService");
+
                 if(list.size()==0)
                 {
-                    BuyingService buyingService=(BuyingService)req.getServletContext().getAttribute("BuyingService");
                     list=buyingService.retrieveAllItems(userIfPresent.getId());
                     req.getSession().setAttribute("Cart",list);
+                } else{
+                    buyingService.removeCartItems(userIfPresent.getId());
+                    buyingService.updateCart(userIfPresent.getId(),list);
                 }
                 if(!req.getServletPath().contains("/layout"))
                     SavingUserService.getInstance().extendLoggingTime(req,resp);

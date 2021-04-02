@@ -94,10 +94,7 @@ function goToCheckout(){
     setTimeout(move,1500);
 
 }
-move = function (){
-    window.location="Checkout";
 
-}
 
 
 
