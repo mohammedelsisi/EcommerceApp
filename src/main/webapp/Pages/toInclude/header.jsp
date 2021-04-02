@@ -154,8 +154,8 @@
                         </lu>
                     </div>
                 </div>
-                <li><a href="#">New Arrivals</a></li>
-                <li><a href="contact.html">Contact</a></li>
+
+<%--                <li><a href="contact.html">Contact</a></li>--%>
             </ul>
         </div>
     </nav>
