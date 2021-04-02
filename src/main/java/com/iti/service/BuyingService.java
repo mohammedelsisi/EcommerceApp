@@ -26,9 +26,13 @@ public class BuyingService {
     public List<CartItemDTO> retrieveAllItems(long id) {
         CartItemDao cartItemDao = CartItemDaoImp.getInstance();
         List<Cart> carts = cartItemDao.retrieveAllItems(id);
-
+        List<CartItemDTO> cartItems=new ArrayList<>();
+        carts.stream().forEach((b)->{
+            CartItemDTO cartDTO = CartMapper.getInstance().getCartDTO(b);
+            cartItems.add(cartDTO);
+        });
         cartItemDao.close();
-        return null;
+        return cartItems;
     }
 
     public void updateCart(long userId, List<CartItemDTO> items) {

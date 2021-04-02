@@ -30,7 +30,7 @@ public class ProductMapper {
         product.setCategory(productDTO.getCategory());
         product.setFirstImg(productDTO.getFirstProdImg());
         product.setSecondImg(productDTO.getSecondProdImg());
-        product.setPrice(productDTO.getProdPrice());
+        product.setPrice(productDTO.getProductPrice());
         product.setColor(productDTO.getColor());
 
         return product;

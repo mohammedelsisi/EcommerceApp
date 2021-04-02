@@ -131,9 +131,9 @@ public class ProductDTO  {
 
 
 
-    public double getProdPrice() {
-        return productPrice;
-    }
+//    public double getProdPrice() {
+//        return productPrice;
+//    }
 
 
 

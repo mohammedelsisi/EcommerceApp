@@ -53,6 +53,7 @@ public class UserMapper {
         userDTO.setInterests(userDetails.getInterests().stream().map(Interest::getInterest).collect(Collectors.toList()));
         userDTO.setAddresses(userDetails.getAddresses().stream().map(Address::getAddress).collect(Collectors.toList()));
 //        userDTO.setOrders(userDetails.getOrderDetails().stream().map(OrderDetail::getAddress).collect(Collectors.toList()));
+
         return userDTO;
 
     }
