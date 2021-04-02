@@ -43,9 +43,10 @@ public class Shop extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(true);
-        //TODO     this session has to be false
+        HttpSession session = req.getSession();
         ProductFilter filters = fillFilter(req);
+        System.out.println(filters);
+        System.out.println(filters);
         session.setAttribute("Filters", filters);
         resp.sendRedirect("Shop");
     }
@@ -53,16 +54,19 @@ public class Shop extends HttpServlet {
     ProductFilter fillFilter(HttpServletRequest request) {
         String[] sizes =request.getParameterValues("Size")==null?new String[0]:request.getParameterValues("Size");
         String[] colors =request.getParameterValues("Color")==null?new String[0]:request.getParameterValues("Color");
+        String[] cates =request.getParameterValues("Category")==null?new String[0]:request.getParameterValues("Category");
         System.out.println(Arrays.toString(sizes));
         System.out.println(Arrays.toString(colors));
         String searchParameter = request.getParameter("Search");
         List<String> colorsList = new ArrayList<>();
         List<String> sizesList = new ArrayList<>();
+        List<String> catesList = new ArrayList<>();
         double minPrice = request.getParameter("minPrice").equals("") ? 0 : Double.parseDouble(request.getParameter("minPrice"));
         double maxPrice = request.getParameter("maxPrice").equals("") ? 0 : Double.parseDouble(request.getParameter("maxPrice"));
         Collections.addAll(colorsList,colors);
         Collections.addAll(sizesList,sizes);
-        return ProductFilter.createFilledFilter(colorsList, sizesList, searchParameter, minPrice, maxPrice);
+        Collections.addAll(catesList,cates);
+        return ProductFilter.createFilledFilter(colorsList, sizesList,catesList, searchParameter, minPrice, maxPrice);
     }
 
 }

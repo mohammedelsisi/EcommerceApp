@@ -5,6 +5,7 @@ import java.util.*;
 public class ProductFilter {
     List<String> colors = new ArrayList<>();
     List<String> sizes = new ArrayList<>();
+    List<String> categories= new ArrayList<>();
     String search="";
     double minPrice=0.0;
     double maxPrice=2000.;
@@ -25,11 +26,20 @@ public class ProductFilter {
         isEmpty = empty;
     }
 
-    public static ProductFilter createFilledFilter(List<String> colors, List<String> sizes, String search, double minPrice, double maxPrice) {
+    public List<String> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<String> categories) {
+        this.categories = categories;
+    }
+
+    public static ProductFilter createFilledFilter(List<String> colors, List<String> sizes, List<String> cats, String search, double minPrice, double maxPrice) {
         ProductFilter productFilter = new ProductFilter();
         productFilter.setEmpty(false);
         productFilter.colors = colors;
         productFilter.sizes = sizes;
+        productFilter.categories=cats;
         productFilter.search = search;
         productFilter.minPrice = minPrice;
         productFilter.maxPrice = maxPrice;
@@ -57,6 +67,7 @@ public class ProductFilter {
         return "ProductFilter{" +
                 "colors=" + colors +
                 ", sizes=" + sizes +
+                ", categories=" + categories +
                 ", search='" + search + '\'' +
                 ", minPrice=" + minPrice +
                 ", maxPrice=" + maxPrice +

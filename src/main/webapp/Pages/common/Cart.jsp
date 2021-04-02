@@ -176,7 +176,7 @@
 <script>
     move = function (){
         <c:if test="${empty sessionScope.currentUser}">
-        window.location="Login?checkout";
+        window.location="Login?checkout=1";
         </c:if>
         <c:if test="${not empty sessionScope.currentUser}">
         window.location="Checkout";
