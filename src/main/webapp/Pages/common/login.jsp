@@ -92,6 +92,12 @@
                                 Invalid Email or password please try again!
                               </label>
                           </c:when>
+                            <c:when test="${not empty param.checkout}">
+                                <h1 class="h4 text-gray-900 mb-4" style="font-family: Oswald,serif"> Welcome!</h1>
+                                <label class="alert-danger" role="alert">
+                                   You need to login first to proceed with your order!
+                                </label>
+                            </c:when>
                           <c:otherwise>
                               <h1 class="h4 text-gray-900 mb-4"  style="font-family: Chango,serif">Welcome!</h1>
                           </c:otherwise>

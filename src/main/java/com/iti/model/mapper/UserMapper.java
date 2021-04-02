@@ -4,6 +4,7 @@ import com.iti.model.DTO.UserDTO;
 import com.iti.model.DTO.RoleUser;
 import com.iti.model.entity.Address;
 import com.iti.model.entity.Interest;
+import com.iti.model.entity.OrderDetail;
 import com.iti.model.entity.UserDetails;
 
 import java.text.ParseException;
@@ -71,7 +72,7 @@ public class UserMapper {
         userDTO.setUserName(userDetails.getUserName());
         userDTO.setInterests(userDetails.getInterests().stream().map(Interest::getInterest).collect(Collectors.toList()));
         userDTO.setAddresses(userDetails.getAddresses().stream().map(Address::getAddress).collect(Collectors.toList()));
-        //userDTO.setOrders(userDetails.getOrderDetails().stream().map(OrderDetail::getAddress).collect(Collectors.toList()));
+        userDTO.setOrders(userDetails.getOrderDetails().stream().map(OrderMapper.getInstance()::getDTO).collect(Collectors.toList()));
         return userDTO;
 
     }

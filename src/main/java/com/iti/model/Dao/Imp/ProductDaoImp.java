@@ -83,7 +83,6 @@ public class ProductDaoImp implements ProductDao {
     @Override
     public List<String> getSizes() {
         List<String> list = new ArrayList<>();
-        list.add("");
         list.add("Small");
         list.add("Medium");
         list.add("Large");
@@ -109,7 +108,6 @@ public class ProductDaoImp implements ProductDao {
     @Override
     public List<String> getTypes() {
         List<String> list = new ArrayList<>();
-
         list.add("T-Shirt");
         list.add("Shirt");
         list.add("Cap");

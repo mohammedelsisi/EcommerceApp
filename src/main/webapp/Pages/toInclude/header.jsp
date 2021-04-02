@@ -122,38 +122,41 @@
                     <a href="About">About</a>
                 </li>
                 <li><a href="Shop">Shop</a></li>
-                <div class="dropdown">
-                    <a href="#">PROFILE</a>
-                    <div class="dropdown-content">
-                        <lu style="list-style-type: none;">
-                            <li class="nav-item" style="background: #bcbcbc;">
-                                <a class="nav-link" href="Profile">
-                                    <i class="fas fa-user"></i>
-                                    <span>Profile</span></a></li>
-                            <!-- Divider -->
-                            <hr class="sidebar-divider">
-                            <li class="nav-item">
-                                <a class="nav-link" href="AddressesJsp">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Addresses</span></a>
-                            </li>
-                            <!-- Divider -->
-                            <hr class="sidebar-divider">
-                            <li class="nav-item">
-                                <a class="nav-link" href="Orders">
-                                    <i class="fas fa-shopping-bag"></i>
-                                    <span>Orders</span></a>
-                            </li>
-                            <!-- Divider -->
-                            <hr class="sidebar-divider">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw"></i>
-                                    <span>Logout</span></a>
-                            </li>
-                        </lu>
+                <c:if test="${not empty sessionScope.currentUser}">
+
+                    <div class="dropdown">
+                        <a href="#">PROFILE</a>
+                        <div class="dropdown-content">
+                            <lu style="list-style-type: none;">
+                                <li class="nav-item" style="background: #bcbcbc;">
+                                    <a class="nav-link" href="Profile">
+                                        <i class="fas fa-user"></i>
+                                        <span>Profile</span></a></li>
+                                <!-- Divider -->
+                                <hr class="sidebar-divider">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="AddressesJsp">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Addresses</span></a>
+                                </li>
+                                <!-- Divider -->
+                                <hr class="sidebar-divider">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Orders">
+                                        <i class="fas fa-shopping-bag"></i>
+                                        <span>Orders</span></a>
+                                </li>
+                                <!-- Divider -->
+                                <hr class="sidebar-divider">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw"></i>
+                                        <span>Logout</span></a>
+                                </li>
+                            </lu>
+                        </div>
                     </div>
-                </div>
+                </c:if>
 
 <%--                <li><a href="contact.html">Contact</a></li>--%>
             </ul>
@@ -167,7 +170,7 @@
      float: left;
      left: 50%;
      top: 50%;
-     transform: translate(-50%, -50%);">
+     transform: translate(-50%, -50%);" >
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
