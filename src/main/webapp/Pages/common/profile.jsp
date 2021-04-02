@@ -162,7 +162,7 @@
                             <label style="color: grey">User Name</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control form-control-user" id="phoneNumber"
+                            <input name="phoneNumber" type="text" class="form-control form-control-user" id="phoneNumber"
                                    placeholder="Your Phone Number" value="${sessionScope.currentUser.phoneNumber}">
                             <label style="color: grey">Phone Number</label>
                         </div>
@@ -256,12 +256,12 @@
                 </div>
                 <div class="form-group row">
                     <div class="form-group">
-                        <input type="password" class="form-control form-control-user" id="currentPassword"
+                        <input type="password" class="form-control form-control-user" id="exampleInputNPassword"
                                placeholder="Current password..." required>
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control form-control-user"
-                               id="newPassword" placeholder="Password" minlength="6" required>
+                               id="exampleInputPassword" placeholder="Password" minlength="6" required>
                         <div style="padding-left: 25px" class="valid-feedback">
                             Looks good!
                         </div>
