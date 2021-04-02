@@ -13,7 +13,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
 public class ProductDaoImp implements ProductDao {
     EntityManager entityManager;
@@ -22,6 +21,7 @@ public class ProductDaoImp implements ProductDao {
     ProductDTO p3 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_3.jpg", 50);
     ProductDTO p4 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_1.jpg", 50);
     ProductDTO p5 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_2.jpg", 50);
+
     private ProductDaoImp() {
         entityManager = DatabaseManager.getFactory().createEntityManager();
     }
@@ -118,17 +118,16 @@ public class ProductDaoImp implements ProductDao {
     }
 
 
+    public Product retrieveItem(long id) {
 
-
-    public  Product retrieveItem(long id) {
-
-        return entityManager.find(Product.class,id);
+        return entityManager.find(Product.class, id);
     }
 
     @Override
     public Product getProductById(long prodId) {
-        return entityManager.createQuery("from Product where id =:prodId",Product.class).setParameter("prodId", prodId).getSingleResult();
+        return entityManager.createQuery("from Product where id =:prodId", Product.class).setParameter("prodId", prodId).getSingleResult();
     }
+
     @Override
     public List<Product> retrieveProductswithFilter(Product filteredProduct) {
 
@@ -136,31 +135,31 @@ public class ProductDaoImp implements ProductDao {
         CriteriaQuery<Product> criteriaQuery = criteriaBuilder.createQuery(Product.class);
         Root<Product> itemRoot = criteriaQuery.from(Product.class);
 
-        if (filteredProduct.getProductId() > 0) {
 
-            Predicate predicate = criteriaBuilder.equal(itemRoot.get("productId"), filteredProduct.getProductId());
-
-            if (filteredProduct.getCategory().length() > 0)
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(itemRoot.get("category"), filteredProduct.getCategory()));
-            if (filteredProduct.getColor().length() > 0)
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(itemRoot.get("color"), filteredProduct.getColor()));
-            if (filteredProduct.getQuantity() > 0)
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(itemRoot.get("quantity"), filteredProduct.getQuantity()));
+        Predicate predicate = criteriaBuilder.conjunction();
+        if (filteredProduct.getProductId() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("productId"), filteredProduct.getProductId()));
+        if (filteredProduct.getCategory().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("category"), filteredProduct.getCategory()));
+        if (filteredProduct.getColor().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("color"), filteredProduct.getColor()));
+        if (filteredProduct.getQuantity() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("quantity"), filteredProduct.getQuantity()));
 //            if (filteredProduct.getDescription().length()>0)
 //                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("description"), filteredProduct.getDescription()));
 //            if (filteredProduct.getFirstImg().length()>0)
 //                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("firstImg"), filteredProduct.getFirstImg()));
-            if (filteredProduct.getPrice() > 0)
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(itemRoot.get("price"), filteredProduct.getPrice()));
+        if (filteredProduct.getPrice() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("price"), filteredProduct.getPrice()));
 //            if (filteredProduct.getSecondImg().length()>0)
 //                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("secondImg"), filteredProduct.getSecondImg()));
-            if (filteredProduct.getSize().length() > 0)
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(itemRoot.get("size"), filteredProduct.getSize()));
-            if (filteredProduct.getType().length() > 0)
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(itemRoot.get("type"), filteredProduct.getType()));
+        if (filteredProduct.getSize().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("size"), filteredProduct.getSize()));
+        if (filteredProduct.getType().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("type"), filteredProduct.getType()));
 
-            criteriaQuery.where(predicate);
-        }
+        criteriaQuery.where(predicate);
+
 
         List<Product> products = entityManager.createQuery(criteriaQuery).getResultList();
 
@@ -201,7 +200,7 @@ public class ProductDaoImp implements ProductDao {
         try {
             entityManager.getTransaction().begin();
             Long id = deletingProduct.getProductId();
-            entityManager.createQuery("delete from Product p where p.id = ?1").setParameter(1,id).executeUpdate();
+            entityManager.createQuery("delete from Product p where p.id = ?1").setParameter(1, id).executeUpdate();
             entityManager.getTransaction().commit();
             return true;
             //TODO check exception type

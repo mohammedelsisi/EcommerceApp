@@ -7,10 +7,7 @@ import com.iti.model.entity.UserDetails;
 import com.iti.persistence.DatabaseManager;
 
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -31,20 +28,27 @@ public class OrderDaoImp implements OrderDao {
         System.out.println(filter);
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<OrderDetail> orderQuery = cb.createQuery(OrderDetail.class);
-        CriteriaQuery<UserDetails> emailQuery = cb.createQuery(UserDetails.class);
         Root<OrderDetail> orderRoot = orderQuery.from(OrderDetail.class);
-        Root<UserDetails> userRoot = emailQuery.from(UserDetails.class);
 
-        if (filter.getId() > 0) {
-            System.out.println("filtering");
-            Predicate predicate = cb.equal(orderRoot.get("orderId"), filter.getId());
+//        Subquery sub = orderQuery.subquery(String.class);
+//        Root subRoot = sub.from(UserDetails.class);
+//        SetJoin<UserDetails,OrderDetail> subOrders = subRoot.join()
+//        <UserDetails> emailQuery = cb.createQuery(UserDetails.class);
+//        Root<UserDetails> userRoot = emailQuery.from(UserDetails.class);
+
+
+
+        Predicate predicate = cb.conjunction();
+
+        if (filter.getId() > 0)
+            predicate = cb.and(predicate,cb.equal(orderRoot.get("orderId"), filter.getId()));
 
 
             if (filter.getSelectedAddress().length() > 0)
-                predicate = cb.or(predicate, cb.equal(orderRoot.get("selectedAddress"), filter.getSelectedAddress()));
+                predicate = cb.and(predicate, cb.like(orderRoot.get("selectedAddress"), "%"+filter.getSelectedAddress()+"%"));
 
-            if (filter.getEmail().length() > 0)
-                predicate = cb.or(predicate, cb.equal(userRoot.get("email"), filter.getEmail()));
+//            if (filter.getEmail().length() > 0)
+//                predicate = cb.and(predicate, cb.like(userRoot.get("email"), "%"+filter.getEmail()+"%"));
 
             if (filter.getPurchaseDate() != null) {
                 Calendar c = Calendar.getInstance();
@@ -52,10 +56,10 @@ public class OrderDaoImp implements OrderDao {
                 c.add(Calendar.DATE, 1);
                 Date dayafter = c.getTime();
                 System.out.println(dayafter);
-                predicate = cb.or(predicate, cb.between(orderRoot.get("purchaseDate"), filter.getPurchaseDate(), dayafter));
+                predicate = cb.and(predicate, cb.between(orderRoot.get("purchaseDate"), filter.getPurchaseDate(), dayafter));
             }
             orderQuery.where(predicate);
-        }
+
 
         return entityManager.createQuery(orderQuery).getResultList();
 

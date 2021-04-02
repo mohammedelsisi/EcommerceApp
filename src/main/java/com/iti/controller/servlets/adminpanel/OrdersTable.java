@@ -32,11 +32,13 @@ public class OrdersTable extends HttpServlet {
             filter.setSelectedAddress(request.getParameter("selectedAddress"));
 
         if (request.getParameter("purchaseDate").length() > 0) {
+            System.out.println(request.getParameter("purchaseDate"));
             try {
                 filter.setPurchaseDate(new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("purchaseDate")));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            System.out.println(filter.getPurchaseDate());
         }
 
             filter.setEmail(request.getParameter("email"));
