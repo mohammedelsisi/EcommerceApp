@@ -1,13 +1,17 @@
 package com.iti.controller.filters;
 
+import com.iti.model.DTO.CartItemDTO;
 import com.iti.model.DTO.UserDTO;
 import com.iti.model.utils.authentication.SavingUserService;
+import com.iti.service.BuyingService;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.List;
+
 @WebFilter("/*")
 public class rememberMeFilter implements Filter {
     @Override
@@ -23,6 +27,13 @@ public class rememberMeFilter implements Filter {
             if(userIfPresent!=null){
                 req.getSession().setAttribute("login", true);
                 req.getSession().setAttribute("currentUser",userIfPresent);
+                List<CartItemDTO> list= (List<CartItemDTO>) req.getSession().getAttribute("Cart");
+                if(list.size()==0)
+                {
+                    BuyingService buyingService=(BuyingService)req.getServletContext().getAttribute("BuyingService");
+                    list=buyingService.retrieveAllItems(userIfPresent.getId());
+                    req.getSession().setAttribute("Cart",list);
+                }
                 if(!req.getServletPath().contains("/layout"))
                     SavingUserService.getInstance().extendLoggingTime(req,resp);
             }

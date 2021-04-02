@@ -2,13 +2,12 @@ package com.iti.model.mapper;
 
 import com.iti.model.DTO.CartItemDTO;
 import com.iti.model.DTO.ProductDTO;
+import com.iti.model.DTO.RoleUser;
 import com.iti.model.DTO.UserDTO;
-import com.iti.model.entity.Cart;
-import com.iti.model.entity.CartId;
-import com.iti.model.entity.Product;
-import com.iti.model.entity.UserDetails;
+import com.iti.model.entity.*;
 
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class CartMapper {
 
@@ -31,20 +30,16 @@ public class CartMapper {
         cart.setQuantity(cartDTO.getItemQuantity());
         return cart;
     }
+    public CartItemDTO getCartDTO(Cart cart){
+        CartItemDTO cartItemDTO=new CartItemDTO();
+        cartItemDTO.setItemQuantity(cart.getQuantity());
+        Product product1 = cart.getProduct();
+        cartItemDTO.setProductID(product1.getProductId());
+        cartItemDTO.setItemImg(product1.getFirstImg());
+        cartItemDTO.setItemType(product1.getType());
+        cartItemDTO.setItemPrice(product1.getPrice());
+        return cartItemDTO;
+    }
 
-//    public ProductDTO getDTO(Product product) {
-//        ProductDTO productdto = new ProductDTO();
-//
-//        productdto.setProdID(product.getProductId());
-//        productdto.setProdName(product.getType());
-//        productdto.setProdDescription(product.getDescription());
-//        productdto.setProdQuantity(product.getQuantity());
-//        productdto.setSize(product.getSize());
-//        productdto.setCategory(product.getCategory());
-//        productdto.setFirstProdImg(product.getFirstImg());
-//        productdto.setSecondProdImg(product.getSecondImg());
-//        productdto.setProductPrice(product.getPrice());
-//
-//        return productdto;
-//    }
+
 }
