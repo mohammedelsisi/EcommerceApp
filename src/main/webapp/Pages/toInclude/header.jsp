@@ -140,14 +140,7 @@
                             <!-- Divider -->
                             <hr class="sidebar-divider">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-money-bill"></i>
-                                    <span>Payments</span></a>
-                            </li>
-                            <!-- Divider -->
-                            <hr class="sidebar-divider">
-                            <li class="nav-item">
-                                <a class="nav-link" href="cart.html">
+                                <a class="nav-link" href="Orders">
                                     <i class="fas fa-shopping-bag"></i>
                                     <span>Orders</span></a>
                             </li>
@@ -167,5 +160,30 @@
         </div>
     </nav>
 </header>
+<body>
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" style=" position: absolute;
+     float: left;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="Login">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 
 
