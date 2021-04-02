@@ -136,7 +136,8 @@
                             <form id="imageData" method="post" enctype="multipart/form-data">
                                 <label for="ChosenUserimage">
                                     <div class="profile-pic" id="UserImage"
-                                         style="background-image: url('layout/images/img_avatar2.png')">
+                                    <%--                                         style="background-image:url('file://C:\Users\moham\iti\2.jpg') ">--%>
+                                         style="background-image:url('${sessionScope.currentUser.image}') ">
                                         <div style="">
                                             <span class="fas fa-camera"></span>
                                             <span>Change Image</span>
@@ -158,18 +159,20 @@
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control form-control-user" id="usernameInputExample"
-                                   placeholder="User Name..." value="${sessionScope.currentUser.userName}">
+                                   placeholder="User Name..." value="${sessionScope.currentUser.userName}" required>
                             <label style="color: grey">User Name</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input name="phoneNumber" type="text" class="form-control form-control-user" id="phoneNumber"
-                                   placeholder="Your Phone Number" value="${sessionScope.currentUser.phoneNumber}">
+                            <input name="phoneNumber" type="text" class="form-control form-control-user"
+                                   id="phoneNumber"
+                                   placeholder="Your Phone Number" value="${sessionScope.currentUser.phoneNumber}"
+                                   required>
                             <label style="color: grey">Phone Number</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="date" class="form-control form-control-user" id="userDateId"
                                    placeholder="Your Birthdate .. " max="2010-01-01"
-                                   value="${sessionScope.currentUser.birthday}" required>
+                                   value="${sessionScope.currentUser.dateView}" required>
                             <label style="color: grey">Birth Date</label>
                         </div>
 
@@ -298,7 +301,6 @@
 <script src="layout/js/main.js"></script>
 
 <script src="layout/js/profileScript.js"></script>
-
 </body>
 
 </html>

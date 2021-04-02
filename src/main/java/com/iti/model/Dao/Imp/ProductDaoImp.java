@@ -93,7 +93,7 @@ public class ProductDaoImp implements ProductDao {
     @Override
     public List<String> getColors() {
         List<String> list = new ArrayList<>();
-        list.add("");
+
         list.add("Red");
         list.add("Green");
         list.add("Blue");
@@ -110,7 +110,7 @@ public class ProductDaoImp implements ProductDao {
     @Override
     public List<String> getTypes() {
         List<String> list = new ArrayList<>();
-        list.add("");
+
         list.add("T-Shirt");
         list.add("Shirt");
         list.add("Cap");
@@ -287,7 +287,6 @@ public class ProductDaoImp implements ProductDao {
     @Override
     public List<String> getCategories() {
         List<String> list = new ArrayList<>();
-        list.add("");
         list.add("Men");
         list.add("Women");
         list.add("Children");

@@ -1,5 +1,5 @@
-
 <footer class="site-footer border-top">
+    </form>
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-5 mb-lg-0">
@@ -9,8 +9,8 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <ul class="list-unstyled">
-                            <li><a href="Shop">Shoping</a></li>
-                            <li><a href="ProductItem">Store</a></li>
+                            <li><a href="Shop">Shopping</a></li>
+                            <li><a href="About">About</a></li>
                             <%--                                <li><a href="#">Shopping cart</a></li>--%>
                             <%--                                <li><a href="#">Store builder</a></li>--%>
                         </ul>
@@ -18,23 +18,22 @@
                     <div class="col-md-6 col-lg-4">
                         <ul class="list-unstyled">
                             <li><a href="Home"> Home</a></li>
-                            <li><a href="SignUp">Sign Up</a></li>
-
+                            <li><a href="Register">Sign Up</a></li>
 
 
                         </ul>
                     </div>
-                    <div class="col-md-6 col-lg-4">
+                    <div style="margin-left: 10px" class="col-md-6 col-lg-4">
                         <ul class="list-unstyled">
-                            <h1 style="font-size: 70px; color: #0a58ca" > NaseeJ </h1>
+                            <h1 style="font-size: 60px; color: #0a58ca"> NaseeJ </h1>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
                 <h3 class="footer-heading mb-4">Promo</h3>
-                <a href="#" class="block-6">
-                    <img src="images/footer.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
+                <a href="Shop" class="block-6">
+                    <img src="layout/images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
                     <h3 class="font-weight-light  mb-0">Finding Your Perfect order</h3>
                     <p>Promo from nuary 15 &mdash; 25, 2021</p>
                 </a>
@@ -45,7 +44,7 @@
                     <ul class="list-unstyled">
                         <li class="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
                         <li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
-                        <li class="email">NaseJ@gmail.com</li>
+                        <li class="email">NaseeJ@gmail.com</li>
                     </ul>
                 </div>
 
@@ -75,4 +74,5 @@
 
         </div>
     </div>
+
 </footer>

@@ -64,9 +64,15 @@ public class ProductsTable extends HttpServlet {
             }
             case "getMeta": {
                 List<List<String>> meta = new ArrayList<>();
-                meta.add(productsService.getTypes());
-                meta.add(productsService.getSizes());
-                meta.add(productsService.getCategories());
+                List<String> types = productsService.getTypes();
+                types.add(0,"");
+                meta.add(types);
+                List<String> sizes = productsService.getSizes();
+                sizes.add(0,"");
+                meta.add(sizes);
+                List<String> categories = productsService.getCategories();
+                categories.add(0,"");
+                meta.add(categories);
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 String metaJson = json.toJson(meta);
