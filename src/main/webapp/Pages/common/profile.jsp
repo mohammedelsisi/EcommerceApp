@@ -274,12 +274,12 @@
                 </div>
                 <div class="form-group row">
                     <div class="form-group">
-                        <input type="password" class="form-control form-control-user" id="exampleInputNPassword"
+                        <input type="password" class="form-control form-control-user" id="currentPassword"
                                placeholder="Current password..." required>
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control form-control-user"
-                               id="exampleInputPassword" placeholder="Password" minlength="6" required>
+                               id="newPassword" placeholder="Password" minlength="6" required>
                         <div style="padding-left: 25px" class="valid-feedback">
                             Looks good!
                         </div>
