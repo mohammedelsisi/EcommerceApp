@@ -31,18 +31,12 @@ function appendAddress() {
         method: "POST",
         dataType: "html",
         data: {
-            "Address": nodevalue
+            "newAddress": nodevalue
         }
 
     })
 
 }
 
-
-function  getAddress(){
-
-
-
-}
 
 
