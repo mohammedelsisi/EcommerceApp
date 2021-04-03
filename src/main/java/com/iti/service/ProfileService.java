@@ -19,12 +19,13 @@ public class ProfileService {
         return profileService;
     }
 
-    public boolean editProfile(UserDTO user) {
+    public UserDTO editProfile(UserDTO user) {
         UserDao userDao = UserDAOImp.getInstance();
         UserDetails userEntity = UserMapper.getInstance().getUserEntity(user);
-        userDao.EditProfile(userEntity);
+        UserDetails userDetails = userDao.EditProfile(userEntity);
+        UserDTO userDTO = UserMapper.getInstance().getUserDTO(userDetails);
         userDao.close();
-        return true;
+        return userDTO;
     }
 
     public boolean changePassword(UserDTO user, String oldpassword, String newpassword) {

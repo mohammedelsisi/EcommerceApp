@@ -35,6 +35,7 @@ public class CartItemDaoImp implements CartItemDao {
     public void makeOrder(OrderDetail orderDetail, Set<CartItemDTO> list) {
         entityManager.getTransaction().begin();
         entityManager.persist(orderDetail);
+
         list.forEach(e -> {
             long prodQtn = entityManager.createQuery("select quantity from Product where id =:prodId", Long.class).setParameter("prodId", e.getProductID()).getSingleResult();
             entityManager.createQuery("update Product set quantity =:newQtn where id =:prodId").setParameter("newQtn", prodQtn - e.getItemQuantity()).setParameter("prodId", e.getProductID()).executeUpdate();
@@ -46,6 +47,7 @@ public class CartItemDaoImp implements CartItemDao {
             orderHasProducts.setQuantity((int) e.getItemQuantity());
             entityManager.persist(orderHasProducts);
         });
+
         entityManager.getTransaction().commit();
     }
 
