@@ -91,13 +91,16 @@ public class UserDAOImp implements UserDao {
                 e.setUserDetails(user);
                 entityManager.merge(e);
             });
-            System.out.println("####@@@@@");
             user.getAddresses().stream().forEach(e -> {
-                System.out.println("####@@@@@" + e.getAddress());
-                if (entityManager.find(Address.class, e.getAddress()) == null) {
+                if (entityManager.createQuery("From Address where  user_id =:idd and address = :add")
+                        .setParameter("idd", user.getId())
+                        .setParameter("add", e.getAddress()).getResultList().size() == 0) {
                     System.out.println("/-/-/-/-/-" + e.getAddress());
                     e.setUserDetails(user);
                     entityManager.persist(e);
+                }else {
+                    e.setUserDetails(user);
+                    entityManager.merge(e);
                 }
             });
             entityManager.merge(user);
@@ -139,6 +142,9 @@ public class UserDAOImp implements UserDao {
                 System.out.println("/-/-/-/-/-" + e.getAddress());
                 e.setUserDetails(user);
                 entityManager.persist(e);
+            }else {
+                e.setUserDetails(user);
+                entityManager.merge(e);
             }
         });
 
