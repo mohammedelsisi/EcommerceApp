@@ -17,13 +17,7 @@
         })
 
 
-    $('.nav-item').on('click', function () {
-        var isAlreadySelected = $(this).hasClass('background_selected');
-        $('.nav-item').removeClass('background_selected');
-        if (!isAlreadySelected) {
-            $(this).addClass('background_selected');
-        }
-    });
+
 
 
     function readURL(input) {

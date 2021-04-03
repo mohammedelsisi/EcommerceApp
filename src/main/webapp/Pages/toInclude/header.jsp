@@ -53,6 +53,15 @@
             justify-content: center;
             align-items: center;
         }
+        .nav-item {
+            background-color: #ffffff;
+        }
+        .nav-item:hover {
+            background-color: #bcbcbc;
+        }
+        .background_selected {
+            background-color: #bcbcbc;
+        }
     </style>
 </head>
 <header class="site-navbar" role="banner">
@@ -157,7 +166,7 @@
                         <a href="#">PROFILE</a>
                         <div class="dropdown-content">
                             <lu style="list-style-type: none;">
-                                <li class="nav-item" style="background: #bcbcbc;">
+                                <li class="nav-item" >
                                     <a class="nav-link" href="Profile">
                                         <i class="fas fa-user"></i>
                                         <span>Profile</span></a></li>
@@ -216,6 +225,15 @@
         </div>
     </div>
 </div>
+<script>
+    $('.nav-item').on('hover', function () {
+        var isAlreadySelected = $(this).hasClass('background_selected');
+        $('.nav-item').removeClass('background_selected');
+        if (!isAlreadySelected) {
+            $(this).addClass('background_selected');
+        }
+    });
+</script>
 </body>
 
 

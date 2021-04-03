@@ -60,15 +60,6 @@
     <link href="layout/css/filter_multi_select.css" rel="stylesheet">
     <script src="layout/js/filter-multi-select-bundle.js"></script>
 
-    <style>
-        .nav-item {
-            background-color: #ffffff;
-        }
-
-        .background_selected {
-            background-color: #bcbcbc;
-        }
-    </style>
 </head>
 
 <body class="site-wrap">
