@@ -1,5 +1,9 @@
 package com.iti.model.DTO;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -8,14 +12,18 @@ import java.util.Set;
 public class UserDTO {
 
     private long id;
+    @NotNull
     private String userName;
+    @Size(min=11,max=11)
     private String phoneNumber;
+    @Email
     private String email;
     private double creditLimit;
     private String image;
     private RoleUser Role = RoleUser.CustomerRole;
     private String job;
     private Date birthday;
+    @NotNull
     private String password;
     private List<String> interests;
     private List<String> addresses;
@@ -26,6 +34,12 @@ public class UserDTO {
         this.userName = userName;
         this.email = email;
         this.password = password;
+    }
+    public UserDTO(String userName, String email, String password,String phoneNumber) {
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber=phoneNumber;
     }
 
     public UserDTO(String userName, double creditLimit, String email, String job, Date birthday, String password, List<String> interests, String phoneNumber) {

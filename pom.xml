@@ -110,6 +110,20 @@
     <!--            <artifactId>hibernate-c3p0</artifactId>-->
     <!--            <version>5.3.6.Final</version>-->
     <!--        </dependency>-->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.8.0-M1</version>
+      <scope>compile</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.8.0-M1</version>
+      <scope>test</scope>
+    </dependency>
+
 
     <dependency>
       <groupId>junit</groupId>
@@ -164,7 +178,7 @@
 
           <username>admin</username>
           <password>admin</password>
-          <url>http://localhost:9595/manager/text</url>
+          <url>http://localhost:9191/manager/text</url>
           <path>/fashion_store</path>
         </configuration>
       </plugin>

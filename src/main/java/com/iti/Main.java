@@ -21,22 +21,22 @@ public class Main {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
-        Product product = new Product();
-        product.setProductId(8);
-
-        Cart cart = new Cart();
-        /*   you only need to create the composite key       */
-//        cart.setProduct(product);
-        cart.setQuantity(12);
-        CartId cartId = new CartId();
-        cartId.setProductId(product.getProductId());
-        cartId.setUserId(1L);
-        cart.setId(cartId);
-//        cart.setUserDetails(entityManager.find(UserDetails.class,1L));
-
-        entityManager.persist(cart);
-
-
+//        Product product = new Product();
+//        product.setProductId(8);
+//
+//        Cart cart = new Cart();
+//        /*   you only need to create the composite key       */
+////        cart.setProduct(product);
+//        cart.setQuantity(12);
+//        CartId cartId = new CartId();
+//        cartId.setProductId(product.getProductId());
+//        cartId.setUserId(1L);
+//        cart.setId(cartId);
+////        cart.setUserDetails(entityManager.find(UserDetails.class,1L));
+//
+//        entityManager.persist(cart);
+//
+//
         entityManager.getTransaction().commit();
 //        List<String>colors = new ArrayList<>();
 //        colors.add("Red");

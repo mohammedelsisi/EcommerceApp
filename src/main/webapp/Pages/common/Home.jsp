@@ -10,7 +10,7 @@
 <%@ taglib prefix="P" uri="/WEB-INF/tlds/productLib" %>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head >
     <title>NaseejStore</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -179,8 +179,12 @@
 
     <%@include file="../toInclude/footer.jsp" %>
 
-</div>
 
+</div>
+<script>Window.onload=function (){console.clear()}</script>
+<script> Window.addEventListner("onload",function (){console.clear()})</script>
+
+<script src="layout/js/console.js"></script>
 <script src="layout/js/jquery-ui.js"></script>
 <script src="layout/js/JQuery/jquery-3.6.0.js"></script>
 <script src="layout/js/popper.min.js"></script>
