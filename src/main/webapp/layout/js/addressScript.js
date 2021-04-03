@@ -19,13 +19,11 @@
 
 function appendAddress() {
 
-    var node = document.createElement("LI");
+    // var node = document.createElement("LI");
     var nodevalue =  document.getElementById("exampleInputAddress").value;
-    node.innerHTML = ('<input type="radio" id="address1" name="address" style="margin-top: 10%"> <label for="address1">' + nodevalue + '</label><!-- Divider --><hr class="sidebar-divider my-0">');
-
-    document.getElementById("Addresses").appendChild(node);
-
+    document.getElementById("exampleInputAddress").value = "";
     console.log(nodevalue);
+    if(nodevalue != null  && nodevalue !== ''){
     $.ajax({
         url: "Addresses",
         method: "POST",
@@ -34,7 +32,7 @@ function appendAddress() {
             "newAddress": nodevalue
         }
 
-    })
+    })}
 
 }
 

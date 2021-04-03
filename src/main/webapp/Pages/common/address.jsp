@@ -86,10 +86,10 @@
                     <div>
                         <h1 class="h4 text-gray-900 mb-4" STYLE="text-align: center; "> Addresses</h1>
                         <form class="user">
-                            <ul id="Addresses" style=" list-style-type: none;" >
+                            <ul id="Addresses" style=" list-style-type: none;">
                                 <c:forEach items="${sessionScope.currentUser.addresses}" var="address">
-                                    <li><input type="radio" id="address1" name="address" style="margin-top: 10%"> <label for="address1">${address}</label><hr class="sidebar-divider my-0"></li>
-
+                                    <li> <label style="margin-top: 10%">${address}</label><hr class="sidebar-divider my-0"></li>
+<%--                                    <input type="radio" id="address1" name="address" style="margin-top: 10%">--%>
                                 </c:forEach>
                             </ul>
 
@@ -97,7 +97,7 @@
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user"
                                        id="exampleInputAddress" STYLE=" position: absolute;  bottom: 100px; width: 85%"
-                                       placeholder="Address...">
+                                       placeholder="Address..." >
                             </div>
 
 
