@@ -11,20 +11,18 @@
     }
 
     window.onerror = noErrorMa;
-    window.console.warn=function (){
+    window.console.warn = function () {
 
     }
-    window.console.debug=function (){
+    window.console.debug = function () {
 
     }
-    window.console.error=function (){
+    window.console.error = function () {
 
     }
-    window.console.log=function (){
+    window.console.log = function () {
 
     }
-
-
 
 
 </script>
@@ -46,6 +44,14 @@
 
         .dropdown:hover .dropdown-content {
             display: block;
+        }
+
+        .modal {
+            width: 100%;
+            height: 100%;
+            margin-top: 40%;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -181,7 +187,7 @@
                     </div>
                 </c:if>
 
-<%--                <li><a href="contact.html">Contact</a></li>--%>
+                <%--                <li><a href="contact.html">Contact</a></li>--%>
             </ul>
         </div>
     </nav>
@@ -193,7 +199,7 @@
      float: left;
      left: 50%;
      top: 50%;
-     transform: translate(-50%, -50%);" >
+     transform: translate(-50%, -50%);">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
