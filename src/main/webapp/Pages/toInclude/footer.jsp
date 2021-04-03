@@ -18,7 +18,7 @@
                     <div class="col-md-6 col-lg-4">
                         <ul class="list-unstyled">
                             <li><a href="Home"> Home</a></li>
-                            <li><a href="Register">Sign Up</a></li>
+                            <li><a href="Cart">Cart</a></li>
 
 
                         </ul>

@@ -165,7 +165,7 @@
                         <div class="form-floating mb-3">
                             <input name="phoneNumber" type="text" class="form-control form-control-user"
                                    id="phoneNumber"
-                                   placeholder="Your Phone Number" value="${sessionScope.currentUser.phoneNumber}"
+                                   placeholder="Your Phone Number" value="${sessionScope.currentUser.phoneNumber}" pattern="01[0-9]{9}"
                                    required>
                             <label style="color: grey">Phone Number</label>
                         </div>
