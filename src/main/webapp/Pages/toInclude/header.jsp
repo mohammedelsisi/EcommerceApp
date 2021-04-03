@@ -5,7 +5,29 @@
   Time: ٠٧:٠٦ م
   To change this template use File | Settings | File Templates.
 --%>
+<script>
+    function noErrorMa() {
+        return true;
+    }
 
+    window.onerror = noErrorMa;
+    window.console.warn=function (){
+
+    }
+    window.console.debug=function (){
+
+    }
+    window.console.error=function (){
+
+    }
+    window.console.log=function (){
+
+    }
+
+
+
+
+</script>
 <head>
     <style>
         .dropdown {
@@ -78,6 +100,7 @@
                                     <li><a href="#"></a>
                                         <div class="dropdown">
                                             <a style="background-color: #e6e7e9" class="btn btn-light dropdown-toggle"
+
                                                role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                                aria-haspopup="true" aria-expanded="false">
                                                 Hello! Log in
