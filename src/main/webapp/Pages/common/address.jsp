@@ -15,17 +15,29 @@
     <title>Addresses</title>
 
     <!-- Custom fonts for this template-->
-
     <link href="layout/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
     <!-- Custom styles for this template-->
-
     <link rel="stylesheet" href="layout/css/all.min.css"/>
     <link rel="stylesheet" href="layout/css/style.css"/>
     <link href="layout/css/sb-admin-2.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <!-- to add down arrow to menus -->
+    <link rel="stylesheet" href="layout/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="layout/css/jquery-ui.css">
+    <!-- to let horizontal scrolling -->
+    <link rel="stylesheet" href="layout/css/owl.carousel.min.css">
+    <!-- to add animations on vertical scrolling -->
+    <link rel="stylesheet" href="layout/css/aos.css">
+    <!--     to add the multiple selection plugin -->
+    <link href="layout/css/filter_multi_select.css" rel="stylesheet">
+
+    <script src="layout/js/filter-multi-select-bundle.js"></script>
     <script src="layout/js/bootstrap.min.js"></script>
+
+
 
 </head>
 
