@@ -137,7 +137,7 @@
 
     <servlet-mapping>
         <servlet-name>Addresses</servlet-name>
-        <url-pattern>/AddressesJsp</url-pattern>
+        <url-pattern>/Address</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>ProductItemServlet</servlet-name>

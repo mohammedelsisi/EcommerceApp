@@ -82,7 +82,7 @@ public class UserDAOImp implements UserDao {
     }
 
     @Override
-    public boolean changePassword(UserDetails user ,String oldPassword,  String newpassword) {
+    public boolean changePassword(UserDetails user, String oldPassword, String newpassword) {
         if (user.getPassword().equals(oldPassword)) {
             entityManager.getTransaction().begin();
             user.setPassword(newpassword);
@@ -91,9 +91,14 @@ public class UserDAOImp implements UserDao {
                 e.setUserDetails(user);
                 entityManager.merge(e);
             });
-            user.getAddresses().stream().forEach(e->{
-                e.setUserDetails(user);
-                entityManager.merge(e);
+            System.out.println("####@@@@@");
+            user.getAddresses().stream().forEach(e -> {
+                System.out.println("####@@@@@" + e.getAddress());
+                if (entityManager.find(Address.class, e.getAddress()) == null) {
+                    System.out.println("/-/-/-/-/-" + e.getAddress());
+                    e.setUserDetails(user);
+                    entityManager.persist(e);
+                }
             });
             entityManager.merge(user);
 
@@ -125,17 +130,23 @@ public class UserDAOImp implements UserDao {
             e.setUserDetails(user);
             entityManager.merge(e);
         });
-        user.getAddresses().stream().forEach(e->{
-            e.setUserDetails(user);
-            entityManager.merge(e);
+
+
+        user.getAddresses().stream().forEach(e -> {
+            if (entityManager.createQuery("From Address where  user_id =:idd and address = :add")
+                    .setParameter("idd", user.getId())
+                    .setParameter("add", e.getAddress()).getResultList().size() == 0) {
+                System.out.println("/-/-/-/-/-" + e.getAddress());
+                e.setUserDetails(user);
+                entityManager.persist(e);
+            }
         });
+
         entityManager.merge(user);
         entityManager.getTransaction().commit();
 
 
-
-
-        return entityManager.find(UserDetails.class,user.getId());
+        return entityManager.find(UserDetails.class, user.getId());
     }
 
     @Override

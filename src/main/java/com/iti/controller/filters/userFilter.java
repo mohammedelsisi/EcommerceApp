@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-@WebFilter({"/Checkout","/AddressesJsp","/Orders","/Profile"})
+@WebFilter({"/Checkout","/Address","/Orders","/Profile"})
 public class userFilter implements Filter{
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

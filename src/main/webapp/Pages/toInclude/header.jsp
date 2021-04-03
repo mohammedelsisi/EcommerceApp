@@ -158,7 +158,7 @@
                                 <!-- Divider -->
                                 <hr class="sidebar-divider">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="AddressesJsp">
+                                    <a class="nav-link" href="Address">
                                         <i class="fas fa-map-marker-alt"></i>
                                         <span>Addresses</span></a>
                                 </li>
