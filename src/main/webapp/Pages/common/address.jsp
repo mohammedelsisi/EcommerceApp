@@ -38,7 +38,6 @@
     <script src="layout/js/bootstrap.min.js"></script>
 
 
-
 </head>
 
 <body class="site-wrap">
@@ -65,14 +64,14 @@
 
         </div>
         <!-- End of Main Content -->
-        <div class="container h-100" style="background: #4e73df; ">
+        <div class="container h-100 " style="background: #4e73df;  ">
 
-            <div class="d-flex justify-content-center h-100" style="padding-top: 60px;">
+            <div class="d-flex justify-content-center h-100" style="padding-top: 70px; ">
                 <div class="user_card" style="
-    height: 650px;
+    height: 1000px;
     width: 500px;
-    margin-top: auto;
-    margin-bottom: auto;
+    /*margin-top: auto;*/
+    /*margin-bottom: auto;*/
     background: #ffffff;
     position: relative;
     display: flex;
@@ -88,8 +87,10 @@
                         <form class="user">
                             <ul id="Addresses" style=" list-style-type: none;">
                                 <c:forEach items="${sessionScope.currentUser.addresses}" var="address">
-                                    <li> <label style="margin-top: 10%">${address}</label><hr class="sidebar-divider my-0"></li>
-<%--                                    <input type="radio" id="address1" name="address" style="margin-top: 10%">--%>
+                                    <li><label style="margin-top: 10%">${address}</label>
+                                        <hr class="sidebar-divider my-0">
+                                    </li>
+                                    <%--                                    <input type="radio" id="address1" name="address" style="margin-top: 10%">--%>
                                 </c:forEach>
                             </ul>
 
@@ -97,7 +98,7 @@
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user"
                                        id="exampleInputAddress" STYLE=" position: absolute;  bottom: 100px; width: 85%"
-                                       placeholder="Address..." >
+                                       placeholder="Address...">
                             </div>
 
 
@@ -109,11 +110,10 @@
                                     <td style="padding-right: 50px;">
 
 
-
                                     </td>
 
                                     <td style="padding-left: 110px">
-                                       
+
                                         <div class="form-group">
                                             <button onclick="appendAddress()"
                                                     class="btn btn-primary btn-user btn-block "
@@ -121,7 +121,7 @@
                                             </button>
 
                                         </div>
-                                        
+
                                     </td>
 
                                 </tr>
@@ -135,7 +135,7 @@
 
             </div>
             <!-- Footer -->
-            <%@include file="../toInclude/footer.jsp"%>
+            <%@include file="../toInclude/footer.jsp" %>
             <!-- End of Footer -->
 
         </div>
