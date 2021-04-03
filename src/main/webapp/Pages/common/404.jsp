@@ -97,18 +97,15 @@
   </div>
 <%@include file="../toInclude/footer.jsp"%>
 
-<script src="layout/js/bootstrap.min.js"></script>
-<script src="layout/js/fontawesome.js"></script>
-<script src="layout/js/sb-admin-2.js"></script>
 <script src="layout/js/jquery-ui.js"></script>
-<script src="layout/js/JQuery/jquery-3.6.0.js"></script>
-<%--<script src="layout/js/popper.min.js"></script>--%>
+<script src="layout/js/jquery-3.3.1.min.js"></script>
+<script src="layout/js/popper.min.js"></script>
+<script src="layout/js/bootstrap.min.js"></script>
 <script src="layout/js/owl.carousel.min.js"></script>
 <script src="layout/js/jquery.magnific-popup.min.js"></script>
 <script src="layout/js/aos.js"></script>
-<script src="layout/js/main.js"></script>
 
-<script src="layout/js/profileScript.js"></script>
+<script src="layout/js/main.js"></script>
 
 </body>
 </html>

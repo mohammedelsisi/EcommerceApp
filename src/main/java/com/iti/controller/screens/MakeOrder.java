@@ -1,6 +1,7 @@
 package com.iti.controller.screens;
 
 import com.google.gson.Gson;
+import com.iti.controller.servlets.Profile;
 import com.iti.model.DTO.CartItemDTO;
 import com.iti.model.DTO.OrderDTO;
 import com.iti.model.DTO.UserDTO;
@@ -8,6 +9,7 @@ import com.iti.model.Dao.Imp.ProductDaoImp;
 import com.iti.model.Dao.ProductDao;
 import com.iti.model.entity.Product;
 import com.iti.service.BuyingService;
+import com.iti.service.ProfileService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -61,11 +63,17 @@ public class MakeOrder extends HttpServlet {
             return;
         }
 
+        ProfileService profileService = (ProfileService) req.getServletContext().getAttribute("ProfileService");
         resp.setStatus(200);
         BuyingService.getInstance().makeOrder(userDTO, orderDTO);
         String success = "Your Order has been successfully placed";
-        // TODO update User Profile
-        // TODO update User Cart
+        userDTO.getOrders().add(orderDTO);
+        BuyingService.getInstance().removeCartItems(userDTO.getId());
+        List<CartItemDTO> cart = new ArrayList<>();
+        req.getSession().setAttribute("Cart", cart);
+        userDTO.setCreditLimit(userDTO.getCreditLimit() - orderDTO.getTotalAmount());
+        userDTO = profileService.editProfile(userDTO);
+        req.getSession().setAttribute("currentUser", userDTO);
         writer.write(gson.toJson(success));
 
     }

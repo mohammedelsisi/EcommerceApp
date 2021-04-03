@@ -75,6 +75,7 @@ public class BuyingService {
         OrderDetail entity = OrderMapper.getInstance().getEntity(orderDTO, userDetails);
         cartItemDao.makeOrder(entity,orderDTO.getItems());
         cartItemDao.close();
+
         //TODO Update User Here to minus his credit and return user with orders
 //        UserDao userDao = UserDAOImp.getInstance();
 
