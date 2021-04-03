@@ -86,7 +86,17 @@ public class UserDAOImp implements UserDao {
         if (user.getPassword().equals(oldPassword)) {
             entityManager.getTransaction().begin();
             user.setPassword(newpassword);
+
+            user.getInterests().stream().forEach((e) -> {
+                e.setUserDetails(user);
+                entityManager.merge(e);
+            });
+            user.getAddresses().stream().forEach(e->{
+                e.setUserDetails(user);
+                entityManager.merge(e);
+            });
             entityManager.merge(user);
+
             entityManager.getTransaction().commit();
             System.out.println("password updated");
             return true;
@@ -107,10 +117,25 @@ public class UserDAOImp implements UserDao {
 
     @Override
     public UserDetails EditProfile(UserDetails user) {
+
+        System.out.println("############# +" + user);
         entityManager.getTransaction().begin();
+
+        user.getInterests().stream().forEach((e) -> {
+            e.setUserDetails(user);
+            entityManager.merge(e);
+        });
+        user.getAddresses().stream().forEach(e->{
+            e.setUserDetails(user);
+            entityManager.merge(e);
+        });
         entityManager.merge(user);
         entityManager.getTransaction().commit();
-        return entityManager.find(UserDetails.class,user);
+
+
+
+
+        return entityManager.find(UserDetails.class,user.getId());
     }
 
     @Override

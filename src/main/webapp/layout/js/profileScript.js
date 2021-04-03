@@ -94,7 +94,7 @@ function sendData() {
             "userName": userName,
             "birthDate": birthDate,
             "job": userJob,
-            "phone": phone,
+            "phoneNumber": phone,
             "creditLimit": creditLimit
         }
 
@@ -123,6 +123,7 @@ function changePassword() {
             },
             success:function (receivedData){
                 changeDiv.html(receivedData);
+                $("#registrationForm").trigger("reset");
             }
 
         })

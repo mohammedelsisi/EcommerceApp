@@ -23,7 +23,8 @@ public class changePassword extends HttpServlet {
         ProfileService profileService = (ProfileService) req.getServletContext().getAttribute("ProfileService");
         PrintWriter writer = resp.getWriter();
         if(profileService.changePassword(user,currentPassword,newPassword)){
-          writer.write("Password Changed Successfully");
+           user.setPassword(newPassword);
+           writer.write("Password Changed Successfully");
         }else {
             writer.write("Sorry old password is not correct");
         }

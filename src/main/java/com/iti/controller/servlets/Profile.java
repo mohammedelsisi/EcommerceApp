@@ -27,37 +27,28 @@ public class Profile extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //TODO Done : no image, no row date list (used DTO instead)
-        UserDTO user = fillUserData(req);
+        UserDTO user = (UserDTO) req.getSession().getAttribute("currentUser");
+        fillUserData(req, user);
         ProfileService profileService = (ProfileService) req.getServletContext().getAttribute("ProfileService");
-        profileService.editProfile( user );
-        // TODO data receive here now we need to use it.
-
-     /*   String userName = req.getParameter("userName");
-        double creditLimit = parseDouble(req.getParameter("creditLimit"));
-        String birthDate = req.getParameter("birthDate");
-        String job = req.getParameter("job");
-        System.out.println(userName);
-        System.out.println(creditLimit);
-        System.out.println(birthDate);
-        System.out.println(job);*/
-
+        profileService.editProfile(user);
 
     }
 
 
-    private UserDTO fillUserData(HttpServletRequest req) {
+    private UserDTO fillUserData(HttpServletRequest req, UserDTO user) {
 
         Date birthDate;
-        String userName = req.getParameter("userName");
-        double creditLimit = parseDouble(req.getParameter("creditLimit"));
+        user.setUserName(req.getParameter("userName"));
+        user.setCreditLimit(parseDouble(req.getParameter("creditLimit")));
         String birthDateString = req.getParameter("birthDate");
         try {
-            birthDate= new SimpleDateFormat("dd/MM/yyyy").parse(birthDateString);
-        }catch (Exception e){birthDate = new Date(2001, 11, 26);}
-        String job = req.getParameter("job");
-        String PhoneNumber = req.getParameter("phoneNumber");
-        UserDTO user = new UserDTO(userName ,creditLimit,job,birthDate,PhoneNumber);
+            birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(birthDateString);
+        } catch (Exception e) {
+            birthDate = new Date(2001, 11, 26);
+        }
+        user.setBirthday(birthDate);
+        user.setJob(req.getParameter("job"));
+        user.setPhoneNumber(req.getParameter("phoneNumber"));
         return user;
     }
 
