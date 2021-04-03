@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="site-wrap">
+<body class="site-wrap" onload="add()">
 
 
 <%@include file="../toInclude/header.jsp" %>
@@ -74,25 +74,25 @@
                     <div>
                         <h1 class="h4 text-gray-900 mb-4" STYLE="text-align: center; "> Addresses</h1>
                         <form class="user">
-                            <ul id="Addresses" style=" list-style-type: none;">
-                                <li>
-                                    <input type="radio" id="address1" name="address" style="margin-top: 10%">
-                                    <label for="address1"> Dokki, Cairo, Egypt</label><br>
-                                    <!-- Divider -->
-                                    <hr class="sidebar-divider my-0">
-                                </li>
-                                <li>
-                                    <input type="radio" id="address2" name="address" style="margin-top: 10%">
-                                    <label for="address2">Zahabia, Hurghada, Egypt</label><br>
-                                    <!-- Divider -->
-                                    <hr class="sidebar-divider my-0">
-                                </li>
-                                <li>
-                                    <input type="radio" id="address3" name="address" style="margin-top:10%">
-                                    <label for="address3">Campcheaser,Alexandia, Egypt</label><br>
-                                    <!-- Divider -->
-                                    <hr class="sidebar-divider my-0">
-                                </li>
+                            <ul id="Addresses" style=" list-style-type: none;" >
+<%--                                <li>--%>
+<%--                                    <input type="radio" id="address1" name="address" style="margin-top: 10%">--%>
+<%--                                    <label for="address1"> Dokki, Cairo, Egypt</label><br>--%>
+<%--                                    <!-- Divider -->--%>
+<%--                                    <hr class="sidebar-divider my-0">--%>
+<%--                                </li>--%>
+<%--                                <li>--%>
+<%--                                    <input type="radio" id="address2" name="address" style="margin-top: 10%">--%>
+<%--                                    <label for="address2">Zahabia, Hurghada, Egypt</label><br>--%>
+<%--                                    <!-- Divider -->--%>
+<%--                                    <hr class="sidebar-divider my-0">--%>
+<%--                                </li>--%>
+<%--                                <li>--%>
+<%--                                    <input type="radio" id="address3" name="address" style="margin-top:10%">--%>
+<%--                                    <label for="address3">Campcheaser,Alexandia, Egypt</label><br>--%>
+<%--                                    <!-- Divider -->--%>
+<%--                                    <hr class="sidebar-divider my-0">--%>
+<%--                                </li>--%>
                             </ul>
 
 
@@ -212,37 +212,19 @@
 <script src="layout/js/owl.carousel.min.js"></script>
 <script src="layout/js/jquery.magnific-popup.min.js"></script>
 <script src="js/sb-admin-2.js"></script>
-<script>
-    (function () {
-        'use strict'
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                }, false)
-            })
-    })()
-
-    function appendAddress() {
-
-        var node = document.createElement("LI");
-
-        node.innerHTML = ('<input type="radio" id="address1" name="address" style="margin-top: 10%"> <label for="address1">' + document.getElementById("exampleInputAddress").value + '</label><!-- Divider --><hr class="sidebar-divider my-0">');
-
-        document.getElementById("Addresses").appendChild(node);
-
-    }
-</script>
+<script src="layout/js/addressScript.js"></script>
 
 </body>
-
+<script>
+    function add(){
+        var allAddresses = ${sessionScope.currentUser.addresses}
+            console.log(allAddresses);
+        var i;
+        for (i=0;i<allAddresses.length;i++){
+            var node = document.createElement("LI");
+            var nodevalue =  allAddresses[i];
+            node.innerHTML = ('<input type="radio" id="address1" name="address" style="margin-top: 10%"> <label for="address1">' + nodevalue + '</label><!-- Divider --><hr class="sidebar-divider my-0">');
+            document.getElementById("Addresses").appendChild(node);
+    }}
+</script>
 </html>
