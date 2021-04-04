@@ -60,9 +60,10 @@ $(function () {
                         });
                     },
                     insertItem: function (item) {
+                        console.log(item);
                         return $.ajax({
-                            type: "GET",
-                            url: "ProductsServlet?action=insert",
+                            type: "POST",
+                            url: "ProductsServlet",
                             data: item
                         });
                     },
@@ -121,15 +122,12 @@ $(function () {
                             return $("<img>").attr("src", val).css({height: 50, width: 50});
                         },
                         insertTemplate: function () {
-                            this.insertForm = $("<form>").prop("enctype","multipart/form-data");
                             this.insertControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
-                            this.insertForm.empty().append(this.insertControl);
-                            return this.insertForm;
+                            return this.insertControl;
                         },
                         insertValue: function () {
                             if (this.insertControl[0].files[0] != undefined)
-                                return this.insertForm.serialize();
-                                // return "layout/images/" + this.insertControl[0].files[0].name;
+                                return "layout/images/" + this.insertControl[0].files[0].name;
                             //TODO add default Image
                             else return "layout/images/children.jpg";
 

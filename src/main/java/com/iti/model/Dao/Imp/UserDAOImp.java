@@ -81,40 +81,31 @@ public class UserDAOImp implements UserDao {
     @Override
     public List<UserDTO> retrieveFilteredUsers(UserDTO userFilter) {
 
-//        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-//        CriteriaQuery<UserDetails> criteriaQuery = criteriaBuilder.createQuery(UserDetails.class);
-//        Root<UserDetails> userRoot = criteriaQuery.from(UserDetails.class);
-//
-//
-//        Predicate predicate = criteriaBuilder.conjunction();
-//        if (userFilter.get() > 0)
-//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("productId"), userFilter.getProductId()));
-//        if (userFilter.getCategory().length() > 0)
-//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("category"), userFilter.getCategory()));
-//        if (userFilter.getColor().length() > 0)
-//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("color"), userFilter.getColor()));
-//        if (userFilter.getQuantity() > 0)
-//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("quantity"), userFilter.getQuantity()));
-////            if (filteredProduct.getDescription().length()>0)
-////                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("description"), filteredProduct.getDescription()));
-////            if (filteredProduct.getFirstImg().length()>0)
-////                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("firstImg"), filteredProduct.getFirstImg()));
-//        if (userFilter.getPrice() > 0)
-//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("price"), userFilter.getPrice()));
-////            if (filteredProduct.getSecondImg().length()>0)
-////                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("secondImg"), filteredProduct.getSecondImg()));
-//        if (userFilter.getSize().length() > 0)
-//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("size"), userFilter.getSize()));
-//        if (userFilter.getType().length() > 0)
-//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("type"), userFilter.getType()));
-//
-//        criteriaQuery.where(predicate);
-//
-//
-//        List<Product> products = entityManager.createQuery(criteriaQuery).getResultList();
-//
-//        return products;
-        return null;
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<UserDetails> criteriaQuery = criteriaBuilder.createQuery(UserDetails.class);
+        Root<UserDetails> userRoot = criteriaQuery.from(UserDetails.class);
+
+
+        Predicate predicate = criteriaBuilder.conjunction();
+        if (userFilter.getId() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("productId"), userFilter.getId()));
+        if (userFilter.getUserName().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("category"), userFilter.getUserName()));
+        if (userFilter.getPhoneNumber().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("color"), userFilter.getPhoneNumber()));
+        if (userFilter.getCreditLimit() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("quantity"), userFilter.getCreditLimit()));
+        if (userFilter.getEmail().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("price"), userFilter.getEmail()));
+        if (userFilter.getRole().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("size"), userFilter.getRole()));
+
+        criteriaQuery.where(predicate);
+
+
+        List<UserDetails> users = entityManager.createQuery(criteriaQuery).getResultList();
+
+        return users;
 
     }
 
