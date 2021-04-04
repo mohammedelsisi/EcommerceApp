@@ -23,6 +23,7 @@ public class ProductsTable extends HttpServlet {
         ProductDTO filter = new ProductDTO();
 
 
+
         if (request.getParameter("prodID") != null)
             filter.setProdID(Long.parseLong(request.getParameter("prodID")));
         filter.setProdType(request.getParameter("prodType"));
@@ -33,6 +34,7 @@ public class ProductsTable extends HttpServlet {
             filter.setProdQuantity(Integer.parseInt(request.getParameter("prodQuantity")));
 
         filter.setFirstProdImg(request.getParameter("firstProdImg"));
+        System.out.println(filter.getFirstProdImg());
         filter.setSecondProdImg(request.getParameter("secondProdImg"));
 
         if (request.getParameter("productPrice") != null)
@@ -82,6 +84,7 @@ public class ProductsTable extends HttpServlet {
             case "insert": {
                 ProductDTO productToInsert = getProductFromRequest(request);
                 Boolean status = productsService.insertProduct(productToInsert);
+                System.out.println(status);
                 break;
             }
             case "delete": {
@@ -93,12 +96,5 @@ public class ProductsTable extends HttpServlet {
         }
 
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductsService productsService = (ProductsService) request.getServletContext().getAttribute("ProductsService");
-        ProductDTO productToInsert = getProductFromRequest(request);
-        Boolean status = productsService.insertProduct(productToInsert);
     }
 }

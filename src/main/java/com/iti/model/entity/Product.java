@@ -134,7 +134,7 @@ public class Product implements java.io.Serializable {
     }
 
 
-    @Column(name="first_img", nullable=false, length=45)
+    @Column(name="first_img", nullable=false)
     public String getFirstImg() {
         return this.firstImg;
     }
@@ -144,7 +144,7 @@ public class Product implements java.io.Serializable {
     }
 
 
-    @Column(name="second_img", length=45)
+    @Column(name="second_img")
     public String getSecondImg() {
         return this.secondImg;
     }

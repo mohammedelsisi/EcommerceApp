@@ -183,6 +183,7 @@ public class ProductDaoImp implements ProductDao {
 
     @Override
     public Boolean insertProduct(Product insertingProduct) {
+        System.out.println("#### Inserted Products" + insertingProduct );
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(insertingProduct);
@@ -190,6 +191,7 @@ public class ProductDaoImp implements ProductDao {
             return true;
             //TODO check exception type
         } catch (RuntimeException e) {
+            e.printStackTrace();
             entityManager.getTransaction().rollback();
             return false;
         }
