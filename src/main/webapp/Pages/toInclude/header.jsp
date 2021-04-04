@@ -46,7 +46,7 @@
             display: block;
         }
 
-        .modal {
+        .modal2 {
             width: 100%;
             height: 100%;
             margin-top: 40%;
@@ -203,7 +203,7 @@
 </header>
 <body>
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade modal2" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true" style=" position: absolute;
      float: left;
      left: 50%;
