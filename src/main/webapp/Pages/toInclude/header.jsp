@@ -20,9 +20,9 @@
     window.console.error = function () {
 
     }
-    window.console.log = function () {
+    // window.console.log = function () {
 
-    }
+   // }
 
 
 </script>

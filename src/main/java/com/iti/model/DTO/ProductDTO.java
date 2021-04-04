@@ -12,8 +12,8 @@ public class ProductDTO  {
     private String category;
     private String color;
 
-    public ProductDTO(String prodDescription, String firstProdImg, double prodPrice) {
-        this.prodDescription = prodDescription;
+    public ProductDTO(String prodType, String firstProdImg, double prodPrice) {
+        this.prodType = prodType;
         this.firstProdImg = firstProdImg;
         this.productPrice = prodPrice;
     }
