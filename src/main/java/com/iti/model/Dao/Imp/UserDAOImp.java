@@ -9,6 +9,10 @@ import com.iti.model.entity.*;
 import com.iti.persistence.DatabaseManager;
 
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.xml.crypto.Data;
 import java.time.LocalDate;
 import java.util.*;
@@ -33,6 +37,11 @@ public class UserDAOImp implements UserDao {
             entityManager.close();
 
         }
+    }
+
+    @Override
+    public void editUserRole() {
+        //
     }
 
     @Override
@@ -68,16 +77,45 @@ public class UserDAOImp implements UserDao {
         }
     }
 
-    @Override
-    public List<UserDTO> retriveall() {
-
-        //TODO access ORM to Retrieve Users
-        return null;
-    }
 
     @Override
     public List<UserDTO> retrieveFilteredUsers(UserDTO userFilter) {
+
+//        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+//        CriteriaQuery<UserDetails> criteriaQuery = criteriaBuilder.createQuery(UserDetails.class);
+//        Root<UserDetails> userRoot = criteriaQuery.from(UserDetails.class);
+//
+//
+//        Predicate predicate = criteriaBuilder.conjunction();
+//        if (userFilter.get() > 0)
+//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("productId"), userFilter.getProductId()));
+//        if (userFilter.getCategory().length() > 0)
+//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("category"), userFilter.getCategory()));
+//        if (userFilter.getColor().length() > 0)
+//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("color"), userFilter.getColor()));
+//        if (userFilter.getQuantity() > 0)
+//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("quantity"), userFilter.getQuantity()));
+////            if (filteredProduct.getDescription().length()>0)
+////                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("description"), filteredProduct.getDescription()));
+////            if (filteredProduct.getFirstImg().length()>0)
+////                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("firstImg"), filteredProduct.getFirstImg()));
+//        if (userFilter.getPrice() > 0)
+//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("price"), userFilter.getPrice()));
+////            if (filteredProduct.getSecondImg().length()>0)
+////                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("secondImg"), filteredProduct.getSecondImg()));
+//        if (userFilter.getSize().length() > 0)
+//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("size"), userFilter.getSize()));
+//        if (userFilter.getType().length() > 0)
+//            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("type"), userFilter.getType()));
+//
+//        criteriaQuery.where(predicate);
+//
+//
+//        List<Product> products = entityManager.createQuery(criteriaQuery).getResultList();
+//
+//        return products;
         return null;
+
     }
 
 

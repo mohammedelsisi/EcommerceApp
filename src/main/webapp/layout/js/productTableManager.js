@@ -121,11 +121,15 @@ $(function () {
                             return $("<img>").attr("src", val).css({height: 50, width: 50});
                         },
                         insertTemplate: function () {
-                            return this.insertControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
+                            this.insertForm = $("<form>").prop("enctype","multipart/form-data");
+                            this.insertControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
+                            this.insertForm.empty().append(this.insertControl);
+                            return this.insertForm;
                         },
                         insertValue: function () {
                             if (this.insertControl[0].files[0] != undefined)
-                                return "layout/images/" + this.insertControl[0].files[0].name;
+                                return this.insertForm.serialize();
+                                // return "layout/images/" + this.insertControl[0].files[0].name;
                             //TODO add default Image
                             else return "layout/images/children.jpg";
 
@@ -210,7 +214,7 @@ $(function () {
                         title: "Color",
                         type: "text",
                         width: 50,
-                        align: "center",
+                            align: "center",
                         validate: "required"
                     },
 

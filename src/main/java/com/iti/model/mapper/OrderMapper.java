@@ -43,7 +43,7 @@ public class OrderMapper {
                     cart.setProductID(prod.getProductId());
                     cart.setItemPrice(prod.getPrice());
                     cart.setItemImg(prod.getFirstImg());
-                    cart.setItemQuantity(prod.getQuantity());
+                    cart.setItemQuantity(orderHasProducts.getQuantity());
                     cart.setItemType(prod.getType());
                     products.add(cart);
                 });

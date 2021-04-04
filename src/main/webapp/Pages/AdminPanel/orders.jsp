@@ -26,6 +26,30 @@
 
   <!-- Custom styles for this template-->
   <link type="text/css" rel="stylesheet" href="layout/css/sb-admin-2.css">
+  <style>
+    #products {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+    }
+
+    #products td, #products th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #products tr:nth-child(even){background-color: #f2f2f2;}
+
+    #products tr:hover {background-color: #ddd;}
+
+    #products th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      background-color: #4e73df;
+      color: white;
+    }
+  </style>
 
 </head>
 
@@ -55,6 +79,10 @@
 
         <%--Page Content Goes here--%>
         <div id="jsGrid"></div>
+
+          <div id="detailsDialog">
+          <div id="proddata"></div>
+          </div>
 
       </div>
       <!-- /.container-fluid -->

@@ -1,8 +1,10 @@
+
 $(function () {
 
     var MyDateField = function(config) {
         jsGrid.Field.call(this, config);
     };
+
 
     MyDateField.prototype = new jsGrid.Field({
         sorter: function(date1, date2) {
@@ -31,6 +33,9 @@ $(function () {
         autoload: true,
         pageSize: 20,
         pageButtonCount: 5,
+        rowClick: function(args) {
+            showDetailsDialog(args);
+        },
         controller: {
             loadData: function (filter) {
                 console.log(filter)
@@ -79,5 +84,44 @@ $(function () {
             { type: "control", editButton: false, modeSwitchButton: true, deleteButton:false }
         ]
     });
+
+    $("#detailsDialog").dialog({
+        autoOpen: false,
+        width: 800,
+        close: function() {
+            // $("#detailsForm").validate().resetForm();
+            // $("#detailsForm").find(".error").removeClass("error");
+        }
+    });
+    var showDetailsDialog = function(arg) {
+        var table = "<table id = 'products'><thead><tr><th>ID</th><th>Img</th><th>Price</th><th>Quantity</th><th>Type</th></thead></tr>";
+        $.each(arg.item.items, function (key, value) {
+
+            table += '<tr>';
+
+            table += '<td>' +
+                value.productID + '</td>';
+
+            table += "<td><img src ="+value.itemImg+" alt='prod image' height= '50' width: '50' />"
+                 + '</td>';
+
+            table += '<td>' +
+                value.itemPrice + '</td>';
+
+            table += '<td>' +
+                value.itemQuantity + '</td>';
+
+            table += '<td>' +
+                value.itemType + '</td>';
+
+            table += '</tr>';
+        });
+        table+="</table";
+
+        $("#proddata").empty().append(table);
+
+        $("#detailsDialog").dialog("option", "title", "Order "+arg.item.id + " Details!")
+            .dialog("open");
+    };
 
 });

@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +21,16 @@ public class ProductsTable extends HttpServlet {
 
     private static ProductDTO getProductFromRequest(HttpServletRequest request) {
         ProductDTO filter = new ProductDTO();
+        Part filePart = null;
+        try {
+            filePart = request.getPart("firstProdImg");
+        } catch (IOException|ServletException e) {
+            e.printStackTrace();
+        }
+        String fileName = filePart.getSubmittedFileName();
+        System.out.println(fileName);
+
+
 
 
         if (request.getParameter("prodID") != null)

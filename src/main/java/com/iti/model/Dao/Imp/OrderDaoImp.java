@@ -31,10 +31,8 @@ public class OrderDaoImp implements OrderDao {
         Root<OrderDetail> orderRoot = orderQuery.from(OrderDetail.class);
 
 //        Subquery sub = orderQuery.subquery(String.class);
-//        Root subRoot = sub.from(UserDetails.class);
-//        SetJoin<UserDetails,OrderDetail> subOrders = subRoot.join()
-//        <UserDetails> emailQuery = cb.createQuery(UserDetails.class);
-//        Root<UserDetails> userRoot = emailQuery.from(UserDetails.class);
+//        Root<UserDetails> subqueryuser = sub.from(UserDetails.class);
+//        sub.select(cb.equal(subqueryuser.get("email"), "%"+filter.getEmail()+"%"));
 
 
 
@@ -47,8 +45,13 @@ public class OrderDaoImp implements OrderDao {
             if (filter.getSelectedAddress().length() > 0)
                 predicate = cb.and(predicate, cb.like(orderRoot.get("selectedAddress"), "%"+filter.getSelectedAddress()+"%"));
 
-//            if (filter.getEmail().length() > 0)
-//                predicate = cb.and(predicate, cb.like(userRoot.get("email"), "%"+filter.getEmail()+"%"));
+            if (filter.getEmail().length() > 0) {
+                Subquery sub = orderQuery.subquery(String.class);
+                Root<UserDetails> subqueryuser = sub.from(UserDetails.class);
+                Subquery emailQurey = sub.select(subqueryuser).where(cb.like(subqueryuser.get("email"),"%"+filter.getEmail()+"%"));
+
+                predicate = cb.and(predicate,cb.equal(emailQurey,orderRoot.get("userDetails")));
+            }
 
             if (filter.getPurchaseDate() != null) {
                 Calendar c = Calendar.getInstance();

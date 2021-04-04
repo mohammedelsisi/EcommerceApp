@@ -14,7 +14,7 @@ public interface UserDao {
    boolean insertUser(UserDetails u);
 
    boolean isUserEmail(String email);
-   List<UserDTO> retriveall();
+
    List<UserDTO> retrieveFilteredUsers(UserDTO userFilter);
    List<RoleUser> getRoles();
 
@@ -22,18 +22,9 @@ public interface UserDao {
    void close();
 
 
+   void  editUserRole();
 
    boolean changePassword(String oldpassword, String newpassword);
-
-//   boolean editName(String name);
-//
-//   boolean editCreditLimit(Double credit);
-//
-//   boolean editBirthDate(Date birthdate);
-//
-//   boolean editJob(String job);
-//
-//   String selectAddress(int selectedAddress);
 
    boolean addAddress(String Address);
 
