@@ -41,7 +41,7 @@ public class searchFilter implements Filter {
         else {
 
         }
-        if (filters == null || (!servletPath.contains("Shop")) && !servletPath.contains("layout")) {
+        if (filters == null || (!servletPath.contains("Shop")) && !servletPath.contains("layout")&& !servletPath.contains("AddToCart") && !servletPath.contains("ProductItem") && !servletPath.contains("ProductItemJsp")) {
             ProductFilter emptyFilter = ProductFilter.getEmptyFilter();
             httpServletRequest.getSession().setAttribute("Filters", emptyFilter);
         }

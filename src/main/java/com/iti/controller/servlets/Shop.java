@@ -25,8 +25,13 @@ public class Shop extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         HttpSession httpSession = req.getSession();
         ProductFilter productFilter = (ProductFilter) httpSession.getAttribute("Filters");
+        String categoryFilter = req.getParameter("Categoryy");
+        if(categoryFilter!=null){
+            productFilter.getCategories().add(categoryFilter);
+        }
         System.out.println(productFilter);
         String page = req.getParameter("page");
         int n;
