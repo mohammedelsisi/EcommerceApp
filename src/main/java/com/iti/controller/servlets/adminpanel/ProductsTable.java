@@ -28,7 +28,7 @@ public class ProductsTable extends HttpServlet {
             filter.setProdID(Long.parseLong(request.getParameter("prodID")));
         filter.setProdType(request.getParameter("prodType"));
 
-        filter.setProdDescription(request.getParameter("prodDesc"));
+        filter.setProdDescription(request.getParameter("prodDescription"));
 
         if (request.getParameter("prodQuantity") != null)
             filter.setProdQuantity(Integer.parseInt(request.getParameter("prodQuantity")));

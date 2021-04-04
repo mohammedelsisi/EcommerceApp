@@ -10,8 +10,6 @@ $(function () {
                 return obj;
             });
 
-             console.log(Roles);
-
          },
          error:function (){
             console.log("error")
@@ -30,6 +28,7 @@ $(function () {
              pageButtonCount: 5,
              controller: {
                  loadData: function (filter) {
+                     console.log(filter);
                      return $.ajax({
                          type: "GET",
                          url: "UsersServlet?action=load",
@@ -58,11 +57,6 @@ $(function () {
                      title: "ID",
                      type: "number",
                      editing: false,
-                     validate: {
-                         validator: "min",
-                         message: "Product ID must be above 0",
-                         param: 0
-                     },
                      align: "center",
                      width: 40
                  },
@@ -76,24 +70,10 @@ $(function () {
                      validate: "required"
                  },
                  {
-                     name: "image",
-                     title: "Image",
-                     itemTemplate: function (val, item) {
-                         return $("<img>").attr("src", val).css({height: 50, width: 50});
-                     },
-                     align: "center",
-                     width: 50
-                 },
-                 {
                      name: "creditLimit",
                      title: "Limit",
                      type: "number",
                      editing: false,
-                     validate: {
-                         validator: "min",
-                         message: "Product ID must be above 0",
-                         param: 0
-                     },
                      align: "center",
                      width: 50
                  },
@@ -122,13 +102,15 @@ $(function () {
                      items: Roles,
                      valueField: "name",
                      textField: "name",
+                     validate: function(value, item) {
+                         return value.length >0;
+                     },
                      width: 50,
                      align: "center",
                      validate: "required"
                  },
 
-                 {type: "control"}
-             ]
+                 { type: "control", editButton: true, modeSwitchButton: true, deleteButton:false }             ]
          })
 
      });

@@ -33,6 +33,7 @@ public class UserMapper {
         userDetails.setPhoneNumber(userDTO.getPhoneNumber());
         userDetails.setRole(userDTO.getRole().name());
         userDetails.setUserName(userDTO.getUserName());
+        if(userDTO.getInterests() != null)
         userDetails.setInterests(userDTO.getInterests().stream().map(Interest::new).collect(Collectors.toSet()));
         return userDetails;
     }

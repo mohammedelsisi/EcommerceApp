@@ -15,8 +15,8 @@ public interface UserDao {
 
    boolean isUserEmail(String email);
 
-   List<UserDTO> retrieveFilteredUsers(UserDTO userFilter);
-   List<RoleUser> getRoles();
+   List<UserDetails> retrieveFilteredUsers(UserDetails userFilter);
+   List<String> getRoles();
 
    UserDetails getUser(String userEmail, String userPassword);
    void close();
@@ -32,4 +32,5 @@ public interface UserDao {
 
    boolean EditProfile (UserDTO user);
 
+   boolean updateUserRole(UserDetails userToUpdate);
 }

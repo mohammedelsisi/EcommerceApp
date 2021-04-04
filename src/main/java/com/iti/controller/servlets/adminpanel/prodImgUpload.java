@@ -13,7 +13,7 @@ import jakarta.servlet.http.Part;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-@WebServlet("/firstImageUpload")
+@WebServlet("/ImageUpload")
 @MultipartConfig
 public class prodImgUpload extends HttpServlet {
 
@@ -21,7 +21,7 @@ public class prodImgUpload extends HttpServlet {
     @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             //TODO change Path to another place on the servver
-            Part filePart = request.getPart("firstImg");
+            Part filePart = request.getPart("img");
             String realPath = request.getServletContext().getRealPath("");
             String fileName = filePart.getSubmittedFileName();
             String toSave = "layout/images/products/";
