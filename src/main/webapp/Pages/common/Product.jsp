@@ -119,8 +119,8 @@
                 </div>
                 <div style="text-align: center" class="modal-body">${item.prodType} was added to your cart</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
                     <a href="Cart" type="button" class="btn btn-primary">Go to Cart</a>
+                    <a href="Shop" type="button" class="btn btn-secondary">Continue Shopping</a>
                 </div>
             </div>
         </div>

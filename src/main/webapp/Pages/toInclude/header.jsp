@@ -109,7 +109,7 @@
                             <li><a href="#"></a></li>
                             <c:choose>
                                 <c:when test="${sessionScope.login==true}">
-                                    <li><a href="#"><span class="icon icon-person"></span></a></li>
+                                    <li><a href="Profile"><span class="icon icon-person"></span></a></li>
                                 </c:when>
                                 <c:otherwise>
                                     <li><a href="#"></a>
@@ -163,7 +163,7 @@
                 <c:if test="${not empty sessionScope.currentUser}">
 
                     <div class="dropdown">
-                        <a href="#">PROFILE</a>
+                        <a>PROFILE</a>
                         <div class="dropdown-content">
                             <lu style="list-style-type: none;">
                                 <li class="nav-item" >
