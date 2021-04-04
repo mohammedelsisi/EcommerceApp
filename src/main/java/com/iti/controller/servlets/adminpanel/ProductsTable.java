@@ -21,15 +21,6 @@ public class ProductsTable extends HttpServlet {
 
     private static ProductDTO getProductFromRequest(HttpServletRequest request) {
         ProductDTO filter = new ProductDTO();
-        Part filePart = null;
-        try {
-            filePart = request.getPart("firstProdImg");
-        } catch (IOException|ServletException e) {
-            e.printStackTrace();
-        }
-        String fileName = filePart.getSubmittedFileName();
-        System.out.println(fileName);
-
 
 
 
@@ -43,6 +34,7 @@ public class ProductsTable extends HttpServlet {
             filter.setProdQuantity(Integer.parseInt(request.getParameter("prodQuantity")));
 
         filter.setFirstProdImg(request.getParameter("firstProdImg"));
+        System.out.println(filter.getFirstProdImg());
         filter.setSecondProdImg(request.getParameter("secondProdImg"));
 
         if (request.getParameter("productPrice") != null)

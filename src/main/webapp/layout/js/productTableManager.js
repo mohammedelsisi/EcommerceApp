@@ -60,6 +60,7 @@ $(function () {
                         });
                     },
                     insertItem: function (item) {
+                        console.log(item)
                         return $.ajax({
                             type: "GET",
                             url: "ProductsServlet?action=insert",
@@ -121,15 +122,36 @@ $(function () {
                             return $("<img>").attr("src", val).css({height: 50, width: 50});
                         },
                         insertTemplate: function () {
-                            this.insertForm = $("<form>").prop("enctype","multipart/form-data");
-                            this.insertControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
+                            this.insertForm = $("<form id='firstImgForm'>").prop("method","post").prop("enctype","multipart/form-data");
+                            this.insertControl = $("<input name='firstImg'>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
                             this.insertForm.empty().append(this.insertControl);
                             return this.insertForm;
                         },
                         insertValue: function () {
-                            if (this.insertControl[0].files[0] != undefined)
-                                return this.insertForm.serialize();
-                                // return "layout/images/" + this.insertControl[0].files[0].name;
+                            if (this.insertControl[0].files[0] != undefined){
+                                $("#firstImgForm").submit(function (e) {
+                                    console.log("Submitting Img")
+                                    e.preventDefault();
+                                    var formData = new FormData(this);
+
+                                    $.ajax({
+                                        url: "firstImageUpload",
+                                        type: 'POST',
+                                        data: formData,
+                                        success: function () {
+                                            console.log("photo sent")
+
+                                        },
+                                        cache: false,
+                                        contentType: false,
+                                        processData: false
+                                    });
+                                });
+                                $("#firstImgForm").submit();
+                                console.log("sssss")
+                                return "layout/images/products/" + this.insertControl[0].files[0].name;
+                            }
+                                // return this.insertForm.serialize();
                             //TODO add default Image
                             else return "layout/images/children.jpg";
 
@@ -224,4 +246,5 @@ $(function () {
 
         })
     })
+
 });
