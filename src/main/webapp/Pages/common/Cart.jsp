@@ -76,7 +76,7 @@
                                             <input id="counter${i.productID}" name="cartItem" type="text"
                                                    class="form-control text-center cartItem" value="${i.itemQuantity}"
                                                    placeholder="" aria-label="Example text with button addon"
-                                                   aria-describedby="button-addon1">
+                                                   aria-describedby="button-addon1" onkeypress="checkNegative('counter${i.productID}')" >
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-primary js-btn-plus" type="button"
                                                         onclick="updateAddTotal('counter${i.productID}','td${i.productID}',${i.itemPrice})">

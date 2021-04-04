@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class ProductTag extends SimpleTagSupport {
     private String img;
-    private String desc;
+    private String type;
     private String src;
     private double price;
 
@@ -20,12 +20,12 @@ public class ProductTag extends SimpleTagSupport {
         this.img = img;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getType() {
+        return type;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getSrc() {
@@ -54,7 +54,7 @@ public class ProductTag extends SimpleTagSupport {
         out.println("</figure>");
         out.println("<div class=\"block-4-text p-4\">");
         //out.println(" <h3><a href=\"#\">"+src+"</a></h3>");
-        out.println("  <p class=\"mb-0\">"+desc+"</p>");
+        out.println("  <p class=\"mb-0\">"+type+"</p>");
         out.println("  <p class=\"text-primary font-weight-bold\">"+"$"+price+"</p>");
         out.println("</div>");
         out.println("</div>");
