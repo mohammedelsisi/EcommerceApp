@@ -166,18 +166,8 @@
                                     </table>
 
                                     <div class="border p-3 mb-5">
-
-                                        <input type="radio" class="btn-check" name="options" id="option1"
-                                               autocomplete="off" checked>
-                                        <label class="btn btn-secondary" for="option1"><h3 class="h6 mb-0"><a
-                                                class="d-block" data-toggle="collapse" href="#collapsebank"
-                                                role="button" aria-expanded="false"
-                                                aria-controls="collapsebank">Using Cash</a></h3>
-                                        </label>
-                                    </div>
-                                    <div class="border p-3 mb-5">
                                         <input type="radio" class="btn-check" name="options" id="option2"
-                                               autocomplete="off" checked>
+                                               autocomplete="off" value="wallet" checked>
                                         <label class="btn btn-secondary" for="option2"><h3 class="h6 mb-0"><a
                                                 class="d-block" data-toggle="collapse" href="#collapsebank"
                                                 role="button" aria-expanded="false"

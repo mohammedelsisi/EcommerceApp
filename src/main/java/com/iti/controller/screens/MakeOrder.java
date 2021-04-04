@@ -72,6 +72,7 @@ public class MakeOrder extends HttpServlet {
         List<CartItemDTO> cart = new ArrayList<>();
         req.getSession().setAttribute("Cart", cart);
         userDTO.setCreditLimit(userDTO.getCreditLimit() - orderDTO.getTotalAmount());
+
         userDTO = profileService.editProfile(userDTO);
         req.getSession().setAttribute("currentUser", userDTO);
         writer.write(gson.toJson(success));
