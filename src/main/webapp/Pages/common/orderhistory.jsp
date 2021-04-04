@@ -86,11 +86,12 @@
                 <div class="user_card" style="
     width:80%;
     /*margin-top: auto;*/
-    margin-bottom: auto;
+    /*margin-bottom: auto;*/
     background: #ffffff;
     position: relative;
-    display: flex;
+    /*display: flex;*/
     flex-direction: column;
+    overflow:auto;
     padding: 0 5%;
     padding-top: 6%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -104,16 +105,18 @@
                         <tr>
                             <th scope="col">Order Id</th>
                             <th scope="col">Date Added</th>
+                            <th scope="col">Address</th>
                             <th scope="col">Total Amount</th>
                             <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <c:forEach items="${requestScope.orders}" var="order">
+                        <c:forEach items="${sessionScope.currentUser.orders}" var="order">
                             <tr>
                                 <th scope="row">${order.id}</th>
                                 <td>${order.purchaseDate}</td>
+                                <td>${order.selectedAddress}</td>
                                 <td>$${order.totalAmount}</td>
                                 <td align="center">
                                     <button data-target="#myModal${order.id}"  data-toggle="modal" data-placement="top" title="View Order History" class="btn btn-info btn-lg">

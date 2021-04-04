@@ -86,13 +86,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="c_country" class="text-black">Address<span
+                                <label for="c_country" class="text-black">Address (to add new address go to <a href="Address">Profile</a>) <span
                                         class="text-danger">*</span></label>
                                 <select id="c_country" class="form-control" required>
                                     <option value="">Choose Address</option>
-                                    <option value="1">First Address</option>
-                                    <option value="2">Second Address</option>
-                                    <option value="3">Third Address</option>
+                                    <c:forEach items="${sessionScope.currentUser.addresses}" var="address">
+                                        <option value="${address}">${address}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
 
