@@ -1,4 +1,4 @@
-![](images/Capture.PNG)
+![](images/WhatsApp%20Image%202021-04-06%20at%2012.24.22%20AM.jpeg)
 
 Welcome to Naseej store web App.
 
@@ -32,12 +32,17 @@ Git (GitHub)
 
 Hosted on http://naseejstore.sytes.net/
 
-Refer to app.png for the entity model 
+Refer to ![](images/WhatsApp%20Image%202021-04-05%20at%2011.46.27%20PM.jpeg) for the entity model 
 
 
-The Project file structure (architecture) Referd to in app2.png
+The Project file structure (architecture) Referd to in ![](Capture11.PNG)
 
-Screen Shots from the application mobile view and wide screen view is available from app3.png to app9.png
+Screen Shots from the application mobile view and wide screen view is available in 
+![](images/Capture.PNG)
+![](images/Capture10.PNG)
+![](images/WhatsApp%20Image%202021-04-05%20at%2011.49.49%20PM.jpeg)
+![](images/WhatsApp%20Image%202021-04-05%20at%2011.49.53%20PM.jpeg)
+![](images/Capture7.PNG)
   
 Team members:
 Mohamed Elsisi (Team leader)
