@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,16 +23,18 @@ public class ProductsTable extends HttpServlet {
         ProductDTO filter = new ProductDTO();
 
 
+
         if (request.getParameter("prodID") != null)
             filter.setProdID(Long.parseLong(request.getParameter("prodID")));
         filter.setProdType(request.getParameter("prodType"));
 
-        filter.setProdDescription(request.getParameter("prodDesc"));
+        filter.setProdDescription(request.getParameter("prodDescription"));
 
         if (request.getParameter("prodQuantity") != null)
             filter.setProdQuantity(Integer.parseInt(request.getParameter("prodQuantity")));
 
         filter.setFirstProdImg(request.getParameter("firstProdImg"));
+        System.out.println(filter.getFirstProdImg());
         filter.setSecondProdImg(request.getParameter("secondProdImg"));
 
         if (request.getParameter("productPrice") != null)

@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Home">
         <div class="sidebar-brand-icon ">
             <i class="fas fa-store"></i>
         </div>
@@ -28,9 +28,9 @@
     </div>
 
     <!-- Nav Item  -->
-    <li class="nav-item active">
+    <li class="nav-item">
         <%--      TODO fix the link- use Send redirct--%>
-        <a class="nav-link collapsed" href="#" data-toggle="collapse">
+        <a class="nav-link " href="proddata" >
             <i class="fas fa-fw fa-tshirt"></i>
             <span>Products</span>
         </a>
@@ -39,7 +39,7 @@
 
     <!-- Nav Item  -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse">
+        <a class="nav-link" href="ordersData" >
             <i class="fas fa-truck-moving"></i>
             <span>Orders</span>
         </a>
@@ -48,7 +48,7 @@
 
     <!-- Nav Item  -->
     <li class="nav-item ">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse">
+        <a class="nav-link " href="usersData" >
             <i class="fas fa-user"></i>
             <span>Users</span>
         </a>

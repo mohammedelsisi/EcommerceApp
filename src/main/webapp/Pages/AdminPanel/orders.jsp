@@ -20,8 +20,36 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+<%--  for custom field--%>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/cupertino/jquery-ui.css">
+
+
   <!-- Custom styles for this template-->
   <link type="text/css" rel="stylesheet" href="layout/css/sb-admin-2.css">
+  <style>
+    #products {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+    }
+
+    #products td, #products th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #products tr:nth-child(even){background-color: #f2f2f2;}
+
+    #products tr:hover {background-color: #ddd;}
+
+    #products th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      background-color: #4e73df;
+      color: white;
+    }
+  </style>
 
 </head>
 
@@ -51,6 +79,10 @@
 
         <%--Page Content Goes here--%>
         <div id="jsGrid"></div>
+
+          <div id="detailsDialog">
+          <div id="proddata"></div>
+          </div>
 
       </div>
       <!-- /.container-fluid -->
@@ -82,7 +114,10 @@
 <script type="text/javascript" src="layout/js/fontawesome.js"></script>
 <script type="text/javascript" src="layout/js/sb-admin-2.js"></script>
 <%-- Page custom scritps--%>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script type="text/javascript" src="layout/js/jsgrid.min.js"></script>
+
 <script type="text/javascript" src="layout/js/ordersTableManager.js"></script>
 
 

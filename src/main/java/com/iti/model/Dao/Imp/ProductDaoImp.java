@@ -17,11 +17,11 @@ import java.util.ListIterator;
 
 public class ProductDaoImp implements ProductDao {
     EntityManager entityManager;
-    ProductDTO p1 = new ProductDTO("t-shirt", "layout/images/cloth_1.jpg", 50);
-    ProductDTO p2 = new ProductDTO("t-shirt", "layout/images/cloth_2.jpg", 50);
-    ProductDTO p3 = new ProductDTO("t-shirt", "layout/images/cloth_3.jpg", 50);
-    ProductDTO p4 = new ProductDTO("t-shirt", "layout/images/cloth_1.jpg", 50);
-    ProductDTO p5 = new ProductDTO("t-shirt", "layout/images/cloth_2.jpg", 50);
+    ProductDTO p1 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_1.jpg", 50);
+    ProductDTO p2 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_2.jpg", 50);
+    ProductDTO p3 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_3.jpg", 50);
+    ProductDTO p4 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_1.jpg", 50);
+    ProductDTO p5 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_2.jpg", 50);
     private ProductDaoImp() {
         entityManager = DatabaseManager.getFactory().createEntityManager();
     }
@@ -42,7 +42,6 @@ public class ProductDaoImp implements ProductDao {
         String search = productFilter.getSearch();
         List<String> colors = productFilter.getColors();
         List<String> sizes = productFilter.getSizes();
-        List<String> cates = productFilter.getCategories();
         StringBuilder query = new StringBuilder();
         double minPrice = productFilter.getMinPrice();
         double maxPrice = productFilter.getMaxPrice();
@@ -75,18 +74,6 @@ public class ProductDaoImp implements ProductDao {
             }
             query.append(" and size in ( ").append(size).append(")");
         }
-        if (cates.size() > 0) {
-            StringBuilder cate = new StringBuilder();
-            for (int i = 0; i < cates.size(); i++) {
-
-                cate.append("'").append(cates.get(i));
-                cate.append("'");
-
-                if (i != cates.size() - 1)
-                    cate.append(", ");
-            }
-            query.append(" and category in ( ").append(cate).append(")");
-        }
         System.out.println(query);
         return entityManager.createQuery(query.toString(), Product.class).getResultList();
 
@@ -95,6 +82,7 @@ public class ProductDaoImp implements ProductDao {
     @Override
     public List<String> getSizes() {
         List<String> list = new ArrayList<>();
+
         list.add("Small");
         list.add("Medium");
         list.add("Large");
@@ -104,6 +92,7 @@ public class ProductDaoImp implements ProductDao {
     @Override
     public List<String> getColors() {
         List<String> list = new ArrayList<>();
+
         list.add("Red");
         list.add("Green");
         list.add("Blue");
@@ -120,6 +109,7 @@ public class ProductDaoImp implements ProductDao {
     @Override
     public List<String> getTypes() {
         List<String> list = new ArrayList<>();
+
         list.add("T-Shirt");
         list.add("Shirt");
         list.add("Cap");
@@ -190,63 +180,51 @@ public class ProductDaoImp implements ProductDao {
     public Product getProductById(long prodId) {
         return entityManager.createQuery("from Product where id =:prodId",Product.class).setParameter("prodId", prodId).getSingleResult();
     }
+
     @Override
     public List<Product> retrieveProductswithFilter(Product filteredProduct) {
-        System.out.println(filteredProduct);
+
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Product> criteriaQuery = criteriaBuilder.createQuery(Product.class);
         Root<Product> itemRoot = criteriaQuery.from(Product.class);
 
-        if (filteredProduct.getProductId() > 0) {
 
-            Predicate predicate = criteriaBuilder.equal(itemRoot.get("productId"), filteredProduct.getProductId());
-
-            if (filteredProduct.getCategory().length() > 0)
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(itemRoot.get("category"), filteredProduct.getCategory()));
-            if (filteredProduct.getColor().length() > 0)
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(itemRoot.get("color"), filteredProduct.getColor()));
-            if (filteredProduct.getQuantity() > 0)
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(itemRoot.get("quantity"), filteredProduct.getQuantity()));
+        Predicate predicate = criteriaBuilder.conjunction();
+        if (filteredProduct.getProductId() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("productId"), filteredProduct.getProductId()));
+        if (filteredProduct.getCategory().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("category"), filteredProduct.getCategory()));
+        if (filteredProduct.getColor().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("color"), filteredProduct.getColor()));
+        if (filteredProduct.getQuantity() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("quantity"), filteredProduct.getQuantity()));
 //            if (filteredProduct.getDescription().length()>0)
 //                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("description"), filteredProduct.getDescription()));
 //            if (filteredProduct.getFirstImg().length()>0)
 //                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("firstImg"), filteredProduct.getFirstImg()));
-            if (filteredProduct.getPrice() > 0)
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(itemRoot.get("price"), filteredProduct.getPrice()));
+        if (filteredProduct.getPrice() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("price"), filteredProduct.getPrice()));
 //            if (filteredProduct.getSecondImg().length()>0)
 //                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("secondImg"), filteredProduct.getSecondImg()));
-            if (filteredProduct.getSize().length() > 0)
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(itemRoot.get("size"), filteredProduct.getSize()));
-            if (filteredProduct.getType().length() > 0)
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(itemRoot.get("type"), filteredProduct.getType()));
+        if (filteredProduct.getSize().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("size"), filteredProduct.getSize()));
+        if (filteredProduct.getType().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(itemRoot.get("type"), filteredProduct.getType()));
 
-            criteriaQuery.where(predicate);
-        }
+        criteriaQuery.where(predicate);
+
 
         List<Product> products = entityManager.createQuery(criteriaQuery).getResultList();
 
         return products;
     }
-
     @Override
     public Boolean updateProduct(Product updatingProduct) {
         try {
             entityManager.getTransaction().begin();
-            Product prodToUpdate = entityManager.find(Product.class, updatingProduct.getProductId());
-            prodToUpdate.setType(updatingProduct.getType());
-            prodToUpdate.setColor(updatingProduct.getColor());
-            prodToUpdate.setCategory(updatingProduct.getCategory());
-            prodToUpdate.setPrice(updatingProduct.getPrice());
-            prodToUpdate.setQuantity(updatingProduct.getQuantity());
-            prodToUpdate.setFirstImg(updatingProduct.getFirstImg());
-            prodToUpdate.setSecondImg(updatingProduct.getSecondImg());
-            prodToUpdate.setSize(updatingProduct.getSize());
-            //TODO discuss description with Cici
-            prodToUpdate.setDescription(prodToUpdate.getDescription());
-            entityManager.merge(prodToUpdate);
+            entityManager.merge(updatingProduct);
             entityManager.getTransaction().commit();
             return true;
-            //TODO check exception type
         } catch (RuntimeException e) {
             entityManager.getTransaction().rollback();
             return false;
@@ -255,24 +233,18 @@ public class ProductDaoImp implements ProductDao {
 
     }
 
+
     @Override
     public Boolean insertProduct(Product insertingProduct) {
+        System.out.println("#### Inserted Products" + insertingProduct );
         try {
             entityManager.getTransaction().begin();
-            Product prodToInsert = new Product();
-            prodToInsert.setType(insertingProduct.getType());
-            prodToInsert.setColor(insertingProduct.getColor());
-            prodToInsert.setCategory(insertingProduct.getCategory());
-            prodToInsert.setPrice(insertingProduct.getPrice());
-            prodToInsert.setQuantity(insertingProduct.getQuantity());
-            prodToInsert.setFirstImg(insertingProduct.getFirstImg());
-            prodToInsert.setSecondImg(insertingProduct.getSecondImg());
-            prodToInsert.setSize(insertingProduct.getSize());
-            entityManager.persist(prodToInsert);
+            entityManager.persist(insertingProduct);
             entityManager.getTransaction().commit();
             return true;
             //TODO check exception type
         } catch (RuntimeException e) {
+            e.printStackTrace();
             entityManager.getTransaction().rollback();
             return false;
         }
@@ -282,8 +254,8 @@ public class ProductDaoImp implements ProductDao {
     public Boolean deleteProduct(Product deletingProduct) {
         try {
             entityManager.getTransaction().begin();
-            Product prodToDelete = entityManager.find(Product.class, deletingProduct.getProductId());
-            entityManager.remove(prodToDelete);
+            Long id = deletingProduct.getProductId();
+            entityManager.createQuery("delete from Product p where p.id = ?1").setParameter(1, id).executeUpdate();
             entityManager.getTransaction().commit();
             return true;
             //TODO check exception type
@@ -296,6 +268,7 @@ public class ProductDaoImp implements ProductDao {
     @Override
     public List<String> getCategories() {
         List<String> list = new ArrayList<>();
+        list.add("");
         list.add("Men");
         list.add("Women");
         list.add("Children");

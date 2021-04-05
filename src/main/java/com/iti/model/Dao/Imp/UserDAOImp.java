@@ -10,6 +10,10 @@ import com.iti.persistence.DatabaseManager;
 import jakarta.inject.Scope;
 
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.xml.crypto.Data;
 import java.time.LocalDate;
 import java.util.*;
@@ -34,6 +38,11 @@ public class UserDAOImp implements UserDao {
             entityManager.close();
 
         }
+    }
+
+    @Override
+    public void editUserRole() {
+        //
     }
 
     @Override
@@ -69,16 +78,36 @@ public class UserDAOImp implements UserDao {
         }
     }
 
-    @Override
-    public List<UserDTO> retriveall() {
-
-        //TODO access ORM to Retrieve Users
-        return null;
-    }
 
     @Override
-    public List<UserDTO> retrieveFilteredUsers(UserDTO userFilter) {
-        return null;
+    public List<UserDetails> retrieveFilteredUsers(UserDetails userFilter) {
+
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<UserDetails> criteriaQuery = criteriaBuilder.createQuery(UserDetails.class);
+        Root<UserDetails> userRoot = criteriaQuery.from(UserDetails.class);
+
+
+        Predicate predicate = criteriaBuilder.conjunction();
+        if (userFilter.getId() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("id"), userFilter.getId()));
+        if (userFilter.getUserName().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("userName"), userFilter.getUserName()));
+        if (userFilter.getPhoneNumber().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("phoneNumber"), userFilter.getPhoneNumber()));
+        if (userFilter.getCreditLimit() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("creditLimit"), userFilter.getCreditLimit()));
+        if (userFilter.getEmail().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("email"), userFilter.getEmail()));
+        if (userFilter.getRole().toString().length() > 0)
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(userRoot.get("role"), userFilter.getRole()));
+
+        criteriaQuery.where(predicate);
+
+
+        List<UserDetails> users = entityManager.createQuery(criteriaQuery).getResultList();
+
+        return users;
+
     }
 
     @Override
@@ -156,10 +185,28 @@ public class UserDAOImp implements UserDao {
     }
 
     @Override
-    public List<RoleUser> getRoles() {
-        List<RoleUser> rolesList = new ArrayList<>();
-        rolesList.add(RoleUser.Admin_Role);
-        rolesList.add(RoleUser.CustomerRole);
+    public boolean updateUserRole(UserDetails userToUpdate) {
+        UserDetails user = entityManager.find(UserDetails.class,userToUpdate.getId());
+        user.setRole(userToUpdate.getRole());
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.merge(user);
+            entityManager.getTransaction().commit();
+            return true;
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return false;
+        }
+
+    }
+
+    @Override
+    public List<String> getRoles() {
+        List<String> rolesList = new ArrayList<>();
+        rolesList.add("");
+        rolesList.add(RoleUser.Admin_Role.name());
+        rolesList.add(RoleUser.CustomerRole.name());
         return rolesList;
     }
 

@@ -8,8 +8,10 @@ import java.util.List;
 public interface OrderDao {
 
 
-    List<OrderDetail> retrieveFilteredOrders();
+    List<OrderDetail> retrieveFilteredOrders(OrderDTO filter);
     OrderDetail retrieveOrderByID();
+
+    void close();
 
 
 }

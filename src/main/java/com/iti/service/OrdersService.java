@@ -8,7 +8,9 @@ import com.iti.model.Dao.Imp.ProductDaoImp;
 import com.iti.model.Dao.OrderDao;
 import com.iti.model.Dao.ProductDao;
 import com.iti.model.entity.OrderDetail;
+import com.iti.model.mapper.OrderMapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrdersService {
@@ -19,7 +21,16 @@ public class OrdersService {
 
     public List<OrderDTO> retrieveOrdersWithFilter(OrderDTO filter){
         OrderDao orderDao = OrderDaoImp.getInstance();
-//        OrderDetail order = OrderMapper
-        return null;
+        OrderMapper mapper = OrderMapper.getInstance();
+//        OrderDetail order = OrderMapper.getInstance().getEntity(filter);
+        List<OrderDetail> orders = orderDao.retrieveFilteredOrders(filter);
+
+        List<OrderDTO> resultOrders = new ArrayList<>();
+        orders.stream().forEach(orderDetail -> {
+            resultOrders.add(mapper.getDTO(orderDetail));
+        });
+
+        orderDao.close();
+        return resultOrders;
     }
 }

@@ -29,9 +29,8 @@ public class UsersTable extends HttpServlet {
         {
             case "load" : {
                 //TODO : make method get products filtered
-                //ProductDTO filter = getFilter(request);
-                //List<ProductDTO>  filteredProducts =dataTablesService.retriveAllProducts(filter);
-                List<UserDTO> users =usersService.retrieveAllUsers();
+                UserDTO filter = getUserFromRequest(request);
+                List<UserDTO> users =usersService.retrieveFilteredUsers(filter);
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 String usersJson= json.toJson(users);
@@ -39,13 +38,12 @@ public class UsersTable extends HttpServlet {
                 break;
             }
             case "update":{
-//                System.out.println(request.getParameter("prodID"));
-//                ProductDTO productToInset = getProductFromRequest(request);
-//                System.out.println(productToInset);
+                UserDTO updatingUser = getUserFromRequest(request);
+                usersService.updatedUserRole(updatingUser);
                 break;
             }
             case "getRoles" :{
-                List<RoleUser> userRoles = usersService.getRoles();
+                List<String> userRoles = usersService.getRoles();
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 String rolesJson= json.toJson(userRoles);
@@ -53,12 +51,6 @@ public class UsersTable extends HttpServlet {
                 break;
             }
 
-            case "delete":{
-//                System.out.println(request.getParameter("prodID"));
-//                ProductDTO productToInset = getProductFromRequest(request);
-//                System.out.println(productToInset);
-                break;
-            }
         }
 
 
@@ -66,8 +58,26 @@ public class UsersTable extends HttpServlet {
 
 
 
-    private ProductDTO getProductFromRequest(HttpServletRequest request){
+    private UserDTO getUserFromRequest(HttpServletRequest request){
+        UserDTO filter = new UserDTO();
 
-        return null;
+        if (request.getParameter("id") != null)
+            filter.setId(Long.parseLong(request.getParameter("id")));
+        
+        if (request.getParameter("creditLimit") != null)
+            filter.setCreditLimit(Double.parseDouble(request.getParameter("creditLimit")));
+        
+        filter.setUserName(request.getParameter("userName"));
+
+        filter.setPhoneNumber(request.getParameter("phoneNumber"));
+        filter.setEmail(request.getParameter("email"));
+        if(request.getParameter("Role").equals("Admin_Role"))
+            filter.setRole(RoleUser.Admin_Role);
+        else if(request.getParameter("Role").equals("CustomerRole"))
+            filter.setRole(RoleUser.CustomerRole);
+
+        return filter;
+
+
     }
 }

@@ -60,6 +60,7 @@ $(function () {
                         });
                     },
                     insertItem: function (item) {
+                        console.log(item)
                         return $.ajax({
                             type: "GET",
                             url: "ProductsServlet?action=insert",
@@ -88,6 +89,7 @@ $(function () {
                         title: "ID",
                         type: "number",
                         editing: false,
+                        inserting: false,
                         align: "center",
                         width: 60
                     },
@@ -101,6 +103,15 @@ $(function () {
                         width: 50,
                         validate: "required"
                     },
+                    {
+                        name: "prodDescription",
+                        title: "Desc",
+                        type: "textarea",
+                        width: 50,
+                        validate: "required",
+                        css:"txt"
+                    },
+
                     {
                         name: "prodQuantity",
                         title: "Qty",
@@ -116,28 +127,60 @@ $(function () {
                     {
                         name: "firstProdImg",
                         title: "Img1",
+                        validate: function (value, item) {
+                            return value.length > 0;
+                        },
                         itemTemplate: function (val, item) {
                             this.currentimgVal = val;
                             return $("<img>").attr("src", val).css({height: 50, width: 50});
                         },
                         insertTemplate: function () {
-                            return this.insertControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
+                            this.insertForm = $("<form id='firstImgInsertForm'>").prop("method", "post").prop("enctype", "multipart/form-data");
+                            this.insertControl = $("<input name='img'>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
+                            this.insertForm.empty().append(this.insertControl);
+                            return this.insertForm;
                         },
                         insertValue: function () {
-                            if (this.insertControl[0].files[0] != undefined)
-                                return "layout/images/" + this.insertControl[0].files[0].name;
-                            //TODO add default Image
-                            else return "layout/images/children.jpg";
-
+                            if (this.insertControl[0].files[0] != undefined) {
+                                $("#firstImgInsertForm").submit(function (e) {
+                                    e.preventDefault();
+                                    var formData = new FormData(this);
+                                    $.ajax({
+                                        url: "ImageUpload",
+                                        type: 'POST',
+                                        data: formData,
+                                        cache: false,
+                                        contentType: false,
+                                        processData: false
+                                    });
+                                });
+                                $("#firstImgInsertForm").submit();
+                                return "layout/images/products/" + this.insertControl[0].files[0].name;
+                            }else return "";
                         },
                         editTemplate: function () {
-                            return this.updatetControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
+                            this.updateForm = $("<form id='firstImgEditForm'>").prop("method", "post").prop("enctype", "multipart/form-data");
+                            this.updatetControl = $("<input name='img'>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
+                            this.updateForm.empty().append(this.updatetControl);
+                            return this.updateForm;
                         },
                         editValue: function () {
-                            if (this.updatetControl[0].files[0] != undefined)
-                                return "layout/images/" + this.updatetControl[0].files[0].name;
-                            else
-                                return this.currentimgVal;
+                            if (this.updatetControl[0].files[0] != undefined) {
+                                $("#firstImgEditForm").submit(function (e) {
+                                    e.preventDefault();
+                                    var formData = new FormData(this);
+                                    $.ajax({
+                                        url: "ImageUpload",
+                                        type: 'POST',
+                                        data: formData,
+                                        cache: false,
+                                        contentType: false,
+                                        processData: false
+                                    });
+                                });
+                                $("#firstImgEditForm").submit();
+                                return "layout/images/products/" + this.updatetControl[0].files[0].name;
+                            } else return "";
                         },
                         align: "center",
                         width: 60
@@ -145,28 +188,60 @@ $(function () {
                     {
                         name: "secondProdImg",
                         title: "Img2",
+                        validate: function (value, item) {
+                            return value.length > 0;
+                        },
                         itemTemplate: function (val, item) {
                             this.currentimgVal = val;
                             return $("<img>").attr("src", val).css({height: 50, width: 50});
                         },
                         insertTemplate: function () {
-                            return this.insertControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
+                            this.insertForm = $("<form id='secondImgInsertForm'>").prop("method", "post").prop("enctype", "multipart/form-data");
+                            this.insertControl = $("<input name='img'>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
+                            this.insertForm.empty().append(this.insertControl);
+                            return this.insertForm;
                         },
                         insertValue: function () {
-                            if (this.insertControl[0].files[0] != undefined)
-                                return "layout/images/" + this.insertControl[0].files[0].name;
-                            else
-                                return "layout/images/children.jpg";
+                            if (this.insertControl[0].files[0] != undefined) {
+                                $("#secondImgInsertForm").submit(function (e) {
+                                    e.preventDefault();
+                                    var formData = new FormData(this);
+                                    $.ajax({
+                                        url: "ImageUpload",
+                                        type: 'POST',
+                                        data: formData,
+                                        cache: false,
+                                        contentType: false,
+                                        processData: false
+                                    });
+                                });
+                                $("#secondImgInsertForm").submit();
+                                return "layout/images/products/" + this.insertControl[0].files[0].name;
+                            }else return "";
                         },
                         editTemplate: function () {
-                            return this.updatetControl = $("<input>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
+                            this.updateForm = $("<form id='secondImgEditForm'>").prop("method", "post").prop("enctype", "multipart/form-data");
+                            this.updatetControl = $("<input name='img'>").prop("type", "file").prop("accept", ".jpg, .jpeg, .png");
+                            this.updateForm.empty().append(this.updatetControl);
+                            return this.updateForm;
                         },
                         editValue: function () {
-                            if (this.updatetControl[0].files[0] != undefined)
-                                return "layout/images/" + this.updatetControl[0].files[0].name;
-                            else
-                                return this.currentimgVal;
-
+                            if (this.updatetControl[0].files[0] != undefined) {
+                                $("#secondImgEditForm").submit(function (e) {
+                                    e.preventDefault();
+                                    var formData = new FormData(this);
+                                    $.ajax({
+                                        url: "ImageUpload",
+                                        type: 'POST',
+                                        data: formData,
+                                        cache: false,
+                                        contentType: false,
+                                        processData: false
+                                    });
+                                });
+                                $("#secondImgEditForm").submit();
+                                return "layout/images/products/" + this.updatetControl[0].files[0].name;
+                            } else return "";
                         },
                         align: "center",
                         width: 60
@@ -220,4 +295,5 @@ $(function () {
 
         })
     })
+
 });
