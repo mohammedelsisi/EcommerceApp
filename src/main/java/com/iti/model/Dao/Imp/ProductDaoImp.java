@@ -38,6 +38,7 @@ public class ProductDaoImp implements ProductDao {
         String search = productFilter.getSearch();
         List<String> colors = productFilter.getColors();
         List<String> sizes = productFilter.getSizes();
+        List<String> cates = productFilter.getCategories();
         StringBuilder query = new StringBuilder();
         double minPrice = productFilter.getMinPrice();
         double maxPrice = productFilter.getMaxPrice();
@@ -69,6 +70,18 @@ public class ProductDaoImp implements ProductDao {
                     size.append(", ");
             }
             query.append(" and size in ( ").append(size).append(")");
+        }
+        if (cates.size() > 0) {
+            StringBuilder cate = new StringBuilder();
+            for (int i = 0; i < cates.size(); i++) {
+
+                cate.append("'").append(cates.get(i));
+                cate.append("'");
+
+                if (i != cates.size() - 1)
+                    cate.append(", ");
+            }
+            query.append(" and category in ( ").append(cate).append(")");
         }
         System.out.println(query);
         return entityManager.createQuery(query.toString(), Product.class).getResultList();
