@@ -91,7 +91,7 @@
                                 <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                             </div>
                             <input type="hidden" value="${param.id}" name="productID">
-                            <input name="Quantity" type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <input id="prodInput" name="Quantity" type="text" onkeypress="checkNegative()" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                             </div>
@@ -119,8 +119,8 @@
                 </div>
                 <div style="text-align: center" class="modal-body">${item.prodType} was added to your cart</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
                     <a href="Cart" type="button" class="btn btn-primary">Go to Cart</a>
+                    <a href="Shop" type="button" class="btn btn-secondary">Continue Shopping</a>
                 </div>
             </div>
         </div>
@@ -141,6 +141,16 @@
 <script src="layout/js/JQuery/addCartScript.js"></script>
 
 <script src="layout/js/main.js"></script>
+<script>
+    function checkNegative(){
+        var prd=document.getElementById("prodInput").value;
+        if(prd.includes("-"))
+        {
+            console.log(prd);
+            document.getElementById("prodInput").value="";
+        }
+    }
+</script>
 
 </body>
 </html>

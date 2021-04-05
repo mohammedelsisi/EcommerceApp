@@ -86,13 +86,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="c_country" class="text-black">Address<span
+                                <label for="c_country" class="text-black">Address (to add new address go to <a href="Address">Profile</a>) <span
                                         class="text-danger">*</span></label>
                                 <select id="c_country" class="form-control" required>
                                     <option value="">Choose Address</option>
-                                    <option value="1">First Address</option>
-                                    <option value="2">Second Address</option>
-                                    <option value="3">Third Address</option>
+                                    <c:forEach items="${sessionScope.currentUser.addresses}" var="address">
+                                        <option value="${address}">${address}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
 
@@ -166,18 +166,8 @@
                                     </table>
 
                                     <div class="border p-3 mb-5">
-
-                                        <input type="radio" class="btn-check" name="options" id="option1"
-                                               autocomplete="off" checked>
-                                        <label class="btn btn-secondary" for="option1"><h3 class="h6 mb-0"><a
-                                                class="d-block" data-toggle="collapse" href="#collapsebank"
-                                                role="button" aria-expanded="false"
-                                                aria-controls="collapsebank">Using Cash</a></h3>
-                                        </label>
-                                    </div>
-                                    <div class="border p-3 mb-5">
                                         <input type="radio" class="btn-check" name="options" id="option2"
-                                               autocomplete="off" checked>
+                                               autocomplete="off" value="wallet" checked>
                                         <label class="btn btn-secondary" for="option2"><h3 class="h6 mb-0"><a
                                                 class="d-block" data-toggle="collapse" href="#collapsebank"
                                                 role="button" aria-expanded="false"
@@ -253,14 +243,11 @@
     </div>
 </div>
 <div id="successModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
+     aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" >Order Succeeded</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
             <div class="modal-body">
                 Your Order has been successfully placed

@@ -25,7 +25,7 @@
                     </div>
                     <div style="margin-left: 10px" class="col-md-6 col-lg-4">
                         <ul class="list-unstyled">
-                            <h1 style="font-size: 60px; color: #0a58ca"> NaseeJ </h1>
+                            <h1 style="font-size: 60px; color: #0a58ca"><a href="Home" >NaseeJ </a> </h1>
                         </ul>
                     </div>
                 </div>

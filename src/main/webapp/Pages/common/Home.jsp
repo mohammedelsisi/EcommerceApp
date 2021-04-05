@@ -45,9 +45,8 @@
                 <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
                     <h1 class="mb-2">Finding Your Perfect Shirts</h1>
                     <div class="intro-text text-center text-md-left">
-                        <p class="mb-4" style="color: white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus at iaculis
-                            quam. Integer accumsan tincidunt fringilla. </p>
+                        <p class="mb-4" style="color: white">Shop Millions of Unique Designs for T-shirts and More. Tons of Customized, High-Quality Gifts. Order now, fast delivery!
+                            High quality original T-shirts, Digital printing in the USA.</p>
                         <p>
                             <a href="Shop" class="btn btn-sm btn-primary">Shop Now</a>
                         </p>
@@ -66,8 +65,7 @@
                     </div>
                     <div class="text">
                         <h2 class="text-uppercase">Free Shipping</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
-                            accumsan tincidunt fringilla.</p>
+                        <p>Three days shipping period</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
@@ -76,8 +74,7 @@
                     </div>
                     <div class="text">
                         <h2 class="text-uppercase">Free Returns</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
-                            accumsan tincidunt fringilla.</p>
+                        <p>You can return the product, within 14 days, if there are any manufacturing defects.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
@@ -86,8 +83,7 @@
                     </div>
                     <div class="text">
                         <h2 class="text-uppercase">Customer Support</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
-                            accumsan tincidunt fringilla.</p>
+                        <p>Our customer support is available 24/7</p>
                     </div>
                 </div>
             </div>
@@ -98,7 +94,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-                    <a class="block-2-item" href="#">
+                    <a class="block-2-item" href="Shop?Categoryy=Women">
                         <figure class="image">
                             <img src="layout/images/women.jpg" alt="" class="img-fluid">
                         </figure>
@@ -109,7 +105,7 @@
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                    <a class="block-2-item" href="#">
+                    <a class="block-2-item" href="Shop?Categoryy=Children">
                         <figure class="image">
                             <img src="layout/images/children.jpg" alt="" class="img-fluid">
                         </figure>
@@ -120,7 +116,7 @@
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-                    <a class="block-2-item" href="#">
+                    <a class="block-2-item" href="Shop?Categoryy=Men">
                         <figure class="image">
                             <img src="layout/images/men.jpg" alt="" class="img-fluid">
                         </figure>
@@ -146,7 +142,7 @@
                     <div class="nonloop-block-3 owl-carousel">
 
                         <c:forEach items="${requestScope.data}" var="i">
-                            <P:product img="${i.firstProdImg}" desc="${i.prodDescription}"
+                            <P:product img="${i.firstProdImg}" type="${i.prodType}"
                                        src="ProductItem?id=${i.prodID}" price="${i.productPrice}"/>
                         </c:forEach>
                     </div>
@@ -170,9 +166,10 @@
                 <div class="col-md-12 col-lg-5 text-center pl-md-5">
                     <h2><a href="#">50% less in all items</a></h2>
                     <p class="post-meta mb-4">By <a href="Shop">Carl Smith</a> <span class="block-8-sep">&bullet;</span>
-                        September 3, 2018</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium facere
-                        corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
+                        September 3, 2020</p>
+                    <p>Check Out Our Latest Collection of Affordable Cute Clothes to Elevate Your Outfit. Free Return, Up to 85% Off.A Great Selection of Cute Clothes, Find Your Favorite Look!
+                        Bonus Point · 100% Quality Guaranteed · Free Shipping & Return
+                        You'll find cute, trendy tops and dresses, going out looks, t shirt ,dress and more!</p>
                     <p><a href="Shop" class="btn btn-primary btn-sm">Shop Now</a></p>
                 </div>
             </div>

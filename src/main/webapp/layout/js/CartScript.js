@@ -1,5 +1,15 @@
 let removedItems = [];
 
+function checkNegative(id)
+{
+    var itemQuan=document.getElementById(id).value;
+    if(itemQuan.includes("-"))
+    {
+        console.log(itemQuan);
+        document.getElementById(id).value="";
+    }
+}
+
 function removeRow(id) {
     document.getElementById(id).remove();
     console.log(id)
