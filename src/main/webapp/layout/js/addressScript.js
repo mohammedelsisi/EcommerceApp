@@ -17,38 +17,40 @@
         })
 })()
 
-function Mysuccessfunction()
-{
+// function Mysuccessfunction()
+// {
+//     var node = document.createElement("LI");
+//
+//     node.innerHTML = ('<label style="margin-top: 10%">${address}</label> <hr className="sidebar-divider my-0">')
+//     document.getElementById("Addresses").appendChild(node);
+//}
+// function MyErrorfunction(text)
+// {
+//     var list = text.split(',');
+//     $.each(list, function(index, value) {
+//         alert(index + ': ' + value);
+//     }
+        function appendAddress() {
 
-}
-function MyErrorfunction()
-{
-
-}
-function appendAddress() {
-
-    // var node = document.createElement("LI");
-    var nodevalue =  document.getElementById("exampleInputAddress").value;
-    document.getElementById("exampleInputAddress").value = "";
-    console.log(nodevalue);
-    if(nodevalue != null  && nodevalue !== '') {
-        $.ajax({
-            url: "Addresses",
-            method: "POST",
-            dataType: "html",
-            data: {
-                "newAddress": nodevalue
-            },
-            success: function () {
-                Mysuccessfunction();
-            },
-            error: function() {
-                MyErrorfunction();
+            if (nodevalue != null && nodevalue !== '') {
+                $.ajax({
+                    url: "Addresses",
+                    data_type:"json",
+                    method: "POST",
+                    data: {
+                        "newAddress": nodevalue
+                    },
+                    success : function(text)
+                    {
+                        console.log(text);
+                       },
+                    error: function () {
+                        MyErrorfunction(text);
+                    }
+                });
             }
-        });
+        }
 
-    }
-   }
 
 
 
