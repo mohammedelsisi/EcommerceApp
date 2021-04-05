@@ -41,6 +41,7 @@ public class OrdersTable extends HttpServlet {
             System.out.println(filter.getPurchaseDate());
         }
 
+
             filter.setEmail(request.getParameter("email"));
         System.out.println(filter);
 
