@@ -17,24 +17,41 @@
         })
 })()
 
+function Mysuccessfunction()
+{
+
+}
+function MyErrorfunction()
+{
+
+}
 function appendAddress() {
 
     // var node = document.createElement("LI");
     var nodevalue =  document.getElementById("exampleInputAddress").value;
     document.getElementById("exampleInputAddress").value = "";
     console.log(nodevalue);
-    if(nodevalue != null  && nodevalue !== ''){
-    $.ajax({
-        url: "Addresses",
-        method: "POST",
-        dataType: "html",
-        data: {
-            "newAddress": nodevalue
-        }
+    if(nodevalue != null  && nodevalue !== '') {
+        $.ajax({
+            url: "Addresses",
+            method: "POST",
+            dataType: "html",
+            data: {
+                "newAddress": nodevalue
+            },
+            success: function () {
+                Mysuccessfunction();
+            },
+            error: function() {
+                MyErrorfunction();
+            }
+        });
 
-    })}
+    }
+   }
 
-}
+
+
 
 
 

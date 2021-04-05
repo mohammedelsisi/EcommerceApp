@@ -211,6 +211,5 @@
 <script src="layout/js/jquery.magnific-popup.min.js"></script>
 <script src="js/sb-admin-2.js"></script>
 <script src="layout/js/addressScript.js"></script>
-
 </body>
 </html>
