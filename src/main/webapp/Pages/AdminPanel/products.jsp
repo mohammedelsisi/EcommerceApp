@@ -28,6 +28,7 @@
             overflow: hidden;
             resize: none;
             max-height: 20px;
+            white-space: nowrap;
         }
     </style>
 </head>
