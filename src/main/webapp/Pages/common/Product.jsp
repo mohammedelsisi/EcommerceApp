@@ -81,6 +81,7 @@
                 <div class="col-md-6">
                     <h2 class="text-black">${item.prodType}</h2>
                     <p>${item.prodDescription}</p>
+                    <p><strong class="text-secondary h5"> Size:</strong><strong class="text-primary h5"> ${item.size}</strong></p>
                     <p><strong class="text-primary h4">$${item.productPrice}</strong></p>
                    <form id="formCart" onsubmit="sendData();return false;">
 

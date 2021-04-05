@@ -30,7 +30,7 @@ public class rememberMeFilter implements Filter {
                 List<CartItemDTO> list= (List<CartItemDTO>) req.getSession().getAttribute("Cart");
                 BuyingService buyingService=(BuyingService)req.getServletContext().getAttribute("BuyingService");
 
-                if(list.size()==0)
+                if(list!= null && list.size()==0)
                 {
                     list=buyingService.retrieveAllItems(userIfPresent.getId());
                     req.getSession().setAttribute("Cart",list);
