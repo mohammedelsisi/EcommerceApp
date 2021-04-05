@@ -17,11 +17,7 @@ import java.util.ListIterator;
 
 public class ProductDaoImp implements ProductDao {
     EntityManager entityManager;
-    ProductDTO p1 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_1.jpg", 50);
-    ProductDTO p2 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_2.jpg", 50);
-    ProductDTO p3 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_3.jpg", 50);
-    ProductDTO p4 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_1.jpg", 50);
-    ProductDTO p5 = new ProductDTO("Finding perfect t-shirt", "layout/images/cloth_2.jpg", 50);
+
     private ProductDaoImp() {
         entityManager = DatabaseManager.getFactory().createEntityManager();
     }
@@ -117,68 +113,15 @@ public class ProductDaoImp implements ProductDao {
     }
 
 
+    public Product retrieveItem(long id) {
 
-    @Override
-    public List<ProductDTO> retrieveAllProducts() {
-        List<ProductDTO> products = new ArrayList<>();
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p5);
-        products.add(p1);
-        products.add(p2);
-
-        return products;
-    }
-    public  Product retrieveItem(long id) {
-
-        return entityManager.find(Product.class,id);
+        return entityManager.find(Product.class, id);
 
     }
 
     @Override
     public Product getProductById(long prodId) {
-        return entityManager.createQuery("from Product where id =:prodId",Product.class).setParameter("prodId", prodId).getSingleResult();
+        return entityManager.createQuery("from Product where id =:prodId", Product.class).setParameter("prodId", prodId).getSingleResult();
     }
 
     @Override
@@ -218,6 +161,7 @@ public class ProductDaoImp implements ProductDao {
 
         return products;
     }
+
     @Override
     public Boolean updateProduct(Product updatingProduct) {
         try {
@@ -236,7 +180,7 @@ public class ProductDaoImp implements ProductDao {
 
     @Override
     public Boolean insertProduct(Product insertingProduct) {
-        System.out.println("#### Inserted Products" + insertingProduct );
+        System.out.println("#### Inserted Products" + insertingProduct);
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(insertingProduct);
@@ -268,7 +212,6 @@ public class ProductDaoImp implements ProductDao {
     @Override
     public List<String> getCategories() {
         List<String> list = new ArrayList<>();
-        list.add("");
         list.add("Men");
         list.add("Women");
         list.add("Children");

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAOImp implements UserDao {
-    //    private static final UserDAOImp userDAOImp = new UserDAOImp();
+
     EntityManager entityManager;
 
     private UserDAOImp() {
@@ -40,10 +40,6 @@ public class UserDAOImp implements UserDao {
         }
     }
 
-    @Override
-    public void editUserRole() {
-        //
-    }
 
     @Override
     public boolean insertUser(UserDetails userDetails) {
@@ -127,7 +123,7 @@ public class UserDAOImp implements UserDao {
                     System.out.println("/-/-/-/-/-" + e.getAddress());
                     e.setUserDetails(user);
                     entityManager.persist(e);
-                }else {
+                } else {
                     e.setUserDetails(user);
                     entityManager.merge(e);
                 }
@@ -141,14 +137,6 @@ public class UserDAOImp implements UserDao {
             System.out.println("Failed to change password");
             return false;
         }
-    }
-
-
-    @Override
-    public boolean editImage(String image) {
-        UserDTO user = new UserDTO();
-        user.setImage(image);
-        return true;
     }
 
 
@@ -171,7 +159,7 @@ public class UserDAOImp implements UserDao {
                 System.out.println("/-/-/-/-/-" + e.getAddress());
                 e.setUserDetails(user);
                 entityManager.persist(e);
-            }else {
+            } else {
                 e.setUserDetails(user);
                 entityManager.merge(e);
             }
@@ -186,14 +174,14 @@ public class UserDAOImp implements UserDao {
 
     @Override
     public boolean updateUserRole(UserDetails userToUpdate) {
-        UserDetails user = entityManager.find(UserDetails.class,userToUpdate.getId());
+        UserDetails user = entityManager.find(UserDetails.class, userToUpdate.getId());
         user.setRole(userToUpdate.getRole());
         try {
             entityManager.getTransaction().begin();
             entityManager.merge(user);
             entityManager.getTransaction().commit();
             return true;
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
             return false;
