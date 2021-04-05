@@ -46,7 +46,7 @@
                     <h1 class="mb-2">Finding Your Perfect Shirts</h1>
                     <div class="intro-text text-center text-md-left">
                         <p class="mb-4" style="color: white">Shop Millions of Unique Designs for T-shirts and More. Tons of Customized, High-Quality Gifts. Order now, fast delivery!
-                            High quality original T-shirts, Digital printing in the USA.</p>
+                            High quality original T-shirts, Digital printing in the Egypt.</p>
                         <p>
                             <a href="Shop" class="btn btn-sm btn-primary">Shop Now</a>
                         </p>

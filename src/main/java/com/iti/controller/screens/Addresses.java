@@ -1,5 +1,6 @@
 package com.iti.controller.screens;
 
+import com.google.gson.Gson;
 import com.iti.model.DTO.UserDTO;
 import com.iti.service.ProfileService;
 import com.iti.service.RegistrationService;
@@ -10,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -31,10 +33,19 @@ public class Addresses extends HttpServlet {
         ProfileService profileService = (ProfileService) req.getServletContext().getAttribute("ProfileService");
 
         String newaddress = req.getParameter("newAddress");
-
         UserDTO user = (UserDTO) req.getSession().getAttribute("currentUser");
         user.getAddresses().add(newaddress);
         profileService.editProfile(user);
+        Gson gson = new Gson();
+        List<String> results = user.getAddresses();
+        resp.setCharacterEncoding("UTF-8");
+        String resOrders = gson.toJson(results);
+        PrintWriter writer = resp.getWriter();
+        writer.write(resOrders);
+        writer.close();
+
+
+
     }
 
 

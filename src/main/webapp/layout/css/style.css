@@ -322,6 +322,7 @@ a {
           opacity: 1; }
 
 .site-mobile-menu {
+
   width: 300px;
   position: fixed;
   right: 0;
@@ -378,11 +379,11 @@ a {
         .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-logo a:hover {
           text-decoration: none; }
   .site-mobile-menu .site-mobile-menu-body {
-    overflow-y: scroll;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     position: relative;
     padding: 20px;
-    height: calc(100vh - 52px);
+    height: calc(100vh - 180px);
     padding-bottom: 150px; }
   .site-mobile-menu .site-nav-wrap {
     padding: 0;
