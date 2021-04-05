@@ -1,5 +1,7 @@
 package com.iti.model.DTO;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
@@ -10,7 +12,9 @@ public class UserDTO {
     Set<CartItemDTO> cartItem = new HashSet<>();
     private String dateView;
     private long id;
+
     private String userName;
+
     private String phoneNumber;
     private String email;
     private double creditLimit;
@@ -67,6 +71,7 @@ public class UserDTO {
         this.orders = orders;
     }
 
+    @NotNull
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -102,7 +107,8 @@ public class UserDTO {
     public void setId(long id) {
         this.id = id;
     }
-
+    @NotBlank
+    @Size(min = 3)
     public String getUserName() {
         return userName;
     }
@@ -110,7 +116,7 @@ public class UserDTO {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
+    @Positive
     public double getCreditLimit() {
         return creditLimit;
     }
@@ -118,7 +124,7 @@ public class UserDTO {
     public void setCreditLimit(double creditLimit) {
         this.creditLimit = creditLimit;
     }
-
+    @Email
     public String getEmail() {
         return email;
     }
@@ -134,7 +140,7 @@ public class UserDTO {
     public void setJob(String job) {
         this.job = job;
     }
-
+    @Past
     public Date getBirthday() {
         return birthday;
     }
@@ -143,7 +149,8 @@ public class UserDTO {
 
         this.birthday = birthday;
     }
-
+    @NotBlank
+    @Size(min = 6)
     public String getPassword() {
         return password;
     }
@@ -159,7 +166,7 @@ public class UserDTO {
     public void setInterests(List<String> interests) {
         this.interests = interests;
     }
-
+    @NotNull
     public RoleUser getRole() {
         return Role;
     }

@@ -2,6 +2,8 @@ package com.iti.controller.servlets;
 
 import com.iti.model.DTO.ProductDTO;
 
+import com.iti.model.DTO.RoleUser;
+import com.iti.model.DTO.UserDTO;
 import com.iti.service.ProductsService;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -21,9 +23,16 @@ public class Home extends HttpServlet {
         ProductsService productsService =(ProductsService) req.getServletContext().getAttribute("ProductsService");
         products= productsService.retrieveMaxQuant();
         req.setAttribute("data",products);
-        System.out.println(products);
-        RequestDispatcher view = req.getRequestDispatcher("HomeJsp");
-        view.forward(req, resp);
+      UserDTO userDTO= (UserDTO) req.getSession().getAttribute("currentUser");
+        if(userDTO!=null && userDTO.getRole()== RoleUser.Admin_Role){
+            RequestDispatcher view = req.getRequestDispatcher("proddata");
+            view.forward(req, resp);
+
+        }else {
+            RequestDispatcher view = req.getRequestDispatcher("HomeJsp");
+            view.forward(req, resp);
+
+        }
 
     }
 

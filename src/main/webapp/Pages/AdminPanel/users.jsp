@@ -22,7 +22,12 @@
 
   <!-- Custom styles for this template-->
   <link type="text/css" rel="stylesheet" href="layout/css/sb-admin-2.css">
-
+  <style>
+    .txt{
+      word-wrap: break-word;
+      resize: none;
+    }
+  </style>
 </head>
 
 <body id="page-top">

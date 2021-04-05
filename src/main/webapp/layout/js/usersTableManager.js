@@ -84,7 +84,8 @@ $(function () {
                      editing: false,
                      width: 60,
                      align: "center",
-                     validate: "required"
+                     validate: "required",
+                     css:"txt"
                  },
                  {
                      name: "phoneNumber",

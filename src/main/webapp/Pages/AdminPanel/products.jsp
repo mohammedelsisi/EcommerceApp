@@ -22,7 +22,13 @@
 
     <!-- Custom styles for this template-->
     <link type="text/css" rel="stylesheet" href="layout/css/sb-admin-2.css">
-
+    <style>
+        .txt{
+            overflow: hidden;
+            resize: none;
+            max-height: 20px;
+        }
+    </style>
 </head>
 
 <body id="page-top">

@@ -42,21 +42,13 @@
                 <div class="block-5 mb-5">
                     <h3 class="footer-heading mb-4">Contact Info</h3>
                     <ul class="list-unstyled">
-                        <li class="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
+                        <li class="address">203 Information Technology Institute, Smart Village, Giza, Cairo</li>
                         <li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
                         <li class="email">NaseeJ@gmail.com</li>
                     </ul>
                 </div>
 
-                <div class="block-7">
-                    <form action="#" method="post">
-                        <label for="email_subscribe" class="footer-heading">Subscribe</label>
-                        <div class="form-group">
-                            <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
-                            <input type="submit" class="btn btn-sm btn-primary" value="Send">
-                        </div>
-                    </form>
-                </div>
+
             </div>
         </div>
         <div class="row pt-5 mt-5 text-center">
