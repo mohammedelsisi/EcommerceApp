@@ -35,7 +35,7 @@ Hosted on http://naseejstore.sytes.net/
 Refer to for the entity model ![](images/Image00008.jpg)
 
 
-The Project file structure (architecture) Referd to in ![](Image00007.jpg)
+The Project file structure (architecture) Referd to in ![](images/Image00007.jpg)
 
 Screen Shots from the application mobile view and wide screen view is available in 
 ![](images/Image00001.jpg)
