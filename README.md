@@ -1,4 +1,4 @@
-![](mages/capture.png)
+![](images/Capture.PNG)
 
 Welcome to Naseej store web App.
 
