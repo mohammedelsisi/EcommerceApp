@@ -1,3 +1,5 @@
+![](mages/capture.png)
+
 Welcome to Naseej store web App.
 
 this is an Ecommerce web application, created using Servlet and JSP and Hibernate technologies.
