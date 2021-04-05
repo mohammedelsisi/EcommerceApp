@@ -59,7 +59,7 @@
                         <h2 class="text-black">WELCOME TO OUR STORE</h2>
                         <h2 class="text-black">How We Started</h2>
                     </div>
-                    <p>Founded in 2008, our website has been a leader in premium toys e-commerce for over a decade.</p>
+                    <p>Founded in 2021, our website has been a leader in premium toys e-commerce for over a decade.</p>
                     <p>We offer a reliable service depending on various strategic partnerships with the best toys
                         manufacturers and stores, a solid customer support and an easy to navigate website.</p>
                     <p>We also offer a timely delivery service through our partnerships with some of the major shipping
@@ -88,8 +88,9 @@
                                 <p class="block-38-subheading">CEO/Co-Founder</p>
                             </div>
                             <div class="block-38-body">
-                                <p>Amira Nasr has been an innovator in the footwear industry for more than 40 years.
-                                    With a combination of advertising campaigns,has built Sketchers into a $5.22 billion global. </p>
+                                <p>Seeking a challenging position in a progressive organization that satisfies my potentials
+                                    & offers opportunities for a Java Developer career by effectively utilizing and improving
+                                    my technical/practical skills within a dynamic work group  </p>
                             </div>
                         </div>
                     </div>
@@ -103,9 +104,9 @@
                                 <p class="block-38-subheading">Co-Founder</p>
                             </div>
                             <div class="block-38-body">
-                                <p>Hager is a 30-year veteran of the footwear industry. she has played a vital role in
-                                    its growth – from the first Skechers store lease 26 years ago to the brand’s
-                                    expansion across Asia. </p>
+                                <p>Junior Java Developer, worked on Web, Desktop and Enterprise Projects,
+                                    Strong in both Front and back-end. Fast learner,
+                                    patient and problem solver. Ambitious to learn, develop and sustain. </p>
                             </div>
                         </div>
                     </div>
@@ -119,9 +120,9 @@
                                 <p class="block-38-subheading">Co-Founder</p>
                             </div>
                             <div class="block-38-body">
-                                <p>Yasmina is a 30-year veteran of the footwear industry. she has played a vital role in
-                                    its growth – from the first Skechers store lease 26 years ago to the brand’s
-                                    expansion across Asia. </p>
+                                <p>Junior Java Developer, worked on Web, Desktop and Enterprise Projects,
+                                    Strong in both Front and back-end. Fast learner,
+                                    patient and problem solver. Ambitious to learn, develop and sustain. </p>
                             </div>
                         </div>
                     </div>
@@ -135,9 +136,13 @@
                                 <p class="block-38-subheading">Marketing</p>
                             </div>
                             <div class="block-38-body">
-                                <p>Mohammed Elsisi is responsible for overseeing the Company’s reporting and filing
-                                    obligations before the United States Securities and Exchange Commission,insurance,
-                                    tax. </p>
+                                <p>A junior Java software engineer graduated from the Java Enterprise and Web apps development track with a high
+                                    level of proficiency in Java programming languages and their frameworks.
+                                    With excellent coding skills that sharpened my ability to build high-quality software applying
+                                    engineering concepts with a focus on the best practices. An enthusiastic team player with exceptional
+                                    communication skills and the ability to motivate others, developed through working in many teams
+                                    in different fields.
+                                    Seeking to establish my career as a backend software engineer. </p>
                             </div>
                         </div>
                     </div>
@@ -151,8 +156,10 @@
                                 <p class="block-38-subheading">Sales Manager</p>
                             </div>
                             <div class="block-38-body">
-                                <p>Ahmed Alsayed is responsible for day-to-day operations – from planning and directing
-                                    all aspects of the Company’s policies, international, and e-commerce divisions. </p>
+                                <p>A disciplined Software Engineer seeking a suitable work opportunity as a Java Backend Developer,
+                                    where I can utilize and enhance my skills. I'm dedicated to learning and improving my knowledge and
+                                    tools to maximize my Productivity and quickly respond to changes in business needs,
+                                    as well as being a good team player, with excellent communication skills. </p>
                             </div>
                         </div>
                     </div>
