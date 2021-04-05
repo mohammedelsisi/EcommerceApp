@@ -63,6 +63,7 @@
             background-color: #bcbcbc;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 </head>
 <header class="site-navbar" role="banner">
     <c:if test="${param.error=='-'}">
@@ -113,6 +114,7 @@
                                 </c:when>
                                 <c:otherwise>
                                     <li><a href="#"></a>
+
                                         <div class="dropdown">
                                             <a style="background-color: #e6e7e9" class="btn btn-light dropdown-toggle"
 
@@ -130,6 +132,8 @@
                                             </div>
                                         </div>
                                     </li>
+
+
                                 </c:otherwise>
                             </c:choose>
 
