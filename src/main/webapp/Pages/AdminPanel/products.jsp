@@ -24,6 +24,7 @@
     <link type="text/css" rel="stylesheet" href="layout/css/sb-admin-2.css">
     <style>
         .txt{
+            width: 200%;
             overflow: hidden;
             resize: none;
             max-height: 20px;
