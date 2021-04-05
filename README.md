@@ -32,7 +32,7 @@ Git (GitHub)
 
 Hosted on http://naseejstore.sytes.net/
 
-Refer to ![](images/Image00008.jpg) for the entity model 
+Refer to for the entity model ![](images/Image00008.jpg)
 
 
 The Project file structure (architecture) Referd to in ![](Image00007.jpg)
