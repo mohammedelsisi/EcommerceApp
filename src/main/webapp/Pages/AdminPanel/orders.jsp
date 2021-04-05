@@ -49,6 +49,10 @@
       background-color: #4e73df;
       color: white;
     }
+     .txt{
+       word-wrap: break-word;
+       resize: none;
+     }
   </style>
 
 </head>

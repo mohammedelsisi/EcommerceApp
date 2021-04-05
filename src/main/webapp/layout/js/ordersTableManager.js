@@ -63,6 +63,7 @@ $(function () {
                 editing: false,
                 align: "center",
                 width: 60,
+                css:"txt"
             },
             {
                 name: "selectedAddress",
