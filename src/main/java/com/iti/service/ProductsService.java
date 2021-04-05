@@ -58,7 +58,9 @@ public class ProductsService {
 
     public List<String> getSizes() {
         ProductDao productDao = ProductDaoImp.getInstance();
-        return productDao.getSizes();
+        List<String> sizes = productDao.getSizes();
+        productDao.close();
+        return sizes;
     }
 
     public List<String> getColors() {

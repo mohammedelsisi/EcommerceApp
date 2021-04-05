@@ -1,6 +1,7 @@
 package com.iti.controller.servlets;
 
 import com.iti.model.DTO.CartItemDTO;
+import com.iti.model.DTO.RoleUser;
 import com.iti.model.DTO.UserDTO;
 import com.iti.model.utils.authentication.SavingUserService;
 import com.iti.service.BuyingService;
@@ -43,7 +44,12 @@ public class SignIn extends HttpServlet {
                 buyingService.removeCartItems(userDTO.getId());
                 buyingService.updateCart(userDTO.getId(),list);
             }
-            resp.sendRedirect("Home");
+            if(userDTO.getRole()== RoleUser.CustomerRole){
+
+                resp.sendRedirect("Home");
+            }else {
+                resp.sendRedirect("usersData");
+            }
         }
 
     }
