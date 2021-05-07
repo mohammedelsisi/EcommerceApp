@@ -19,7 +19,8 @@ Bootstrap
 Java
 Hibernate, JPA
 JSP
-Servlets
+Servlet
+ORM / Hibernate
 MySql
 Ajax
 
@@ -30,7 +31,7 @@ Tomcat 10 Web server ( for development purposes)
 Git (GitHub)
 
 
-Hosted on http://naseejstore.sytes.net/
+
 
 Refer to for the entity model ![](images/Image00008.jpg)
 
@@ -46,11 +47,11 @@ Screen Shots from the application mobile view and wide screen view is available 
 ![](images/Image00004.jpg)
   
 Team members:
-Mohamed Elsisi (Team leader)
-Ahmed ElSayed
-Amira Nasr
-Hager Abdelmoneom
-Yasmina Abdelazim
+Mohamed Elsisi (Team leader), 
+Ahmed ElSayed, 
+Amira Nasr, 
+Hager Abdelmoneom,
+Yasmina Abdelazim,
 
 Copy rights Reserved ITI ( information technology inistitue) Smart village - 2021 - intake 41 - Jets Departement.
  
